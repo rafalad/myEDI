@@ -74,6 +74,8 @@
 			this.buttonCreateEDIDirs = new System.Windows.Forms.Button();
 			this.groupBox6 = new System.Windows.Forms.GroupBox();
 			this.button1 = new System.Windows.Forms.Button();
+			this.label1 = new System.Windows.Forms.Label();
+			this.CHWnumberField = new System.Windows.Forms.TextBox();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			this.groupBox3.SuspendLayout();
@@ -160,13 +162,12 @@
 			this.groupBox1.Controls.Add(this.buttonGenerateRandomPassword);
 			this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
 			this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.groupBox1.Location = new System.Drawing.Point(269, 257);
+			this.groupBox1.Location = new System.Drawing.Point(269, 295);
 			this.groupBox1.Name = "groupBox1";
 			this.groupBox1.Size = new System.Drawing.Size(270, 84);
 			this.groupBox1.TabIndex = 14;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Password Generator";
-			//this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
 			// 
 			// buttonGenerateRandomPassword
 			// 
@@ -185,7 +186,7 @@
 			this.groupBox2.Controls.Add(this.textBoxAddUserLDAP);
 			this.groupBox2.Controls.Add(this.addButton);
 			this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.groupBox2.Location = new System.Drawing.Point(269, 358);
+			this.groupBox2.Location = new System.Drawing.Point(269, 385);
 			this.groupBox2.Name = "groupBox2";
 			this.groupBox2.Size = new System.Drawing.Size(270, 156);
 			this.groupBox2.TabIndex = 15;
@@ -219,7 +220,6 @@
 			this.richTextBoxSelectedEnv.Size = new System.Drawing.Size(102, 21);
 			this.richTextBoxSelectedEnv.TabIndex = 26;
 			this.richTextBoxSelectedEnv.Text = "not selected";
-			//this.richTextBoxSelectedEnv.TextChanged += new System.EventHandler(this.richTextBoxSelectedEnv_TextChanged);
 			// 
 			// label5
 			// 
@@ -255,7 +255,6 @@
 			this.checkBox1.TabIndex = 18;
 			this.checkBox1.Text = "Yes";
 			this.checkBox1.UseVisualStyleBackColor = true;
-			//this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
 			// 
 			// label4
 			// 
@@ -271,6 +270,8 @@
 			// 
 			// groupBox4
 			// 
+			this.groupBox4.Controls.Add(this.label1);
+			this.groupBox4.Controls.Add(this.CHWnumberField);
 			this.groupBox4.Controls.Add(this.SRQidField);
 			this.groupBox4.Controls.Add(this.label7);
 			this.groupBox4.Controls.Add(this.label6);
@@ -279,7 +280,7 @@
 			this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.groupBox4.Location = new System.Drawing.Point(269, 42);
 			this.groupBox4.Name = "groupBox4";
-			this.groupBox4.Size = new System.Drawing.Size(270, 200);
+			this.groupBox4.Size = new System.Drawing.Size(270, 247);
 			this.groupBox4.TabIndex = 16;
 			this.groupBox4.TabStop = false;
 			this.groupBox4.Text = "New SRQ / INC";
@@ -287,7 +288,7 @@
 			// SRQidField
 			// 
 			this.SRQidField.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.SRQidField.Location = new System.Drawing.Point(21, 105);
+			this.SRQidField.Location = new System.Drawing.Point(21, 170);
 			this.SRQidField.Name = "SRQidField";
 			this.SRQidField.Size = new System.Drawing.Size(230, 20);
 			this.SRQidField.TabIndex = 20;
@@ -296,7 +297,7 @@
 			// label7
 			// 
 			this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.label7.Location = new System.Drawing.Point(18, 83);
+			this.label7.Location = new System.Drawing.Point(18, 148);
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(233, 26);
 			this.label7.TabIndex = 19;
@@ -305,7 +306,7 @@
 			// label6
 			// 
 			this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.label6.Location = new System.Drawing.Point(18, 31);
+			this.label6.Location = new System.Drawing.Point(18, 96);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(220, 22);
 			this.label6.TabIndex = 18;
@@ -314,7 +315,7 @@
 			// SRQnumberField
 			// 
 			this.SRQnumberField.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.SRQnumberField.Location = new System.Drawing.Point(21, 56);
+			this.SRQnumberField.Location = new System.Drawing.Point(21, 121);
 			this.SRQnumberField.Name = "SRQnumberField";
 			this.SRQnumberField.Size = new System.Drawing.Size(230, 20);
 			this.SRQnumberField.TabIndex = 18;
@@ -323,7 +324,7 @@
 			// CreateAnObject
 			// 
 			this.CreateAnObject.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.CreateAnObject.Location = new System.Drawing.Point(70, 138);
+			this.CreateAnObject.Location = new System.Drawing.Point(70, 203);
 			this.CreateAnObject.Name = "CreateAnObject";
 			this.CreateAnObject.Size = new System.Drawing.Size(130, 26);
 			this.CreateAnObject.TabIndex = 18;
@@ -337,7 +338,7 @@
 			this.groupBox5.Controls.Add(this.codeListComboBox);
 			this.groupBox5.Controls.Add(this.label8);
 			this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.groupBox5.Location = new System.Drawing.Point(12, 358);
+			this.groupBox5.Location = new System.Drawing.Point(12, 385);
 			this.groupBox5.Name = "groupBox5";
 			this.groupBox5.Size = new System.Drawing.Size(236, 156);
 			this.groupBox5.TabIndex = 17;
@@ -367,7 +368,6 @@
 			this.codeListComboBox.Name = "codeListComboBox";
 			this.codeListComboBox.Size = new System.Drawing.Size(213, 21);
 			this.codeListComboBox.TabIndex = 27;
-			//this.codeListComboBox.SelectedIndexChanged += new System.EventHandler(this.codeListComboBox_SelectedIndexChanged);
 			// 
 			// label8
 			// 
@@ -475,10 +475,26 @@
 			this.buttonOpenSI.UseVisualStyleBackColor = true;
 			this.buttonOpenSI.Click += new System.EventHandler(this.buttonOpenSI_Click);
 			// 
+			// fileSystemWatcher1
+			// 
+			this.fileSystemWatcher1.EnableRaisingEvents = true;
+			this.fileSystemWatcher1.SynchronizingObject = this;
+			// 
 			// notifyIcon1
 			// 
 			this.notifyIcon1.Text = "notifyIcon1";
 			this.notifyIcon1.Visible = true;
+			// 
+			// eventLog1
+			// 
+			this.eventLog1.SynchronizingObject = this;
+			// 
+			// statusStrip1
+			// 
+			this.statusStrip1.Location = new System.Drawing.Point(0, 599);
+			this.statusStrip1.Name = "statusStrip1";
+			this.statusStrip1.Size = new System.Drawing.Size(694, 22);
+			this.statusStrip1.TabIndex = 28;
 			// 
 			// buttonOpenLW
 			// 
@@ -535,10 +551,29 @@
 			this.button1.Text = "Generate document";
 			this.button1.UseVisualStyleBackColor = true;
 			// 
+			// label1
+			// 
+			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.label1.Location = new System.Drawing.Point(19, 35);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(220, 22);
+			this.label1.TabIndex = 21;
+			this.label1.Text = "Copy / paste from Cherwell";
+			// 
+			// CHWnumberField
+			// 
+			this.CHWnumberField.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.CHWnumberField.Location = new System.Drawing.Point(22, 60);
+			this.CHWnumberField.Name = "CHWnumberField";
+			this.CHWnumberField.Size = new System.Drawing.Size(230, 20);
+			this.CHWnumberField.TabIndex = 22;
+			this.CHWnumberField.TextChanged += new System.EventHandler(this.CHWnumberField_TextChanged);
+			// 
 			// myEDI
 			// 
+			this.AutoSize = true;
 			this.BackColor = System.Drawing.SystemColors.ControlLight;
-			this.ClientSize = new System.Drawing.Size(694, 614);
+			this.ClientSize = new System.Drawing.Size(694, 621);
 			this.Controls.Add(this.groupBox6);
 			this.Controls.Add(this.buttonCreateEDIDirs);
 			this.Controls.Add(this.buttonCreateDeployDirs);
@@ -554,6 +589,8 @@
 			this.Controls.Add(this.groupBox1);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MainMenuStrip = this.menuStrip1;
+			this.MaximumSize = new System.Drawing.Size(710, 660);
+			this.MinimumSize = new System.Drawing.Size(710, 660);
 			this.Name = "myEDI";
 			this.Text = "myEDI";
 			this.Load += new System.EventHandler(this.EDISupportTool_Load);
@@ -630,6 +667,8 @@
 		private System.Windows.Forms.GroupBox groupBox6;
 		private System.Windows.Forms.Button button1;
 		private System.Windows.Forms.ToolStripMenuItem formsToolStripMenuItem;
+		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.TextBox CHWnumberField;
 	}
 }
 

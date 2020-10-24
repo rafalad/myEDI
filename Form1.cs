@@ -118,22 +118,70 @@ namespace EDISupportTool
 
 		private void CreateAnObject_Click(object sender, EventArgs e)
 		{
-            if (String.IsNullOrEmpty(SRQnumberField.Text))
-            {
-                MessageBox.Show("Enter the SRQ/ID values you are working on, please.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else if (String.IsNullOrEmpty(SRQidField.Text))
-            {
-                MessageBox.Show("Enter any name which refers to the task, please.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
 
+            if (String.IsNullOrEmpty(CHWnumberField.Text))
+            {
+                if (String.IsNullOrEmpty(SRQnumberField.Text))
+                {
+                    MessageBox.Show("Enter the SRQ/ID values you are working on, please.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else if (String.IsNullOrEmpty(SRQidField.Text))
+                {
+                    MessageBox.Show("Enter any name which refers to the task, please.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
+                else
+                {
+
+                    string folder_name = "DSV_SRQ" + SRQnumberField.Text + "_" + SRQidField.Text + "_1.0_rt";
+                    string folder_path = Path.Combine(@"C:\EDI", folder_name);
+                    Directory.CreateDirectory(folder_path);
+
+                    MessageBox.Show("RT folder has been created correctly at: " + folder_path, "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
             else
             {
-                string folder_name = "DSV_SRQ" + SRQnumberField.Text + "_" + SRQidField.Text + "_1.0_rt";
-                string folder_path = Path.Combine(@"C:\EDI", folder_name);
-                Directory.CreateDirectory(folder_path);
 
-                MessageBox.Show("RT folder has been created correctly at: " + folder_path, "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                string setvalue = CHWnumberField.Text;
+                string type = string.Empty;
+                string no = string.Empty;
+
+                string type_srq = "DSV_SRQ";
+                string type_inc = "DSV_INC";
+
+                int val;
+
+                //przechodzę o po znakach w poszukiwania liczb, jeżeli znajdę to przypisuję do zmiennej
+                for (int i = 0; i < setvalue.Length; i++)
+                {
+                    if (Char.IsDigit(setvalue[i]))
+                        no += setvalue[i];
+
+                }
+
+                for (int i = 0; i < setvalue.Length; i++)
+                {
+                    if (Char.IsLetter(setvalue[i]))
+                        type += setvalue[i];
+                }
+
+                if (type == "Incident")
+                {
+                    string folder = type_inc + no + "_1.0_rt";
+                    string path = Path.Combine(@"C:\EDI", folder);
+                    Directory.CreateDirectory(path);
+
+                    MessageBox.Show("RT folder has been created correctly at: " + path, "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    string folder = type_srq + no + "_1.0_rt";
+                    string path = Path.Combine(@"C:\EDI", folder);
+                    Directory.CreateDirectory(path);
+
+                    MessageBox.Show("RT folder has been created correctly at: " + path, "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
         }
 
@@ -245,6 +293,11 @@ namespace EDISupportTool
             Kit set = new Kit();
             set.CreateDirEDI();
         }
+
+		private void CHWnumberField_TextChanged(object sender, EventArgs e)
+		{
+
+		}
 	}
 }
 
