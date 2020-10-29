@@ -142,7 +142,6 @@ namespace EDISupportTool
             }
             else
             {
-
                 string setvalue = CHWnumberField.Text;
                 string type = string.Empty;
                 string no = string.Empty;
@@ -150,7 +149,6 @@ namespace EDISupportTool
                 string type_srq = "DSV_SRQ";
                 string type_inc = "DSV_INC";
 
-                int val;
 
                 //przechodzę o po znakach w poszukiwania liczb, jeżeli znajdę to przypisuję do zmiennej
                 for (int i = 0; i < setvalue.Length; i++)
@@ -159,7 +157,7 @@ namespace EDISupportTool
                         no += setvalue[i];
 
                 }
-
+                //przechodzę o po znakach w poszukiwania liter, jeżeli znajdę to przypisuję do zmiennej
                 for (int i = 0; i < setvalue.Length; i++)
                 {
                     if (Char.IsLetter(setvalue[i]))
@@ -168,19 +166,35 @@ namespace EDISupportTool
 
                 if (type == "Incident")
                 {
-                    string folder = type_inc + no + "_1.0_rt";
-                    string path = Path.Combine(@"C:\EDI", folder);
-                    Directory.CreateDirectory(path);
+                    if (String.IsNullOrEmpty(SRQidField.Text))
+                    {
+                        MessageBox.Show("Enter any name which refers to the task, please.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
 
-                    MessageBox.Show("RT folder has been created correctly at: " + path, "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    else
+                    {
+                        string folder = type_inc + no + "_" + SRQidField.Text + "_1.0_rt";
+                        string path = Path.Combine(@"C:\EDI", folder);
+                        Directory.CreateDirectory(path);
+
+                        MessageBox.Show("RT folder has been created correctly at: " + path, "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
                 else
                 {
-                    string folder = type_srq + no + "_1.0_rt";
-                    string path = Path.Combine(@"C:\EDI", folder);
-                    Directory.CreateDirectory(path);
+                    if (String.IsNullOrEmpty(SRQidField.Text))
+                    {
+                        MessageBox.Show("Enter any name which refers to the task, please.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
 
-                    MessageBox.Show("RT folder has been created correctly at: " + path, "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    else
+                    {
+                        string folder = type_srq + no + "_" + SRQidField.Text + "_1.0_rt";
+                        string path = Path.Combine(@"C:\EDI", folder);
+                        Directory.CreateDirectory(path);
+
+                        MessageBox.Show("RT folder has been created correctly at: " + path, "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
             }
         }
