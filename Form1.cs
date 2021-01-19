@@ -379,9 +379,9 @@ namespace EDISupportTool
 
             if (dirs.Count<string>() == 0) //jezeli nie ma paczek do wdrozenia
             {
-                MessageBox.Show(@"I WILL NOT CREATE RT folder as there is NO PACKAGE to deploy for today.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(@"NO PACKAGE to deploy for today.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else // jezeli paczki sa, to stworz foldery RT i LW
+            else // jezeli paczki sa, to stworz foldery RT i LW i skopiuj pliki .xml
             {
                 string folder_rt = "RT";
                 string folder_lw = "LW";
@@ -394,16 +394,12 @@ namespace EDISupportTool
                 Directory.CreateDirectory(targetPath_RT);
                 Directory.CreateDirectory(tagretPath_LW);
 
-                //string sourcePath = set.DeployPath();
-
-
                 string[] rt_array = Directory.GetFiles(set.DeployPath(), "*exp.xml", SearchOption.AllDirectories);
                 foreach (string file in rt_array)
                 {
                     i = i + 1;
                     string fileName = Path.GetFileName(file);
                     string destFile = Path.Combine(targetPath_RT, fileName);
-                    //MessageBox.Show(file);
                     File.Copy(file, destFile, true);
                 }
 
@@ -413,31 +409,12 @@ namespace EDISupportTool
                     j = j + 1;
                     string fileName = Path.GetFileName(file);
                     string destFile = Path.Combine(tagretPath_LW, fileName);
-                    //MessageBox.Show(file);
                     File.Copy(file, destFile, true);
                 }
 
-                MessageBox.Show(@"RT exported files: "+ i + Environment.NewLine +
-                                @"LW exported files: "+ j, 
+                MessageBox.Show(@"RT exported files:  "+ i + Environment.NewLine +
+                                @"LW exported files:  "+ j, 
                                 "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            
-            
-
-                //MessageBox.Show(@"Created", "Successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                //
-
-                //string sourceFile = System.IO.Path.Combine(sourcePath, fileName);
-                //string destFile = System.IO.Path.Combine(targetPath, fileName);
-
-                
-                /*
-                foreach (string file in Directory.GetFiles(set.DeployPath(), "*exp*", SearchOption.AllDirectories))
-                {
-                    System.IO.File.Copy(file, folder_path, true);
-                }
-                */
-
             }
             
         }
