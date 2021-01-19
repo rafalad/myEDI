@@ -42,9 +42,9 @@ namespace EDISupportTool
         }
         private void OnWyswietlKomunikat(object sender, EventArgs ea)
         {
-            
+
         }
-            private void OnWyjdz(object sender, EventArgs ea)
+        private void OnWyjdz(object sender, EventArgs ea)
         {
             Application.Exit();
         }
@@ -71,8 +71,8 @@ namespace EDISupportTool
 
         }
 
-		private void SRQnumberField_TextChanged(object sender, EventArgs e)
-		{
+        private void SRQnumberField_TextChanged(object sender, EventArgs e)
+        {
             if (System.Text.RegularExpressions.Regex.IsMatch(SRQnumberField.Text, "[^0-9]"))
             {
                 MessageBox.Show("Please enter only digits.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -80,44 +80,44 @@ namespace EDISupportTool
             }
         }
 
-		private void textBoxAddUserLDAP_TextChanged(object sender, EventArgs e)
-		{
+        private void textBoxAddUserLDAP_TextChanged(object sender, EventArgs e)
+        {
             textBoxAddUserLDAP.CharacterCasing = CharacterCasing.Lower;
 
         }
 
-		private void buttonOpenConsole_Click(object sender, EventArgs e)
-		{
+        private void buttonOpenConsole_Click(object sender, EventArgs e)
+        {
             AllocConsole();
-		}
+        }
 
-		private void exitToolStripMenuItem_Click(object sender, EventArgs e)
-		{
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             Application.Exit();
-		}
+        }
 
-		private void aboutToolStripMenuItem1_Click(object sender, EventArgs e)
-		{
-            MessageBox.Show("Developed by: " + Environment.NewLine + "" + Environment.NewLine + 
-                "rafal.adamczyk@dsv.com" + Environment.NewLine + Environment.NewLine + 
+        private void aboutToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Developed by: " + Environment.NewLine + "" + Environment.NewLine +
+                "rafal.adamczyk@dsv.com" + Environment.NewLine + Environment.NewLine +
                 "EDI Support Team®", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-		private void minimizeToolStripMenuItem_Click(object sender, EventArgs e)
-		{
+        private void minimizeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             this.WindowState = FormWindowState.Minimized;
         }
 
-		private void buttonOpenSI_Click(object sender, EventArgs e)
-		{
+        private void buttonOpenSI_Click(object sender, EventArgs e)
+        {
             System.Diagnostics.Process.Start("http://dsidb1:15501/dashboard/");
             System.Diagnostics.Process.Start("http://tsiapp1:15501/dashboard/");
             System.Diagnostics.Process.Start("http://qsiapp1:15501/dashboard/");
             System.Diagnostics.Process.Start("http://psiapp1:15501/dashboard/");
         }
 
-		private void CreateAnObject_Click(object sender, EventArgs e)
-		{
+        private void CreateAnObject_Click(object sender, EventArgs e)
+        {
 
             if (String.IsNullOrEmpty(CHWnumberField.Text))
             {
@@ -199,18 +199,18 @@ namespace EDISupportTool
             }
         }
 
-		private void SRQidField_TextChanged(object sender, EventArgs e)
-		{
+        private void SRQidField_TextChanged(object sender, EventArgs e)
+        {
             SRQidField.CharacterCasing = CharacterCasing.Upper;
         }
 
-		private void deployComboBox_SelectedIndexChanged(object sender, EventArgs e)
-		{
+        private void deployComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
             richTextBoxSelectedEnv.Text = deployComboBox.Text;
-		}
+        }
 
-		private void CreateNoteButton_Click(object sender, EventArgs e)
-		{
+        private void CreateNoteButton_Click(object sender, EventArgs e)
+        {
             Kit set = new Kit();
             string selected = this.deployComboBox.GetItemText(this.deployComboBox.SelectedItem); //wybieram zmienna z comboboxa
 
@@ -254,61 +254,195 @@ namespace EDISupportTool
             }
         }
 
-		private void buttonCL_Click(object sender, EventArgs e)
-		{
+        private void buttonCL_Click(object sender, EventArgs e)
+        {
             string selectedCL = this.codeListComboBox.GetItemText(this.codeListComboBox.SelectedItem); //wybieram zmienna z comboboxa
 
             if (String.IsNullOrEmpty(selectedCL)) // jezeli nie wybrano CL
             {
-                    MessageBox.Show("Please select the type of flow", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please select the type of flow", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else // jezeli wybrano srodowisko, to zwroc informacje i kontynuuj dla wybranego srodowiska
             {
                 if (selectedCL == "Inbound")
                 {
-                Form_InboundCL InboundForm = new Form_InboundCL();
-                InboundForm.Show();
+                    Form_InboundCL InboundForm = new Form_InboundCL();
+                    InboundForm.Show();
                 }
                 else if (selectedCL == "Outbound")
                 {
-                Form_OutboundCL OnboundForm = new Form_OutboundCL();
-                OnboundForm.Show();
+                    Form_OutboundCL OnboundForm = new Form_OutboundCL();
+                    OnboundForm.Show();
                 }
                 else if (selectedCL == "both")
                 {
-                Form_bothCL bothCLForm = new Form_bothCL();
-                bothCLForm.Show();
+                    Form_bothCL bothCLForm = new Form_bothCL();
+                    bothCLForm.Show();
                 }
             }
         }
 
-		private void buttonGenerateRandomPassword_Click(object sender, EventArgs e)
-		{
+        private void buttonGenerateRandomPassword_Click(object sender, EventArgs e)
+        {
             Clipboard.SetText(PasswordGenerator.NewPassword());
             MessageBox.Show("=== Password has been copied to the clipboard. ===", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-		private void buttonOpenLW_Click(object sender, EventArgs e)
-		{
+        private void buttonOpenLW_Click(object sender, EventArgs e)
+        {
             System.Diagnostics.Process.Start("http://dsidb2:16680/lw/client/index.html#/login");
             System.Diagnostics.Process.Start("http://tsiapp2:16680/lw/client/index.html#/login");
             System.Diagnostics.Process.Start("http://qsiapp2:16680/lw/client/index.html#/login");
             System.Diagnostics.Process.Start("http://psiapp2:16680/lw/client/index.html#/login");
         }
 
-		private void buttonCreateDeployDirs_Click(object sender, EventArgs e)
-		{
+        private void buttonCreateDeployDirs_Click(object sender, EventArgs e)
+        {
             Kit set = new Kit();
             set.CreateDirDEPLOYMENTS();
         }
 
-		private void buttonCreateEDIDirs_Click(object sender, EventArgs e)
-		{
+        private void buttonCreateEDIDirs_Click(object sender, EventArgs e)
+        {
             Kit set = new Kit();
             set.CreateDirEDI();
         }
 
-		private void CHWnumberField_TextChanged(object sender, EventArgs e)
+        private void CHWnumberField_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_folder_TextChanged(object sender, EventArgs e)
+        {
+            textBox1_folder.CharacterCasing = CharacterCasing.Upper;
+        }
+
+        private void textBox2_folder_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(SRQnumberField.Text, "[^0-9]"))
+            {
+                MessageBox.Show("Please enter only digits.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                SRQnumberField.Text = SRQnumberField.Text.Remove(SRQnumberField.Text.Length - 1);
+            }
+        }
+
+        private void button2_createFolder_Click(object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(textBox1_folder.Text))
+            {
+                if (String.IsNullOrEmpty(textBox2_folder.Text))
+                    MessageBox.Show("Enter the Folder Name you are working on, please.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+            else
+            {
+                string folder_word = textBox1_folder.Text;
+                string folder_number = textBox2_folder.Text;
+                string folder_path_word = Path.Combine(@"C:\EDI", folder_word);
+                string folder_path_number = Path.Combine(@"C:\EDI", folder_number);
+                string folder_path_all = Path.Combine(@"C:\EDI", folder_word + "_" + folder_number);
+
+                if (String.IsNullOrEmpty(textBox2_folder.Text))
+                {
+                    Directory.CreateDirectory(folder_path_word);
+                    MessageBox.Show("RT folder has been created correctly at: " + folder_path_word, "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    /*
+                    if (String.IsNullOrEmpty(textBox1_folder.Text))
+                    {
+                        Directory.CreateDirectory(folder_path_number);
+                        MessageBox.Show("RT folder has been created correctly at: " + folder_path_number, "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    */
+
+                    Directory.CreateDirectory(folder_path_all);
+                    MessageBox.Show("RT folder has been created correctly at: " + folder_path_all, "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+                }
+            }
+        }
+
+		private void extractRT_button_Click(object sender, EventArgs e)
+		{
+            Kit set = new Kit();
+            int day = set.Day();
+            string month = set.Month();
+
+            // LINQ query.
+            var dirs = from dir in
+                         Directory.EnumerateDirectories(set.deploymentsdir, month + "*" + day.ToString() + "*")
+                       select dir;
+
+            if (dirs.Count<string>() == 0) //jezeli nie ma paczek do wdrozenia
+            {
+                MessageBox.Show(@"I WILL NOT CREATE RT folder as there is NO PACKAGE to deploy for today.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else // jezeli paczki sa, to stworz foldery RT i LW
+            {
+                string folder_rt = "RT";
+                string folder_lw = "LW";
+                string targetPath_RT = Path.Combine(@"C:\DEPLOYMENTS\RESOURCES\", folder_rt);
+                string tagretPath_LW = Path.Combine(@"C:\DEPLOYMENTS\RESOURCES\", folder_lw);
+
+                int i = 0;
+                int j = 0;
+
+                Directory.CreateDirectory(targetPath_RT);
+                Directory.CreateDirectory(tagretPath_LW);
+
+                //string sourcePath = set.DeployPath();
+
+
+                string[] rt_array = Directory.GetFiles(set.DeployPath(), "*exp.xml", SearchOption.AllDirectories);
+                foreach (string file in rt_array)
+                {
+                    i = i + 1;
+                    string fileName = Path.GetFileName(file);
+                    string destFile = Path.Combine(targetPath_RT, fileName);
+                    //MessageBox.Show(file);
+                    File.Copy(file, destFile, true);
+                }
+
+                string[] lw_array = Directory.GetFiles(set.DeployPath(), "*_f*.xml", SearchOption.AllDirectories);
+                foreach (string file in lw_array)
+                {
+                    j = j + 1;
+                    string fileName = Path.GetFileName(file);
+                    string destFile = Path.Combine(tagretPath_LW, fileName);
+                    //MessageBox.Show(file);
+                    File.Copy(file, destFile, true);
+                }
+
+                MessageBox.Show(@"RT exported files: "+ i + Environment.NewLine +
+                                @"LW exported files: "+ j, 
+                                "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            
+            
+
+                //MessageBox.Show(@"Created", "Successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                //
+
+                //string sourceFile = System.IO.Path.Combine(sourcePath, fileName);
+                //string destFile = System.IO.Path.Combine(targetPath, fileName);
+
+                
+                /*
+                foreach (string file in Directory.GetFiles(set.DeployPath(), "*exp*", SearchOption.AllDirectories))
+                {
+                    System.IO.File.Copy(file, folder_path, true);
+                }
+                */
+
+            }
+            
+        }
+
+		private void button5_Click(object sender, EventArgs e)
 		{
 
 		}

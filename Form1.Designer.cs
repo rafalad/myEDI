@@ -42,6 +42,8 @@
 			this.checkBox1 = new System.Windows.Forms.CheckBox();
 			this.label4 = new System.Windows.Forms.Label();
 			this.groupBox4 = new System.Windows.Forms.GroupBox();
+			this.label1 = new System.Windows.Forms.Label();
+			this.CHWnumberField = new System.Windows.Forms.TextBox();
 			this.SRQidField = new System.Windows.Forms.TextBox();
 			this.label7 = new System.Windows.Forms.Label();
 			this.label6 = new System.Windows.Forms.Label();
@@ -74,8 +76,13 @@
 			this.buttonCreateEDIDirs = new System.Windows.Forms.Button();
 			this.groupBox6 = new System.Windows.Forms.GroupBox();
 			this.button1 = new System.Windows.Forms.Button();
-			this.label1 = new System.Windows.Forms.Label();
-			this.CHWnumberField = new System.Windows.Forms.TextBox();
+			this.groupBox7 = new System.Windows.Forms.GroupBox();
+			this.textBox2_folder = new System.Windows.Forms.TextBox();
+			this.textBox1_folder = new System.Windows.Forms.TextBox();
+			this.label10 = new System.Windows.Forms.Label();
+			this.label9 = new System.Windows.Forms.Label();
+			this.button2_createFolder = new System.Windows.Forms.Button();
+			this.extractRT_button = new System.Windows.Forms.Button();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			this.groupBox3.SuspendLayout();
@@ -85,6 +92,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.eventLog1)).BeginInit();
 			this.groupBox6.SuspendLayout();
+			this.groupBox7.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// addButton
@@ -195,6 +203,7 @@
 			// 
 			// groupBox3
 			// 
+			this.groupBox3.Controls.Add(this.extractRT_button);
 			this.groupBox3.Controls.Add(this.richTextBoxSelectedEnv);
 			this.groupBox3.Controls.Add(this.label5);
 			this.groupBox3.Controls.Add(this.button5);
@@ -243,6 +252,7 @@
 			this.button5.TabIndex = 25;
 			this.button5.Text = "Open DeployFolder on SharePoint";
 			this.button5.UseVisualStyleBackColor = true;
+			this.button5.Click += new System.EventHandler(this.button5_Click);
 			// 
 			// checkBox1
 			// 
@@ -284,6 +294,24 @@
 			this.groupBox4.TabIndex = 16;
 			this.groupBox4.TabStop = false;
 			this.groupBox4.Text = "New SRQ / INC";
+			// 
+			// label1
+			// 
+			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.label1.Location = new System.Drawing.Point(19, 35);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(220, 22);
+			this.label1.TabIndex = 21;
+			this.label1.Text = "Copy / paste from Cherwell";
+			// 
+			// CHWnumberField
+			// 
+			this.CHWnumberField.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.CHWnumberField.Location = new System.Drawing.Point(22, 60);
+			this.CHWnumberField.Name = "CHWnumberField";
+			this.CHWnumberField.Size = new System.Drawing.Size(230, 20);
+			this.CHWnumberField.TabIndex = 22;
+			this.CHWnumberField.TextChanged += new System.EventHandler(this.CHWnumberField_TextChanged);
 			// 
 			// SRQidField
 			// 
@@ -551,29 +579,88 @@
 			this.button1.Text = "Generate document";
 			this.button1.UseVisualStyleBackColor = true;
 			// 
-			// label1
+			// groupBox7
 			// 
-			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.label1.Location = new System.Drawing.Point(19, 35);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(220, 22);
-			this.label1.TabIndex = 21;
-			this.label1.Text = "Copy / paste from Cherwell";
+			this.groupBox7.BackColor = System.Drawing.SystemColors.ControlLight;
+			this.groupBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.groupBox7.Controls.Add(this.textBox2_folder);
+			this.groupBox7.Controls.Add(this.textBox1_folder);
+			this.groupBox7.Controls.Add(this.label10);
+			this.groupBox7.Controls.Add(this.label9);
+			this.groupBox7.Controls.Add(this.button2_createFolder);
+			this.groupBox7.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+			this.groupBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.groupBox7.Location = new System.Drawing.Point(555, 363);
+			this.groupBox7.Name = "groupBox7";
+			this.groupBox7.Size = new System.Drawing.Size(120, 178);
+			this.groupBox7.TabIndex = 28;
+			this.groupBox7.TabStop = false;
+			this.groupBox7.Text = "Folder creator";
 			// 
-			// CHWnumberField
+			// textBox2_folder
 			// 
-			this.CHWnumberField.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.CHWnumberField.Location = new System.Drawing.Point(22, 60);
-			this.CHWnumberField.Name = "CHWnumberField";
-			this.CHWnumberField.Size = new System.Drawing.Size(230, 20);
-			this.CHWnumberField.TabIndex = 22;
-			this.CHWnumberField.TextChanged += new System.EventHandler(this.CHWnumberField_TextChanged);
+			this.textBox2_folder.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.textBox2_folder.Location = new System.Drawing.Point(6, 107);
+			this.textBox2_folder.Name = "textBox2_folder";
+			this.textBox2_folder.Size = new System.Drawing.Size(108, 20);
+			this.textBox2_folder.TabIndex = 28;
+			this.textBox2_folder.TextChanged += new System.EventHandler(this.textBox2_folder_TextChanged);
+			// 
+			// textBox1_folder
+			// 
+			this.textBox1_folder.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.textBox1_folder.Location = new System.Drawing.Point(6, 49);
+			this.textBox1_folder.Name = "textBox1_folder";
+			this.textBox1_folder.Size = new System.Drawing.Size(108, 20);
+			this.textBox1_folder.TabIndex = 23;
+			this.textBox1_folder.TextChanged += new System.EventHandler(this.textBox1_folder_TextChanged);
+			// 
+			// label10
+			// 
+			this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.label10.Location = new System.Drawing.Point(6, 89);
+			this.label10.Name = "label10";
+			this.label10.Size = new System.Drawing.Size(99, 15);
+			this.label10.TabIndex = 27;
+			this.label10.Text = "No. (optional) :";
+			// 
+			// label9
+			// 
+			this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.label9.Location = new System.Drawing.Point(6, 31);
+			this.label9.Name = "label9";
+			this.label9.Size = new System.Drawing.Size(99, 15);
+			this.label9.TabIndex = 9;
+			this.label9.Text = "Name:";
+			// 
+			// button2_createFolder
+			// 
+			this.button2_createFolder.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.button2_createFolder.Location = new System.Drawing.Point(22, 146);
+			this.button2_createFolder.Name = "button2_createFolder";
+			this.button2_createFolder.Size = new System.Drawing.Size(77, 26);
+			this.button2_createFolder.TabIndex = 26;
+			this.button2_createFolder.Text = "Create";
+			this.button2_createFolder.UseVisualStyleBackColor = true;
+			this.button2_createFolder.Click += new System.EventHandler(this.button2_createFolder_Click);
+			// 
+			// extractRT_button
+			// 
+			this.extractRT_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.extractRT_button.Location = new System.Drawing.Point(9, 219);
+			this.extractRT_button.Name = "extractRT_button";
+			this.extractRT_button.Size = new System.Drawing.Size(213, 39);
+			this.extractRT_button.TabIndex = 27;
+			this.extractRT_button.Text = "Extract RT";
+			this.extractRT_button.UseVisualStyleBackColor = true;
+			this.extractRT_button.Click += new System.EventHandler(this.extractRT_button_Click);
 			// 
 			// myEDI
 			// 
 			this.AutoSize = true;
 			this.BackColor = System.Drawing.SystemColors.ControlLight;
 			this.ClientSize = new System.Drawing.Size(694, 621);
+			this.Controls.Add(this.groupBox7);
 			this.Controls.Add(this.groupBox6);
 			this.Controls.Add(this.buttonCreateEDIDirs);
 			this.Controls.Add(this.buttonCreateDeployDirs);
@@ -607,6 +694,8 @@
 			((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.eventLog1)).EndInit();
 			this.groupBox6.ResumeLayout(false);
+			this.groupBox7.ResumeLayout(false);
+			this.groupBox7.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -669,6 +758,13 @@
 		private System.Windows.Forms.ToolStripMenuItem formsToolStripMenuItem;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.TextBox CHWnumberField;
+		private System.Windows.Forms.GroupBox groupBox7;
+		private System.Windows.Forms.TextBox textBox2_folder;
+		private System.Windows.Forms.TextBox textBox1_folder;
+		private System.Windows.Forms.Label label10;
+		private System.Windows.Forms.Label label9;
+		private System.Windows.Forms.Button button2_createFolder;
+		private System.Windows.Forms.Button extractRT_button;
 	}
 }
 

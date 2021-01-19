@@ -167,6 +167,7 @@ namespace EDISupportTool
             string folder_path_reports = Path.Combine(@"C:\DEPLOYMENTS", folder_name_reports);
             string folder_path_reports_qa = Path.Combine(@"C:\DEPLOYMENTS\Reports", "QA");
             string folder_path_reports_prod = Path.Combine(@"C:\DEPLOYMENTS\Reports", "PROD");
+            string folder_path_resources = Path.Combine(@"C:\DEPLOYMENTS", "RESOURCES");
 
 
             bool folder1 = File.Exists(folder_path);
@@ -205,6 +206,18 @@ namespace EDISupportTool
                 Directory.CreateDirectory(folder_path_reports_qa);
                 Directory.CreateDirectory(folder_path_reports_prod);
                 MessageBox.Show("...a directory has been created to store Report resources. " + "'" + folder_path_reports + "'", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            bool folder4 = File.Exists(folder_path_resources);
+
+            if (Directory.Exists(@"C:\DEPLOYMENTS\RESOURCES"))
+            {
+                MessageBox.Show(@"Directory creation will be skipped. 'C:\DEPLOYMENTS\RESOURCES' already exists.", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                Directory.CreateDirectory(folder_path_resources);
+                MessageBox.Show("...a directory has been created to store Deploment resources. " + "'" + folder_path_resources + "'", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
