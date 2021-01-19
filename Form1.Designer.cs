@@ -36,6 +36,7 @@
 			this.buttonGenerateRandomPassword = new System.Windows.Forms.Button();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
 			this.groupBox3 = new System.Windows.Forms.GroupBox();
+			this.extractRT_button = new System.Windows.Forms.Button();
 			this.richTextBoxSelectedEnv = new System.Windows.Forms.RichTextBox();
 			this.label5 = new System.Windows.Forms.Label();
 			this.button5 = new System.Windows.Forms.Button();
@@ -82,7 +83,6 @@
 			this.label10 = new System.Windows.Forms.Label();
 			this.label9 = new System.Windows.Forms.Label();
 			this.button2_createFolder = new System.Windows.Forms.Button();
-			this.extractRT_button = new System.Windows.Forms.Button();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			this.groupBox3.SuspendLayout();
@@ -220,6 +220,17 @@
 			this.groupBox3.TabStop = false;
 			this.groupBox3.Text = "Deployment Note Wizard";
 			// 
+			// extractRT_button
+			// 
+			this.extractRT_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.extractRT_button.Location = new System.Drawing.Point(9, 219);
+			this.extractRT_button.Name = "extractRT_button";
+			this.extractRT_button.Size = new System.Drawing.Size(213, 39);
+			this.extractRT_button.TabIndex = 27;
+			this.extractRT_button.Text = "Extract RT";
+			this.extractRT_button.UseVisualStyleBackColor = true;
+			this.extractRT_button.Click += new System.EventHandler(this.extractRT_button_Click);
+			// 
 			// richTextBoxSelectedEnv
 			// 
 			this.richTextBoxSelectedEnv.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -265,6 +276,7 @@
 			this.checkBox1.TabIndex = 18;
 			this.checkBox1.Text = "Yes";
 			this.checkBox1.UseVisualStyleBackColor = true;
+			this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
 			// 
 			// label4
 			// 
@@ -643,17 +655,6 @@
 			this.button2_createFolder.Text = "Create";
 			this.button2_createFolder.UseVisualStyleBackColor = true;
 			this.button2_createFolder.Click += new System.EventHandler(this.button2_createFolder_Click);
-			// 
-			// extractRT_button
-			// 
-			this.extractRT_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.extractRT_button.Location = new System.Drawing.Point(9, 219);
-			this.extractRT_button.Name = "extractRT_button";
-			this.extractRT_button.Size = new System.Drawing.Size(213, 39);
-			this.extractRT_button.TabIndex = 27;
-			this.extractRT_button.Text = "Extract RT";
-			this.extractRT_button.UseVisualStyleBackColor = true;
-			this.extractRT_button.Click += new System.EventHandler(this.extractRT_button_Click);
 			// 
 			// myEDI
 			// 
