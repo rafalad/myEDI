@@ -33,14 +33,19 @@
 			this.label3 = new System.Windows.Forms.Label();
 			this.CreateNoteButton = new System.Windows.Forms.Button();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
-			this.buttonGenerateRandomPassword = new System.Windows.Forms.Button();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
 			this.groupBox3 = new System.Windows.Forms.GroupBox();
+			this.button_reports = new System.Windows.Forms.Button();
+			this.button_resources = new System.Windows.Forms.Button();
 			this.extractRT_button = new System.Windows.Forms.Button();
+			this.button_logs = new System.Windows.Forms.Button();
+			this.consoleQuery_button = new System.Windows.Forms.Button();
+			this.checkBox_Query = new System.Windows.Forms.CheckBox();
+			this.label11 = new System.Windows.Forms.Label();
 			this.richTextBoxSelectedEnv = new System.Windows.Forms.RichTextBox();
 			this.label5 = new System.Windows.Forms.Label();
-			this.button5 = new System.Windows.Forms.Button();
-			this.checkBox1 = new System.Windows.Forms.CheckBox();
+			this.button_local_deploy = new System.Windows.Forms.Button();
+			this.checkBox_RT = new System.Windows.Forms.CheckBox();
 			this.label4 = new System.Windows.Forms.Label();
 			this.groupBox4 = new System.Windows.Forms.GroupBox();
 			this.label1 = new System.Windows.Forms.Label();
@@ -56,7 +61,6 @@
 			this.label8 = new System.Windows.Forms.Label();
 			this.colorDialog1 = new System.Windows.Forms.ColorDialog();
 			this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-			this.buttonOpenConsole = new System.Windows.Forms.Button();
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
 			this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -75,14 +79,9 @@
 			this.buttonOpenLW = new System.Windows.Forms.Button();
 			this.buttonCreateDeployDirs = new System.Windows.Forms.Button();
 			this.buttonCreateEDIDirs = new System.Windows.Forms.Button();
-			this.groupBox6 = new System.Windows.Forms.GroupBox();
-			this.button1 = new System.Windows.Forms.Button();
-			this.groupBox7 = new System.Windows.Forms.GroupBox();
-			this.textBox2_folder = new System.Windows.Forms.TextBox();
-			this.textBox1_folder = new System.Windows.Forms.TextBox();
-			this.label10 = new System.Windows.Forms.Label();
+			this.pictureBox1 = new System.Windows.Forms.PictureBox();
+			this.buttonGenerateRandomPassword = new System.Windows.Forms.Button();
 			this.label9 = new System.Windows.Forms.Label();
-			this.button2_createFolder = new System.Windows.Forms.Button();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			this.groupBox3.SuspendLayout();
@@ -91,17 +90,17 @@
 			this.menuStrip1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.eventLog1)).BeginInit();
-			this.groupBox6.SuspendLayout();
-			this.groupBox7.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// addButton
 			// 
-			this.addButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.addButton.Location = new System.Drawing.Point(53, 81);
+			this.addButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.addButton.Location = new System.Drawing.Point(133, 82);
 			this.addButton.Name = "addButton";
-			this.addButton.Size = new System.Drawing.Size(161, 26);
+			this.addButton.Size = new System.Drawing.Size(118, 26);
 			this.addButton.TabIndex = 1;
+			this.addButton.TabStop = false;
 			this.addButton.Text = "Create a file";
 			this.addButton.UseVisualStyleBackColor = true;
 			this.addButton.Click += new System.EventHandler(this.addButton_Click);
@@ -113,6 +112,7 @@
 			this.textBoxAddUserLDAP.Name = "textBoxAddUserLDAP";
 			this.textBoxAddUserLDAP.Size = new System.Drawing.Size(230, 20);
 			this.textBoxAddUserLDAP.TabIndex = 5;
+			this.textBoxAddUserLDAP.TabStop = false;
 			this.textBoxAddUserLDAP.TextChanged += new System.EventHandler(this.textBoxAddUserLDAP_TextChanged);
 			// 
 			// label2
@@ -136,6 +136,7 @@
 			this.deployComboBox.Name = "deployComboBox";
 			this.deployComboBox.Size = new System.Drawing.Size(213, 21);
 			this.deployComboBox.TabIndex = 9;
+			this.deployComboBox.TabStop = false;
 			this.deployComboBox.SelectedIndexChanged += new System.EventHandler(this.deployComboBox_SelectedIndexChanged);
 			// 
 			// label3
@@ -146,14 +147,14 @@
 			this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.label3.Location = new System.Drawing.Point(6, 35);
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(186, 18);
+			this.label3.Size = new System.Drawing.Size(221, 56);
 			this.label3.TabIndex = 10;
 			this.label3.Text = "Please select the deployment environments:";
 			// 
 			// CreateNoteButton
 			// 
-			this.CreateNoteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.CreateNoteButton.Location = new System.Drawing.Point(9, 135);
+			this.CreateNoteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.CreateNoteButton.Location = new System.Drawing.Point(9, 169);
 			this.CreateNoteButton.Name = "CreateNoteButton";
 			this.CreateNoteButton.Size = new System.Drawing.Size(213, 33);
 			this.CreateNoteButton.TabIndex = 11;
@@ -167,6 +168,7 @@
 			// 
 			this.groupBox1.BackColor = System.Drawing.SystemColors.ControlLight;
 			this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.groupBox1.Controls.Add(this.label9);
 			this.groupBox1.Controls.Add(this.buttonGenerateRandomPassword);
 			this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
 			this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -176,17 +178,6 @@
 			this.groupBox1.TabIndex = 14;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Password Generator";
-			// 
-			// buttonGenerateRandomPassword
-			// 
-			this.buttonGenerateRandomPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.buttonGenerateRandomPassword.Location = new System.Drawing.Point(53, 34);
-			this.buttonGenerateRandomPassword.Name = "buttonGenerateRandomPassword";
-			this.buttonGenerateRandomPassword.Size = new System.Drawing.Size(161, 23);
-			this.buttonGenerateRandomPassword.TabIndex = 26;
-			this.buttonGenerateRandomPassword.Text = "Generate Random Password";
-			this.buttonGenerateRandomPassword.UseVisualStyleBackColor = true;
-			this.buttonGenerateRandomPassword.Click += new System.EventHandler(this.buttonGenerateRandomPassword_Click);
 			// 
 			// groupBox2
 			// 
@@ -203,11 +194,17 @@
 			// 
 			// groupBox3
 			// 
+			this.groupBox3.Controls.Add(this.button_reports);
+			this.groupBox3.Controls.Add(this.button_resources);
 			this.groupBox3.Controls.Add(this.extractRT_button);
+			this.groupBox3.Controls.Add(this.button_logs);
+			this.groupBox3.Controls.Add(this.consoleQuery_button);
+			this.groupBox3.Controls.Add(this.checkBox_Query);
+			this.groupBox3.Controls.Add(this.label11);
 			this.groupBox3.Controls.Add(this.richTextBoxSelectedEnv);
 			this.groupBox3.Controls.Add(this.label5);
-			this.groupBox3.Controls.Add(this.button5);
-			this.groupBox3.Controls.Add(this.checkBox1);
+			this.groupBox3.Controls.Add(this.button_local_deploy);
+			this.groupBox3.Controls.Add(this.checkBox_RT);
 			this.groupBox3.Controls.Add(this.label4);
 			this.groupBox3.Controls.Add(this.deployComboBox);
 			this.groupBox3.Controls.Add(this.label3);
@@ -215,30 +212,107 @@
 			this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.groupBox3.Location = new System.Drawing.Point(12, 42);
 			this.groupBox3.Name = "groupBox3";
-			this.groupBox3.Size = new System.Drawing.Size(236, 299);
+			this.groupBox3.Size = new System.Drawing.Size(241, 337);
 			this.groupBox3.TabIndex = 16;
 			this.groupBox3.TabStop = false;
 			this.groupBox3.Text = "Deployment Note Wizard";
 			// 
+			// button_reports
+			// 
+			this.button_reports.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.button_reports.Location = new System.Drawing.Point(36, 293);
+			this.button_reports.Name = "button_reports";
+			this.button_reports.Size = new System.Drawing.Size(80, 34);
+			this.button_reports.TabIndex = 34;
+			this.button_reports.TabStop = false;
+			this.button_reports.Text = "Reports";
+			this.button_reports.UseVisualStyleBackColor = true;
+			this.button_reports.Click += new System.EventHandler(this.button_reports_Click);
+			// 
+			// button_resources
+			// 
+			this.button_resources.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.button_resources.Location = new System.Drawing.Point(36, 253);
+			this.button_resources.Name = "button_resources";
+			this.button_resources.Size = new System.Drawing.Size(80, 34);
+			this.button_resources.TabIndex = 33;
+			this.button_resources.TabStop = false;
+			this.button_resources.Text = "Resources";
+			this.button_resources.UseVisualStyleBackColor = true;
+			this.button_resources.Click += new System.EventHandler(this.button_resources_Click);
+			// 
 			// extractRT_button
 			// 
-			this.extractRT_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.extractRT_button.Location = new System.Drawing.Point(9, 219);
+			this.extractRT_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.extractRT_button.Location = new System.Drawing.Point(120, 215);
 			this.extractRT_button.Name = "extractRT_button";
-			this.extractRT_button.Size = new System.Drawing.Size(213, 39);
+			this.extractRT_button.Size = new System.Drawing.Size(80, 34);
 			this.extractRT_button.TabIndex = 27;
+			this.extractRT_button.TabStop = false;
 			this.extractRT_button.Text = "Extract RT";
 			this.extractRT_button.UseVisualStyleBackColor = true;
 			this.extractRT_button.Click += new System.EventHandler(this.extractRT_button_Click);
 			// 
+			// button_logs
+			// 
+			this.button_logs.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.button_logs.Location = new System.Drawing.Point(120, 293);
+			this.button_logs.Name = "button_logs";
+			this.button_logs.Size = new System.Drawing.Size(80, 34);
+			this.button_logs.TabIndex = 32;
+			this.button_logs.TabStop = false;
+			this.button_logs.Text = "Logs";
+			this.button_logs.UseVisualStyleBackColor = true;
+			this.button_logs.Click += new System.EventHandler(this.button_logs_Click);
+			// 
+			// consoleQuery_button
+			// 
+			this.consoleQuery_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.consoleQuery_button.Location = new System.Drawing.Point(120, 253);
+			this.consoleQuery_button.Name = "consoleQuery_button";
+			this.consoleQuery_button.Size = new System.Drawing.Size(80, 34);
+			this.consoleQuery_button.TabIndex = 30;
+			this.consoleQuery_button.TabStop = false;
+			this.consoleQuery_button.Text = "Console query";
+			this.consoleQuery_button.UseVisualStyleBackColor = true;
+			this.consoleQuery_button.Click += new System.EventHandler(this.consoleQuery_button_Click);
+			// 
+			// checkBox_Query
+			// 
+			this.checkBox_Query.AutoSize = true;
+			this.checkBox_Query.Checked = true;
+			this.checkBox_Query.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.checkBox_Query.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.checkBox_Query.Location = new System.Drawing.Point(166, 136);
+			this.checkBox_Query.Name = "checkBox_Query";
+			this.checkBox_Query.Size = new System.Drawing.Size(44, 17);
+			this.checkBox_Query.TabIndex = 29;
+			this.checkBox_Query.TabStop = false;
+			this.checkBox_Query.Text = "Yes";
+			this.checkBox_Query.UseVisualStyleBackColor = true;
+			this.checkBox_Query.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
+			// 
+			// label11
+			// 
+			this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.label11.Location = new System.Drawing.Point(41, 136);
+			this.label11.Name = "label11";
+			this.label11.Size = new System.Drawing.Size(123, 15);
+			this.label11.TabIndex = 28;
+			this.label11.Text = "Create a console query:";
+			// 
 			// richTextBoxSelectedEnv
 			// 
 			this.richTextBoxSelectedEnv.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.richTextBoxSelectedEnv.Location = new System.Drawing.Point(120, 104);
+			this.richTextBoxSelectedEnv.Location = new System.Drawing.Point(120, 83);
 			this.richTextBoxSelectedEnv.Name = "richTextBoxSelectedEnv";
 			this.richTextBoxSelectedEnv.ReadOnly = true;
 			this.richTextBoxSelectedEnv.Size = new System.Drawing.Size(102, 21);
 			this.richTextBoxSelectedEnv.TabIndex = 26;
+			this.richTextBoxSelectedEnv.TabStop = false;
 			this.richTextBoxSelectedEnv.Text = "not selected";
 			// 
 			// label5
@@ -247,36 +321,38 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.label5.Location = new System.Drawing.Point(6, 107);
+			this.label5.Location = new System.Drawing.Point(6, 86);
 			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(81, 25);
+			this.label5.Size = new System.Drawing.Size(113, 18);
 			this.label5.TabIndex = 26;
-			this.label5.Text = "Selected environment:";
+			this.label5.Text = "Selected env.";
 			// 
-			// button5
+			// button_local_deploy
 			// 
-			this.button5.Enabled = false;
-			this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.button5.Location = new System.Drawing.Point(9, 174);
-			this.button5.Name = "button5";
-			this.button5.Size = new System.Drawing.Size(213, 39);
-			this.button5.TabIndex = 25;
-			this.button5.Text = "Open DeployFolder on SharePoint";
-			this.button5.UseVisualStyleBackColor = true;
-			this.button5.Click += new System.EventHandler(this.button5_Click);
+			this.button_local_deploy.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.button_local_deploy.Location = new System.Drawing.Point(36, 215);
+			this.button_local_deploy.Name = "button_local_deploy";
+			this.button_local_deploy.Size = new System.Drawing.Size(80, 34);
+			this.button_local_deploy.TabIndex = 25;
+			this.button_local_deploy.TabStop = false;
+			this.button_local_deploy.Text = "Deployment";
+			this.button_local_deploy.UseVisualStyleBackColor = true;
+			this.button_local_deploy.Click += new System.EventHandler(this.button5_Click);
 			// 
-			// checkBox1
+			// checkBox_RT
 			// 
-			this.checkBox1.AutoSize = true;
-			this.checkBox1.Enabled = false;
-			this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.checkBox1.Location = new System.Drawing.Point(175, 82);
-			this.checkBox1.Name = "checkBox1";
-			this.checkBox1.Size = new System.Drawing.Size(44, 17);
-			this.checkBox1.TabIndex = 18;
-			this.checkBox1.Text = "Yes";
-			this.checkBox1.UseVisualStyleBackColor = true;
-			this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+			this.checkBox_RT.AutoSize = true;
+			this.checkBox_RT.Checked = true;
+			this.checkBox_RT.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.checkBox_RT.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.checkBox_RT.Location = new System.Drawing.Point(166, 120);
+			this.checkBox_RT.Name = "checkBox_RT";
+			this.checkBox_RT.Size = new System.Drawing.Size(44, 17);
+			this.checkBox_RT.TabIndex = 18;
+			this.checkBox_RT.TabStop = false;
+			this.checkBox_RT.Text = "Yes";
+			this.checkBox_RT.UseVisualStyleBackColor = true;
+			this.checkBox_RT.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
 			// 
 			// label4
 			// 
@@ -284,11 +360,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.label4.Location = new System.Drawing.Point(6, 83);
+			this.label4.Location = new System.Drawing.Point(12, 121);
 			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(143, 17);
+			this.label4.Size = new System.Drawing.Size(148, 16);
 			this.label4.TabIndex = 11;
-			this.label4.Text = "Download package to local disk?";
+			this.label4.Text = "Copy RT files to separate dirs:";
 			// 
 			// groupBox4
 			// 
@@ -323,6 +399,7 @@
 			this.CHWnumberField.Name = "CHWnumberField";
 			this.CHWnumberField.Size = new System.Drawing.Size(230, 20);
 			this.CHWnumberField.TabIndex = 22;
+			this.CHWnumberField.TabStop = false;
 			this.CHWnumberField.TextChanged += new System.EventHandler(this.CHWnumberField_TextChanged);
 			// 
 			// SRQidField
@@ -332,6 +409,7 @@
 			this.SRQidField.Name = "SRQidField";
 			this.SRQidField.Size = new System.Drawing.Size(230, 20);
 			this.SRQidField.TabIndex = 20;
+			this.SRQidField.TabStop = false;
 			this.SRQidField.TextChanged += new System.EventHandler(this.SRQidField_TextChanged);
 			// 
 			// label7
@@ -359,15 +437,17 @@
 			this.SRQnumberField.Name = "SRQnumberField";
 			this.SRQnumberField.Size = new System.Drawing.Size(230, 20);
 			this.SRQnumberField.TabIndex = 18;
+			this.SRQnumberField.TabStop = false;
 			this.SRQnumberField.TextChanged += new System.EventHandler(this.SRQnumberField_TextChanged);
 			// 
 			// CreateAnObject
 			// 
-			this.CreateAnObject.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.CreateAnObject.Location = new System.Drawing.Point(70, 203);
+			this.CreateAnObject.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.CreateAnObject.Location = new System.Drawing.Point(133, 206);
 			this.CreateAnObject.Name = "CreateAnObject";
-			this.CreateAnObject.Size = new System.Drawing.Size(130, 26);
+			this.CreateAnObject.Size = new System.Drawing.Size(118, 26);
 			this.CreateAnObject.TabIndex = 18;
+			this.CreateAnObject.TabStop = false;
 			this.CreateAnObject.Text = " Create an object";
 			this.CreateAnObject.UseVisualStyleBackColor = true;
 			this.CreateAnObject.Click += new System.EventHandler(this.CreateAnObject_Click);
@@ -380,18 +460,19 @@
 			this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.groupBox5.Location = new System.Drawing.Point(12, 385);
 			this.groupBox5.Name = "groupBox5";
-			this.groupBox5.Size = new System.Drawing.Size(236, 156);
+			this.groupBox5.Size = new System.Drawing.Size(241, 156);
 			this.groupBox5.TabIndex = 17;
 			this.groupBox5.TabStop = false;
 			this.groupBox5.Text = "Code List Creator";
 			// 
 			// buttonCL
 			// 
-			this.buttonCL.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.buttonCL.Location = new System.Drawing.Point(44, 79);
+			this.buttonCL.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.buttonCL.Location = new System.Drawing.Point(104, 82);
 			this.buttonCL.Name = "buttonCL";
-			this.buttonCL.Size = new System.Drawing.Size(148, 33);
+			this.buttonCL.Size = new System.Drawing.Size(118, 26);
 			this.buttonCL.TabIndex = 27;
+			this.buttonCL.TabStop = false;
 			this.buttonCL.Text = "Create CL";
 			this.buttonCL.UseVisualStyleBackColor = true;
 			this.buttonCL.Click += new System.EventHandler(this.buttonCL_Click);
@@ -408,6 +489,7 @@
 			this.codeListComboBox.Name = "codeListComboBox";
 			this.codeListComboBox.Size = new System.Drawing.Size(213, 21);
 			this.codeListComboBox.TabIndex = 27;
+			this.codeListComboBox.TabStop = false;
 			// 
 			// label8
 			// 
@@ -417,17 +499,6 @@
 			this.label8.Size = new System.Drawing.Size(220, 26);
 			this.label8.TabIndex = 21;
 			this.label8.Text = "Please select the flow direction:";
-			// 
-			// buttonOpenConsole
-			// 
-			this.buttonOpenConsole.Enabled = false;
-			this.buttonOpenConsole.Location = new System.Drawing.Point(555, 100);
-			this.buttonOpenConsole.Name = "buttonOpenConsole";
-			this.buttonOpenConsole.Size = new System.Drawing.Size(120, 26);
-			this.buttonOpenConsole.TabIndex = 21;
-			this.buttonOpenConsole.Text = "Open console";
-			this.buttonOpenConsole.UseVisualStyleBackColor = true;
-			this.buttonOpenConsole.Click += new System.EventHandler(this.buttonOpenConsole_Click);
 			// 
 			// menuStrip1
 			// 
@@ -511,6 +582,7 @@
 			this.buttonOpenSI.Name = "buttonOpenSI";
 			this.buttonOpenSI.Size = new System.Drawing.Size(120, 23);
 			this.buttonOpenSI.TabIndex = 24;
+			this.buttonOpenSI.TabStop = false;
 			this.buttonOpenSI.Text = "Open SI";
 			this.buttonOpenSI.UseVisualStyleBackColor = true;
 			this.buttonOpenSI.Click += new System.EventHandler(this.buttonOpenSI_Click);
@@ -531,7 +603,7 @@
 			// 
 			// statusStrip1
 			// 
-			this.statusStrip1.Location = new System.Drawing.Point(0, 599);
+			this.statusStrip1.Location = new System.Drawing.Point(0, 544);
 			this.statusStrip1.Name = "statusStrip1";
 			this.statusStrip1.Size = new System.Drawing.Size(694, 22);
 			this.statusStrip1.TabIndex = 28;
@@ -542,132 +614,75 @@
 			this.buttonOpenLW.Name = "buttonOpenLW";
 			this.buttonOpenLW.Size = new System.Drawing.Size(120, 23);
 			this.buttonOpenLW.TabIndex = 25;
+			this.buttonOpenLW.TabStop = false;
 			this.buttonOpenLW.Text = "Open LW";
 			this.buttonOpenLW.UseVisualStyleBackColor = true;
 			this.buttonOpenLW.Click += new System.EventHandler(this.buttonOpenLW_Click);
 			// 
 			// buttonCreateDeployDirs
 			// 
-			this.buttonCreateDeployDirs.Location = new System.Drawing.Point(555, 132);
+			this.buttonCreateDeployDirs.Location = new System.Drawing.Point(555, 99);
 			this.buttonCreateDeployDirs.Name = "buttonCreateDeployDirs";
 			this.buttonCreateDeployDirs.Size = new System.Drawing.Size(120, 26);
 			this.buttonCreateDeployDirs.TabIndex = 26;
+			this.buttonCreateDeployDirs.TabStop = false;
 			this.buttonCreateDeployDirs.Text = "Create Deploy Dirs";
 			this.buttonCreateDeployDirs.UseVisualStyleBackColor = true;
 			this.buttonCreateDeployDirs.Click += new System.EventHandler(this.buttonCreateDeployDirs_Click);
 			// 
 			// buttonCreateEDIDirs
 			// 
-			this.buttonCreateEDIDirs.Location = new System.Drawing.Point(555, 164);
+			this.buttonCreateEDIDirs.Location = new System.Drawing.Point(555, 131);
 			this.buttonCreateEDIDirs.Name = "buttonCreateEDIDirs";
 			this.buttonCreateEDIDirs.Size = new System.Drawing.Size(120, 26);
 			this.buttonCreateEDIDirs.TabIndex = 27;
+			this.buttonCreateEDIDirs.TabStop = false;
 			this.buttonCreateEDIDirs.Text = "Create EDI Dirs";
 			this.buttonCreateEDIDirs.UseVisualStyleBackColor = true;
 			this.buttonCreateEDIDirs.Click += new System.EventHandler(this.buttonCreateEDIDirs_Click);
 			// 
-			// groupBox6
+			// pictureBox1
 			// 
-			this.groupBox6.BackColor = System.Drawing.SystemColors.ControlLight;
-			this.groupBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.groupBox6.Controls.Add(this.button1);
-			this.groupBox6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-			this.groupBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.groupBox6.Location = new System.Drawing.Point(555, 212);
-			this.groupBox6.Name = "groupBox6";
-			this.groupBox6.Size = new System.Drawing.Size(120, 129);
-			this.groupBox6.TabIndex = 27;
-			this.groupBox6.TabStop = false;
-			this.groupBox6.Text = "Deploy Docs Wizard";
+			this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+			this.pictureBox1.Location = new System.Drawing.Point(625, 491);
+			this.pictureBox1.Name = "pictureBox1";
+			this.pictureBox1.Size = new System.Drawing.Size(50, 50);
+			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.pictureBox1.TabIndex = 29;
+			this.pictureBox1.TabStop = false;
+			this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
 			// 
-			// button1
+			// buttonGenerateRandomPassword
 			// 
-			this.button1.Enabled = false;
-			this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.button1.Location = new System.Drawing.Point(22, 45);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(77, 43);
-			this.button1.TabIndex = 26;
-			this.button1.Text = "Generate document";
-			this.button1.UseVisualStyleBackColor = true;
-			// 
-			// groupBox7
-			// 
-			this.groupBox7.BackColor = System.Drawing.SystemColors.ControlLight;
-			this.groupBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.groupBox7.Controls.Add(this.textBox2_folder);
-			this.groupBox7.Controls.Add(this.textBox1_folder);
-			this.groupBox7.Controls.Add(this.label10);
-			this.groupBox7.Controls.Add(this.label9);
-			this.groupBox7.Controls.Add(this.button2_createFolder);
-			this.groupBox7.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-			this.groupBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.groupBox7.Location = new System.Drawing.Point(555, 363);
-			this.groupBox7.Name = "groupBox7";
-			this.groupBox7.Size = new System.Drawing.Size(120, 178);
-			this.groupBox7.TabIndex = 28;
-			this.groupBox7.TabStop = false;
-			this.groupBox7.Text = "Folder creator";
-			// 
-			// textBox2_folder
-			// 
-			this.textBox2_folder.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.textBox2_folder.Location = new System.Drawing.Point(6, 107);
-			this.textBox2_folder.Name = "textBox2_folder";
-			this.textBox2_folder.Size = new System.Drawing.Size(108, 20);
-			this.textBox2_folder.TabIndex = 28;
-			this.textBox2_folder.TextChanged += new System.EventHandler(this.textBox2_folder_TextChanged);
-			// 
-			// textBox1_folder
-			// 
-			this.textBox1_folder.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.textBox1_folder.Location = new System.Drawing.Point(6, 49);
-			this.textBox1_folder.Name = "textBox1_folder";
-			this.textBox1_folder.Size = new System.Drawing.Size(108, 20);
-			this.textBox1_folder.TabIndex = 23;
-			this.textBox1_folder.TextChanged += new System.EventHandler(this.textBox1_folder_TextChanged);
-			// 
-			// label10
-			// 
-			this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.label10.Location = new System.Drawing.Point(6, 89);
-			this.label10.Name = "label10";
-			this.label10.Size = new System.Drawing.Size(99, 15);
-			this.label10.TabIndex = 27;
-			this.label10.Text = "No. (optional) :";
+			this.buttonGenerateRandomPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.buttonGenerateRandomPassword.Location = new System.Drawing.Point(134, 48);
+			this.buttonGenerateRandomPassword.Name = "buttonGenerateRandomPassword";
+			this.buttonGenerateRandomPassword.Size = new System.Drawing.Size(118, 26);
+			this.buttonGenerateRandomPassword.TabIndex = 23;
+			this.buttonGenerateRandomPassword.TabStop = false;
+			this.buttonGenerateRandomPassword.Text = "Go";
+			this.buttonGenerateRandomPassword.UseVisualStyleBackColor = true;
+			this.buttonGenerateRandomPassword.Click += new System.EventHandler(this.buttonGenerateRandomPassword_Click);
 			// 
 			// label9
 			// 
 			this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.label9.Location = new System.Drawing.Point(6, 31);
+			this.label9.Location = new System.Drawing.Point(19, 25);
 			this.label9.Name = "label9";
-			this.label9.Size = new System.Drawing.Size(99, 15);
+			this.label9.Size = new System.Drawing.Size(208, 15);
 			this.label9.TabIndex = 9;
-			this.label9.Text = "Name:";
-			// 
-			// button2_createFolder
-			// 
-			this.button2_createFolder.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.button2_createFolder.Location = new System.Drawing.Point(22, 146);
-			this.button2_createFolder.Name = "button2_createFolder";
-			this.button2_createFolder.Size = new System.Drawing.Size(77, 26);
-			this.button2_createFolder.TabIndex = 26;
-			this.button2_createFolder.Text = "Create";
-			this.button2_createFolder.UseVisualStyleBackColor = true;
-			this.button2_createFolder.Click += new System.EventHandler(this.button2_createFolder_Click);
+			this.label9.Text = "Click to copy a password to the clipboard";
 			// 
 			// myEDI
 			// 
 			this.AutoSize = true;
 			this.BackColor = System.Drawing.SystemColors.ControlLight;
-			this.ClientSize = new System.Drawing.Size(694, 621);
-			this.Controls.Add(this.groupBox7);
-			this.Controls.Add(this.groupBox6);
+			this.ClientSize = new System.Drawing.Size(694, 566);
+			this.Controls.Add(this.pictureBox1);
 			this.Controls.Add(this.buttonCreateEDIDirs);
 			this.Controls.Add(this.buttonCreateDeployDirs);
 			this.Controls.Add(this.buttonOpenLW);
 			this.Controls.Add(this.buttonOpenSI);
-			this.Controls.Add(this.buttonOpenConsole);
 			this.Controls.Add(this.statusStrip1);
 			this.Controls.Add(this.menuStrip1);
 			this.Controls.Add(this.groupBox5);
@@ -677,8 +692,8 @@
 			this.Controls.Add(this.groupBox1);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MainMenuStrip = this.menuStrip1;
-			this.MaximumSize = new System.Drawing.Size(710, 660);
-			this.MinimumSize = new System.Drawing.Size(710, 660);
+			this.MaximumSize = new System.Drawing.Size(710, 605);
+			this.MinimumSize = new System.Drawing.Size(710, 605);
 			this.Name = "myEDI";
 			this.Text = "myEDI";
 			this.Load += new System.EventHandler(this.EDISupportTool_Load);
@@ -694,9 +709,7 @@
 			this.menuStrip1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.eventLog1)).EndInit();
-			this.groupBox6.ResumeLayout(false);
-			this.groupBox7.ResumeLayout(false);
-			this.groupBox7.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -727,10 +740,9 @@
 		private System.Windows.Forms.TextBox SRQidField;
 		private System.Windows.Forms.Label label7;
 		private System.Windows.Forms.ColorDialog colorDialog1;
-		private System.Windows.Forms.CheckBox checkBox1;
+		private System.Windows.Forms.CheckBox checkBox_RT;
 		private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
 		private System.Windows.Forms.Label label8;
-		private System.Windows.Forms.Button buttonOpenConsole;
 		private System.Windows.Forms.MenuStrip menuStrip1;
 		private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
@@ -741,7 +753,7 @@
 		private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
 		private System.Windows.Forms.ToolStripMenuItem minimizeToolStripMenuItem;
 		private System.Windows.Forms.Button buttonOpenSI;
-		private System.Windows.Forms.Button button5;
+		private System.Windows.Forms.Button button_local_deploy;
 		private System.IO.FileSystemWatcher fileSystemWatcher1;
 		private System.Windows.Forms.NotifyIcon notifyIcon1;
 		private System.Diagnostics.EventLog eventLog1;
@@ -749,23 +761,23 @@
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.Button buttonCL;
 		private System.Windows.Forms.ComboBox codeListComboBox;
-		private System.Windows.Forms.Button buttonGenerateRandomPassword;
 		private System.Windows.Forms.StatusStrip statusStrip1;
 		private System.Windows.Forms.Button buttonOpenLW;
 		private System.Windows.Forms.Button buttonCreateDeployDirs;
 		private System.Windows.Forms.Button buttonCreateEDIDirs;
-		private System.Windows.Forms.GroupBox groupBox6;
-		private System.Windows.Forms.Button button1;
 		private System.Windows.Forms.ToolStripMenuItem formsToolStripMenuItem;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.TextBox CHWnumberField;
-		private System.Windows.Forms.GroupBox groupBox7;
-		private System.Windows.Forms.TextBox textBox2_folder;
-		private System.Windows.Forms.TextBox textBox1_folder;
-		private System.Windows.Forms.Label label10;
-		private System.Windows.Forms.Label label9;
-		private System.Windows.Forms.Button button2_createFolder;
 		private System.Windows.Forms.Button extractRT_button;
+		private System.Windows.Forms.Button consoleQuery_button;
+		private System.Windows.Forms.CheckBox checkBox_Query;
+		private System.Windows.Forms.Label label11;
+		private System.Windows.Forms.Button button_logs;
+		private System.Windows.Forms.Button button_resources;
+		private System.Windows.Forms.Button button_reports;
+		private System.Windows.Forms.PictureBox pictureBox1;
+		private System.Windows.Forms.Button buttonGenerateRandomPassword;
+		private System.Windows.Forms.Label label9;
 	}
 }
 

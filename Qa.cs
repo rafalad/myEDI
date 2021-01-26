@@ -36,17 +36,6 @@ namespace EDISupportTool
 				File.AppendAllText(pathString, appendText, Encoding.UTF8);
 			}
 
-			File.AppendAllText(pathString, Environment.NewLine +
-											Environment.NewLine, Encoding.UTF8);
-
-			// szukam nazw RT, buduje składnie i dodaje do wygenerowanej notatki
-			string[] rt_array = Directory.GetFiles(set.DeployPath(), "*exp.xml", SearchOption.AllDirectories);
-			foreach (string file in rt_array)
-			{
-				string fileName = Path.GetFileName(file);
-				File.AppendAllText(pathString, "dsvimport.sh " + fileName + "; ", Encoding.UTF8);
-			}
-
 			Process.Start(pathString);
 
 			DateTime thisDay = DateTime.Today;

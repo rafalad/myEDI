@@ -11,6 +11,7 @@ using System.Runtime.InteropServices;
 using System.Windows.Forms.VisualStyles;
 using System.IO;
 using System.Runtime.CompilerServices;
+using System.Diagnostics;
 
 namespace EDISupportTool
 {
@@ -211,6 +212,44 @@ namespace EDISupportTool
 
         private void CreateNoteButton_Click(object sender, EventArgs e)
         {
+            string selected = deployComboBox.Text;
+
+            if (String.IsNullOrEmpty(selected))
+            {
+                MessageBox.Show(@"Please select the deployment environment first.", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                if (checkBox_RT.Checked)
+                {
+                    extractRT_button_Click(new object(), new EventArgs());
+                    if (checkBox_Query.Checked)
+                    {
+                        consoleQuery_button_Click(new object(), new EventArgs());
+                        note(new object(), new EventArgs());
+                    }
+                    else
+                    {
+                        note(new object(), new EventArgs());
+                    }
+                }
+                else
+                {
+                    if (checkBox_Query.Checked)
+                    {
+                        consoleQuery_button_Click(new object(), new EventArgs());
+                        note(new object(), new EventArgs());
+                    }
+                    else
+                    {
+                        note(new object(), new EventArgs());
+                    }
+                }
+            }
+        }
+
+        public void note(object sender, EventArgs e)
+        {
             Kit set = new Kit();
             string selected = this.deployComboBox.GetItemText(this.deployComboBox.SelectedItem); //wybieram zmienna z comboboxa
 
@@ -313,11 +352,6 @@ namespace EDISupportTool
 
         }
 
-        private void textBox1_folder_TextChanged(object sender, EventArgs e)
-        {
-            textBox1_folder.CharacterCasing = CharacterCasing.Upper;
-        }
-
         private void textBox2_folder_TextChanged(object sender, EventArgs e)
         {
             if (System.Text.RegularExpressions.Regex.IsMatch(SRQnumberField.Text, "[^0-9]"))
@@ -327,46 +361,9 @@ namespace EDISupportTool
             }
         }
 
-        private void button2_createFolder_Click(object sender, EventArgs e)
-        {
-            if (String.IsNullOrEmpty(textBox1_folder.Text))
-            {
-                if (String.IsNullOrEmpty(textBox2_folder.Text))
-                    MessageBox.Show("Enter the Folder Name you are working on, please.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+       
 
-            else
-            {
-                string folder_word = textBox1_folder.Text;
-                string folder_number = textBox2_folder.Text;
-                string folder_path_word = Path.Combine(@"C:\EDI", folder_word);
-                string folder_path_number = Path.Combine(@"C:\EDI", folder_number);
-                string folder_path_all = Path.Combine(@"C:\EDI", folder_word + "_" + folder_number);
-
-                if (String.IsNullOrEmpty(textBox2_folder.Text))
-                {
-                    Directory.CreateDirectory(folder_path_word);
-                    MessageBox.Show("RT folder has been created correctly at: " + folder_path_word, "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    /*
-                    if (String.IsNullOrEmpty(textBox1_folder.Text))
-                    {
-                        Directory.CreateDirectory(folder_path_number);
-                        MessageBox.Show("RT folder has been created correctly at: " + folder_path_number, "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    */
-
-                    Directory.CreateDirectory(folder_path_all);
-                    MessageBox.Show("RT folder has been created correctly at: " + folder_path_all, "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-
-                }
-            }
-        }
-
-		private void extractRT_button_Click(object sender, EventArgs e)
+		public void extractRT_button_Click(object sender, EventArgs e)
 		{
             Kit set = new Kit();
             int day = set.Day();
@@ -379,41 +376,52 @@ namespace EDISupportTool
 
             if (dirs.Count<string>() == 0) //jezeli nie ma paczek do wdrozenia
             {
-                MessageBox.Show(@"NO PACKAGE to deploy for today.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(@"Please upload the folder-package to C:\DEPLOYMENTS\DEPLOY\...because there is nothing to deploy for today.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else // jezeli paczki sa, to stworz foldery RT i LW i skopiuj pliki .xml
             {
-                string folder_rt = "RT";
-                string folder_lw = "LW";
-                string targetPath_RT = Path.Combine(@"C:\DEPLOYMENTS\RESOURCES\", folder_rt);
-                string tagretPath_LW = Path.Combine(@"C:\DEPLOYMENTS\RESOURCES\", folder_lw);
+                string targetPath_RT = Path.Combine(@"C:\DEPLOYMENTS\RESOURCES\", "RT");
+                string tagretPath_LW = Path.Combine(@"C:\DEPLOYMENTS\RESOURCES\", "LW");
+                string tagretPath_SQL = Path.Combine(@"C:\DEPLOYMENTS\RESOURCES\", "SQL");
 
                 int i = 0;
                 int j = 0;
+                int k = 0;
 
                 Directory.CreateDirectory(targetPath_RT);
                 Directory.CreateDirectory(tagretPath_LW);
+                Directory.CreateDirectory(tagretPath_SQL);
 
                 string[] rt_array = Directory.GetFiles(set.DeployPath(), "*exp.xml", SearchOption.AllDirectories);
-                foreach (string file in rt_array)
+                foreach (string rt_file in rt_array)
                 {
                     i = i + 1;
-                    string fileName = Path.GetFileName(file);
+                    string fileName = Path.GetFileName(rt_file);
                     string destFile = Path.Combine(targetPath_RT, fileName);
-                    File.Copy(file, destFile, true);
+                    File.Copy(rt_file, destFile, true);
                 }
 
                 string[] lw_array = Directory.GetFiles(set.DeployPath(), "*_f*.xml", SearchOption.AllDirectories);
-                foreach (string file in lw_array)
+                foreach (string lw_file in lw_array)
                 {
                     j = j + 1;
-                    string fileName = Path.GetFileName(file);
+                    string fileName = Path.GetFileName(lw_file);
                     string destFile = Path.Combine(tagretPath_LW, fileName);
-                    File.Copy(file, destFile, true);
+                    File.Copy(lw_file, destFile, true);
+                }
+
+                string[] sql_array = Directory.GetFiles(set.DeployPath(), "*.sql", SearchOption.AllDirectories);
+                foreach (string sql_file in sql_array)
+                {
+                    k = k + 1;
+                    string fileName = Path.GetFileName(sql_file);
+                    string destFile = Path.Combine(tagretPath_SQL, fileName);
+                    File.Copy(sql_file, destFile, true);
                 }
 
                 MessageBox.Show(@"RT exported files:  "+ i + Environment.NewLine +
-                                @"LW exported files:  "+ j, 
+                                @"LW exported files:  "+ j + Environment.NewLine +
+                                @"SQL exported files:  " + k,
                                 "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             
@@ -421,12 +429,57 @@ namespace EDISupportTool
 
 		private void button5_Click(object sender, EventArgs e)
 		{
-
-		}
+            Process.Start(@"C:\DEPLOYMENTS\DEPLOY");
+        }
 
 		private void checkBox1_CheckedChanged(object sender, EventArgs e)
 		{
+            if (checkBox_RT.Checked)
+            {
+                extractRT_button.Enabled = true;
+            }
+            else
+            {
+                extractRT_button.Enabled = false;
+            }
+        }
 
+		private void button_logs_Click(object sender, EventArgs e)
+		{
+            Process.Start(@"C:\DEPLOYMENTS\My_Logs.txt");
+        }
+
+		private void button_resources_Click(object sender, EventArgs e)
+		{
+            Process.Start(@"C:\DEPLOYMENTS\RESOURCES");
+        }
+
+		private void button_reports_Click(object sender, EventArgs e)
+		{
+            Process.Start(@"C:\DEPLOYMENTS\Reports");
+        }
+
+		private void pictureBox1_Click(object sender, EventArgs e)
+		{
+
+        }
+
+		private void checkBox2_CheckedChanged(object sender, EventArgs e)
+		{
+            if (checkBox_Query.Checked)
+            {
+                consoleQuery_button.Enabled = true;
+            }
+            else
+            {
+                consoleQuery_button.Enabled = false;
+            }
+        }
+
+		private void consoleQuery_button_Click(object sender, EventArgs e)
+		{
+            ConsoleQuery query = new ConsoleQuery();
+            query.Query();
 		}
 	}
 }

@@ -8,6 +8,7 @@ using System.Globalization;
 using System.Diagnostics;
 using System.Threading;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace EDISupportTool
 {
@@ -25,8 +26,8 @@ namespace EDISupportTool
         public int folder_counter;
 
 
-        // Zwraca numer tygodnia
-        public int Week()
+		// Zwraca numer tygodnia
+		public int Week()
         {
             CultureInfo myCI = new CultureInfo("en-US");
             Calendar myCal = myCI.Calendar;
