@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using System.Globalization;
 
 namespace EDISupportTool
 {
@@ -22,7 +23,7 @@ namespace EDISupportTool
 				string lastname = credentials.Substring(dot + 1);
 
 				string login = name.Remove(2) + lastname.Remove(2);
-				return login;
+				return login.ToLower();
 			}
 
 			catch (Exception ex) //w przypadku bledu konwersji zwroc cala nazwe uzytkownika
