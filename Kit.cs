@@ -252,7 +252,7 @@ namespace EDISupportTool
 
                 if (dirs.Count<string>() == 0)
                 {
-                    MessageBox.Show(@"Please upload the folder-package to C:\DEPLOYMENTS\DEPLOY\...because there is nothing to deploy for today.");
+                    MessageBox.Show(@"Please upload the folder-package to C:\DEPLOYMENTS\DEPLOY\...because there is nothing to deploy for today.", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {

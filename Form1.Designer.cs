@@ -33,8 +33,11 @@
 			this.label3 = new System.Windows.Forms.Label();
 			this.CreateNoteButton = new System.Windows.Forms.Button();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.label9 = new System.Windows.Forms.Label();
+			this.buttonGenerateRandomPassword = new System.Windows.Forms.Button();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
 			this.groupBox3 = new System.Windows.Forms.GroupBox();
+			this.button_SSH = new System.Windows.Forms.Button();
 			this.button_reports = new System.Windows.Forms.Button();
 			this.button_resources = new System.Windows.Forms.Button();
 			this.extractRT_button = new System.Windows.Forms.Button();
@@ -80,8 +83,9 @@
 			this.buttonCreateDeployDirs = new System.Windows.Forms.Button();
 			this.buttonCreateEDIDirs = new System.Windows.Forms.Button();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
-			this.buttonGenerateRandomPassword = new System.Windows.Forms.Button();
-			this.label9 = new System.Windows.Forms.Label();
+			this.button1 = new System.Windows.Forms.Button();
+			this.user = new System.Windows.Forms.Label();
+			this.ver = new System.Windows.Forms.Label();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			this.groupBox3.SuspendLayout();
@@ -147,14 +151,14 @@
 			this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.label3.Location = new System.Drawing.Point(6, 35);
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(221, 56);
+			this.label3.Size = new System.Drawing.Size(221, 83);
 			this.label3.TabIndex = 10;
 			this.label3.Text = "Please select the deployment environments:";
 			// 
 			// CreateNoteButton
 			// 
 			this.CreateNoteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.CreateNoteButton.Location = new System.Drawing.Point(9, 169);
+			this.CreateNoteButton.Location = new System.Drawing.Point(9, 162);
 			this.CreateNoteButton.Name = "CreateNoteButton";
 			this.CreateNoteButton.Size = new System.Drawing.Size(213, 33);
 			this.CreateNoteButton.TabIndex = 11;
@@ -174,10 +178,31 @@
 			this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.groupBox1.Location = new System.Drawing.Point(269, 295);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(270, 84);
+			this.groupBox1.Size = new System.Drawing.Size(270, 105);
 			this.groupBox1.TabIndex = 14;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Password Generator";
+			// 
+			// label9
+			// 
+			this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.label9.Location = new System.Drawing.Point(19, 25);
+			this.label9.Name = "label9";
+			this.label9.Size = new System.Drawing.Size(208, 15);
+			this.label9.TabIndex = 9;
+			this.label9.Text = "Click to copy a password to the clipboard";
+			// 
+			// buttonGenerateRandomPassword
+			// 
+			this.buttonGenerateRandomPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.buttonGenerateRandomPassword.Location = new System.Drawing.Point(134, 48);
+			this.buttonGenerateRandomPassword.Name = "buttonGenerateRandomPassword";
+			this.buttonGenerateRandomPassword.Size = new System.Drawing.Size(118, 26);
+			this.buttonGenerateRandomPassword.TabIndex = 23;
+			this.buttonGenerateRandomPassword.TabStop = false;
+			this.buttonGenerateRandomPassword.Text = "Go";
+			this.buttonGenerateRandomPassword.UseVisualStyleBackColor = true;
+			this.buttonGenerateRandomPassword.Click += new System.EventHandler(this.buttonGenerateRandomPassword_Click);
 			// 
 			// groupBox2
 			// 
@@ -185,15 +210,16 @@
 			this.groupBox2.Controls.Add(this.textBoxAddUserLDAP);
 			this.groupBox2.Controls.Add(this.addButton);
 			this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.groupBox2.Location = new System.Drawing.Point(269, 385);
+			this.groupBox2.Location = new System.Drawing.Point(269, 418);
 			this.groupBox2.Name = "groupBox2";
-			this.groupBox2.Size = new System.Drawing.Size(270, 156);
+			this.groupBox2.Size = new System.Drawing.Size(270, 123);
 			this.groupBox2.TabIndex = 15;
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "LDAP addUser File Creator";
 			// 
 			// groupBox3
 			// 
+			this.groupBox3.Controls.Add(this.button_SSH);
 			this.groupBox3.Controls.Add(this.button_reports);
 			this.groupBox3.Controls.Add(this.button_resources);
 			this.groupBox3.Controls.Add(this.extractRT_button);
@@ -212,15 +238,27 @@
 			this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.groupBox3.Location = new System.Drawing.Point(12, 42);
 			this.groupBox3.Name = "groupBox3";
-			this.groupBox3.Size = new System.Drawing.Size(241, 337);
+			this.groupBox3.Size = new System.Drawing.Size(241, 364);
 			this.groupBox3.TabIndex = 16;
 			this.groupBox3.TabStop = false;
 			this.groupBox3.Text = "Deployment Note Wizard";
 			// 
+			// button_SSH
+			// 
+			this.button_SSH.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.button_SSH.Location = new System.Drawing.Point(36, 206);
+			this.button_SSH.Name = "button_SSH";
+			this.button_SSH.Size = new System.Drawing.Size(164, 34);
+			this.button_SSH.TabIndex = 35;
+			this.button_SSH.TabStop = false;
+			this.button_SSH.Text = "Open SSH Session";
+			this.button_SSH.UseVisualStyleBackColor = true;
+			this.button_SSH.Click += new System.EventHandler(this.button_SSH_Click);
+			// 
 			// button_reports
 			// 
 			this.button_reports.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.button_reports.Location = new System.Drawing.Point(36, 293);
+			this.button_reports.Location = new System.Drawing.Point(36, 324);
 			this.button_reports.Name = "button_reports";
 			this.button_reports.Size = new System.Drawing.Size(80, 34);
 			this.button_reports.TabIndex = 34;
@@ -232,7 +270,7 @@
 			// button_resources
 			// 
 			this.button_resources.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.button_resources.Location = new System.Drawing.Point(36, 253);
+			this.button_resources.Location = new System.Drawing.Point(36, 284);
 			this.button_resources.Name = "button_resources";
 			this.button_resources.Size = new System.Drawing.Size(80, 34);
 			this.button_resources.TabIndex = 33;
@@ -244,7 +282,7 @@
 			// extractRT_button
 			// 
 			this.extractRT_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.extractRT_button.Location = new System.Drawing.Point(120, 215);
+			this.extractRT_button.Location = new System.Drawing.Point(120, 246);
 			this.extractRT_button.Name = "extractRT_button";
 			this.extractRT_button.Size = new System.Drawing.Size(80, 34);
 			this.extractRT_button.TabIndex = 27;
@@ -256,7 +294,7 @@
 			// button_logs
 			// 
 			this.button_logs.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.button_logs.Location = new System.Drawing.Point(120, 293);
+			this.button_logs.Location = new System.Drawing.Point(120, 324);
 			this.button_logs.Name = "button_logs";
 			this.button_logs.Size = new System.Drawing.Size(80, 34);
 			this.button_logs.TabIndex = 32;
@@ -268,7 +306,7 @@
 			// consoleQuery_button
 			// 
 			this.consoleQuery_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.consoleQuery_button.Location = new System.Drawing.Point(120, 253);
+			this.consoleQuery_button.Location = new System.Drawing.Point(120, 284);
 			this.consoleQuery_button.Name = "consoleQuery_button";
 			this.consoleQuery_button.Size = new System.Drawing.Size(80, 34);
 			this.consoleQuery_button.TabIndex = 30;
@@ -300,7 +338,7 @@
 			this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.label11.Location = new System.Drawing.Point(41, 136);
 			this.label11.Name = "label11";
-			this.label11.Size = new System.Drawing.Size(123, 15);
+			this.label11.Size = new System.Drawing.Size(123, 17);
 			this.label11.TabIndex = 28;
 			this.label11.Text = "Create a console query:";
 			// 
@@ -314,6 +352,7 @@
 			this.richTextBoxSelectedEnv.TabIndex = 26;
 			this.richTextBoxSelectedEnv.TabStop = false;
 			this.richTextBoxSelectedEnv.Text = "not selected";
+			this.richTextBoxSelectedEnv.TextChanged += new System.EventHandler(this.richTextBoxSelectedEnv_TextChanged);
 			// 
 			// label5
 			// 
@@ -323,14 +362,14 @@
 			this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.label5.Location = new System.Drawing.Point(6, 86);
 			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(113, 18);
+			this.label5.Size = new System.Drawing.Size(94, 18);
 			this.label5.TabIndex = 26;
 			this.label5.Text = "Selected env.";
 			// 
 			// button_local_deploy
 			// 
 			this.button_local_deploy.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.button_local_deploy.Location = new System.Drawing.Point(36, 215);
+			this.button_local_deploy.Location = new System.Drawing.Point(36, 246);
 			this.button_local_deploy.Name = "button_local_deploy";
 			this.button_local_deploy.Size = new System.Drawing.Size(80, 34);
 			this.button_local_deploy.TabIndex = 25;
@@ -458,9 +497,9 @@
 			this.groupBox5.Controls.Add(this.codeListComboBox);
 			this.groupBox5.Controls.Add(this.label8);
 			this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.groupBox5.Location = new System.Drawing.Point(12, 385);
+			this.groupBox5.Location = new System.Drawing.Point(12, 418);
 			this.groupBox5.Name = "groupBox5";
-			this.groupBox5.Size = new System.Drawing.Size(241, 156);
+			this.groupBox5.Size = new System.Drawing.Size(241, 123);
 			this.groupBox5.TabIndex = 17;
 			this.groupBox5.TabStop = false;
 			this.groupBox5.Text = "Code List Creator";
@@ -652,32 +691,46 @@
 			this.pictureBox1.TabStop = false;
 			this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
 			// 
-			// buttonGenerateRandomPassword
+			// button1
 			// 
-			this.buttonGenerateRandomPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.buttonGenerateRandomPassword.Location = new System.Drawing.Point(134, 48);
-			this.buttonGenerateRandomPassword.Name = "buttonGenerateRandomPassword";
-			this.buttonGenerateRandomPassword.Size = new System.Drawing.Size(118, 26);
-			this.buttonGenerateRandomPassword.TabIndex = 23;
-			this.buttonGenerateRandomPassword.TabStop = false;
-			this.buttonGenerateRandomPassword.Text = "Go";
-			this.buttonGenerateRandomPassword.UseVisualStyleBackColor = true;
-			this.buttonGenerateRandomPassword.Click += new System.EventHandler(this.buttonGenerateRandomPassword_Click);
+			this.button1.Location = new System.Drawing.Point(555, 163);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(120, 26);
+			this.button1.TabIndex = 30;
+			this.button1.TabStop = false;
+			this.button1.Text = "Create EDI Dirs";
+			this.button1.UseVisualStyleBackColor = true;
 			// 
-			// label9
+			// user
 			// 
-			this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.label9.Location = new System.Drawing.Point(19, 25);
-			this.label9.Name = "label9";
-			this.label9.Size = new System.Drawing.Size(208, 15);
-			this.label9.TabIndex = 9;
-			this.label9.Text = "Click to copy a password to the clipboard";
+			this.user.BackColor = System.Drawing.SystemColors.MenuBar;
+			this.user.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.user.Location = new System.Drawing.Point(381, 546);
+			this.user.Name = "user";
+			this.user.Size = new System.Drawing.Size(294, 16);
+			this.user.TabIndex = 23;
+			this.user.Text = "login";
+			this.user.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			// 
+			// ver
+			// 
+			this.ver.BackColor = System.Drawing.SystemColors.MenuBar;
+			this.ver.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.ver.Location = new System.Drawing.Point(9, 546);
+			this.ver.Name = "ver";
+			this.ver.Size = new System.Drawing.Size(294, 16);
+			this.ver.TabIndex = 31;
+			this.ver.Text = "version";
+			this.ver.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// myEDI
 			// 
 			this.AutoSize = true;
 			this.BackColor = System.Drawing.SystemColors.ControlLight;
 			this.ClientSize = new System.Drawing.Size(694, 566);
+			this.Controls.Add(this.ver);
+			this.Controls.Add(this.user);
+			this.Controls.Add(this.button1);
 			this.Controls.Add(this.pictureBox1);
 			this.Controls.Add(this.buttonCreateEDIDirs);
 			this.Controls.Add(this.buttonCreateDeployDirs);
@@ -778,6 +831,10 @@
 		private System.Windows.Forms.PictureBox pictureBox1;
 		private System.Windows.Forms.Button buttonGenerateRandomPassword;
 		private System.Windows.Forms.Label label9;
+		private System.Windows.Forms.Button button_SSH;
+		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.Label user;
+		private System.Windows.Forms.Label ver;
 	}
 }
 

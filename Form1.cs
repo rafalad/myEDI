@@ -40,6 +40,13 @@ namespace EDISupportTool
         public myEDI()
         {
             this.InitializeComponent();
+            LoginDSV login = new LoginDSV();
+
+            string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+
+            user.Text = "Logged as: " + userName + " " + "(" + login.Login() + ")";
+
+            ver.Text = "v" + Application.ProductVersion;
         }
         private void OnWyswietlKomunikat(object sender, EventArgs ea)
         {
@@ -54,7 +61,7 @@ namespace EDISupportTool
         {
             if (String.IsNullOrEmpty(textBoxAddUserLDAP.Text))
             {
-                MessageBox.Show("Enter user account name please.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Enter user account name please.", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
@@ -63,7 +70,7 @@ namespace EDISupportTool
                 string path = Path.Combine(@"C:\EDI\", fileName);
                 File.WriteAllLines(path, lines);
 
-                MessageBox.Show(@"File has been created in C:\EDI\", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(@"File has been created in C:\EDI\", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -76,7 +83,7 @@ namespace EDISupportTool
         {
             if (System.Text.RegularExpressions.Regex.IsMatch(SRQnumberField.Text, "[^0-9]"))
             {
-                MessageBox.Show("Please enter only digits.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please enter only digits.", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 SRQnumberField.Text = SRQnumberField.Text.Remove(SRQnumberField.Text.Length - 1);
             }
         }
@@ -99,7 +106,8 @@ namespace EDISupportTool
 
         private void aboutToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Developed by: " + Environment.NewLine + "" + Environment.NewLine +
+            MessageBox.Show("myEDI v1.1.0.2" + Environment.NewLine + "" + Environment.NewLine +
+                "Developed by: " + Environment.NewLine + "" + Environment.NewLine +
                 "rafal.adamczyk@dsv.com" + Environment.NewLine + Environment.NewLine +
                 "EDI Support Team®", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
@@ -124,11 +132,11 @@ namespace EDISupportTool
             {
                 if (String.IsNullOrEmpty(SRQnumberField.Text))
                 {
-                    MessageBox.Show("Enter the SRQ/ID values you are working on, please.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Please enter the SRQ/ID values you are working on,", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else if (String.IsNullOrEmpty(SRQidField.Text))
                 {
-                    MessageBox.Show("Enter any name which refers to the task, please.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Enter any name which refers to the task, please.", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
                 else
@@ -138,7 +146,7 @@ namespace EDISupportTool
                     string folder_path = Path.Combine(@"C:\EDI", folder_name);
                     Directory.CreateDirectory(folder_path);
 
-                    MessageBox.Show("RT folder has been created correctly at: " + folder_path, "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("RT folder has been created correctly at: " + folder_path, "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             else
@@ -169,7 +177,7 @@ namespace EDISupportTool
                 {
                     if (String.IsNullOrEmpty(SRQidField.Text))
                     {
-                        MessageBox.Show("Enter any name which refers to the task, please.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Please enter any name which refers to the task, .", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
 
                     else
@@ -178,14 +186,14 @@ namespace EDISupportTool
                         string path = Path.Combine(@"C:\EDI", folder);
                         Directory.CreateDirectory(path);
 
-                        MessageBox.Show("RT folder has been created correctly at: " + path, "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("RT folder has been created correctly at: " + path, "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
                 else
                 {
                     if (String.IsNullOrEmpty(SRQidField.Text))
                     {
-                        MessageBox.Show("Enter any name which refers to the task, please.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Enter any name which refers to the task, please.", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
 
                     else
@@ -194,7 +202,7 @@ namespace EDISupportTool
                         string path = Path.Combine(@"C:\EDI", folder);
                         Directory.CreateDirectory(path);
 
-                        MessageBox.Show("RT folder has been created correctly at: " + path, "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("RT folder has been created correctly at: " + path, "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
             }
@@ -212,14 +220,6 @@ namespace EDISupportTool
 
         private void CreateNoteButton_Click(object sender, EventArgs e)
         {
-            string selected = deployComboBox.Text;
-
-            if (String.IsNullOrEmpty(selected))
-            {
-                MessageBox.Show(@"Please select the deployment environment first.", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else
-            {
                 if (checkBox_RT.Checked)
                 {
                     extractRT_button_Click(new object(), new EventArgs());
@@ -245,7 +245,6 @@ namespace EDISupportTool
                         note(new object(), new EventArgs());
                     }
                 }
-            }
         }
 
         public void note(object sender, EventArgs e)
@@ -356,7 +355,7 @@ namespace EDISupportTool
         {
             if (System.Text.RegularExpressions.Regex.IsMatch(SRQnumberField.Text, "[^0-9]"))
             {
-                MessageBox.Show("Please enter only digits.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please enter only digits.", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 SRQnumberField.Text = SRQnumberField.Text.Remove(SRQnumberField.Text.Length - 1);
             }
         }
@@ -376,7 +375,7 @@ namespace EDISupportTool
 
             if (dirs.Count<string>() == 0) //jezeli nie ma paczek do wdrozenia
             {
-                MessageBox.Show(@"Please upload the folder-package to C:\DEPLOYMENTS\DEPLOY\...because there is nothing to deploy for today.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(@"Please upload the folder-package to C:\DEPLOYMENTS\DEPLOY\...because there is nothing to deploy for today.", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else // jezeli paczki sa, to stworz foldery RT i LW i skopiuj pliki .xml
             {
@@ -480,6 +479,74 @@ namespace EDISupportTool
 		{
             ConsoleQuery query = new ConsoleQuery();
             query.Query();
+		}
+
+		private void button_SSH_Click(object sender, EventArgs e)
+		{
+            string selected = this.deployComboBox.GetItemText(this.deployComboBox.SelectedItem); //wybieram zmienna z comboboxa
+
+            if (String.IsNullOrEmpty(selected)) // jezeli nie wybrano srodowiska
+            {
+                    MessageBox.Show("Please select the deployment environment first.", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else // jezeli wybrano srodowisko, to kontynuuj dla wybranego srodowiska
+            {
+                if (selected == "QA only")
+                {
+                ProcessStartInfo cmd = new ProcessStartInfo();
+                cmd.FileName = @"C:\Program Files\PuTTY\putty.exe";
+                cmd.UseShellExecute = false;
+                cmd.RedirectStandardInput = false;
+                cmd.RedirectStandardOutput = true;
+                cmd.Arguments = "-ssh qsiapp1.dsv.com 22 ";
+                    using (Process process = Process.Start(cmd))
+                    {
+                            process.WaitForExit();
+                    }
+                }
+                else if (selected == "PROD only")
+                {
+                ProcessStartInfo cmd = new ProcessStartInfo();
+                cmd.FileName = @"C:\Program Files\PuTTY\putty.exe";
+                cmd.UseShellExecute = false;
+                cmd.RedirectStandardInput = false;
+                cmd.RedirectStandardOutput = true;
+                cmd.Arguments = "-ssh psiapp1.dsv.com 22 ";
+                    using (Process process = Process.Start(cmd))
+                    {
+                        process.WaitForExit();
+                    }
+                }
+                else if (selected == "both - QA & PROD")
+                {
+                ProcessStartInfo cmd1 = new ProcessStartInfo();
+                cmd1.FileName = @"C:\Program Files\PuTTY\putty.exe";
+                cmd1.UseShellExecute = false;
+                cmd1.RedirectStandardInput = false;
+                cmd1.RedirectStandardOutput = true;
+                cmd1.Arguments = "-ssh qsiapp1.dsv.com 22 ";
+                using (Process process = Process.Start(cmd1))
+                    {
+                        process.WaitForExit();
+                    }
+
+                ProcessStartInfo cmd2 = new ProcessStartInfo();
+                cmd2.FileName = @"C:\Program Files\PuTTY\putty.exe";
+                cmd2.UseShellExecute = false;
+                cmd2.RedirectStandardInput = false;
+                cmd2.RedirectStandardOutput = true;
+                cmd2.Arguments = "-ssh psiapp1.dsv.com 22 ";
+                using (Process process = Process.Start(cmd2))
+                    {
+                        process.WaitForExit();
+                    }
+                }
+            }
+        }
+
+		private void richTextBoxSelectedEnv_TextChanged(object sender, EventArgs e)
+		{
+
 		}
 	}
 }

@@ -30,7 +30,7 @@ namespace EDISupportTool
 
             if (dirs.Count<string>() == 0) //jezeli nie ma folderow do wdrozenia
             {
-                MessageBox.Show(@"Please upload the folder-package to C:\DEPLOYMENTS\DEPLOY\...because there is nothing to deploy for today.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(@"Please upload the folder-package to C:\DEPLOYMENTS\DEPLOY\...because there is nothing to deploy for today.", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else // jezeli folder sa
             {
