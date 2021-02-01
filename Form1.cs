@@ -483,6 +483,8 @@ namespace EDISupportTool
 
 		private void button_SSH_Click(object sender, EventArgs e)
 		{
+            LoginDSV login = new LoginDSV();
+
             string selected = this.deployComboBox.GetItemText(this.deployComboBox.SelectedItem); //wybieram zmienna z comboboxa
 
             if (String.IsNullOrEmpty(selected)) // jezeli nie wybrano srodowiska
@@ -498,7 +500,7 @@ namespace EDISupportTool
                 cmd.UseShellExecute = false;
                 cmd.RedirectStandardInput = false;
                 cmd.RedirectStandardOutput = true;
-                cmd.Arguments = "-ssh qsiapp1.dsv.com 22 ";
+                    cmd.Arguments = "-ssh " + login.Login() + "@" + "qsiapp1.dsv.com" + " 22 " + "-pw " + login.Login()+"";
                     using (Process process = Process.Start(cmd))
                     {
                             process.WaitForExit();
@@ -511,7 +513,7 @@ namespace EDISupportTool
                 cmd.UseShellExecute = false;
                 cmd.RedirectStandardInput = false;
                 cmd.RedirectStandardOutput = true;
-                cmd.Arguments = "-ssh psiapp1.dsv.com 22 ";
+                    cmd.Arguments = "-ssh " + login.Login() + "@" + "psiapp1.dsv.com" + " 22 " + "-pw " + login.Login() + "";
                     using (Process process = Process.Start(cmd))
                     {
                         process.WaitForExit();
@@ -524,8 +526,8 @@ namespace EDISupportTool
                 cmd1.UseShellExecute = false;
                 cmd1.RedirectStandardInput = false;
                 cmd1.RedirectStandardOutput = true;
-                cmd1.Arguments = "-ssh qsiapp1.dsv.com 22 ";
-                using (Process process = Process.Start(cmd1))
+                    cmd1.Arguments = "-ssh " + login.Login() + "@" + "qsiapp1.dsv.com" + " 22 " + "-pw " + login.Login() + "";
+                    using (Process process = Process.Start(cmd1))
                     {
                         process.WaitForExit();
                     }
@@ -535,8 +537,8 @@ namespace EDISupportTool
                 cmd2.UseShellExecute = false;
                 cmd2.RedirectStandardInput = false;
                 cmd2.RedirectStandardOutput = true;
-                cmd2.Arguments = "-ssh psiapp1.dsv.com 22 ";
-                using (Process process = Process.Start(cmd2))
+                    cmd2.Arguments = "-ssh " + login.Login() + "@" + "psiapp1.dsv.com" + " 22 " + "-pw " + login.Login() + "";
+                    using (Process process = Process.Start(cmd2))
                     {
                         process.WaitForExit();
                     }
