@@ -12,6 +12,7 @@ using System.Windows.Forms.VisualStyles;
 using System.IO;
 using System.Runtime.CompilerServices;
 using System.Diagnostics;
+using System.Net;
 
 
 namespace EDISupportTool
@@ -41,13 +42,34 @@ namespace EDISupportTool
         public myEDI()
         {
             this.InitializeComponent();
+
             LoginDSV login = new LoginDSV();
+            WebClient webClient = new WebClient();
 
             string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
 
             user.Text = "Logged as: " + userName + " " + "(" + login.Login() + ")";
 
             ver.Text = "v" + Application.ProductVersion;
+
+            try
+            {
+                if (!webClient.DownloadString("https://pastebin.com/raw/qiJ05NWB").Contains("1.1.0.4"))
+                {
+                    if (MessageBox.Show("A new version of myEDI is avaiable. \n Would you like to update now?", "myEDI", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        using (var client = new WebClient())
+                        {
+                            Process.Start("Updater_myEDI.exe");
+                            this.Close();
+                        }
+                }
+            }
+
+            catch
+            {
+
+            }
+
         }
         private void OnWyswietlKomunikat(object sender, EventArgs ea)
         {
@@ -107,7 +129,7 @@ namespace EDISupportTool
 
         private void aboutToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("myEDI v1.1.0.2" + Environment.NewLine + "" + Environment.NewLine +
+            MessageBox.Show("myEDI " + ver.Text + Environment.NewLine + "" + Environment.NewLine +
                 "Developed by: " + Environment.NewLine + "" + Environment.NewLine +
                 "rafal.adamczyk@dsv.com" + Environment.NewLine + Environment.NewLine +
                 "EDI Support Team®", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Information);
