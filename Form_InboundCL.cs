@@ -28,7 +28,7 @@ namespace EDISupportTool
 		{
 			textBoxChildD_inbound.CharacterCasing = CharacterCasing.Upper;
 		}
-
+		
 		private void textBoxParentID_inbound_TextChanged(object sender, EventArgs e)
 		{
 			textBoxParentID_inbound.CharacterCasing = CharacterCasing.Upper;

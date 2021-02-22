@@ -17,7 +17,8 @@ namespace EDISupportTool
 			Kit set = new Kit();
 
 			string pathString = Path.Combine(set.deploymentsdir, "query.txt");
-
+			File.WriteAllText(pathString, string.Empty);
+			
 			int day = set.Day();
             string month = set.Month();
 
@@ -30,7 +31,7 @@ namespace EDISupportTool
 
             if (dirs.Count<string>() == 0) //jezeli nie ma folderow do wdrozenia
             {
-                MessageBox.Show(@"Please upload the folder-package to C:\DEPLOYMENTS\DEPLOY\...because there is nothing to deploy for today.", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                
             }
             else // jezeli folder sa
             {

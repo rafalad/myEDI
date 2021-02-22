@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Diagnostics;
+using System.Windows.Forms;
 
 namespace EDISupportTool
 {
@@ -26,7 +27,6 @@ namespace EDISupportTool
 			{
 				string appendText = Path.GetFileName(folder) + Environment.NewLine;
 				File.AppendAllText(pathString, appendText, Encoding.UTF8);
-
 			}
 
 			string[] pliki = Directory.GetFiles(set.DeployPath(), "*.xls*");
@@ -35,9 +35,12 @@ namespace EDISupportTool
 				string appendText = Path.GetFileName(plik) + Environment.NewLine;
 				File.AppendAllText(pathString, appendText, Encoding.UTF8);
 			}
+			
+			//Process.Start(pathString);
 
-			Process.Start(pathString);
 
+			///Logs section ////
+			
 			DateTime thisDay = DateTime.Today;
 			string logPath = @"C:\DEPLOYMENTS\My_Logs.txt";
 

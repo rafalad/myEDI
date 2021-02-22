@@ -52,9 +52,12 @@ namespace EDISupportTool
 
             ver.Text = "v" + Application.ProductVersion;
 
+            listBox1.Items.Add("App is ready to use and waiting for your commands...");
+            
+
             try
             {
-                if (!webClient.DownloadString("https://pastebin.com/raw/qiJ05NWB").Contains("1.1.0.4"))
+                if (!webClient.DownloadString("https://pastebin.com/raw/qiJ05NWB").Contains("1.1.0.5"))
                 {
                     if (MessageBox.Show("A new version of myEDI is avaiable. \n Would you like to update now?", "myEDI", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         using (var client = new WebClient())
@@ -243,6 +246,8 @@ namespace EDISupportTool
 
         private void CreateNoteButton_Click(object sender, EventArgs e)
         {
+            
+            listBox1.Items.Clear();
                 if (checkBox_RT.Checked)
                 {
                     extractRT_button_Click(new object(), new EventArgs());
@@ -297,19 +302,60 @@ namespace EDISupportTool
                 }
                 else // jezeli wybrano srodowisko, to zwroc informacje i kontynuuj dla wybranego srodowiska
                 {
-                    MessageBox.Show(dirs.Count<string>().ToString() + " directories found. Click OK to continue...", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //MessageBox.Show(dirs.Count<string>().ToString() + " directories found. Click OK to continue...", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     if (selected == "QA only")
                     {
                         new Qa();
+
+                        string pathString = Path.Combine(set.deploymentsdir, "note.txt");
+
+                        string[] lines = File.ReadAllLines(pathString);
+                        listBox1.Items.Add("Note for MS Teams:");
+                        listBox1.Items.Add("");
+
+                        foreach (string line in lines)
+                        {
+                            listBox1.Items.Add(line);
+                        }
+
+                        MessageBox.Show("Completed.", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                     }
                     else if (selected == "PROD only")
                     {
                         new Prod();
+
+                        string pathString = Path.Combine(set.deploymentsdir, "note.txt");
+
+                        string[] lines = File.ReadAllLines(pathString);
+                        listBox1.Items.Add("Note for MS Teams:");
+                        listBox1.Items.Add("");
+
+                        foreach (string line in lines)
+                        {
+                            listBox1.Items.Add(line);
+                        }
+
+                        MessageBox.Show("Completed.", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                     }
                     else if (selected == "both - QA & PROD")
                     {
                         new Qaprod();
+
+                        string pathString = Path.Combine(set.deploymentsdir, "note.txt");
+
+                        string[] lines = File.ReadAllLines(pathString);
+                        listBox1.Items.Add("Note for MS Teams:");
+                        listBox1.Items.Add("");
+
+                        foreach (string line in lines)
+                        {
+                            listBox1.Items.Add(line);
+                        }
+
+                        MessageBox.Show("Completed.", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
             }
@@ -501,8 +547,10 @@ namespace EDISupportTool
 		private void consoleQuery_button_Click(object sender, EventArgs e)
 		{
             ConsoleQuery query = new ConsoleQuery();
+            Kit set = new Kit();
+
             query.Query();
-		}
+        }
 
 		private void button_SSH_Click(object sender, EventArgs e)
 		{
@@ -570,6 +618,83 @@ namespace EDISupportTool
         }
 
 		private void richTextBoxSelectedEnv_TextChanged(object sender, EventArgs e)
+		{
+
+		}
+
+		private void button1_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void deployDirsToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+            Kit set = new Kit();
+            set.CreateDirDEPLOYMENTS();
+        }
+
+		private void eDIDirsToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+            Kit set = new Kit();
+            set.CreateDirEDI();
+        }
+
+		private void sIToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+            System.Diagnostics.Process.Start("http://dsidb1:15501/dashboard/");
+            System.Diagnostics.Process.Start("http://tsiapp1:15501/dashboard/");
+            System.Diagnostics.Process.Start("http://qsiapp1:15501/dashboard/");
+            System.Diagnostics.Process.Start("http://psiapp1:15501/dashboard/");
+        }
+
+		private void lightwellToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+            System.Diagnostics.Process.Start("http://dsidb2:16680/lw/client/index.html#/login");
+            System.Diagnostics.Process.Start("http://tsiapp2:16680/lw/client/index.html#/login");
+            System.Diagnostics.Process.Start("http://qsiapp2:16680/lw/client/index.html#/login");
+            System.Diagnostics.Process.Start("http://psiapp2:16680/lw/client/index.html#/login");
+        }
+
+		private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+		{
+            Clipboard.SetText(string.Join(Environment.NewLine, listBox1.Items.OfType<string>())); /// aby móc kopiować zawartość listboxa do schowka
+        }
+
+		private void button_modify_Click(object sender, EventArgs e)
+		{
+            if (String.IsNullOrEmpty(textBoxAddUserLDAP.Text))
+            {
+                MessageBox.Show("Enter user account name please.", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                string fileName = "modifyPassword_" + textBoxAddUserLDAP.Text + ".txt";
+                string[] lines = { "userName=" + textBoxAddUserLDAP.Text, "password=" + PasswordGenerator.NewPasswordforFile() };
+                string path = Path.Combine(@"C:\EDI\", fileName);
+                File.WriteAllLines(path, lines);
+
+                MessageBox.Show(@"File has been created in C:\EDI\", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+		private void button_delete_Click(object sender, EventArgs e)
+		{
+            if (String.IsNullOrEmpty(textBoxAddUserLDAP.Text))
+            {
+                MessageBox.Show("Enter user account name please.", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                string fileName = "deletePassword_" + textBoxAddUserLDAP.Text + ".txt";
+                string[] lines = { "userName=" + textBoxAddUserLDAP.Text, "password=" + PasswordGenerator.NewPasswordforFile() };
+                string path = Path.Combine(@"C:\EDI\", fileName);
+                File.WriteAllLines(path, lines);
+
+                MessageBox.Show(@"File has been created in C:\EDI\", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+		private void codeListComboBox_SelectedIndexChanged(object sender, EventArgs e)
 		{
 
 		}

@@ -35,7 +35,7 @@ namespace EDISupportTool
 				File.AppendAllText(pathString, appendText, Encoding.UTF8);
 			}
 
-			Process.Start(pathString);
+			//Process.Start(pathString);
 
 			DateTime thisDay = DateTime.Today;
 			string logPath = @"C:\DEPLOYMENTS\My_Logs.txt";

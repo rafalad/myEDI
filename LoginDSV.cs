@@ -26,7 +26,7 @@ namespace EDISupportTool
 				return login.ToLower();
 			}
 
-			catch (Exception ex) //w przypadku bledu konwersji zwroc cala nazwe uzytkownika
+			catch //w przypadku bledu konwersji zwroc cala nazwe uzytkownika
 			{
 				return SystemInformation.UserName;
 			}

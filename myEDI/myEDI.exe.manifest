@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="myEDI.exe" size="935904">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="myEDI.exe" size="938976">
       <assemblyIdentity name="myEDI" version="1.1.0.4" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>2E/YtM5O3scH9CRh5JiSe5riiP519B/fdr2FMDDr0oo=</dsig:DigestValue>
+        <dsig:DigestValue>LutCrPkQfM45lYNPGu1hYy1QqzB2UEGmvKFny1uGBYQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

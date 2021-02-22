@@ -36,6 +36,8 @@
 			this.label9 = new System.Windows.Forms.Label();
 			this.buttonGenerateRandomPassword = new System.Windows.Forms.Button();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
+			this.button_delete = new System.Windows.Forms.Button();
+			this.button_modify = new System.Windows.Forms.Button();
 			this.groupBox3 = new System.Windows.Forms.GroupBox();
 			this.button_SSH = new System.Windows.Forms.Button();
 			this.button_reports = new System.Windows.Forms.Button();
@@ -70,22 +72,28 @@
 			this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.minimizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.dirsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.deployDirsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.eDIDirsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.linksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.sIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.lightwellToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.formsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-			this.buttonOpenSI = new System.Windows.Forms.Button();
 			this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
 			this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
 			this.eventLog1 = new System.Diagnostics.EventLog();
 			this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-			this.buttonOpenLW = new System.Windows.Forms.Button();
-			this.buttonCreateDeployDirs = new System.Windows.Forms.Button();
-			this.buttonCreateEDIDirs = new System.Windows.Forms.Button();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
-			this.button1 = new System.Windows.Forms.Button();
 			this.user = new System.Windows.Forms.Label();
 			this.ver = new System.Windows.Forms.Label();
+			this.groupBox6 = new System.Windows.Forms.GroupBox();
+			this.listBox1 = new System.Windows.Forms.ListBox();
+			this.progressBar1 = new System.Windows.Forms.ProgressBar();
+			this.eventLog2 = new System.Diagnostics.EventLog();
+			this.eventLog3 = new System.Diagnostics.EventLog();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			this.groupBox3.SuspendLayout();
@@ -95,26 +103,29 @@
 			((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.eventLog1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+			this.groupBox6.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.eventLog2)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.eventLog3)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// addButton
 			// 
 			this.addButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.addButton.Location = new System.Drawing.Point(133, 82);
+			this.addButton.Location = new System.Drawing.Point(11, 82);
 			this.addButton.Name = "addButton";
-			this.addButton.Size = new System.Drawing.Size(118, 26);
+			this.addButton.Size = new System.Drawing.Size(68, 26);
 			this.addButton.TabIndex = 1;
 			this.addButton.TabStop = false;
-			this.addButton.Text = "Create a file";
+			this.addButton.Text = "New";
 			this.addButton.UseVisualStyleBackColor = true;
 			this.addButton.Click += new System.EventHandler(this.addButton_Click);
 			// 
 			// textBoxAddUserLDAP
 			// 
 			this.textBoxAddUserLDAP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.textBoxAddUserLDAP.Location = new System.Drawing.Point(21, 49);
+			this.textBoxAddUserLDAP.Location = new System.Drawing.Point(11, 49);
 			this.textBoxAddUserLDAP.Name = "textBoxAddUserLDAP";
-			this.textBoxAddUserLDAP.Size = new System.Drawing.Size(230, 20);
+			this.textBoxAddUserLDAP.Size = new System.Drawing.Size(215, 20);
 			this.textBoxAddUserLDAP.TabIndex = 5;
 			this.textBoxAddUserLDAP.TabStop = false;
 			this.textBoxAddUserLDAP.TextChanged += new System.EventHandler(this.textBoxAddUserLDAP_TextChanged);
@@ -122,7 +133,7 @@
 			// label2
 			// 
 			this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.label2.Location = new System.Drawing.Point(18, 27);
+			this.label2.Location = new System.Drawing.Point(8, 27);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(208, 15);
 			this.label2.TabIndex = 8;
@@ -178,7 +189,7 @@
 			this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.groupBox1.Location = new System.Drawing.Point(269, 295);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(270, 105);
+			this.groupBox1.Size = new System.Drawing.Size(251, 105);
 			this.groupBox1.TabIndex = 14;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Password Generator";
@@ -195,7 +206,7 @@
 			// buttonGenerateRandomPassword
 			// 
 			this.buttonGenerateRandomPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.buttonGenerateRandomPassword.Location = new System.Drawing.Point(134, 48);
+			this.buttonGenerateRandomPassword.Location = new System.Drawing.Point(108, 55);
 			this.buttonGenerateRandomPassword.Name = "buttonGenerateRandomPassword";
 			this.buttonGenerateRandomPassword.Size = new System.Drawing.Size(118, 26);
 			this.buttonGenerateRandomPassword.TabIndex = 23;
@@ -206,16 +217,42 @@
 			// 
 			// groupBox2
 			// 
+			this.groupBox2.Controls.Add(this.button_delete);
+			this.groupBox2.Controls.Add(this.button_modify);
 			this.groupBox2.Controls.Add(this.label2);
 			this.groupBox2.Controls.Add(this.textBoxAddUserLDAP);
 			this.groupBox2.Controls.Add(this.addButton);
 			this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.groupBox2.Location = new System.Drawing.Point(269, 418);
 			this.groupBox2.Name = "groupBox2";
-			this.groupBox2.Size = new System.Drawing.Size(270, 123);
+			this.groupBox2.Size = new System.Drawing.Size(251, 123);
 			this.groupBox2.TabIndex = 15;
 			this.groupBox2.TabStop = false;
-			this.groupBox2.Text = "LDAP addUser File Creator";
+			this.groupBox2.Text = "LDAP user creator";
+			// 
+			// button_delete
+			// 
+			this.button_delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.button_delete.Location = new System.Drawing.Point(159, 82);
+			this.button_delete.Name = "button_delete";
+			this.button_delete.Size = new System.Drawing.Size(68, 26);
+			this.button_delete.TabIndex = 10;
+			this.button_delete.TabStop = false;
+			this.button_delete.Text = "Delete";
+			this.button_delete.UseVisualStyleBackColor = true;
+			this.button_delete.Click += new System.EventHandler(this.button_delete_Click);
+			// 
+			// button_modify
+			// 
+			this.button_modify.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.button_modify.Location = new System.Drawing.Point(85, 82);
+			this.button_modify.Name = "button_modify";
+			this.button_modify.Size = new System.Drawing.Size(68, 26);
+			this.button_modify.TabIndex = 9;
+			this.button_modify.TabStop = false;
+			this.button_modify.Text = "Modify";
+			this.button_modify.UseVisualStyleBackColor = true;
+			this.button_modify.Click += new System.EventHandler(this.button_modify_Click);
 			// 
 			// groupBox3
 			// 
@@ -417,7 +454,7 @@
 			this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.groupBox4.Location = new System.Drawing.Point(269, 42);
 			this.groupBox4.Name = "groupBox4";
-			this.groupBox4.Size = new System.Drawing.Size(270, 247);
+			this.groupBox4.Size = new System.Drawing.Size(250, 247);
 			this.groupBox4.TabIndex = 16;
 			this.groupBox4.TabStop = false;
 			this.groupBox4.Text = "New SRQ / INC";
@@ -429,14 +466,14 @@
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(220, 22);
 			this.label1.TabIndex = 21;
-			this.label1.Text = "Copy / paste from Cherwell";
+			this.label1.Text = "SRQ / INC no. from Cherwell by copying:";
 			// 
 			// CHWnumberField
 			// 
 			this.CHWnumberField.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.CHWnumberField.Location = new System.Drawing.Point(22, 60);
 			this.CHWnumberField.Name = "CHWnumberField";
-			this.CHWnumberField.Size = new System.Drawing.Size(230, 20);
+			this.CHWnumberField.Size = new System.Drawing.Size(204, 20);
 			this.CHWnumberField.TabIndex = 22;
 			this.CHWnumberField.TabStop = false;
 			this.CHWnumberField.TextChanged += new System.EventHandler(this.CHWnumberField_TextChanged);
@@ -446,7 +483,7 @@
 			this.SRQidField.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.SRQidField.Location = new System.Drawing.Point(21, 170);
 			this.SRQidField.Name = "SRQidField";
-			this.SRQidField.Size = new System.Drawing.Size(230, 20);
+			this.SRQidField.Size = new System.Drawing.Size(205, 20);
 			this.SRQidField.TabIndex = 20;
 			this.SRQidField.TabStop = false;
 			this.SRQidField.TextChanged += new System.EventHandler(this.SRQidField_TextChanged);
@@ -458,7 +495,7 @@
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(233, 26);
 			this.label7.TabIndex = 19;
-			this.label7.Text = "Enter the ID (e.g. customer name) of the ticket:";
+			this.label7.Text = "Ticket name:";
 			// 
 			// label6
 			// 
@@ -467,14 +504,14 @@
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(220, 22);
 			this.label6.TabIndex = 18;
-			this.label6.Text = "Enter the SRQ number you are working on:";
+			this.label6.Text = "SRQ / INC number by keybord: ";
 			// 
 			// SRQnumberField
 			// 
 			this.SRQnumberField.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.SRQnumberField.Location = new System.Drawing.Point(21, 121);
 			this.SRQnumberField.Name = "SRQnumberField";
-			this.SRQnumberField.Size = new System.Drawing.Size(230, 20);
+			this.SRQnumberField.Size = new System.Drawing.Size(206, 20);
 			this.SRQnumberField.TabIndex = 18;
 			this.SRQnumberField.TabStop = false;
 			this.SRQnumberField.TextChanged += new System.EventHandler(this.SRQnumberField_TextChanged);
@@ -482,7 +519,7 @@
 			// CreateAnObject
 			// 
 			this.CreateAnObject.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.CreateAnObject.Location = new System.Drawing.Point(133, 206);
+			this.CreateAnObject.Location = new System.Drawing.Point(108, 206);
 			this.CreateAnObject.Name = "CreateAnObject";
 			this.CreateAnObject.Size = new System.Drawing.Size(118, 26);
 			this.CreateAnObject.TabIndex = 18;
@@ -529,6 +566,7 @@
 			this.codeListComboBox.Size = new System.Drawing.Size(213, 21);
 			this.codeListComboBox.TabIndex = 27;
 			this.codeListComboBox.TabStop = false;
+			this.codeListComboBox.SelectedIndexChanged += new System.EventHandler(this.codeListComboBox_SelectedIndexChanged);
 			// 
 			// label8
 			// 
@@ -545,11 +583,13 @@
             this.fileToolStripMenuItem,
             this.editToolStripMenuItem,
             this.viewToolStripMenuItem,
+            this.dirsToolStripMenuItem,
+            this.linksToolStripMenuItem,
             this.formsToolStripMenuItem,
             this.aboutToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
-			this.menuStrip1.Size = new System.Drawing.Size(694, 24);
+			this.menuStrip1.Size = new System.Drawing.Size(984, 24);
 			this.menuStrip1.TabIndex = 22;
 			this.menuStrip1.Text = "menuStrip1";
 			// 
@@ -589,6 +629,52 @@
 			this.minimizeToolStripMenuItem.Text = "Minimize";
 			this.minimizeToolStripMenuItem.Click += new System.EventHandler(this.minimizeToolStripMenuItem_Click);
 			// 
+			// dirsToolStripMenuItem
+			// 
+			this.dirsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.deployDirsToolStripMenuItem,
+            this.eDIDirsToolStripMenuItem});
+			this.dirsToolStripMenuItem.Name = "dirsToolStripMenuItem";
+			this.dirsToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+			this.dirsToolStripMenuItem.Text = "Dirs";
+			// 
+			// deployDirsToolStripMenuItem
+			// 
+			this.deployDirsToolStripMenuItem.Name = "deployDirsToolStripMenuItem";
+			this.deployDirsToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+			this.deployDirsToolStripMenuItem.Text = "Deploy Dirs";
+			this.deployDirsToolStripMenuItem.Click += new System.EventHandler(this.deployDirsToolStripMenuItem_Click);
+			// 
+			// eDIDirsToolStripMenuItem
+			// 
+			this.eDIDirsToolStripMenuItem.Name = "eDIDirsToolStripMenuItem";
+			this.eDIDirsToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+			this.eDIDirsToolStripMenuItem.Text = "EDI Dirs";
+			this.eDIDirsToolStripMenuItem.Click += new System.EventHandler(this.eDIDirsToolStripMenuItem_Click);
+			// 
+			// linksToolStripMenuItem
+			// 
+			this.linksToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sIToolStripMenuItem,
+            this.lightwellToolStripMenuItem});
+			this.linksToolStripMenuItem.Name = "linksToolStripMenuItem";
+			this.linksToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
+			this.linksToolStripMenuItem.Text = "Links";
+			// 
+			// sIToolStripMenuItem
+			// 
+			this.sIToolStripMenuItem.Name = "sIToolStripMenuItem";
+			this.sIToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+			this.sIToolStripMenuItem.Text = "SI";
+			this.sIToolStripMenuItem.Click += new System.EventHandler(this.sIToolStripMenuItem_Click);
+			// 
+			// lightwellToolStripMenuItem
+			// 
+			this.lightwellToolStripMenuItem.Name = "lightwellToolStripMenuItem";
+			this.lightwellToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+			this.lightwellToolStripMenuItem.Text = "Lightwell";
+			this.lightwellToolStripMenuItem.Click += new System.EventHandler(this.lightwellToolStripMenuItem_Click);
+			// 
 			// formsToolStripMenuItem
 			// 
 			this.formsToolStripMenuItem.Name = "formsToolStripMenuItem";
@@ -615,17 +701,6 @@
 			this.contextMenuStrip1.Name = "contextMenuStrip1";
 			this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
 			// 
-			// buttonOpenSI
-			// 
-			this.buttonOpenSI.Location = new System.Drawing.Point(555, 42);
-			this.buttonOpenSI.Name = "buttonOpenSI";
-			this.buttonOpenSI.Size = new System.Drawing.Size(120, 23);
-			this.buttonOpenSI.TabIndex = 24;
-			this.buttonOpenSI.TabStop = false;
-			this.buttonOpenSI.Text = "Open SI";
-			this.buttonOpenSI.UseVisualStyleBackColor = true;
-			this.buttonOpenSI.Click += new System.EventHandler(this.buttonOpenSI_Click);
-			// 
 			// fileSystemWatcher1
 			// 
 			this.fileSystemWatcher1.EnableRaisingEvents = true;
@@ -644,46 +719,13 @@
 			// 
 			this.statusStrip1.Location = new System.Drawing.Point(0, 544);
 			this.statusStrip1.Name = "statusStrip1";
-			this.statusStrip1.Size = new System.Drawing.Size(694, 22);
+			this.statusStrip1.Size = new System.Drawing.Size(984, 22);
 			this.statusStrip1.TabIndex = 28;
-			// 
-			// buttonOpenLW
-			// 
-			this.buttonOpenLW.Location = new System.Drawing.Point(555, 71);
-			this.buttonOpenLW.Name = "buttonOpenLW";
-			this.buttonOpenLW.Size = new System.Drawing.Size(120, 23);
-			this.buttonOpenLW.TabIndex = 25;
-			this.buttonOpenLW.TabStop = false;
-			this.buttonOpenLW.Text = "Open LW";
-			this.buttonOpenLW.UseVisualStyleBackColor = true;
-			this.buttonOpenLW.Click += new System.EventHandler(this.buttonOpenLW_Click);
-			// 
-			// buttonCreateDeployDirs
-			// 
-			this.buttonCreateDeployDirs.Location = new System.Drawing.Point(555, 99);
-			this.buttonCreateDeployDirs.Name = "buttonCreateDeployDirs";
-			this.buttonCreateDeployDirs.Size = new System.Drawing.Size(120, 26);
-			this.buttonCreateDeployDirs.TabIndex = 26;
-			this.buttonCreateDeployDirs.TabStop = false;
-			this.buttonCreateDeployDirs.Text = "Create Deploy Dirs";
-			this.buttonCreateDeployDirs.UseVisualStyleBackColor = true;
-			this.buttonCreateDeployDirs.Click += new System.EventHandler(this.buttonCreateDeployDirs_Click);
-			// 
-			// buttonCreateEDIDirs
-			// 
-			this.buttonCreateEDIDirs.Location = new System.Drawing.Point(555, 131);
-			this.buttonCreateEDIDirs.Name = "buttonCreateEDIDirs";
-			this.buttonCreateEDIDirs.Size = new System.Drawing.Size(120, 26);
-			this.buttonCreateEDIDirs.TabIndex = 27;
-			this.buttonCreateEDIDirs.TabStop = false;
-			this.buttonCreateEDIDirs.Text = "Create EDI Dirs";
-			this.buttonCreateEDIDirs.UseVisualStyleBackColor = true;
-			this.buttonCreateEDIDirs.Click += new System.EventHandler(this.buttonCreateEDIDirs_Click);
 			// 
 			// pictureBox1
 			// 
 			this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-			this.pictureBox1.Location = new System.Drawing.Point(625, 491);
+			this.pictureBox1.Location = new System.Drawing.Point(916, 491);
 			this.pictureBox1.Name = "pictureBox1";
 			this.pictureBox1.Size = new System.Drawing.Size(50, 50);
 			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -691,21 +733,11 @@
 			this.pictureBox1.TabStop = false;
 			this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
 			// 
-			// button1
-			// 
-			this.button1.Location = new System.Drawing.Point(555, 163);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(120, 26);
-			this.button1.TabIndex = 30;
-			this.button1.TabStop = false;
-			this.button1.Text = "Create EDI Dirs";
-			this.button1.UseVisualStyleBackColor = true;
-			// 
 			// user
 			// 
 			this.user.BackColor = System.Drawing.SystemColors.MenuBar;
 			this.user.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.user.Location = new System.Drawing.Point(381, 546);
+			this.user.Location = new System.Drawing.Point(678, 546);
 			this.user.Name = "user";
 			this.user.Size = new System.Drawing.Size(294, 16);
 			this.user.TabIndex = 23;
@@ -723,19 +755,59 @@
 			this.ver.Text = "version";
 			this.ver.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
+			// groupBox6
+			// 
+			this.groupBox6.BackColor = System.Drawing.SystemColors.ControlLight;
+			this.groupBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.groupBox6.Controls.Add(this.listBox1);
+			this.groupBox6.Controls.Add(this.progressBar1);
+			this.groupBox6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+			this.groupBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.groupBox6.Location = new System.Drawing.Point(538, 42);
+			this.groupBox6.Name = "groupBox6";
+			this.groupBox6.Size = new System.Drawing.Size(434, 429);
+			this.groupBox6.TabIndex = 32;
+			this.groupBox6.TabStop = false;
+			this.groupBox6.Text = "Event Viewer";
+			// 
+			// listBox1
+			// 
+			this.listBox1.BackColor = System.Drawing.SystemColors.Info;
+			this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.listBox1.FormattingEnabled = true;
+			this.listBox1.HorizontalExtent = 1000;
+			this.listBox1.IntegralHeight = false;
+			this.listBox1.Location = new System.Drawing.Point(6, 25);
+			this.listBox1.Name = "listBox1";
+			this.listBox1.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+			this.listBox1.Size = new System.Drawing.Size(422, 393);
+			this.listBox1.TabIndex = 36;
+			this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+			// 
+			// progressBar1
+			// 
+			this.progressBar1.Location = new System.Drawing.Point(-268, 269);
+			this.progressBar1.Name = "progressBar1";
+			this.progressBar1.Size = new System.Drawing.Size(244, 23);
+			this.progressBar1.TabIndex = 29;
+			// 
+			// eventLog2
+			// 
+			this.eventLog2.SynchronizingObject = this;
+			// 
+			// eventLog3
+			// 
+			this.eventLog3.SynchronizingObject = this;
+			// 
 			// myEDI
 			// 
 			this.AutoSize = true;
 			this.BackColor = System.Drawing.SystemColors.ControlLight;
-			this.ClientSize = new System.Drawing.Size(694, 566);
+			this.ClientSize = new System.Drawing.Size(984, 566);
+			this.Controls.Add(this.groupBox6);
 			this.Controls.Add(this.ver);
 			this.Controls.Add(this.user);
-			this.Controls.Add(this.button1);
 			this.Controls.Add(this.pictureBox1);
-			this.Controls.Add(this.buttonCreateEDIDirs);
-			this.Controls.Add(this.buttonCreateDeployDirs);
-			this.Controls.Add(this.buttonOpenLW);
-			this.Controls.Add(this.buttonOpenSI);
 			this.Controls.Add(this.statusStrip1);
 			this.Controls.Add(this.menuStrip1);
 			this.Controls.Add(this.groupBox5);
@@ -743,10 +815,11 @@
 			this.Controls.Add(this.groupBox3);
 			this.Controls.Add(this.groupBox2);
 			this.Controls.Add(this.groupBox1);
+			this.HelpButton = true;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MainMenuStrip = this.menuStrip1;
-			this.MaximumSize = new System.Drawing.Size(710, 605);
-			this.MinimumSize = new System.Drawing.Size(710, 605);
+			this.MaximumSize = new System.Drawing.Size(1000, 605);
+			this.MinimumSize = new System.Drawing.Size(1000, 605);
 			this.Name = "myEDI";
 			this.Text = "myEDI";
 			this.Load += new System.EventHandler(this.EDISupportTool_Load);
@@ -763,6 +836,9 @@
 			((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.eventLog1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+			this.groupBox6.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.eventLog2)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.eventLog3)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -805,7 +881,6 @@
 		private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem1;
 		private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
 		private System.Windows.Forms.ToolStripMenuItem minimizeToolStripMenuItem;
-		private System.Windows.Forms.Button buttonOpenSI;
 		private System.Windows.Forms.Button button_local_deploy;
 		private System.IO.FileSystemWatcher fileSystemWatcher1;
 		private System.Windows.Forms.NotifyIcon notifyIcon1;
@@ -815,9 +890,6 @@
 		private System.Windows.Forms.Button buttonCL;
 		private System.Windows.Forms.ComboBox codeListComboBox;
 		private System.Windows.Forms.StatusStrip statusStrip1;
-		private System.Windows.Forms.Button buttonOpenLW;
-		private System.Windows.Forms.Button buttonCreateDeployDirs;
-		private System.Windows.Forms.Button buttonCreateEDIDirs;
 		private System.Windows.Forms.ToolStripMenuItem formsToolStripMenuItem;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.TextBox CHWnumberField;
@@ -832,9 +904,21 @@
 		private System.Windows.Forms.Button buttonGenerateRandomPassword;
 		private System.Windows.Forms.Label label9;
 		private System.Windows.Forms.Button button_SSH;
-		private System.Windows.Forms.Button button1;
 		private System.Windows.Forms.Label user;
 		private System.Windows.Forms.Label ver;
+		private System.Windows.Forms.Button button_delete;
+		private System.Windows.Forms.Button button_modify;
+		private System.Windows.Forms.ToolStripMenuItem dirsToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem linksToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem deployDirsToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem eDIDirsToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem sIToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem lightwellToolStripMenuItem;
+		private System.Windows.Forms.GroupBox groupBox6;
+		public System.Windows.Forms.ListBox listBox1;
+		private System.Windows.Forms.ProgressBar progressBar1;
+		private System.Diagnostics.EventLog eventLog2;
+		private System.Diagnostics.EventLog eventLog3;
 	}
 }
 
