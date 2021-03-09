@@ -36,7 +36,7 @@ namespace EDISupportTool
             DayOfWeek myFirstDOW = myCI.DateTimeFormat.FirstDayOfWeek;
             int week = myCal.GetWeekOfYear(DateTime.Now, myCWR, myFirstDOW);
 
-            return week;
+            return week - 1;
         }
 
         public int Day()
@@ -99,49 +99,13 @@ namespace EDISupportTool
             return ("" + dzisiaj + tytul + Week() + "");
         }
 
-        //Metoda tworząca katalog, przyjmuje nazwę daty.
-        public void CreateDir()
-        {
-            DateTime thisDay = DateTime.Today;
-            string folderPath = @"C:\DEPLOYMENTS\2_Reports";
-            string deployment_folder = Path.Combine(folderPath, thisDay.ToString("D"));
-            string QAreports_folder = Path.Combine(deployment_folder, "QA_reports");
-            string PRODreports_folder = Path.Combine(deployment_folder, "PROD_reports");
-
-            Directory.CreateDirectory(deployment_folder);
-            Directory.CreateDirectory(QAreports_folder);
-            Directory.CreateDirectory(PRODreports_folder);
-        }
-
-        //Metoda nadająca nazewnictwo RT dla katalogu obiektów z SRQ, wywoływana przez Srq.cs tylko wtedy gdy user poda nr jako typ numeryczny long (parametr).
-        public void CreateDirSRQ(long int_no)
-        {
-            Srq srq1 = new Srq();
-            Console.Write("\nEnter the ID (e.g. customer name) of the ticket: ");
-            string srq_id = Console.ReadLine();
-
-            string folder_name = "DSV_SRQ" + int_no + "_" + srq_id + "_1.0_rt";
-            string folder_path = Path.Combine(@"C:\EDI", folder_name);
-            Directory.CreateDirectory(folder_path);
-
-            Colors colors = new Colors();
-            colors.doColorFolder();
-            Console.ForegroundColor = ConsoleColor.Green;
-
-            Console.WriteLine(folder_path);
-            Console.ResetColor();
-            Console.WriteLine("\nPress any key to open the directory and exit to the main menu....");
-            Console.ReadLine();
-            Process.Start(@"C:\EDI");
-            //srq1.Back();
-        }
-
         //Sprawdza czy istnieje katalog C:\EDI i ewentualnie go tworzy.
         public void CreateDirEDI()
         {
             
             string folder_name = "EDI";
             string folder_path = Path.Combine(@"C:\", folder_name);
+            string folder_path_Templates = Path.Combine(@"C:\", folder_name);
 
             bool folder = File.Exists(folder_path);
 
@@ -152,6 +116,7 @@ namespace EDISupportTool
             else
             {
                 Directory.CreateDirectory(folder_path);
+                Directory.CreateDirectory(@"C:\EDI\Templates");
                 MessageBox.Show("...a directory has been created to store EDI resources. " + "'" + folder_path + "'", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             
@@ -233,22 +198,6 @@ namespace EDISupportTool
                 var dirs = from dir in
                          Directory.EnumerateDirectories(deploymentsdir, miesiac + "*" + dzien.ToString() + "*")
                            select dir;
-
-                //Console.WriteLine("\nDirectory check result:");
-
-                // Show results.
-                /*
-                Console.ForegroundColor = ConsoleColor.Green;
-                foreach (var dir in dirs)
-                {
-                    // Remove path information from string.
-                    
-                    Console.WriteLine("{0}",
-                        dir.Substring(dir.LastIndexOf("\\") + 1));
-                }
-                Console.WriteLine("{0} directories found.", dirs.Count<string>().ToString());
-                Console.ResetColor();
-                */
 
                 if (dirs.Count<string>() == 0)
                 {

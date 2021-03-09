@@ -6,7 +6,6 @@
 		/// Wymagana zmienna projektanta.
 		/// </summary>
 		private System.ComponentModel.IContainer components = null;
-		private System.Windows.Forms.Button addButton;
 		private System.Windows.Forms.TextBox textBoxAddUserLDAP;
 
 
@@ -22,11 +21,10 @@
 			}
 			base.Dispose(disposing);
 		}
-        private void InitializeComponent()
-        {
+		private void InitializeComponent()
+		{
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(myEDI));
-			this.addButton = new System.Windows.Forms.Button();
 			this.textBoxAddUserLDAP = new System.Windows.Forms.TextBox();
 			this.label2 = new System.Windows.Forms.Label();
 			this.deployComboBox = new System.Windows.Forms.ComboBox();
@@ -36,8 +34,11 @@
 			this.label9 = new System.Windows.Forms.Label();
 			this.buttonGenerateRandomPassword = new System.Windows.Forms.Button();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
-			this.button_delete = new System.Windows.Forms.Button();
-			this.button_modify = new System.Windows.Forms.Button();
+			this.checkBoxLDAP = new System.Windows.Forms.CheckBox();
+			this.comboBoxLDAP = new System.Windows.Forms.ComboBox();
+			this.buttonGoLDAP = new System.Windows.Forms.Button();
+			this.label12 = new System.Windows.Forms.Label();
+			this.label10 = new System.Windows.Forms.Label();
 			this.groupBox3 = new System.Windows.Forms.GroupBox();
 			this.button_SSH = new System.Windows.Forms.Button();
 			this.button_reports = new System.Windows.Forms.Button();
@@ -53,12 +54,12 @@
 			this.checkBox_RT = new System.Windows.Forms.CheckBox();
 			this.label4 = new System.Windows.Forms.Label();
 			this.groupBox4 = new System.Windows.Forms.GroupBox();
+			this.comboBoxSRQ = new System.Windows.Forms.ComboBox();
+			this.label6 = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
 			this.CHWnumberField = new System.Windows.Forms.TextBox();
 			this.SRQidField = new System.Windows.Forms.TextBox();
 			this.label7 = new System.Windows.Forms.Label();
-			this.label6 = new System.Windows.Forms.Label();
-			this.SRQnumberField = new System.Windows.Forms.TextBox();
 			this.CreateAnObject = new System.Windows.Forms.Button();
 			this.groupBox5 = new System.Windows.Forms.GroupBox();
 			this.buttonCL = new System.Windows.Forms.Button();
@@ -67,6 +68,18 @@
 			this.colorDialog1 = new System.Windows.Forms.ColorDialog();
 			this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+			this.fileToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+			this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+			this.editToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+			this.viewToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+			this.minimizeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+			this.dirsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+			this.createDirResourcesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.linksToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+			this.sIToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+			this.lWToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.aboutToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+			this.aboutToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
 			this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -94,6 +107,7 @@
 			this.progressBar1 = new System.Windows.Forms.ProgressBar();
 			this.eventLog2 = new System.Diagnostics.EventLog();
 			this.eventLog3 = new System.Diagnostics.EventLog();
+			this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			this.groupBox3.SuspendLayout();
@@ -107,18 +121,6 @@
 			((System.ComponentModel.ISupportInitialize)(this.eventLog2)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.eventLog3)).BeginInit();
 			this.SuspendLayout();
-			// 
-			// addButton
-			// 
-			this.addButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.addButton.Location = new System.Drawing.Point(11, 82);
-			this.addButton.Name = "addButton";
-			this.addButton.Size = new System.Drawing.Size(68, 26);
-			this.addButton.TabIndex = 1;
-			this.addButton.TabStop = false;
-			this.addButton.Text = "New";
-			this.addButton.UseVisualStyleBackColor = true;
-			this.addButton.Click += new System.EventHandler(this.addButton_Click);
 			// 
 			// textBoxAddUserLDAP
 			// 
@@ -182,14 +184,12 @@
 			// groupBox1
 			// 
 			this.groupBox1.BackColor = System.Drawing.SystemColors.ControlLight;
-			this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
 			this.groupBox1.Controls.Add(this.label9);
 			this.groupBox1.Controls.Add(this.buttonGenerateRandomPassword);
-			this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
 			this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.groupBox1.Location = new System.Drawing.Point(269, 295);
+			this.groupBox1.Location = new System.Drawing.Point(268, 252);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(251, 105);
+			this.groupBox1.Size = new System.Drawing.Size(251, 91);
 			this.groupBox1.TabIndex = 14;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Password Generator";
@@ -217,45 +217,88 @@
 			// 
 			// groupBox2
 			// 
-			this.groupBox2.Controls.Add(this.button_delete);
-			this.groupBox2.Controls.Add(this.button_modify);
+			this.groupBox2.BackColor = System.Drawing.SystemColors.ControlLight;
+			this.groupBox2.Controls.Add(this.checkBoxLDAP);
+			this.groupBox2.Controls.Add(this.comboBoxLDAP);
+			this.groupBox2.Controls.Add(this.buttonGoLDAP);
+			this.groupBox2.Controls.Add(this.label12);
 			this.groupBox2.Controls.Add(this.label2);
+			this.groupBox2.Controls.Add(this.label10);
 			this.groupBox2.Controls.Add(this.textBoxAddUserLDAP);
-			this.groupBox2.Controls.Add(this.addButton);
 			this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.groupBox2.Location = new System.Drawing.Point(269, 418);
+			this.groupBox2.Location = new System.Drawing.Point(269, 349);
 			this.groupBox2.Name = "groupBox2";
-			this.groupBox2.Size = new System.Drawing.Size(251, 123);
+			this.groupBox2.Size = new System.Drawing.Size(251, 181);
 			this.groupBox2.TabIndex = 15;
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "LDAP user creator";
 			// 
-			// button_delete
+			// checkBoxLDAP
 			// 
-			this.button_delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.button_delete.Location = new System.Drawing.Point(159, 82);
-			this.button_delete.Name = "button_delete";
-			this.button_delete.Size = new System.Drawing.Size(68, 26);
-			this.button_delete.TabIndex = 10;
-			this.button_delete.TabStop = false;
-			this.button_delete.Text = "Delete";
-			this.button_delete.UseVisualStyleBackColor = true;
-			this.button_delete.Click += new System.EventHandler(this.button_delete_Click);
+			this.checkBoxLDAP.AutoSize = true;
+			this.checkBoxLDAP.Checked = true;
+			this.checkBoxLDAP.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.checkBoxLDAP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.checkBoxLDAP.Location = new System.Drawing.Point(182, 105);
+			this.checkBoxLDAP.Name = "checkBoxLDAP";
+			this.checkBoxLDAP.Size = new System.Drawing.Size(44, 17);
+			this.checkBoxLDAP.TabIndex = 36;
+			this.checkBoxLDAP.TabStop = false;
+			this.checkBoxLDAP.Text = "Yes";
+			this.checkBoxLDAP.UseVisualStyleBackColor = true;
+			this.checkBoxLDAP.CheckedChanged += new System.EventHandler(this.checkBoxLDAP_CheckedChanged);
 			// 
-			// button_modify
+			// comboBoxLDAP
 			// 
-			this.button_modify.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.button_modify.Location = new System.Drawing.Point(85, 82);
-			this.button_modify.Name = "button_modify";
-			this.button_modify.Size = new System.Drawing.Size(68, 26);
-			this.button_modify.TabIndex = 9;
-			this.button_modify.TabStop = false;
-			this.button_modify.Text = "Modify";
-			this.button_modify.UseVisualStyleBackColor = true;
-			this.button_modify.Click += new System.EventHandler(this.button_modify_Click);
+			this.comboBoxLDAP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.comboBoxLDAP.FormattingEnabled = true;
+			this.comboBoxLDAP.Items.AddRange(new object[] {
+            "New user",
+            "Modify user",
+            "Delete user"});
+			this.comboBoxLDAP.Location = new System.Drawing.Point(108, 76);
+			this.comboBoxLDAP.Name = "comboBoxLDAP";
+			this.comboBoxLDAP.Size = new System.Drawing.Size(118, 21);
+			this.comboBoxLDAP.TabIndex = 0;
+			this.comboBoxLDAP.TabStop = false;
+			this.comboBoxLDAP.Text = "New user";
+			// 
+			// buttonGoLDAP
+			// 
+			this.buttonGoLDAP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.buttonGoLDAP.Location = new System.Drawing.Point(108, 134);
+			this.buttonGoLDAP.Name = "buttonGoLDAP";
+			this.buttonGoLDAP.Size = new System.Drawing.Size(118, 26);
+			this.buttonGoLDAP.TabIndex = 24;
+			this.buttonGoLDAP.TabStop = false;
+			this.buttonGoLDAP.Text = "Go";
+			this.buttonGoLDAP.UseVisualStyleBackColor = true;
+			this.buttonGoLDAP.Click += new System.EventHandler(this.buttonGoLDAP_Click);
+			// 
+			// label12
+			// 
+			this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.label12.Location = new System.Drawing.Point(37, 106);
+			this.label12.Name = "label12";
+			this.label12.Size = new System.Drawing.Size(139, 0);
+			this.label12.TabIndex = 36;
+			this.label12.Text = "Add a form for a new user? ";
+			// 
+			// label10
+			// 
+			this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.label10.Location = new System.Drawing.Point(40, 79);
+			this.label10.Name = "label10";
+			this.label10.Size = new System.Drawing.Size(70, 18);
+			this.label10.TabIndex = 25;
+			this.label10.Text = "Type of file:";
 			// 
 			// groupBox3
 			// 
+			this.groupBox3.BackColor = System.Drawing.SystemColors.ControlLight;
 			this.groupBox3.Controls.Add(this.button_SSH);
 			this.groupBox3.Controls.Add(this.button_reports);
 			this.groupBox3.Controls.Add(this.button_resources);
@@ -444,34 +487,59 @@
 			// 
 			// groupBox4
 			// 
+			this.groupBox4.BackColor = System.Drawing.SystemColors.ControlLight;
+			this.groupBox4.Controls.Add(this.comboBoxSRQ);
+			this.groupBox4.Controls.Add(this.label6);
 			this.groupBox4.Controls.Add(this.label1);
 			this.groupBox4.Controls.Add(this.CHWnumberField);
 			this.groupBox4.Controls.Add(this.SRQidField);
 			this.groupBox4.Controls.Add(this.label7);
-			this.groupBox4.Controls.Add(this.label6);
-			this.groupBox4.Controls.Add(this.SRQnumberField);
 			this.groupBox4.Controls.Add(this.CreateAnObject);
 			this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.groupBox4.Location = new System.Drawing.Point(269, 42);
 			this.groupBox4.Name = "groupBox4";
-			this.groupBox4.Size = new System.Drawing.Size(250, 247);
+			this.groupBox4.Size = new System.Drawing.Size(250, 204);
 			this.groupBox4.TabIndex = 16;
 			this.groupBox4.TabStop = false;
 			this.groupBox4.Text = "New SRQ / INC";
+			// 
+			// comboBoxSRQ
+			// 
+			this.comboBoxSRQ.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.comboBoxSRQ.FormattingEnabled = true;
+			this.comboBoxSRQ.Items.AddRange(new object[] {
+            "Standard setup",
+            "Code list",
+            "None"});
+			this.comboBoxSRQ.Location = new System.Drawing.Point(108, 124);
+			this.comboBoxSRQ.Name = "comboBoxSRQ";
+			this.comboBoxSRQ.Size = new System.Drawing.Size(118, 21);
+			this.comboBoxSRQ.TabIndex = 24;
+			this.comboBoxSRQ.TabStop = false;
+			this.comboBoxSRQ.Text = "Standard setup";
+			// 
+			// label6
+			// 
+			this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.label6.Location = new System.Drawing.Point(19, 127);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(91, 18);
+			this.label6.TabIndex = 23;
+			this.label6.Text = "Type of request:";
 			// 
 			// label1
 			// 
 			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.label1.Location = new System.Drawing.Point(19, 35);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(220, 22);
+			this.label1.Size = new System.Drawing.Size(208, 15);
 			this.label1.TabIndex = 21;
 			this.label1.Text = "SRQ / INC no. from Cherwell by copying:";
 			// 
 			// CHWnumberField
 			// 
 			this.CHWnumberField.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.CHWnumberField.Location = new System.Drawing.Point(22, 60);
+			this.CHWnumberField.Location = new System.Drawing.Point(22, 56);
 			this.CHWnumberField.Name = "CHWnumberField";
 			this.CHWnumberField.Size = new System.Drawing.Size(204, 20);
 			this.CHWnumberField.TabIndex = 22;
@@ -481,7 +549,7 @@
 			// SRQidField
 			// 
 			this.SRQidField.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.SRQidField.Location = new System.Drawing.Point(21, 170);
+			this.SRQidField.Location = new System.Drawing.Point(22, 98);
 			this.SRQidField.Name = "SRQidField";
 			this.SRQidField.Size = new System.Drawing.Size(205, 20);
 			this.SRQidField.TabIndex = 20;
@@ -491,35 +559,16 @@
 			// label7
 			// 
 			this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.label7.Location = new System.Drawing.Point(18, 148);
+			this.label7.Location = new System.Drawing.Point(18, 83);
 			this.label7.Name = "label7";
-			this.label7.Size = new System.Drawing.Size(233, 26);
+			this.label7.Size = new System.Drawing.Size(146, 18);
 			this.label7.TabIndex = 19;
 			this.label7.Text = "Ticket name:";
-			// 
-			// label6
-			// 
-			this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.label6.Location = new System.Drawing.Point(18, 96);
-			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(220, 22);
-			this.label6.TabIndex = 18;
-			this.label6.Text = "SRQ / INC number by keybord: ";
-			// 
-			// SRQnumberField
-			// 
-			this.SRQnumberField.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.SRQnumberField.Location = new System.Drawing.Point(21, 121);
-			this.SRQnumberField.Name = "SRQnumberField";
-			this.SRQnumberField.Size = new System.Drawing.Size(206, 20);
-			this.SRQnumberField.TabIndex = 18;
-			this.SRQnumberField.TabStop = false;
-			this.SRQnumberField.TextChanged += new System.EventHandler(this.SRQnumberField_TextChanged);
 			// 
 			// CreateAnObject
 			// 
 			this.CreateAnObject.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.CreateAnObject.Location = new System.Drawing.Point(108, 206);
+			this.CreateAnObject.Location = new System.Drawing.Point(108, 166);
 			this.CreateAnObject.Name = "CreateAnObject";
 			this.CreateAnObject.Size = new System.Drawing.Size(118, 26);
 			this.CreateAnObject.TabIndex = 18;
@@ -534,7 +583,7 @@
 			this.groupBox5.Controls.Add(this.codeListComboBox);
 			this.groupBox5.Controls.Add(this.label8);
 			this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.groupBox5.Location = new System.Drawing.Point(12, 418);
+			this.groupBox5.Location = new System.Drawing.Point(12, 407);
 			this.groupBox5.Name = "groupBox5";
 			this.groupBox5.Size = new System.Drawing.Size(241, 123);
 			this.groupBox5.TabIndex = 17;
@@ -579,19 +628,109 @@
 			// 
 			// menuStrip1
 			// 
+			this.menuStrip1.BackColor = System.Drawing.SystemColors.MenuBar;
 			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem,
-            this.editToolStripMenuItem,
-            this.viewToolStripMenuItem,
-            this.dirsToolStripMenuItem,
-            this.linksToolStripMenuItem,
-            this.formsToolStripMenuItem,
-            this.aboutToolStripMenuItem});
+            this.fileToolStripMenuItem1,
+            this.editToolStripMenuItem1,
+            this.viewToolStripMenuItem1,
+            this.dirsToolStripMenuItem1,
+            this.linksToolStripMenuItem1,
+            this.aboutToolStripMenuItem2});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
+			this.menuStrip1.ShowItemToolTips = true;
 			this.menuStrip1.Size = new System.Drawing.Size(984, 24);
 			this.menuStrip1.TabIndex = 22;
 			this.menuStrip1.Text = "menuStrip1";
+			// 
+			// fileToolStripMenuItem1
+			// 
+			this.fileToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exitToolStripMenuItem1});
+			this.fileToolStripMenuItem1.Name = "fileToolStripMenuItem1";
+			this.fileToolStripMenuItem1.Size = new System.Drawing.Size(37, 20);
+			this.fileToolStripMenuItem1.Text = "File";
+			// 
+			// exitToolStripMenuItem1
+			// 
+			this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
+			this.exitToolStripMenuItem1.Size = new System.Drawing.Size(93, 22);
+			this.exitToolStripMenuItem1.Text = "Exit";
+			this.exitToolStripMenuItem1.Click += new System.EventHandler(this.exitToolStripMenuItem1_Click);
+			// 
+			// editToolStripMenuItem1
+			// 
+			this.editToolStripMenuItem1.Name = "editToolStripMenuItem1";
+			this.editToolStripMenuItem1.Size = new System.Drawing.Size(39, 20);
+			this.editToolStripMenuItem1.Text = "Edit";
+			// 
+			// viewToolStripMenuItem1
+			// 
+			this.viewToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.minimizeToolStripMenuItem1});
+			this.viewToolStripMenuItem1.Name = "viewToolStripMenuItem1";
+			this.viewToolStripMenuItem1.Size = new System.Drawing.Size(44, 20);
+			this.viewToolStripMenuItem1.Text = "View";
+			// 
+			// minimizeToolStripMenuItem1
+			// 
+			this.minimizeToolStripMenuItem1.Name = "minimizeToolStripMenuItem1";
+			this.minimizeToolStripMenuItem1.Size = new System.Drawing.Size(123, 22);
+			this.minimizeToolStripMenuItem1.Text = "Minimize";
+			this.minimizeToolStripMenuItem1.Click += new System.EventHandler(this.minimizeToolStripMenuItem1_Click);
+			// 
+			// dirsToolStripMenuItem1
+			// 
+			this.dirsToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.createDirResourcesToolStripMenuItem});
+			this.dirsToolStripMenuItem1.Name = "dirsToolStripMenuItem1";
+			this.dirsToolStripMenuItem1.Size = new System.Drawing.Size(39, 20);
+			this.dirsToolStripMenuItem1.Text = "Dirs";
+			// 
+			// createDirResourcesToolStripMenuItem
+			// 
+			this.createDirResourcesToolStripMenuItem.Name = "createDirResourcesToolStripMenuItem";
+			this.createDirResourcesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.createDirResourcesToolStripMenuItem.Text = "Create dir resources";
+			this.createDirResourcesToolStripMenuItem.Click += new System.EventHandler(this.createDirResourcesToolStripMenuItem_Click);
+			// 
+			// linksToolStripMenuItem1
+			// 
+			this.linksToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sIToolStripMenuItem1,
+            this.lWToolStripMenuItem});
+			this.linksToolStripMenuItem1.Name = "linksToolStripMenuItem1";
+			this.linksToolStripMenuItem1.Size = new System.Drawing.Size(46, 20);
+			this.linksToolStripMenuItem1.Text = "Links";
+			// 
+			// sIToolStripMenuItem1
+			// 
+			this.sIToolStripMenuItem1.Name = "sIToolStripMenuItem1";
+			this.sIToolStripMenuItem1.Size = new System.Drawing.Size(90, 22);
+			this.sIToolStripMenuItem1.Text = "SI";
+			this.sIToolStripMenuItem1.Click += new System.EventHandler(this.sIToolStripMenuItem1_Click);
+			// 
+			// lWToolStripMenuItem
+			// 
+			this.lWToolStripMenuItem.Name = "lWToolStripMenuItem";
+			this.lWToolStripMenuItem.Size = new System.Drawing.Size(90, 22);
+			this.lWToolStripMenuItem.Text = "LW";
+			this.lWToolStripMenuItem.Click += new System.EventHandler(this.lWToolStripMenuItem_Click);
+			// 
+			// aboutToolStripMenuItem2
+			// 
+			this.aboutToolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutToolStripMenuItem3});
+			this.aboutToolStripMenuItem2.Name = "aboutToolStripMenuItem2";
+			this.aboutToolStripMenuItem2.Size = new System.Drawing.Size(52, 20);
+			this.aboutToolStripMenuItem2.Text = "About";
+			// 
+			// aboutToolStripMenuItem3
+			// 
+			this.aboutToolStripMenuItem3.Name = "aboutToolStripMenuItem3";
+			this.aboutToolStripMenuItem3.Size = new System.Drawing.Size(107, 22);
+			this.aboutToolStripMenuItem3.Text = "About";
+			this.aboutToolStripMenuItem3.Click += new System.EventHandler(this.aboutToolStripMenuItem3_Click);
 			// 
 			// fileToolStripMenuItem
 			// 
@@ -643,14 +782,12 @@
 			this.deployDirsToolStripMenuItem.Name = "deployDirsToolStripMenuItem";
 			this.deployDirsToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
 			this.deployDirsToolStripMenuItem.Text = "Deploy Dirs";
-			this.deployDirsToolStripMenuItem.Click += new System.EventHandler(this.deployDirsToolStripMenuItem_Click);
 			// 
 			// eDIDirsToolStripMenuItem
 			// 
 			this.eDIDirsToolStripMenuItem.Name = "eDIDirsToolStripMenuItem";
 			this.eDIDirsToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
 			this.eDIDirsToolStripMenuItem.Text = "EDI Dirs";
-			this.eDIDirsToolStripMenuItem.Click += new System.EventHandler(this.eDIDirsToolStripMenuItem_Click);
 			// 
 			// linksToolStripMenuItem
 			// 
@@ -717,7 +854,8 @@
 			// 
 			// statusStrip1
 			// 
-			this.statusStrip1.Location = new System.Drawing.Point(0, 544);
+			this.statusStrip1.BackColor = System.Drawing.SystemColors.MenuBar;
+			this.statusStrip1.Location = new System.Drawing.Point(0, 589);
 			this.statusStrip1.Name = "statusStrip1";
 			this.statusStrip1.Size = new System.Drawing.Size(984, 22);
 			this.statusStrip1.TabIndex = 28;
@@ -725,7 +863,7 @@
 			// pictureBox1
 			// 
 			this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-			this.pictureBox1.Location = new System.Drawing.Point(916, 491);
+			this.pictureBox1.Location = new System.Drawing.Point(916, 536);
 			this.pictureBox1.Name = "pictureBox1";
 			this.pictureBox1.Size = new System.Drawing.Size(50, 50);
 			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -737,7 +875,7 @@
 			// 
 			this.user.BackColor = System.Drawing.SystemColors.MenuBar;
 			this.user.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.user.Location = new System.Drawing.Point(678, 546);
+			this.user.Location = new System.Drawing.Point(672, 592);
 			this.user.Name = "user";
 			this.user.Size = new System.Drawing.Size(294, 16);
 			this.user.TabIndex = 23;
@@ -748,12 +886,13 @@
 			// 
 			this.ver.BackColor = System.Drawing.SystemColors.MenuBar;
 			this.ver.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.ver.Location = new System.Drawing.Point(9, 546);
+			this.ver.Location = new System.Drawing.Point(9, 592);
 			this.ver.Name = "ver";
-			this.ver.Size = new System.Drawing.Size(294, 16);
+			this.ver.Size = new System.Drawing.Size(294, 18);
 			this.ver.TabIndex = 31;
 			this.ver.Text = "version";
 			this.ver.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.ver.Click += new System.EventHandler(this.ver_Click);
 			// 
 			// groupBox6
 			// 
@@ -763,9 +902,10 @@
 			this.groupBox6.Controls.Add(this.progressBar1);
 			this.groupBox6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
 			this.groupBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.groupBox6.Location = new System.Drawing.Point(538, 42);
+			this.groupBox6.ForeColor = System.Drawing.SystemColors.Desktop;
+			this.groupBox6.Location = new System.Drawing.Point(535, 42);
 			this.groupBox6.Name = "groupBox6";
-			this.groupBox6.Size = new System.Drawing.Size(434, 429);
+			this.groupBox6.Size = new System.Drawing.Size(437, 488);
 			this.groupBox6.TabIndex = 32;
 			this.groupBox6.TabStop = false;
 			this.groupBox6.Text = "Event Viewer";
@@ -777,10 +917,10 @@
 			this.listBox1.FormattingEnabled = true;
 			this.listBox1.HorizontalExtent = 1000;
 			this.listBox1.IntegralHeight = false;
-			this.listBox1.Location = new System.Drawing.Point(6, 25);
+			this.listBox1.Location = new System.Drawing.Point(8, 19);
 			this.listBox1.Name = "listBox1";
 			this.listBox1.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-			this.listBox1.Size = new System.Drawing.Size(422, 393);
+			this.listBox1.Size = new System.Drawing.Size(423, 448);
 			this.listBox1.TabIndex = 36;
 			this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
 			// 
@@ -803,7 +943,7 @@
 			// 
 			this.AutoSize = true;
 			this.BackColor = System.Drawing.SystemColors.ControlLight;
-			this.ClientSize = new System.Drawing.Size(984, 566);
+			this.ClientSize = new System.Drawing.Size(984, 611);
 			this.Controls.Add(this.groupBox6);
 			this.Controls.Add(this.ver);
 			this.Controls.Add(this.user);
@@ -818,8 +958,8 @@
 			this.HelpButton = true;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MainMenuStrip = this.menuStrip1;
-			this.MaximumSize = new System.Drawing.Size(1000, 605);
-			this.MinimumSize = new System.Drawing.Size(1000, 605);
+			this.MaximumSize = new System.Drawing.Size(1000, 650);
+			this.MinimumSize = new System.Drawing.Size(1000, 650);
 			this.Name = "myEDI";
 			this.Text = "myEDI";
 			this.Load += new System.EventHandler(this.EDISupportTool_Load);
@@ -842,7 +982,7 @@
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
-        }
+		}
 		#region Kod generowany przez Projektanta formularzy systemu Windows
 
 		/// <summary>
@@ -861,8 +1001,6 @@
 		private System.Windows.Forms.GroupBox groupBox2;
 		private System.Windows.Forms.GroupBox groupBox3;
 		private System.Windows.Forms.GroupBox groupBox4;
-		private System.Windows.Forms.Label label6;
-		private System.Windows.Forms.TextBox SRQnumberField;
 		private System.Windows.Forms.Button CreateAnObject;
 		private System.Windows.Forms.GroupBox groupBox5;
 		private System.Windows.Forms.Label label4;
@@ -906,8 +1044,6 @@
 		private System.Windows.Forms.Button button_SSH;
 		private System.Windows.Forms.Label user;
 		private System.Windows.Forms.Label ver;
-		private System.Windows.Forms.Button button_delete;
-		private System.Windows.Forms.Button button_modify;
 		private System.Windows.Forms.ToolStripMenuItem dirsToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem linksToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem deployDirsToolStripMenuItem;
@@ -919,6 +1055,26 @@
 		private System.Windows.Forms.ProgressBar progressBar1;
 		private System.Diagnostics.EventLog eventLog2;
 		private System.Diagnostics.EventLog eventLog3;
+		private System.Windows.Forms.Button buttonGoLDAP;
+		private System.Windows.Forms.Label label12;
+		private System.Windows.Forms.Label label10;
+		private System.Windows.Forms.ComboBox comboBoxSRQ;
+		private System.Windows.Forms.Label label6;
+		private System.Windows.Forms.ComboBox comboBoxLDAP;
+		private System.Windows.Forms.CheckBox checkBoxLDAP;
+		private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem1;
+		private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem1;
+		private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem1;
+		private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem1;
+		private System.Windows.Forms.ToolStripMenuItem minimizeToolStripMenuItem1;
+		private System.Windows.Forms.ToolStripMenuItem dirsToolStripMenuItem1;
+		private System.Windows.Forms.ToolStripMenuItem linksToolStripMenuItem1;
+		private System.Windows.Forms.ToolStripMenuItem sIToolStripMenuItem1;
+		private System.Windows.Forms.ToolStripMenuItem lWToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem2;
+		private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem3;
+		public System.ComponentModel.BackgroundWorker backgroundWorker1;
+		private System.Windows.Forms.ToolStripMenuItem createDirResourcesToolStripMenuItem;
 	}
 }
 

@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace EDISupportTool
 {
+    /*
     public class Srq
     {
+
         public void newSRQ()
         {
             Kit set = new Kit();
@@ -47,6 +49,6 @@ namespace EDISupportTool
         {
             Program start = new Program();
             Program.Main();
-        } */
-    }
+     
+    } */
 }

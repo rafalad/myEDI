@@ -30,10 +30,6 @@ namespace EDISupportTool
 			{
 				return SystemInformation.UserName;
 			}
-
-			return "";
-
 		}
 	}
-	
 }

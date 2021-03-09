@@ -13,12 +13,14 @@ using System.IO;
 using System.Runtime.CompilerServices;
 using System.Diagnostics;
 using System.Net;
-
+using myEDI;
 
 namespace EDISupportTool
 {
     public partial class myEDI : Form
     {
+        public static int licznik;
+
         [DllImport("kernel32.dll", SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
         static extern bool AllocConsole();
@@ -45,6 +47,25 @@ namespace EDISupportTool
 
             LoginDSV login = new LoginDSV();
             WebClient webClient = new WebClient();
+            Resources edidirs = new Resources();
+
+            listBox1.Items.Add("[" + DateTime.Now.ToString("HH:mm:ss") + "] App is ready to use.");
+
+            edidirs.Dirs();
+
+            if (Resources.listBoxMessageDris != string.Empty)
+            {
+                listBox1.Items.Add(Resources.listBoxMessageDris);
+            }
+
+            this.groupBox1.Paint += this.groupBox_Paint;
+            this.groupBox2.Paint += this.groupBox_Paint;
+            this.groupBox3.Paint += this.groupBox_Paint;
+            this.groupBox4.Paint += this.groupBox_Paint;
+            this.groupBox5.Paint += this.groupBox_Paint;
+            this.groupBox6.Paint += this.groupBox_Paint;
+
+            //this.listBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.List_RightClick);
 
             string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
 
@@ -52,9 +73,10 @@ namespace EDISupportTool
 
             ver.Text = "v" + Application.ProductVersion;
 
-            listBox1.Items.Add("App is ready to use and waiting for your commands...");
+
             
 
+            /*
             try
             {
                 if (!webClient.DownloadString("https://pastebin.com/raw/qiJ05NWB").Contains("1.1.0.5"))
@@ -72,8 +94,52 @@ namespace EDISupportTool
             {
 
             }
-
+            */
         }
+
+
+
+        private void groupBox_Paint(object sender, PaintEventArgs e)
+        {
+            GroupBox box = sender as GroupBox;
+            DrawGroupBox(box, e.Graphics, Color.MidnightBlue, Color.DarkGray);
+        }
+
+
+        private void DrawGroupBox(GroupBox box, Graphics g, Color textColor, Color borderColor)
+        {
+            if (box != null)
+            {
+                Brush textBrush = new SolidBrush(textColor);
+                Brush borderBrush = new SolidBrush(borderColor);
+                Pen borderPen = new Pen(borderBrush);
+                SizeF strSize = g.MeasureString(box.Text, box.Font);
+                Rectangle rect = new Rectangle(box.ClientRectangle.X,
+                                               box.ClientRectangle.Y + (int)(strSize.Height / 2),
+                                               box.ClientRectangle.Width - 1,
+                                               box.ClientRectangle.Height - (int)(strSize.Height / 2) - 1);
+
+                // Clear text and border
+                g.Clear(this.BackColor);
+
+                // Draw text
+                g.DrawString(box.Text, box.Font, textBrush, box.Padding.Left, 0);
+
+                // Drawing Border
+                //Left
+                g.DrawLine(borderPen, rect.Location, new Point(rect.X, rect.Y + rect.Height));
+                //Right
+                g.DrawLine(borderPen, new Point(rect.X + rect.Width, rect.Y), new Point(rect.X + rect.Width, rect.Y + rect.Height));
+                //Bottom
+                g.DrawLine(borderPen, new Point(rect.X, rect.Y + rect.Height), new Point(rect.X + rect.Width, rect.Y + rect.Height));
+                //Top1
+                g.DrawLine(borderPen, new Point(rect.X, rect.Y), new Point(rect.X + box.Padding.Left, rect.Y));
+                //Top2
+                g.DrawLine(borderPen, new Point(rect.X + box.Padding.Left + (int)(strSize.Width), rect.Y), new Point(rect.X + rect.Width, rect.Y));
+            }
+        }
+
+
         private void OnWyswietlKomunikat(object sender, EventArgs ea)
         {
 
@@ -85,26 +151,14 @@ namespace EDISupportTool
 
         private void addButton_Click(object sender, System.EventArgs e)
         {
-            if (String.IsNullOrEmpty(textBoxAddUserLDAP.Text))
-            {
-                MessageBox.Show("Enter user account name please.", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else
-            {
-                string fileName = "addUser_" + textBoxAddUserLDAP.Text + ".txt";
-                string[] lines = { "userName=" + textBoxAddUserLDAP.Text, "password=" + PasswordGenerator.NewPasswordforFile() };
-                string path = Path.Combine(@"C:\EDI\", fileName);
-                File.WriteAllLines(path, lines);
 
-                MessageBox.Show(@"File has been created in C:\EDI\", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
         }
 
         private void EDISupportTool_Load(object sender, EventArgs e)
         {
 
         }
-
+        /*
         private void SRQnumberField_TextChanged(object sender, EventArgs e)
         {
             if (System.Text.RegularExpressions.Regex.IsMatch(SRQnumberField.Text, "[^0-9]"))
@@ -113,7 +167,7 @@ namespace EDISupportTool
                 SRQnumberField.Text = SRQnumberField.Text.Remove(SRQnumberField.Text.Length - 1);
             }
         }
-
+        */
         private void textBoxAddUserLDAP_TextChanged(object sender, EventArgs e)
         {
             textBoxAddUserLDAP.CharacterCasing = CharacterCasing.Lower;
@@ -145,91 +199,63 @@ namespace EDISupportTool
 
         private void buttonOpenSI_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("http://dsidb1:15501/dashboard/");
-            System.Diagnostics.Process.Start("http://tsiapp1:15501/dashboard/");
-            System.Diagnostics.Process.Start("http://qsiapp1:15501/dashboard/");
-            System.Diagnostics.Process.Start("http://psiapp1:15501/dashboard/");
+
+        }
+
+        public void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            progressBar1.Value = e.ProgressPercentage;
         }
 
         private void CreateAnObject_Click(object sender, EventArgs e)
         {
+            string selectedSRQ = this.comboBoxSRQ.GetItemText(this.comboBoxSRQ.SelectedItem); //wybieram zmienna z comboboxa
 
-            if (String.IsNullOrEmpty(CHWnumberField.Text))
+            if (String.IsNullOrEmpty(CHWnumberField.Text) && String.IsNullOrEmpty(SRQidField.Text)) // jezeli nie wybrano CL
             {
-                if (String.IsNullOrEmpty(SRQnumberField.Text))
-                {
-                    MessageBox.Show("Please enter the SRQ/ID values you are working on,", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                else if (String.IsNullOrEmpty(SRQidField.Text))
-                {
-                    MessageBox.Show("Enter any name which refers to the task, please.", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-
-                else
-                {
-
-                    string folder_name = "DSV_SRQ" + SRQnumberField.Text + "_" + SRQidField.Text + "_1.0_rt";
-                    string folder_path = Path.Combine(@"C:\EDI", folder_name);
-                    Directory.CreateDirectory(folder_path);
-
-                    MessageBox.Show("RT folder has been created correctly at: " + folder_path, "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                MessageBox.Show("Enter any name and number which refers to the task, please.", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            else
+            else // jezeli spelniono warunki, czyli wybrano numer i nazwe zgloszenia
             {
-                string setvalue = CHWnumberField.Text;
-                string type = string.Empty;
-                string no = string.Empty;
-
-                string type_srq = "DSV_SRQ";
-                string type_inc = "DSV_INC";
-
-
-                //przechodzę o po znakach w poszukiwania liczb, jeżeli znajdę to przypisuję do zmiennej
-                for (int i = 0; i < setvalue.Length; i++)
+                if (selectedSRQ == "Standard setup")
                 {
-                    if (Char.IsDigit(setvalue[i]))
-                        no += setvalue[i];
+                    string CHWnoField = CHWnumberField.Text;
+                    string idField = SRQidField.Text;
+                    string task = " [standard setup]";
+
+                    Ticket folder = new Ticket();
+                    folder.NewTicket(CHWnoField, idField, task);
+
+                    listBox1.Items.Add("[" + DateTime.Now.ToString("HH:mm:ss") + "] Standard setup folder has been created correctly at:");
+                    listBox1.Items.Add(folder.createdfolder);
+                    MessageBox.Show("Completed.", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 }
-                //przechodzę o po znakach w poszukiwania liter, jeżeli znajdę to przypisuję do zmiennej
-                for (int i = 0; i < setvalue.Length; i++)
+                else if (selectedSRQ == "Code list")
                 {
-                    if (Char.IsLetter(setvalue[i]))
-                        type += setvalue[i];
+                    string CHWnoField = CHWnumberField.Text;
+                    string idField = SRQidField.Text;
+                    string task = " [code list]";
+
+                    Ticket folder = new Ticket();
+                    folder.NewTicket(CHWnoField, idField, task);
+
+                    listBox1.Items.Add("[" + DateTime.Now.ToString("HH:mm:ss") + "] Code list folder has been created correctly at:");
+                    listBox1.Items.Add(folder.createdfolder);
+                    MessageBox.Show("Completed.", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-
-                if (type == "Incident")
+                else if (selectedSRQ == "None")
                 {
-                    if (String.IsNullOrEmpty(SRQidField.Text))
-                    {
-                        MessageBox.Show("Please enter any name which refers to the task, .", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
+                    string CHWnoField = CHWnumberField.Text;
+                    string idField = SRQidField.Text;
+                    string task = string.Empty;
 
-                    else
-                    {
-                        string folder = type_inc + no + "_" + SRQidField.Text + "_1.0_rt";
-                        string path = Path.Combine(@"C:\EDI", folder);
-                        Directory.CreateDirectory(path);
+                    Ticket folder = new Ticket();
+                    folder.NewTicket(CHWnoField, idField, task);
 
-                        MessageBox.Show("RT folder has been created correctly at: " + path, "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                }
-                else
-                {
-                    if (String.IsNullOrEmpty(SRQidField.Text))
-                    {
-                        MessageBox.Show("Enter any name which refers to the task, please.", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-
-                    else
-                    {
-                        string folder = type_srq + no + "_" + SRQidField.Text + "_1.0_rt";
-                        string path = Path.Combine(@"C:\EDI", folder);
-                        Directory.CreateDirectory(path);
-
-                        MessageBox.Show("RT folder has been created correctly at: " + path, "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
+                    listBox1.Items.Add("[" + DateTime.Now.ToString("HH:mm:ss") + "] Folder has been created correctly at:");
+                    listBox1.Items.Add(folder.createdfolder);
+                    MessageBox.Show("Completed.", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
@@ -246,33 +272,33 @@ namespace EDISupportTool
 
         private void CreateNoteButton_Click(object sender, EventArgs e)
         {
-            
+
             listBox1.Items.Clear();
-                if (checkBox_RT.Checked)
+            if (checkBox_RT.Checked)
+            {
+                extractRT_button_Click(new object(), new EventArgs());
+                if (checkBox_Query.Checked)
                 {
-                    extractRT_button_Click(new object(), new EventArgs());
-                    if (checkBox_Query.Checked)
-                    {
-                        consoleQuery_button_Click(new object(), new EventArgs());
-                        note(new object(), new EventArgs());
-                    }
-                    else
-                    {
-                        note(new object(), new EventArgs());
-                    }
+                    consoleQuery_button_Click(new object(), new EventArgs());
+                    note(new object(), new EventArgs());
                 }
                 else
                 {
-                    if (checkBox_Query.Checked)
-                    {
-                        consoleQuery_button_Click(new object(), new EventArgs());
-                        note(new object(), new EventArgs());
-                    }
-                    else
-                    {
-                        note(new object(), new EventArgs());
-                    }
+                    note(new object(), new EventArgs());
                 }
+            }
+            else
+            {
+                if (checkBox_Query.Checked)
+                {
+                    consoleQuery_button_Click(new object(), new EventArgs());
+                    note(new object(), new EventArgs());
+                }
+                else
+                {
+                    note(new object(), new EventArgs());
+                }
+            }
         }
 
         public void note(object sender, EventArgs e)
@@ -393,14 +419,12 @@ namespace EDISupportTool
         {
             Clipboard.SetText(PasswordGenerator.NewPassword());
             MessageBox.Show("=== Password has been copied to the clipboard. ===", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            listBox1.Items.Add("[" + DateTime.Now.ToString("HH:mm:ss") + "] Password has been copied to the clipboard.");
         }
 
         private void buttonOpenLW_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("http://dsidb2:16680/lw/client/index.html#/login");
-            System.Diagnostics.Process.Start("http://tsiapp2:16680/lw/client/index.html#/login");
-            System.Diagnostics.Process.Start("http://qsiapp2:16680/lw/client/index.html#/login");
-            System.Diagnostics.Process.Start("http://psiapp2:16680/lw/client/index.html#/login");
+
         }
 
         private void buttonCreateDeployDirs_Click(object sender, EventArgs e)
@@ -411,8 +435,7 @@ namespace EDISupportTool
 
         private void buttonCreateEDIDirs_Click(object sender, EventArgs e)
         {
-            Kit set = new Kit();
-            set.CreateDirEDI();
+
         }
 
         private void CHWnumberField_TextChanged(object sender, EventArgs e)
@@ -420,19 +443,8 @@ namespace EDISupportTool
 
         }
 
-        private void textBox2_folder_TextChanged(object sender, EventArgs e)
+        public void extractRT_button_Click(object sender, EventArgs e)
         {
-            if (System.Text.RegularExpressions.Regex.IsMatch(SRQnumberField.Text, "[^0-9]"))
-            {
-                MessageBox.Show("Please enter only digits.", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                SRQnumberField.Text = SRQnumberField.Text.Remove(SRQnumberField.Text.Length - 1);
-            }
-        }
-
-       
-
-		public void extractRT_button_Click(object sender, EventArgs e)
-		{
             Kit set = new Kit();
             int day = set.Day();
             string month = set.Month();
@@ -487,21 +499,21 @@ namespace EDISupportTool
                     File.Copy(sql_file, destFile, true);
                 }
 
-                MessageBox.Show(@"RT exported files:  "+ i + Environment.NewLine +
-                                @"LW exported files:  "+ j + Environment.NewLine +
+                MessageBox.Show(@"RT exported files:  " + i + Environment.NewLine +
+                                @"LW exported files:  " + j + Environment.NewLine +
                                 @"SQL exported files:  " + k,
                                 "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            
+
         }
 
-		private void button5_Click(object sender, EventArgs e)
-		{
+        private void button5_Click(object sender, EventArgs e)
+        {
             Process.Start(@"C:\DEPLOYMENTS\DEPLOY");
         }
 
-		private void checkBox1_CheckedChanged(object sender, EventArgs e)
-		{
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
             if (checkBox_RT.Checked)
             {
                 extractRT_button.Enabled = true;
@@ -512,28 +524,28 @@ namespace EDISupportTool
             }
         }
 
-		private void button_logs_Click(object sender, EventArgs e)
-		{
+        private void button_logs_Click(object sender, EventArgs e)
+        {
             Process.Start(@"C:\DEPLOYMENTS\My_Logs.txt");
         }
 
-		private void button_resources_Click(object sender, EventArgs e)
-		{
+        private void button_resources_Click(object sender, EventArgs e)
+        {
             Process.Start(@"C:\DEPLOYMENTS\RESOURCES");
         }
 
-		private void button_reports_Click(object sender, EventArgs e)
-		{
+        private void button_reports_Click(object sender, EventArgs e)
+        {
             Process.Start(@"C:\DEPLOYMENTS\Reports");
         }
 
-		private void pictureBox1_Click(object sender, EventArgs e)
-		{
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
 
         }
 
-		private void checkBox2_CheckedChanged(object sender, EventArgs e)
-		{
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
             if (checkBox_Query.Checked)
             {
                 consoleQuery_button.Enabled = true;
@@ -544,46 +556,46 @@ namespace EDISupportTool
             }
         }
 
-		private void consoleQuery_button_Click(object sender, EventArgs e)
-		{
+        private void consoleQuery_button_Click(object sender, EventArgs e)
+        {
             ConsoleQuery query = new ConsoleQuery();
             Kit set = new Kit();
 
             query.Query();
         }
 
-		private void button_SSH_Click(object sender, EventArgs e)
-		{
+        private void button_SSH_Click(object sender, EventArgs e)
+        {
             LoginDSV login = new LoginDSV();
 
             string selected = this.deployComboBox.GetItemText(this.deployComboBox.SelectedItem); //wybieram zmienna z comboboxa
 
             if (String.IsNullOrEmpty(selected)) // jezeli nie wybrano srodowiska
             {
-                    MessageBox.Show("Please select the deployment environment first.", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please select the deployment environment first.", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else // jezeli wybrano srodowisko, to kontynuuj dla wybranego srodowiska
             {
                 if (selected == "QA only")
                 {
-                ProcessStartInfo cmd = new ProcessStartInfo();
-                cmd.FileName = @"C:\Program Files\PuTTY\putty.exe";
-                cmd.UseShellExecute = false;
-                cmd.RedirectStandardInput = false;
-                cmd.RedirectStandardOutput = true;
-                    cmd.Arguments = "-ssh " + login.Login() + "@" + "qsiapp1.dsv.com" + " 22 " + "-pw " + login.Login()+"";
+                    ProcessStartInfo cmd = new ProcessStartInfo();
+                    cmd.FileName = @"C:\Program Files\PuTTY\putty.exe";
+                    cmd.UseShellExecute = false;
+                    cmd.RedirectStandardInput = false;
+                    cmd.RedirectStandardOutput = true;
+                    cmd.Arguments = "-ssh " + login.Login() + "@" + "qsiapp1.dsv.com" + " 22 " + "-pw " + login.Login() + "";
                     using (Process process = Process.Start(cmd))
                     {
-                            process.WaitForExit();
+                        process.WaitForExit();
                     }
                 }
                 else if (selected == "PROD only")
                 {
-                ProcessStartInfo cmd = new ProcessStartInfo();
-                cmd.FileName = @"C:\Program Files\PuTTY\putty.exe";
-                cmd.UseShellExecute = false;
-                cmd.RedirectStandardInput = false;
-                cmd.RedirectStandardOutput = true;
+                    ProcessStartInfo cmd = new ProcessStartInfo();
+                    cmd.FileName = @"C:\Program Files\PuTTY\putty.exe";
+                    cmd.UseShellExecute = false;
+                    cmd.RedirectStandardInput = false;
+                    cmd.RedirectStandardOutput = true;
                     cmd.Arguments = "-ssh " + login.Login() + "@" + "psiapp1.dsv.com" + " 22 " + "-pw " + login.Login() + "";
                     using (Process process = Process.Start(cmd))
                     {
@@ -592,22 +604,22 @@ namespace EDISupportTool
                 }
                 else if (selected == "both - QA & PROD")
                 {
-                ProcessStartInfo cmd1 = new ProcessStartInfo();
-                cmd1.FileName = @"C:\Program Files\PuTTY\putty.exe";
-                cmd1.UseShellExecute = false;
-                cmd1.RedirectStandardInput = false;
-                cmd1.RedirectStandardOutput = true;
+                    ProcessStartInfo cmd1 = new ProcessStartInfo();
+                    cmd1.FileName = @"C:\Program Files\PuTTY\putty.exe";
+                    cmd1.UseShellExecute = false;
+                    cmd1.RedirectStandardInput = false;
+                    cmd1.RedirectStandardOutput = true;
                     cmd1.Arguments = "-ssh " + login.Login() + "@" + "qsiapp1.dsv.com" + " 22 " + "-pw " + login.Login() + "";
                     using (Process process = Process.Start(cmd1))
                     {
                         process.WaitForExit();
                     }
 
-                ProcessStartInfo cmd2 = new ProcessStartInfo();
-                cmd2.FileName = @"C:\Program Files\PuTTY\putty.exe";
-                cmd2.UseShellExecute = false;
-                cmd2.RedirectStandardInput = false;
-                cmd2.RedirectStandardOutput = true;
+                    ProcessStartInfo cmd2 = new ProcessStartInfo();
+                    cmd2.FileName = @"C:\Program Files\PuTTY\putty.exe";
+                    cmd2.UseShellExecute = false;
+                    cmd2.RedirectStandardInput = false;
+                    cmd2.RedirectStandardOutput = true;
                     cmd2.Arguments = "-ssh " + login.Login() + "@" + "psiapp1.dsv.com" + " 22 " + "-pw " + login.Login() + "";
                     using (Process process = Process.Start(cmd2))
                     {
@@ -617,87 +629,138 @@ namespace EDISupportTool
             }
         }
 
-		private void richTextBoxSelectedEnv_TextChanged(object sender, EventArgs e)
-		{
+        private void richTextBoxSelectedEnv_TextChanged(object sender, EventArgs e)
+        {
 
-		}
+        }
 
-		private void button1_Click(object sender, EventArgs e)
-		{
+        private void button1_Click(object sender, EventArgs e)
+        {
 
-		}
-
-		private void deployDirsToolStripMenuItem_Click(object sender, EventArgs e)
-		{
+        }
+        /*
+        private void deployDirsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             Kit set = new Kit();
             set.CreateDirDEPLOYMENTS();
         }
 
-		private void eDIDirsToolStripMenuItem_Click(object sender, EventArgs e)
-		{
+        private void eDIDirsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             Kit set = new Kit();
             set.CreateDirEDI();
         }
-
-		private void sIToolStripMenuItem_Click(object sender, EventArgs e)
-		{
-            System.Diagnostics.Process.Start("http://dsidb1:15501/dashboard/");
-            System.Diagnostics.Process.Start("http://tsiapp1:15501/dashboard/");
-            System.Diagnostics.Process.Start("http://qsiapp1:15501/dashboard/");
-            System.Diagnostics.Process.Start("http://psiapp1:15501/dashboard/");
+        */
+        private void sIToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start("http://dsidb1:15501/dashboard/");
+            Process.Start("http://tsiapp1:15501/dashboard/");
+            Process.Start("http://qsiapp1:15501/dashboard/");
+            Process.Start("http://psiapp1:15501/dashboard/");
         }
 
-		private void lightwellToolStripMenuItem_Click(object sender, EventArgs e)
-		{
-            System.Diagnostics.Process.Start("http://dsidb2:16680/lw/client/index.html#/login");
-            System.Diagnostics.Process.Start("http://tsiapp2:16680/lw/client/index.html#/login");
-            System.Diagnostics.Process.Start("http://qsiapp2:16680/lw/client/index.html#/login");
-            System.Diagnostics.Process.Start("http://psiapp2:16680/lw/client/index.html#/login");
+        private void lightwellToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start("http://dsidb1:16680/lw/client/index.html#/login");
+            Process.Start("http://tsiapp2:16680/lw/client/index.html#/login");
+            Process.Start("http://qsiapp1:16680/lw/client/index.html#/login");
+            Process.Start("http://psiapp2:16680/lw/client/index.html#/login");
         }
 
-		private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-		{
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
             Clipboard.SetText(string.Join(Environment.NewLine, listBox1.Items.OfType<string>())); /// aby móc kopiować zawartość listboxa do schowka
         }
 
-		private void button_modify_Click(object sender, EventArgs e)
-		{
-            if (String.IsNullOrEmpty(textBoxAddUserLDAP.Text))
-            {
-                MessageBox.Show("Enter user account name please.", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else
-            {
-                string fileName = "modifyPassword_" + textBoxAddUserLDAP.Text + ".txt";
-                string[] lines = { "userName=" + textBoxAddUserLDAP.Text, "password=" + PasswordGenerator.NewPasswordforFile() };
-                string path = Path.Combine(@"C:\EDI\", fileName);
-                File.WriteAllLines(path, lines);
+        private void codeListComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
-                MessageBox.Show(@"File has been created in C:\EDI\", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
         }
 
-		private void button_delete_Click(object sender, EventArgs e)
-		{
-            if (String.IsNullOrEmpty(textBoxAddUserLDAP.Text))
-            {
-                MessageBox.Show("Enter user account name please.", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else
-            {
-                string fileName = "deletePassword_" + textBoxAddUserLDAP.Text + ".txt";
-                string[] lines = { "userName=" + textBoxAddUserLDAP.Text, "password=" + PasswordGenerator.NewPasswordforFile() };
-                string path = Path.Combine(@"C:\EDI\", fileName);
-                File.WriteAllLines(path, lines);
+        private void ver_Click(object sender, EventArgs e)
+        {
 
-                MessageBox.Show(@"File has been created in C:\EDI\", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
         }
 
-		private void codeListComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void exitToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void minimizeToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void sIToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Process.Start("http://dsidb1:15501/dashboard/");
+            Process.Start("http://tsiapp1:15501/dashboard/");
+            Process.Start("http://qsiapp1:15501/dashboard/");
+            Process.Start("http://psiapp1:15501/dashboard/");
+        }
+
+        private void lWToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start("http://dsidb1:16680/lw/client/index.html#/login");
+            Process.Start("http://tsiapp2:16680/lw/client/index.html#/login");
+            Process.Start("http://qsiapp2:16680/lw/client/index.html#/login");
+            Process.Start("http://psiapp2:16680/lw/client/index.html#/login");
+        }
+
+        private void aboutToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("myEDI " + ver.Text + Environment.NewLine + "" + Environment.NewLine +
+                "Developed by: " + Environment.NewLine + "" + Environment.NewLine +
+                "rafal.adamczyk@dsv.com" + Environment.NewLine + Environment.NewLine +
+                "EDI Support Team®", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+		public void buttonGoLDAP_Click(object sender, EventArgs e)
+		{
+            Resources ftp = new Resources();
+            bool form = checkBoxLDAP.Checked;
+
+            if (form == true)
+            {
+                if (File.Exists(@"C:\EDI\Templates\procedureftp.doc"))
+                {
+                    listBox1.Items.Add("[" + DateTime.Now.ToString("HH:mm:ss") + "] Doc template found.");
+                }
+                else
+                {
+                    ftp.FTPdoc();
+                    listBox1.Items.Add(Resources.listBoxMessageFTPdoc);
+                }    
+            }
+
+                string selectedLDAP = this.comboBoxLDAP.GetItemText(this.comboBoxLDAP.SelectedItem); //wybieram zmienna z comboboxa
+
+                string textbox = textBoxAddUserLDAP.Text;
+
+                Ldap account = new Ldap();
+                account.LdapAccount(selectedLDAP, textbox, form);
+
+                listBox1.Items.Add(Ldap.listBoxMessage1);
+                listBox1.Items.Add(Ldap.listBoxMessage2);
+
+                if (form == true) //jezeli wybrano checkbox z formularzem to pobierz kolejne komunikaty o utworzeniu dokumentu FTP.
+                {
+                listBox1.Items.Add(Ldap.listBoxMessage3);
+                listBox1.Items.Add(Ldap.listBoxMessage4);
+                }
+        }
+
+		private void checkBoxLDAP_CheckedChanged(object sender, EventArgs e)
 		{
 
 		}
+
+		private void createDirResourcesToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+            Resources dir = new Resources();
+            dir.Dirs();
+        }
 	}
 }
 
