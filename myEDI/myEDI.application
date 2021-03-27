@@ -7,14 +7,14 @@
     <framework targetVersion="4.7.2" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="myEDI.exe.manifest" size="5092">
+    <dependentAssembly dependencyType="install" codebase="myEDI.exe.manifest" size="5483">
       <assemblyIdentity name="myEDI.exe" version="1.1.0.6" publicKeyToken="0000000000000000" language="en" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>lmsxgnbLP2IwGhqt9q30NLNnXPDC8rCIThbThasJN5o=</dsig:DigestValue>
+        <dsig:DigestValue>Y1mJRHo9rZ2uDQaMNMC1AICuYBnlifoNSumGu3RkOZk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

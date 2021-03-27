@@ -1,4 +1,4 @@
-﻿namespace EDISupportTool
+﻿namespace myEDI
 {
 	partial class Form_bothCL
 	{

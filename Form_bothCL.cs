@@ -3,7 +3,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Diagnostics;
 
-namespace EDISupportTool
+namespace myEDI
 {
 	public partial class Form_bothCL : Form
 	{

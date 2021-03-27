@@ -59,23 +59,5 @@ namespace myEDI.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu string.
-        /// </summary>
-        internal static string SRQid {
-            get {
-                return ResourceManager.GetString("SRQid", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu long.
-        /// </summary>
-        internal static string SRQno {
-            get {
-                return ResourceManager.GetString("SRQno", resourceCulture);
-            }
-        }
     }
 }

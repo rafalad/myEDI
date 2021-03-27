@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Text.RegularExpressions;
-using System.Windows.Forms;
-using System.Globalization;
+﻿using System.Windows.Forms;
 
-namespace EDISupportTool
+namespace myEDI
 {
 	public class LoginDSV
 	{

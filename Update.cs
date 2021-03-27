@@ -6,12 +6,7 @@ using System.Threading.Tasks;
 
 namespace myEDI
 {
-	class Note
+	class Update
 	{
-		public Note()
-		{
-
-		}
-		
 	}
 }

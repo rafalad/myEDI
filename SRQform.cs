@@ -3,15 +3,11 @@ using System.Windows.Forms;
 using System.IO;
 using System.Reflection;
 using Word = Microsoft.Office.Interop.Word;
-using myEDI;
 
-namespace EDISupportTool
+namespace myEDI
 {
-	class LdapForm
-	{
-        public static string listBoxMessage1;
-        public static string listBoxMessage2;
-
+    class SRQform
+    {
         private void FindAndReplace(Word.Application wordApp, object ToFindText, object replaceWithText)
         {
             object matchCase = true;
@@ -41,7 +37,7 @@ namespace EDISupportTool
         }
 
         //Creeate the Doc Method
-        public void CreateWordDocument(object filename, object SaveAs)
+        public void CreateWordDocument(object filename, object SaveAs, string no, string file1, string file2, string file3, string file4)
         {
             try
             {
@@ -62,9 +58,21 @@ namespace EDISupportTool
                                             ref missing, ref missing, ref missing, ref missing);
                     myWordDoc.Activate();
                     //find and replace
-                    this.FindAndReplace(wordApp, "<loginid>", Ldap.loginForm);
-                    this.FindAndReplace(wordApp, "<password>", Ldap.passwordForm);
 
+                    //Data                                                                                                                      
+                    DateTime dateAndTime = DateTime.Now;
+                    //Urzytkownik
+                    string userName = Environment.UserName;
+
+                    this.FindAndReplace(wordApp, "<user>", userName.Replace(".", " "));
+                    this.FindAndReplace(wordApp, "<date>", dateAndTime.ToString("yyyy-MM-dd"));
+                    this.FindAndReplace(wordApp, "<srqno>", no);
+                    this.FindAndReplace(wordApp, "<si>", "SI:");
+                    this.FindAndReplace(wordApp, "<file1>", file1);
+                    this.FindAndReplace(wordApp, "<lw>", "LW:");
+                    this.FindAndReplace(wordApp, "<file2>", file2);
+                    this.FindAndReplace(wordApp, "<file3>", file3);
+                    this.FindAndReplace(wordApp, "<file4>", file4);
                 }
                 else
                 {
@@ -88,25 +96,20 @@ namespace EDISupportTool
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-        public void CreateForm()
+
+        //Ta metoda utworzy formularz, który przyjmuje 7 zmiennych z klasy Ticket (wywołuje tą metodę) - numer zadania, koncept nazwy pliku, nazwe folderu docelowego oraz nazwy plikow.
+        public void CreateForm(string no, string docName, string dirName, string file1, string file2, string file3, string file4)
         {
             Resources dir = new Resources();
-            string login = Ldap.loginForm;
-            string customer = login.Substring(4);
-            
+
             try
             {
-                CreateWordDocument(@"C:\EDI\doc_temp\procedureftp.doc",
-                    @"C:\EDI\Procedure for making FTP from " + customer.ToUpper() + " to DSV.doc");
-
-                listBoxMessage1 = "The FTP document for Requestor generated successfully. Link below:";
-                listBoxMessage2 = @"C:\EDI\Procedure for making FTP from " + customer.ToUpper() + " to DSV.doc";
+                CreateWordDocument(@"C:\EDI\doc_temp\deploy_request.docx", dirName + docName, no, file1, file2, file3, file4);
             }
 
             catch
             {
-                listBoxMessage1 = "Doc template could not be downloaded... Procedure stopped, please try again without form.";
-                MessageBox.Show("Failed.", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Failed. Please try again", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {

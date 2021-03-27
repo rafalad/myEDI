@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using EDISupportTool;
@@ -45,10 +41,8 @@ namespace myEDI
 
                         listBoxMessage1 = "[" + DateTime.Now.ToString("HH:mm:ss") + @"] New user LDAP File has been created in: ";
                         listBoxMessage2 = path;
-                        listBoxMessage3 = LdapForm.listBoxMessage1;
-                        listBoxMessage4 = LdapForm.listBoxMessage2;
-
-                        MessageBox.Show("Completed.", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        listBoxMessage3 = LdapForm.listBoxMessage1; //pobieram komunikaty po utworzeniu formularza FTP tylko dla nowego uzytkownika
+                        listBoxMessage4 = LdapForm.listBoxMessage2;  
                     }
 
                     else

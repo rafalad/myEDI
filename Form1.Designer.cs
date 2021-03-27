@@ -1,4 +1,4 @@
-﻿namespace EDISupportTool
+﻿namespace myEDI
 {
 	partial class myEDI
 	{
@@ -40,7 +40,6 @@
 			this.label12 = new System.Windows.Forms.Label();
 			this.label10 = new System.Windows.Forms.Label();
 			this.groupBox3 = new System.Windows.Forms.GroupBox();
-			this.button_SSH = new System.Windows.Forms.Button();
 			this.button_reports = new System.Windows.Forms.Button();
 			this.button_resources = new System.Windows.Forms.Button();
 			this.extractRT_button = new System.Windows.Forms.Button();
@@ -54,6 +53,8 @@
 			this.checkBox_RT = new System.Windows.Forms.CheckBox();
 			this.label4 = new System.Windows.Forms.Label();
 			this.groupBox4 = new System.Windows.Forms.GroupBox();
+			this.checkBoxSRQ = new System.Windows.Forms.CheckBox();
+			this.label13 = new System.Windows.Forms.Label();
 			this.comboBoxSRQ = new System.Windows.Forms.ComboBox();
 			this.label6 = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
@@ -73,13 +74,20 @@
 			this.editToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.viewToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.minimizeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+			this.cleanEventViewerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.dirsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.createDirResourcesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.linksToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-			this.sIToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.lWToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.sIToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+			this.formsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+			this.fTPProcedureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.multipleEntriesCLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.deployRequestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.gentranGenericListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.aboutToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
 			this.aboutToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+			this.sIToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -89,8 +97,8 @@
 			this.deployDirsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.eDIDirsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.linksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.sIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.lightwellToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.sIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.formsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -100,7 +108,6 @@
 			this.eventLog1 = new System.Diagnostics.EventLog();
 			this.statusStrip1 = new System.Windows.Forms.StatusStrip();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
-			this.user = new System.Windows.Forms.Label();
 			this.ver = new System.Windows.Forms.Label();
 			this.groupBox6 = new System.Windows.Forms.GroupBox();
 			this.listBox1 = new System.Windows.Forms.ListBox();
@@ -108,6 +115,7 @@
 			this.eventLog2 = new System.Diagnostics.EventLog();
 			this.eventLog3 = new System.Diagnostics.EventLog();
 			this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+			this.latest_ver = new System.Windows.Forms.Label();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			this.groupBox3.SuspendLayout();
@@ -128,8 +136,7 @@
 			this.textBoxAddUserLDAP.Location = new System.Drawing.Point(11, 49);
 			this.textBoxAddUserLDAP.Name = "textBoxAddUserLDAP";
 			this.textBoxAddUserLDAP.Size = new System.Drawing.Size(215, 20);
-			this.textBoxAddUserLDAP.TabIndex = 5;
-			this.textBoxAddUserLDAP.TabStop = false;
+			this.textBoxAddUserLDAP.TabIndex = 4;
 			this.textBoxAddUserLDAP.TextChanged += new System.EventHandler(this.textBoxAddUserLDAP_TextChanged);
 			// 
 			// label2
@@ -143,28 +150,31 @@
 			// 
 			// deployComboBox
 			// 
+			this.deployComboBox.AccessibleName = "";
+			this.deployComboBox.Cursor = System.Windows.Forms.Cursors.Default;
 			this.deployComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.deployComboBox.FormattingEnabled = true;
 			this.deployComboBox.Items.AddRange(new object[] {
-            "QA only",
-            "PROD only",
-            "both - QA & PROD"});
+			"QA only",
+			"PROD only",
+			"both - QA & PROD"});
 			this.deployComboBox.Location = new System.Drawing.Point(9, 56);
 			this.deployComboBox.Name = "deployComboBox";
 			this.deployComboBox.Size = new System.Drawing.Size(213, 21);
 			this.deployComboBox.TabIndex = 9;
 			this.deployComboBox.TabStop = false;
+			this.deployComboBox.Text = "QA only";
 			this.deployComboBox.SelectedIndexChanged += new System.EventHandler(this.deployComboBox_SelectedIndexChanged);
 			// 
 			// label3
 			// 
-			this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+			this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+			| System.Windows.Forms.AnchorStyles.Left)
+			| System.Windows.Forms.AnchorStyles.Right)));
 			this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.label3.Location = new System.Drawing.Point(6, 35);
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(221, 83);
+			this.label3.Size = new System.Drawing.Size(221, 68);
 			this.label3.TabIndex = 10;
 			this.label3.Text = "Please select the deployment environments:";
 			// 
@@ -187,12 +197,12 @@
 			this.groupBox1.Controls.Add(this.label9);
 			this.groupBox1.Controls.Add(this.buttonGenerateRandomPassword);
 			this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.groupBox1.Location = new System.Drawing.Point(268, 252);
+			this.groupBox1.Location = new System.Drawing.Point(268, 273);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(251, 91);
+			this.groupBox1.Size = new System.Drawing.Size(251, 118);
 			this.groupBox1.TabIndex = 14;
 			this.groupBox1.TabStop = false;
-			this.groupBox1.Text = "Password Generator";
+			this.groupBox1.Text = "Password";
 			// 
 			// label9
 			// 
@@ -226,12 +236,12 @@
 			this.groupBox2.Controls.Add(this.label10);
 			this.groupBox2.Controls.Add(this.textBoxAddUserLDAP);
 			this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.groupBox2.Location = new System.Drawing.Point(269, 349);
+			this.groupBox2.Location = new System.Drawing.Point(269, 397);
 			this.groupBox2.Name = "groupBox2";
 			this.groupBox2.Size = new System.Drawing.Size(251, 181);
 			this.groupBox2.TabIndex = 15;
 			this.groupBox2.TabStop = false;
-			this.groupBox2.Text = "LDAP user creator";
+			this.groupBox2.Text = "LDAP";
 			// 
 			// checkBoxLDAP
 			// 
@@ -253,20 +263,20 @@
 			this.comboBoxLDAP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.comboBoxLDAP.FormattingEnabled = true;
 			this.comboBoxLDAP.Items.AddRange(new object[] {
-            "New user",
-            "Modify user",
-            "Delete user"});
+			"New user",
+			"Modify user",
+			"Delete user"});
 			this.comboBoxLDAP.Location = new System.Drawing.Point(108, 76);
 			this.comboBoxLDAP.Name = "comboBoxLDAP";
 			this.comboBoxLDAP.Size = new System.Drawing.Size(118, 21);
-			this.comboBoxLDAP.TabIndex = 0;
-			this.comboBoxLDAP.TabStop = false;
+			this.comboBoxLDAP.TabIndex = 5;
 			this.comboBoxLDAP.Text = "New user";
+			this.comboBoxLDAP.SelectedIndexChanged += new System.EventHandler(this.comboBoxLDAP_SelectedIndexChanged);
 			// 
 			// buttonGoLDAP
 			// 
 			this.buttonGoLDAP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.buttonGoLDAP.Location = new System.Drawing.Point(108, 134);
+			this.buttonGoLDAP.Location = new System.Drawing.Point(108, 128);
 			this.buttonGoLDAP.Name = "buttonGoLDAP";
 			this.buttonGoLDAP.Size = new System.Drawing.Size(118, 26);
 			this.buttonGoLDAP.TabIndex = 24;
@@ -277,13 +287,13 @@
 			// 
 			// label12
 			// 
-			this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+			this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+			| System.Windows.Forms.AnchorStyles.Left)
+			| System.Windows.Forms.AnchorStyles.Right)));
 			this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.label12.Location = new System.Drawing.Point(37, 106);
 			this.label12.Name = "label12";
-			this.label12.Size = new System.Drawing.Size(139, 0);
+			this.label12.Size = new System.Drawing.Size(139, 16);
 			this.label12.TabIndex = 36;
 			this.label12.Text = "Add a form for a new user? ";
 			// 
@@ -299,7 +309,6 @@
 			// groupBox3
 			// 
 			this.groupBox3.BackColor = System.Drawing.SystemColors.ControlLight;
-			this.groupBox3.Controls.Add(this.button_SSH);
 			this.groupBox3.Controls.Add(this.button_reports);
 			this.groupBox3.Controls.Add(this.button_resources);
 			this.groupBox3.Controls.Add(this.extractRT_button);
@@ -318,27 +327,15 @@
 			this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.groupBox3.Location = new System.Drawing.Point(12, 42);
 			this.groupBox3.Name = "groupBox3";
-			this.groupBox3.Size = new System.Drawing.Size(241, 364);
+			this.groupBox3.Size = new System.Drawing.Size(241, 349);
 			this.groupBox3.TabIndex = 16;
 			this.groupBox3.TabStop = false;
-			this.groupBox3.Text = "Deployment Note Wizard";
-			// 
-			// button_SSH
-			// 
-			this.button_SSH.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.button_SSH.Location = new System.Drawing.Point(36, 206);
-			this.button_SSH.Name = "button_SSH";
-			this.button_SSH.Size = new System.Drawing.Size(164, 34);
-			this.button_SSH.TabIndex = 35;
-			this.button_SSH.TabStop = false;
-			this.button_SSH.Text = "Open SSH Session";
-			this.button_SSH.UseVisualStyleBackColor = true;
-			this.button_SSH.Click += new System.EventHandler(this.button_SSH_Click);
+			this.groupBox3.Text = "Deployment";
 			// 
 			// button_reports
 			// 
 			this.button_reports.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.button_reports.Location = new System.Drawing.Point(36, 324);
+			this.button_reports.Location = new System.Drawing.Point(36, 288);
 			this.button_reports.Name = "button_reports";
 			this.button_reports.Size = new System.Drawing.Size(80, 34);
 			this.button_reports.TabIndex = 34;
@@ -350,7 +347,7 @@
 			// button_resources
 			// 
 			this.button_resources.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.button_resources.Location = new System.Drawing.Point(36, 284);
+			this.button_resources.Location = new System.Drawing.Point(36, 248);
 			this.button_resources.Name = "button_resources";
 			this.button_resources.Size = new System.Drawing.Size(80, 34);
 			this.button_resources.TabIndex = 33;
@@ -362,7 +359,7 @@
 			// extractRT_button
 			// 
 			this.extractRT_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.extractRT_button.Location = new System.Drawing.Point(120, 246);
+			this.extractRT_button.Location = new System.Drawing.Point(120, 210);
 			this.extractRT_button.Name = "extractRT_button";
 			this.extractRT_button.Size = new System.Drawing.Size(80, 34);
 			this.extractRT_button.TabIndex = 27;
@@ -374,7 +371,7 @@
 			// button_logs
 			// 
 			this.button_logs.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.button_logs.Location = new System.Drawing.Point(120, 324);
+			this.button_logs.Location = new System.Drawing.Point(120, 288);
 			this.button_logs.Name = "button_logs";
 			this.button_logs.Size = new System.Drawing.Size(80, 34);
 			this.button_logs.TabIndex = 32;
@@ -386,7 +383,7 @@
 			// consoleQuery_button
 			// 
 			this.consoleQuery_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.consoleQuery_button.Location = new System.Drawing.Point(120, 284);
+			this.consoleQuery_button.Location = new System.Drawing.Point(120, 248);
 			this.consoleQuery_button.Name = "consoleQuery_button";
 			this.consoleQuery_button.Size = new System.Drawing.Size(80, 34);
 			this.consoleQuery_button.TabIndex = 30;
@@ -412,13 +409,13 @@
 			// 
 			// label11
 			// 
-			this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+			this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+			| System.Windows.Forms.AnchorStyles.Left)
+			| System.Windows.Forms.AnchorStyles.Right)));
 			this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.label11.Location = new System.Drawing.Point(41, 136);
 			this.label11.Name = "label11";
-			this.label11.Size = new System.Drawing.Size(123, 17);
+			this.label11.Size = new System.Drawing.Size(123, 13);
 			this.label11.TabIndex = 28;
 			this.label11.Text = "Create a console query:";
 			// 
@@ -436,25 +433,25 @@
 			// 
 			// label5
 			// 
-			this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+			this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+			| System.Windows.Forms.AnchorStyles.Left)
+			| System.Windows.Forms.AnchorStyles.Right)));
 			this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.label5.Location = new System.Drawing.Point(6, 86);
 			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(94, 18);
+			this.label5.Size = new System.Drawing.Size(94, 17);
 			this.label5.TabIndex = 26;
 			this.label5.Text = "Selected env.";
 			// 
 			// button_local_deploy
 			// 
 			this.button_local_deploy.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.button_local_deploy.Location = new System.Drawing.Point(36, 246);
+			this.button_local_deploy.Location = new System.Drawing.Point(36, 210);
 			this.button_local_deploy.Name = "button_local_deploy";
 			this.button_local_deploy.Size = new System.Drawing.Size(80, 34);
 			this.button_local_deploy.TabIndex = 25;
 			this.button_local_deploy.TabStop = false;
-			this.button_local_deploy.Text = "Deployment";
+			this.button_local_deploy.Text = "Storage";
 			this.button_local_deploy.UseVisualStyleBackColor = true;
 			this.button_local_deploy.Click += new System.EventHandler(this.button5_Click);
 			// 
@@ -475,19 +472,21 @@
 			// 
 			// label4
 			// 
-			this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+			this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+			| System.Windows.Forms.AnchorStyles.Left)
+			| System.Windows.Forms.AnchorStyles.Right)));
 			this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.label4.Location = new System.Drawing.Point(12, 121);
 			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(148, 16);
+			this.label4.Size = new System.Drawing.Size(148, 17);
 			this.label4.TabIndex = 11;
 			this.label4.Text = "Copy RT files to separate dirs:";
 			// 
 			// groupBox4
 			// 
 			this.groupBox4.BackColor = System.Drawing.SystemColors.ControlLight;
+			this.groupBox4.Controls.Add(this.checkBoxSRQ);
+			this.groupBox4.Controls.Add(this.label13);
 			this.groupBox4.Controls.Add(this.comboBoxSRQ);
 			this.groupBox4.Controls.Add(this.label6);
 			this.groupBox4.Controls.Add(this.label1);
@@ -498,25 +497,52 @@
 			this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.groupBox4.Location = new System.Drawing.Point(269, 42);
 			this.groupBox4.Name = "groupBox4";
-			this.groupBox4.Size = new System.Drawing.Size(250, 204);
+			this.groupBox4.Size = new System.Drawing.Size(250, 225);
 			this.groupBox4.TabIndex = 16;
 			this.groupBox4.TabStop = false;
-			this.groupBox4.Text = "New SRQ / INC";
+			this.groupBox4.Text = "Workspace";
+			// 
+			// checkBoxSRQ
+			// 
+			this.checkBoxSRQ.AutoSize = true;
+			this.checkBoxSRQ.Checked = true;
+			this.checkBoxSRQ.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.checkBoxSRQ.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.checkBoxSRQ.Location = new System.Drawing.Point(181, 151);
+			this.checkBoxSRQ.Name = "checkBoxSRQ";
+			this.checkBoxSRQ.Size = new System.Drawing.Size(44, 17);
+			this.checkBoxSRQ.TabIndex = 38;
+			this.checkBoxSRQ.TabStop = false;
+			this.checkBoxSRQ.Text = "Yes";
+			this.checkBoxSRQ.UseVisualStyleBackColor = true;
+			// 
+			// label13
+			// 
+			this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+			| System.Windows.Forms.AnchorStyles.Left)
+			| System.Windows.Forms.AnchorStyles.Right)));
+			this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.label13.Location = new System.Drawing.Point(19, 152);
+			this.label13.Name = "label13";
+			this.label13.Size = new System.Drawing.Size(156, 16);
+			this.label13.TabIndex = 38;
+			this.label13.Text = "Include a deploy request form?";
 			// 
 			// comboBoxSRQ
 			// 
 			this.comboBoxSRQ.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.comboBoxSRQ.FormattingEnabled = true;
 			this.comboBoxSRQ.Items.AddRange(new object[] {
-            "Standard setup",
-            "Code list",
-            "None"});
+			"Code list",
+			"None",
+			"Standard setup"});
 			this.comboBoxSRQ.Location = new System.Drawing.Point(108, 124);
 			this.comboBoxSRQ.Name = "comboBoxSRQ";
 			this.comboBoxSRQ.Size = new System.Drawing.Size(118, 21);
-			this.comboBoxSRQ.TabIndex = 24;
-			this.comboBoxSRQ.TabStop = false;
+			this.comboBoxSRQ.Sorted = true;
+			this.comboBoxSRQ.TabIndex = 3;
 			this.comboBoxSRQ.Text = "Standard setup";
+			this.comboBoxSRQ.SelectedIndexChanged += new System.EventHandler(this.comboBoxSRQ_SelectedIndexChanged);
 			// 
 			// label6
 			// 
@@ -542,8 +568,7 @@
 			this.CHWnumberField.Location = new System.Drawing.Point(22, 56);
 			this.CHWnumberField.Name = "CHWnumberField";
 			this.CHWnumberField.Size = new System.Drawing.Size(204, 20);
-			this.CHWnumberField.TabIndex = 22;
-			this.CHWnumberField.TabStop = false;
+			this.CHWnumberField.TabIndex = 1;
 			this.CHWnumberField.TextChanged += new System.EventHandler(this.CHWnumberField_TextChanged);
 			// 
 			// SRQidField
@@ -552,8 +577,7 @@
 			this.SRQidField.Location = new System.Drawing.Point(22, 98);
 			this.SRQidField.Name = "SRQidField";
 			this.SRQidField.Size = new System.Drawing.Size(205, 20);
-			this.SRQidField.TabIndex = 20;
-			this.SRQidField.TabStop = false;
+			this.SRQidField.TabIndex = 2;
 			this.SRQidField.TextChanged += new System.EventHandler(this.SRQidField_TextChanged);
 			// 
 			// label7
@@ -568,7 +592,7 @@
 			// CreateAnObject
 			// 
 			this.CreateAnObject.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.CreateAnObject.Location = new System.Drawing.Point(108, 166);
+			this.CreateAnObject.Location = new System.Drawing.Point(107, 184);
 			this.CreateAnObject.Name = "CreateAnObject";
 			this.CreateAnObject.Size = new System.Drawing.Size(118, 26);
 			this.CreateAnObject.TabIndex = 18;
@@ -583,12 +607,12 @@
 			this.groupBox5.Controls.Add(this.codeListComboBox);
 			this.groupBox5.Controls.Add(this.label8);
 			this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.groupBox5.Location = new System.Drawing.Point(12, 407);
+			this.groupBox5.Location = new System.Drawing.Point(12, 397);
 			this.groupBox5.Name = "groupBox5";
-			this.groupBox5.Size = new System.Drawing.Size(241, 123);
+			this.groupBox5.Size = new System.Drawing.Size(241, 181);
 			this.groupBox5.TabIndex = 17;
 			this.groupBox5.TabStop = false;
-			this.groupBox5.Text = "Code List Creator";
+			this.groupBox5.Text = "Code List";
 			// 
 			// buttonCL
 			// 
@@ -607,14 +631,15 @@
 			this.codeListComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.codeListComboBox.FormattingEnabled = true;
 			this.codeListComboBox.Items.AddRange(new object[] {
-            "Inbound",
-            "Outbound",
-            "both"});
+			"Inbound",
+			"Outbound",
+			"both"});
 			this.codeListComboBox.Location = new System.Drawing.Point(9, 49);
 			this.codeListComboBox.Name = "codeListComboBox";
 			this.codeListComboBox.Size = new System.Drawing.Size(213, 21);
 			this.codeListComboBox.TabIndex = 27;
 			this.codeListComboBox.TabStop = false;
+			this.codeListComboBox.Text = "both";
 			this.codeListComboBox.SelectedIndexChanged += new System.EventHandler(this.codeListComboBox_SelectedIndexChanged);
 			// 
 			// label8
@@ -630,12 +655,13 @@
 			// 
 			this.menuStrip1.BackColor = System.Drawing.SystemColors.MenuBar;
 			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem1,
-            this.editToolStripMenuItem1,
-            this.viewToolStripMenuItem1,
-            this.dirsToolStripMenuItem1,
-            this.linksToolStripMenuItem1,
-            this.aboutToolStripMenuItem2});
+			this.fileToolStripMenuItem1,
+			this.editToolStripMenuItem1,
+			this.viewToolStripMenuItem1,
+			this.dirsToolStripMenuItem1,
+			this.linksToolStripMenuItem1,
+			this.formsToolStripMenuItem1,
+			this.aboutToolStripMenuItem2});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
 			this.menuStrip1.ShowItemToolTips = true;
@@ -646,7 +672,7 @@
 			// fileToolStripMenuItem1
 			// 
 			this.fileToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.exitToolStripMenuItem1});
+			this.exitToolStripMenuItem1});
 			this.fileToolStripMenuItem1.Name = "fileToolStripMenuItem1";
 			this.fileToolStripMenuItem1.Size = new System.Drawing.Size(37, 20);
 			this.fileToolStripMenuItem1.Text = "File";
@@ -654,7 +680,7 @@
 			// exitToolStripMenuItem1
 			// 
 			this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
-			this.exitToolStripMenuItem1.Size = new System.Drawing.Size(93, 22);
+			this.exitToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
 			this.exitToolStripMenuItem1.Text = "Exit";
 			this.exitToolStripMenuItem1.Click += new System.EventHandler(this.exitToolStripMenuItem1_Click);
 			// 
@@ -667,7 +693,8 @@
 			// viewToolStripMenuItem1
 			// 
 			this.viewToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.minimizeToolStripMenuItem1});
+			this.minimizeToolStripMenuItem1,
+			this.cleanEventViewerToolStripMenuItem});
 			this.viewToolStripMenuItem1.Name = "viewToolStripMenuItem1";
 			this.viewToolStripMenuItem1.Size = new System.Drawing.Size(44, 20);
 			this.viewToolStripMenuItem1.Text = "View";
@@ -675,14 +702,21 @@
 			// minimizeToolStripMenuItem1
 			// 
 			this.minimizeToolStripMenuItem1.Name = "minimizeToolStripMenuItem1";
-			this.minimizeToolStripMenuItem1.Size = new System.Drawing.Size(123, 22);
+			this.minimizeToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
 			this.minimizeToolStripMenuItem1.Text = "Minimize";
 			this.minimizeToolStripMenuItem1.Click += new System.EventHandler(this.minimizeToolStripMenuItem1_Click);
+			// 
+			// cleanEventViewerToolStripMenuItem
+			// 
+			this.cleanEventViewerToolStripMenuItem.Name = "cleanEventViewerToolStripMenuItem";
+			this.cleanEventViewerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.cleanEventViewerToolStripMenuItem.Text = "Clean Event Viewer";
+			this.cleanEventViewerToolStripMenuItem.Click += new System.EventHandler(this.cleanEventViewerToolStripMenuItem_Click);
 			// 
 			// dirsToolStripMenuItem1
 			// 
 			this.dirsToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.createDirResourcesToolStripMenuItem});
+			this.createDirResourcesToolStripMenuItem});
 			this.dirsToolStripMenuItem1.Name = "dirsToolStripMenuItem1";
 			this.dirsToolStripMenuItem1.Size = new System.Drawing.Size(39, 20);
 			this.dirsToolStripMenuItem1.Text = "Dirs";
@@ -697,30 +731,69 @@
 			// linksToolStripMenuItem1
 			// 
 			this.linksToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sIToolStripMenuItem1,
-            this.lWToolStripMenuItem});
+			this.lWToolStripMenuItem,
+			this.sIToolStripMenuItem2});
 			this.linksToolStripMenuItem1.Name = "linksToolStripMenuItem1";
 			this.linksToolStripMenuItem1.Size = new System.Drawing.Size(46, 20);
 			this.linksToolStripMenuItem1.Text = "Links";
 			// 
-			// sIToolStripMenuItem1
-			// 
-			this.sIToolStripMenuItem1.Name = "sIToolStripMenuItem1";
-			this.sIToolStripMenuItem1.Size = new System.Drawing.Size(90, 22);
-			this.sIToolStripMenuItem1.Text = "SI";
-			this.sIToolStripMenuItem1.Click += new System.EventHandler(this.sIToolStripMenuItem1_Click);
-			// 
 			// lWToolStripMenuItem
 			// 
 			this.lWToolStripMenuItem.Name = "lWToolStripMenuItem";
-			this.lWToolStripMenuItem.Size = new System.Drawing.Size(90, 22);
+			this.lWToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.lWToolStripMenuItem.Text = "LW";
 			this.lWToolStripMenuItem.Click += new System.EventHandler(this.lWToolStripMenuItem_Click);
+			// 
+			// sIToolStripMenuItem2
+			// 
+			this.sIToolStripMenuItem2.Name = "sIToolStripMenuItem2";
+			this.sIToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+			this.sIToolStripMenuItem2.Text = "SI";
+			this.sIToolStripMenuItem2.Click += new System.EventHandler(this.sIToolStripMenuItem2_Click);
+			// 
+			// formsToolStripMenuItem1
+			// 
+			this.formsToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+			this.fTPProcedureToolStripMenuItem,
+			this.multipleEntriesCLToolStripMenuItem,
+			this.deployRequestToolStripMenuItem,
+			this.gentranGenericListToolStripMenuItem});
+			this.formsToolStripMenuItem1.Name = "formsToolStripMenuItem1";
+			this.formsToolStripMenuItem1.Size = new System.Drawing.Size(52, 20);
+			this.formsToolStripMenuItem1.Text = "Forms";
+			// 
+			// fTPProcedureToolStripMenuItem
+			// 
+			this.fTPProcedureToolStripMenuItem.Name = "fTPProcedureToolStripMenuItem";
+			this.fTPProcedureToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.fTPProcedureToolStripMenuItem.Text = "FTP procedure";
+			this.fTPProcedureToolStripMenuItem.Click += new System.EventHandler(this.fTPProcedureToolStripMenuItem_Click);
+			// 
+			// multipleEntriesCLToolStripMenuItem
+			// 
+			this.multipleEntriesCLToolStripMenuItem.Name = "multipleEntriesCLToolStripMenuItem";
+			this.multipleEntriesCLToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.multipleEntriesCLToolStripMenuItem.Text = "Multiple entries CL";
+			this.multipleEntriesCLToolStripMenuItem.Click += new System.EventHandler(this.multipleEntriesCLToolStripMenuItem_Click);
+			// 
+			// deployRequestToolStripMenuItem
+			// 
+			this.deployRequestToolStripMenuItem.Name = "deployRequestToolStripMenuItem";
+			this.deployRequestToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.deployRequestToolStripMenuItem.Text = "Deploy Request";
+			this.deployRequestToolStripMenuItem.Click += new System.EventHandler(this.deployRequestToolStripMenuItem_Click);
+			// 
+			// gentranGenericListToolStripMenuItem
+			// 
+			this.gentranGenericListToolStripMenuItem.Name = "gentranGenericListToolStripMenuItem";
+			this.gentranGenericListToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.gentranGenericListToolStripMenuItem.Text = "Gentran Generic List";
+			this.gentranGenericListToolStripMenuItem.Click += new System.EventHandler(this.gentranGenericListToolStripMenuItem_Click);
 			// 
 			// aboutToolStripMenuItem2
 			// 
 			this.aboutToolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutToolStripMenuItem3});
+			this.aboutToolStripMenuItem3});
 			this.aboutToolStripMenuItem2.Name = "aboutToolStripMenuItem2";
 			this.aboutToolStripMenuItem2.Size = new System.Drawing.Size(52, 20);
 			this.aboutToolStripMenuItem2.Text = "About";
@@ -732,10 +805,16 @@
 			this.aboutToolStripMenuItem3.Text = "About";
 			this.aboutToolStripMenuItem3.Click += new System.EventHandler(this.aboutToolStripMenuItem3_Click);
 			// 
+			// sIToolStripMenuItem1
+			// 
+			this.sIToolStripMenuItem1.Name = "sIToolStripMenuItem1";
+			this.sIToolStripMenuItem1.Size = new System.Drawing.Size(122, 22);
+			this.sIToolStripMenuItem1.Text = "SI";
+			// 
 			// fileToolStripMenuItem
 			// 
 			this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.exitToolStripMenuItem});
+			this.exitToolStripMenuItem});
 			this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
 			this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
 			this.fileToolStripMenuItem.Text = "File";
@@ -756,7 +835,7 @@
 			// viewToolStripMenuItem
 			// 
 			this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.minimizeToolStripMenuItem});
+			this.minimizeToolStripMenuItem});
 			this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
 			this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
 			this.viewToolStripMenuItem.Text = "View";
@@ -771,8 +850,8 @@
 			// dirsToolStripMenuItem
 			// 
 			this.dirsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.deployDirsToolStripMenuItem,
-            this.eDIDirsToolStripMenuItem});
+			this.deployDirsToolStripMenuItem,
+			this.eDIDirsToolStripMenuItem});
 			this.dirsToolStripMenuItem.Name = "dirsToolStripMenuItem";
 			this.dirsToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
 			this.dirsToolStripMenuItem.Text = "Dirs";
@@ -792,25 +871,23 @@
 			// linksToolStripMenuItem
 			// 
 			this.linksToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sIToolStripMenuItem,
-            this.lightwellToolStripMenuItem});
+			this.sIToolStripMenuItem1,
+			this.lightwellToolStripMenuItem});
 			this.linksToolStripMenuItem.Name = "linksToolStripMenuItem";
 			this.linksToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
 			this.linksToolStripMenuItem.Text = "Links";
-			// 
-			// sIToolStripMenuItem
-			// 
-			this.sIToolStripMenuItem.Name = "sIToolStripMenuItem";
-			this.sIToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
-			this.sIToolStripMenuItem.Text = "SI";
-			this.sIToolStripMenuItem.Click += new System.EventHandler(this.sIToolStripMenuItem_Click);
 			// 
 			// lightwellToolStripMenuItem
 			// 
 			this.lightwellToolStripMenuItem.Name = "lightwellToolStripMenuItem";
 			this.lightwellToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
 			this.lightwellToolStripMenuItem.Text = "Lightwell";
-			this.lightwellToolStripMenuItem.Click += new System.EventHandler(this.lightwellToolStripMenuItem_Click);
+			// 
+			// sIToolStripMenuItem
+			// 
+			this.sIToolStripMenuItem.Name = "sIToolStripMenuItem";
+			this.sIToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+			this.sIToolStripMenuItem.Text = "SI";
 			// 
 			// formsToolStripMenuItem
 			// 
@@ -821,7 +898,7 @@
 			// aboutToolStripMenuItem
 			// 
 			this.aboutToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutToolStripMenuItem1});
+			this.aboutToolStripMenuItem1});
 			this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
 			this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
 			this.aboutToolStripMenuItem.Text = "About";
@@ -863,24 +940,13 @@
 			// pictureBox1
 			// 
 			this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-			this.pictureBox1.Location = new System.Drawing.Point(916, 536);
+			this.pictureBox1.Location = new System.Drawing.Point(918, 2);
 			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(50, 50);
+			this.pictureBox1.Size = new System.Drawing.Size(66, 22);
 			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
 			this.pictureBox1.TabIndex = 29;
 			this.pictureBox1.TabStop = false;
 			this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-			// 
-			// user
-			// 
-			this.user.BackColor = System.Drawing.SystemColors.MenuBar;
-			this.user.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.user.Location = new System.Drawing.Point(672, 592);
-			this.user.Name = "user";
-			this.user.Size = new System.Drawing.Size(294, 16);
-			this.user.TabIndex = 23;
-			this.user.Text = "login";
-			this.user.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			// 
 			// ver
 			// 
@@ -888,7 +954,7 @@
 			this.ver.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.ver.Location = new System.Drawing.Point(9, 592);
 			this.ver.Name = "ver";
-			this.ver.Size = new System.Drawing.Size(294, 18);
+			this.ver.Size = new System.Drawing.Size(54, 18);
 			this.ver.TabIndex = 31;
 			this.ver.Text = "version";
 			this.ver.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -905,23 +971,25 @@
 			this.groupBox6.ForeColor = System.Drawing.SystemColors.Desktop;
 			this.groupBox6.Location = new System.Drawing.Point(535, 42);
 			this.groupBox6.Name = "groupBox6";
-			this.groupBox6.Size = new System.Drawing.Size(437, 488);
+			this.groupBox6.Size = new System.Drawing.Size(437, 536);
 			this.groupBox6.TabIndex = 32;
 			this.groupBox6.TabStop = false;
 			this.groupBox6.Text = "Event Viewer";
 			// 
 			// listBox1
 			// 
-			this.listBox1.BackColor = System.Drawing.SystemColors.Info;
+			this.listBox1.BackColor = System.Drawing.Color.Azure;
 			this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.listBox1.ForeColor = System.Drawing.Color.Navy;
 			this.listBox1.FormattingEnabled = true;
 			this.listBox1.HorizontalExtent = 1000;
 			this.listBox1.IntegralHeight = false;
 			this.listBox1.Location = new System.Drawing.Point(8, 19);
 			this.listBox1.Name = "listBox1";
 			this.listBox1.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-			this.listBox1.Size = new System.Drawing.Size(423, 448);
+			this.listBox1.Size = new System.Drawing.Size(423, 511);
 			this.listBox1.TabIndex = 36;
+			this.listBox1.TabStop = false;
 			this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
 			// 
 			// progressBar1
@@ -939,14 +1007,25 @@
 			// 
 			this.eventLog3.SynchronizingObject = this;
 			// 
+			// latest_ver
+			// 
+			this.latest_ver.BackColor = System.Drawing.SystemColors.MenuBar;
+			this.latest_ver.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.latest_ver.Location = new System.Drawing.Point(69, 591);
+			this.latest_ver.Name = "latest_ver";
+			this.latest_ver.Size = new System.Drawing.Size(413, 18);
+			this.latest_ver.TabIndex = 33;
+			this.latest_ver.Text = "version";
+			this.latest_ver.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
 			// myEDI
 			// 
 			this.AutoSize = true;
 			this.BackColor = System.Drawing.SystemColors.ControlLight;
 			this.ClientSize = new System.Drawing.Size(984, 611);
+			this.Controls.Add(this.latest_ver);
 			this.Controls.Add(this.groupBox6);
 			this.Controls.Add(this.ver);
-			this.Controls.Add(this.user);
 			this.Controls.Add(this.pictureBox1);
 			this.Controls.Add(this.statusStrip1);
 			this.Controls.Add(this.menuStrip1);
@@ -1041,8 +1120,6 @@
 		private System.Windows.Forms.PictureBox pictureBox1;
 		private System.Windows.Forms.Button buttonGenerateRandomPassword;
 		private System.Windows.Forms.Label label9;
-		private System.Windows.Forms.Button button_SSH;
-		private System.Windows.Forms.Label user;
 		private System.Windows.Forms.Label ver;
 		private System.Windows.Forms.ToolStripMenuItem dirsToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem linksToolStripMenuItem;
@@ -1075,6 +1152,15 @@
 		private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem3;
 		public System.ComponentModel.BackgroundWorker backgroundWorker1;
 		private System.Windows.Forms.ToolStripMenuItem createDirResourcesToolStripMenuItem;
+		private System.Windows.Forms.Label latest_ver;
+		private System.Windows.Forms.ToolStripMenuItem cleanEventViewerToolStripMenuItem;
+		private System.Windows.Forms.CheckBox checkBoxSRQ;
+		private System.Windows.Forms.Label label13;
+		private System.Windows.Forms.ToolStripMenuItem formsToolStripMenuItem1;
+		private System.Windows.Forms.ToolStripMenuItem fTPProcedureToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem multipleEntriesCLToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem deployRequestToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem gentranGenericListToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem sIToolStripMenuItem2;
 	}
 }
-

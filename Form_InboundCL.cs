@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Diagnostics;
 
-namespace EDISupportTool
+namespace myEDI
 {
 	public partial class Form_InboundCL : Form
 	{
@@ -19,16 +19,11 @@ namespace EDISupportTool
 			InitializeComponent();
 		}
 
-		private void label7_Click(object sender, EventArgs e)
-		{
-
-		}
-
 		private void textBoxChildD_inbound_TextChanged(object sender, EventArgs e)
 		{
 			textBoxChildD_inbound.CharacterCasing = CharacterCasing.Upper;
 		}
-		
+
 		private void textBoxParentID_inbound_TextChanged(object sender, EventArgs e)
 		{
 			textBoxParentID_inbound.CharacterCasing = CharacterCasing.Upper;
@@ -60,7 +55,7 @@ namespace EDISupportTool
 
 				Process.Start(pathString);
 
-				MessageBox.Show("A codelist name has been created for the Inbound flow." + Environment.NewLine + 
+				MessageBox.Show("A codelist name has been created for the Inbound flow." + Environment.NewLine +
 					"The file will be saved in: " + pathString, "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Information);
 			}
 		}

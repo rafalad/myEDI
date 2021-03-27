@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.IO;
 using System.Diagnostics;
-using System.Windows.Forms;
 
-namespace EDISupportTool
+namespace myEDI
 {
 	public class Qa
 	{
@@ -15,7 +11,8 @@ namespace EDISupportTool
 		{
 			Kit set = new Kit();
 
-			string pathString = Path.Combine(set.deploymentsdir, "note.txt");
+			string pathString = @"C:\DEPLOYMENTS\msteams_note.txt";
+
 			string wiersz1 = set.Time1();
 			string wiersz2 = "\nFollowing SRQs are now deployed to QA system successfully:\n";
 
@@ -36,13 +33,12 @@ namespace EDISupportTool
 				File.AppendAllText(pathString, appendText, Encoding.UTF8);
 			}
 			
-			//Process.Start(pathString);
-
+			Process.Start(pathString);
 
 			///Logs section ////
 			
 			DateTime thisDay = DateTime.Today;
-			string logPath = @"C:\DEPLOYMENTS\My_Logs.txt";
+			string logPath = @"C:\DEPLOYMENTS\my_logs.txt";
 
 			string[] lines = File.ReadAllLines(pathString);
 

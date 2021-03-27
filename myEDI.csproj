@@ -73,7 +73,16 @@
   <PropertyGroup>
     <SignManifests>true</SignManifests>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>EDISupportTool_TemporaryKey.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="Microsoft.Office.Interop.Word, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
@@ -91,7 +100,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Console.cs" />
-    <Compile Include="Deployment.cs" />
+    <Compile Include="ExtractResource.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,7 +129,6 @@
     <Compile Include="Ldap.cs" />
     <Compile Include="LdapForm.cs" />
     <Compile Include="LoginDSV.cs" />
-    <Compile Include="Note.cs" />
     <Compile Include="Pass.cs" />
     <Compile Include="Prod.cs" />
     <Compile Include="Program.cs" />
@@ -128,7 +136,7 @@
     <Compile Include="Qa.cs" />
     <Compile Include="Qaprod.cs" />
     <Compile Include="Resources.cs" />
-    <Compile Include="Srq.cs" />
+    <Compile Include="SRQform.cs" />
     <Compile Include="Ticket.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -152,6 +160,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Resources\deploy_request.docx" />
     <None Include="EDISupportTool_TemporaryKey.pfx" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
@@ -163,11 +172,15 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Resources\procedureftp.doc" />
+    <EmbeddedResource Include="Resources\CodeListTool.xls" />
+    <EmbeddedResource Include="Resources\Generic_list_adjustment_date.xls" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="favicon.ico" />
     <Content Include="icon.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -182,8 +195,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

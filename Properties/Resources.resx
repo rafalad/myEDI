@@ -117,12 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="SRQid" xml:space="preserve">
-    <value>string</value>
-    <comment>Value to create folders</comment>
-  </data>
-  <data name="SRQno" xml:space="preserve">
-    <value>long</value>
-    <comment>Value to create folders</comment>
-  </data>
 </root>
