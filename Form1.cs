@@ -762,7 +762,6 @@ namespace myEDI
 
 		private void fTPProcedureToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-            Resources dir = new Resources();
             ExtractResource click = new ExtractResource();
 
             string path = "C:\\EDI\\temp\\procedureftp.doc";
@@ -779,7 +778,6 @@ namespace myEDI
 
 		private void multipleEntriesCLToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-            Resources dir = new Resources();
             ExtractResource click = new ExtractResource();
 
             string path = "C:\\EDI\\temp\\CodeListTool.xls";
@@ -796,7 +794,6 @@ namespace myEDI
 
 		private void deployRequestToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-            Resources dir = new Resources();
             ExtractResource click = new ExtractResource();
 
             string path = "C:\\EDI\\temp\\deploy_request.docx";

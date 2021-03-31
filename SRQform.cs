@@ -68,11 +68,11 @@ namespace myEDI
                     this.FindAndReplace(wordApp, "<date>", dateAndTime.ToString("yyyy-MM-dd"));
                     this.FindAndReplace(wordApp, "<srqno>", no);
                     this.FindAndReplace(wordApp, "<si>", "SI:");
-                    this.FindAndReplace(wordApp, "<file1>", file1);
+                    this.FindAndReplace(wordApp, "<file1>", file1 + ".xml");
                     this.FindAndReplace(wordApp, "<lw>", "LW:");
-                    this.FindAndReplace(wordApp, "<file2>", file2);
-                    this.FindAndReplace(wordApp, "<file3>", file3);
-                    this.FindAndReplace(wordApp, "<file4>", file4);
+                    this.FindAndReplace(wordApp, "<file2>", file2 + ".xml");
+                    this.FindAndReplace(wordApp, "<file3>", file3 + ".xml");
+                    this.FindAndReplace(wordApp, "<file4>", file4 + ".xml");
                 }
                 else
                 {

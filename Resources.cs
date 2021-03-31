@@ -13,7 +13,7 @@ namespace myEDI
         public void Dirs()
         {
             if (Directory.Exists(@"C:\EDI") &&
-                Directory.Exists(@"C:\EDI\Templates") &&
+                Directory.Exists(@"C:\EDI\Temp") &&
                 Directory.Exists(@"C:\DEPLOYMENTS\") &&
                 Directory.Exists(@"C:\DEPLOYMENTS\DEPLOY") &&
                 Directory.Exists(@"C:\DEPLOYMENTS\REPORTS") &&
@@ -26,7 +26,6 @@ namespace myEDI
             else
             {
                 Directory.CreateDirectory(@"C:\EDI");
-                Directory.CreateDirectory(@"C:\EDI\Templates");
                 Directory.CreateDirectory(@"C:\DEPLOYMENTS\");
                 Directory.CreateDirectory(@"C:\DEPLOYMENTS\DEPLOY");
                 Directory.CreateDirectory(@"C:\DEPLOYMENTS\REPORTS");
@@ -34,7 +33,18 @@ namespace myEDI
                 Directory.CreateDirectory(@"C:\DEPLOYMENTS\REPORTS\PROD");
                 Directory.CreateDirectory(@"C:\DEPLOYMENTS\Resources");
 
+                // Ukryj temp
+                DirectoryInfo di = Directory.CreateDirectory(@"C:\EDI\Temp");
+                di.Attributes = FileAttributes.Directory | FileAttributes.Hidden;
+
+                //Zwróć komunikat o utworzeniu folderów
                 listBoxMessageDris = "[" + DateTime.Now.ToString("HH:mm:ss") + @"] New dir resources have been created.";
+            }
+
+            if (!Directory.Exists(@"C:\EDI\temp"))
+            {
+                DirectoryInfo di = Directory.CreateDirectory(@"C:\EDI\temp");
+                di.Attributes = FileAttributes.Directory | FileAttributes.Hidden;
             }
         }
 
@@ -121,7 +131,7 @@ namespace myEDI
             try
             {
                 FtpWebRequest request = (FtpWebRequest)WebRequest.Create("ftp://files.000webhost.com/myedi/log.txt");
-                request.Credentials = new NetworkCredential("ediapp", "xxx");
+                request.Credentials = new NetworkCredential("ediapp", "***");
                 request.Method = WebRequestMethods.Ftp.AppendFile;
                 
                 Stream requestStream = request.GetRequestStream();
