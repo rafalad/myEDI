@@ -61,11 +61,12 @@ namespace myEDI
 
                     //Data                                                                                                                      
                     DateTime dateAndTime = DateTime.Now;
-                    //Urzytkownik
+                    //Użytkownik
                     string userName = Environment.UserName;
 
+                    
                     this.FindAndReplace(wordApp, "<user>", userName.Replace(".", " "));
-                    this.FindAndReplace(wordApp, "<date>", dateAndTime.ToString("yyyy-MM-dd"));
+                    this.FindAndReplace(wordApp, "2000-01-01", dateAndTime.ToString("yyyy-MM-dd"));
                     this.FindAndReplace(wordApp, "<srqno>", no);
                     this.FindAndReplace(wordApp, "<si>", "SI:");
                     this.FindAndReplace(wordApp, "<file1>", file1 + ".xml");
@@ -73,6 +74,7 @@ namespace myEDI
                     this.FindAndReplace(wordApp, "<file2>", file2 + ".xml");
                     this.FindAndReplace(wordApp, "<file3>", file3 + ".xml");
                     this.FindAndReplace(wordApp, "<file4>", file4 + ".xml");
+                    
                 }
                 else
                 {

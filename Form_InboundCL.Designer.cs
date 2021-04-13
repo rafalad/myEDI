@@ -41,7 +41,7 @@
 			this.textBoxParentID_inbound.Location = new System.Drawing.Point(88, 20);
 			this.textBoxParentID_inbound.Name = "textBoxParentID_inbound";
 			this.textBoxParentID_inbound.Size = new System.Drawing.Size(187, 20);
-			this.textBoxParentID_inbound.TabIndex = 0;
+			this.textBoxParentID_inbound.TabIndex = 1;
 			this.textBoxParentID_inbound.TextChanged += new System.EventHandler(this.textBoxParentID_inbound_TextChanged);
 			// 
 			// label2
@@ -57,7 +57,7 @@
 			this.buttonCreateInboundCL.Location = new System.Drawing.Point(80, 100);
 			this.buttonCreateInboundCL.Name = "buttonCreateInboundCL";
 			this.buttonCreateInboundCL.Size = new System.Drawing.Size(131, 23);
-			this.buttonCreateInboundCL.TabIndex = 10;
+			this.buttonCreateInboundCL.TabIndex = 3;
 			this.buttonCreateInboundCL.Text = "Create";
 			this.buttonCreateInboundCL.UseVisualStyleBackColor = true;
 			this.buttonCreateInboundCL.Click += new System.EventHandler(this.buttonCreateInboundCL_Click);
@@ -67,7 +67,7 @@
 			this.textBoxChildD_inbound.Location = new System.Drawing.Point(88, 55);
 			this.textBoxChildD_inbound.Name = "textBoxChildD_inbound";
 			this.textBoxChildD_inbound.Size = new System.Drawing.Size(187, 20);
-			this.textBoxChildD_inbound.TabIndex = 11;
+			this.textBoxChildD_inbound.TabIndex = 2;
 			this.textBoxChildD_inbound.TextChanged += new System.EventHandler(this.textBoxChildD_inbound_TextChanged);
 			// 
 			// label1

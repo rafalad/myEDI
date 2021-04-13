@@ -39,7 +39,7 @@
 			this.buttonCreateOutboundCL.Location = new System.Drawing.Point(79, 99);
 			this.buttonCreateOutboundCL.Name = "buttonCreateOutboundCL";
 			this.buttonCreateOutboundCL.Size = new System.Drawing.Size(131, 23);
-			this.buttonCreateOutboundCL.TabIndex = 15;
+			this.buttonCreateOutboundCL.TabIndex = 2;
 			this.buttonCreateOutboundCL.Text = "Create";
 			this.buttonCreateOutboundCL.UseVisualStyleBackColor = true;
 			this.buttonCreateOutboundCL.Click += new System.EventHandler(this.buttonCreateOutboundCL_Click);
@@ -57,7 +57,7 @@
 			this.textBoxParentID_outbound.Location = new System.Drawing.Point(85, 45);
 			this.textBoxParentID_outbound.Name = "textBoxParentID_outbound";
 			this.textBoxParentID_outbound.Size = new System.Drawing.Size(187, 20);
-			this.textBoxParentID_outbound.TabIndex = 13;
+			this.textBoxParentID_outbound.TabIndex = 1;
 			this.textBoxParentID_outbound.TextChanged += new System.EventHandler(this.textBoxParentID_outbound_TextChanged);
 			// 
 			// Form_OutboundCL

@@ -41,6 +41,9 @@ namespace myEDI
 
 				MessageBox.Show("A codelist name has been created for both flows." + Environment.NewLine +
 					"The file will be saved in: " + pathString, "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+				Close();
+
 			}
 		}
 
@@ -53,5 +56,7 @@ namespace myEDI
 		{
 			textBoxChildD_both.CharacterCasing = CharacterCasing.Upper;
 		}
+
+		
 	}
 }

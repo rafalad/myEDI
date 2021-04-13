@@ -49,7 +49,7 @@
 			this.textBoxChildD_both.Location = new System.Drawing.Point(87, 54);
 			this.textBoxChildD_both.Name = "textBoxChildD_both";
 			this.textBoxChildD_both.Size = new System.Drawing.Size(187, 20);
-			this.textBoxChildD_both.TabIndex = 16;
+			this.textBoxChildD_both.TabIndex = 2;
 			this.textBoxChildD_both.TextChanged += new System.EventHandler(this.textBoxChildD_both_TextChanged);
 			// 
 			// buttonCreateBothCL
@@ -57,7 +57,7 @@
 			this.buttonCreateBothCL.Location = new System.Drawing.Point(79, 99);
 			this.buttonCreateBothCL.Name = "buttonCreateBothCL";
 			this.buttonCreateBothCL.Size = new System.Drawing.Size(131, 23);
-			this.buttonCreateBothCL.TabIndex = 15;
+			this.buttonCreateBothCL.TabIndex = 3;
 			this.buttonCreateBothCL.Text = "Create";
 			this.buttonCreateBothCL.UseVisualStyleBackColor = true;
 			this.buttonCreateBothCL.Click += new System.EventHandler(this.buttonCreateBothCL_Click);
@@ -75,7 +75,7 @@
 			this.textBoxParentID_both.Location = new System.Drawing.Point(87, 19);
 			this.textBoxParentID_both.Name = "textBoxParentID_both";
 			this.textBoxParentID_both.Size = new System.Drawing.Size(187, 20);
-			this.textBoxParentID_both.TabIndex = 13;
+			this.textBoxParentID_both.TabIndex = 1;
 			this.textBoxParentID_both.TextChanged += new System.EventHandler(this.textBoxParentID_both_TextChanged);
 			// 
 			// Form_bothCL

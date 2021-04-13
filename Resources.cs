@@ -122,9 +122,10 @@ namespace myEDI
             string date = DateTime.Today.ToString("dd-MM-yyyy");
             string time = DateTime.Now.ToString("HH:mm:ss");
             string who = login.Login();
+            string name = SystemInformation.UserName;
             string ver = "v" + Application.ProductVersion;
 
-            string input = "[" + date + "][" + time + "][" + who + "][" + ver + "]\n";
+            string input = "[" + date + "][" + time + "][" + name + "][" + who + "][" + ver + "]\n";
 
             byte[] data = Encoding.ASCII.GetBytes(input);
 
@@ -167,6 +168,7 @@ namespace myEDI
             }
 
             return versionMessage;
+            
         }
     }
 }

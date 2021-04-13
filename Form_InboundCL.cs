@@ -58,6 +58,9 @@ namespace myEDI
 				MessageBox.Show("A codelist name has been created for the Inbound flow." + Environment.NewLine +
 					"The file will be saved in: " + pathString, "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Information);
 			}
+
+			Close();
+
 		}
 	}
 }
