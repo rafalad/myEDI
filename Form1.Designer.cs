@@ -31,9 +31,16 @@
 			this.label3 = new System.Windows.Forms.Label();
 			this.CreateNoteButton = new System.Windows.Forms.Button();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.buttonMoreSettings = new System.Windows.Forms.Button();
+			this.comboBoxPass = new System.Windows.Forms.ComboBox();
 			this.label9 = new System.Windows.Forms.Label();
 			this.buttonGenerateRandomPassword = new System.Windows.Forms.Button();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
+			this.checkBoxLDAPno = new System.Windows.Forms.CheckBox();
+			this.checkBoxPass24 = new System.Windows.Forms.CheckBox();
+			this.checkBoxPass16 = new System.Windows.Forms.CheckBox();
+			this.label14 = new System.Windows.Forms.Label();
+			this.checkBoxPass8 = new System.Windows.Forms.CheckBox();
 			this.checkBoxLDAP = new System.Windows.Forms.CheckBox();
 			this.comboBoxLDAP = new System.Windows.Forms.ComboBox();
 			this.buttonGoLDAP = new System.Windows.Forms.Button();
@@ -155,9 +162,9 @@
 			this.deployComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.deployComboBox.FormattingEnabled = true;
 			this.deployComboBox.Items.AddRange(new object[] {
-			"QA only",
-			"PROD only",
-			"both - QA & PROD"});
+            "QA only",
+            "PROD only",
+            "both - QA & PROD"});
 			this.deployComboBox.Location = new System.Drawing.Point(9, 56);
 			this.deployComboBox.Name = "deployComboBox";
 			this.deployComboBox.Size = new System.Drawing.Size(213, 21);
@@ -168,20 +175,20 @@
 			// 
 			// label3
 			// 
-			this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-			| System.Windows.Forms.AnchorStyles.Left)
-			| System.Windows.Forms.AnchorStyles.Right)));
+			this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.label3.Location = new System.Drawing.Point(6, 35);
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(221, 68);
+			this.label3.Size = new System.Drawing.Size(221, 130);
 			this.label3.TabIndex = 10;
 			this.label3.Text = "Please select the deployment environments:";
 			// 
 			// CreateNoteButton
 			// 
 			this.CreateNoteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.CreateNoteButton.Location = new System.Drawing.Point(9, 162);
+			this.CreateNoteButton.Location = new System.Drawing.Point(9, 192);
 			this.CreateNoteButton.Name = "CreateNoteButton";
 			this.CreateNoteButton.Size = new System.Drawing.Size(213, 33);
 			this.CreateNoteButton.TabIndex = 11;
@@ -194,29 +201,59 @@
 			// groupBox1
 			// 
 			this.groupBox1.BackColor = System.Drawing.SystemColors.ControlLight;
+			this.groupBox1.Controls.Add(this.buttonMoreSettings);
+			this.groupBox1.Controls.Add(this.comboBoxPass);
 			this.groupBox1.Controls.Add(this.label9);
 			this.groupBox1.Controls.Add(this.buttonGenerateRandomPassword);
 			this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.groupBox1.Location = new System.Drawing.Point(268, 273);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(251, 118);
+			this.groupBox1.Size = new System.Drawing.Size(251, 109);
 			this.groupBox1.TabIndex = 14;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Password";
 			// 
+			// buttonMoreSettings
+			// 
+			this.buttonMoreSettings.Enabled = false;
+			this.buttonMoreSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.buttonMoreSettings.Location = new System.Drawing.Point(12, 44);
+			this.buttonMoreSettings.Name = "buttonMoreSettings";
+			this.buttonMoreSettings.Size = new System.Drawing.Size(80, 34);
+			this.buttonMoreSettings.TabIndex = 35;
+			this.buttonMoreSettings.TabStop = false;
+			this.buttonMoreSettings.Text = "More settings";
+			this.buttonMoreSettings.UseVisualStyleBackColor = true;
+			this.buttonMoreSettings.Click += new System.EventHandler(this.button1_Click);
+			// 
+			// comboBoxPass
+			// 
+			this.comboBoxPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.comboBoxPass.FormattingEnabled = true;
+			this.comboBoxPass.Items.AddRange(new object[] {
+            "multiple",
+            "single"});
+			this.comboBoxPass.Location = new System.Drawing.Point(157, 14);
+			this.comboBoxPass.Name = "comboBoxPass";
+			this.comboBoxPass.Size = new System.Drawing.Size(69, 21);
+			this.comboBoxPass.Sorted = true;
+			this.comboBoxPass.TabIndex = 39;
+			this.comboBoxPass.Text = "single";
+			this.comboBoxPass.SelectedIndexChanged += new System.EventHandler(this.comboBoxPass_SelectedIndexChanged);
+			// 
 			// label9
 			// 
 			this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.label9.Location = new System.Drawing.Point(19, 25);
+			this.label9.Location = new System.Drawing.Point(9, 17);
 			this.label9.Name = "label9";
-			this.label9.Size = new System.Drawing.Size(208, 15);
+			this.label9.Size = new System.Drawing.Size(141, 15);
 			this.label9.TabIndex = 9;
-			this.label9.Text = "Click to copy a password to the clipboard";
+			this.label9.Text = "Select the type of password:";
 			// 
 			// buttonGenerateRandomPassword
 			// 
 			this.buttonGenerateRandomPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.buttonGenerateRandomPassword.Location = new System.Drawing.Point(108, 55);
+			this.buttonGenerateRandomPassword.Location = new System.Drawing.Point(110, 52);
 			this.buttonGenerateRandomPassword.Name = "buttonGenerateRandomPassword";
 			this.buttonGenerateRandomPassword.Size = new System.Drawing.Size(118, 26);
 			this.buttonGenerateRandomPassword.TabIndex = 23;
@@ -228,6 +265,11 @@
 			// groupBox2
 			// 
 			this.groupBox2.BackColor = System.Drawing.SystemColors.ControlLight;
+			this.groupBox2.Controls.Add(this.checkBoxLDAPno);
+			this.groupBox2.Controls.Add(this.checkBoxPass24);
+			this.groupBox2.Controls.Add(this.checkBoxPass16);
+			this.groupBox2.Controls.Add(this.label14);
+			this.groupBox2.Controls.Add(this.checkBoxPass8);
 			this.groupBox2.Controls.Add(this.checkBoxLDAP);
 			this.groupBox2.Controls.Add(this.comboBoxLDAP);
 			this.groupBox2.Controls.Add(this.buttonGoLDAP);
@@ -236,12 +278,78 @@
 			this.groupBox2.Controls.Add(this.label10);
 			this.groupBox2.Controls.Add(this.textBoxAddUserLDAP);
 			this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.groupBox2.Location = new System.Drawing.Point(269, 397);
+			this.groupBox2.Location = new System.Drawing.Point(268, 388);
 			this.groupBox2.Name = "groupBox2";
-			this.groupBox2.Size = new System.Drawing.Size(251, 181);
+			this.groupBox2.Size = new System.Drawing.Size(251, 203);
 			this.groupBox2.TabIndex = 15;
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "LDAP";
+			// 
+			// checkBoxLDAPno
+			// 
+			this.checkBoxLDAPno.AutoSize = true;
+			this.checkBoxLDAPno.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.checkBoxLDAPno.Location = new System.Drawing.Point(190, 130);
+			this.checkBoxLDAPno.Name = "checkBoxLDAPno";
+			this.checkBoxLDAPno.Size = new System.Drawing.Size(40, 17);
+			this.checkBoxLDAPno.TabIndex = 40;
+			this.checkBoxLDAPno.TabStop = false;
+			this.checkBoxLDAPno.Text = "No";
+			this.checkBoxLDAPno.UseVisualStyleBackColor = true;
+			this.checkBoxLDAPno.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged_1);
+			// 
+			// checkBoxPass24
+			// 
+			this.checkBoxPass24.AutoSize = true;
+			this.checkBoxPass24.Checked = true;
+			this.checkBoxPass24.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.checkBoxPass24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.checkBoxPass24.Location = new System.Drawing.Point(190, 107);
+			this.checkBoxPass24.Name = "checkBoxPass24";
+			this.checkBoxPass24.Size = new System.Drawing.Size(38, 17);
+			this.checkBoxPass24.TabIndex = 24;
+			this.checkBoxPass24.TabStop = false;
+			this.checkBoxPass24.Text = "24";
+			this.checkBoxPass24.UseVisualStyleBackColor = true;
+			this.checkBoxPass24.CheckedChanged += new System.EventHandler(this.checkBoxPass24_CheckedChanged);
+			// 
+			// checkBoxPass16
+			// 
+			this.checkBoxPass16.AutoSize = true;
+			this.checkBoxPass16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.checkBoxPass16.Location = new System.Drawing.Point(146, 107);
+			this.checkBoxPass16.Name = "checkBoxPass16";
+			this.checkBoxPass16.Size = new System.Drawing.Size(38, 17);
+			this.checkBoxPass16.TabIndex = 39;
+			this.checkBoxPass16.TabStop = false;
+			this.checkBoxPass16.Text = "16";
+			this.checkBoxPass16.UseVisualStyleBackColor = true;
+			this.checkBoxPass16.CheckedChanged += new System.EventHandler(this.checkBoxPass16_CheckedChanged);
+			// 
+			// label14
+			// 
+			this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.label14.Location = new System.Drawing.Point(9, 108);
+			this.label14.Name = "label14";
+			this.label14.Size = new System.Drawing.Size(93, 16);
+			this.label14.TabIndex = 38;
+			this.label14.Text = "Password length:";
+			// 
+			// checkBoxPass8
+			// 
+			this.checkBoxPass8.AutoSize = true;
+			this.checkBoxPass8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.checkBoxPass8.Location = new System.Drawing.Point(108, 107);
+			this.checkBoxPass8.Name = "checkBoxPass8";
+			this.checkBoxPass8.Size = new System.Drawing.Size(32, 17);
+			this.checkBoxPass8.TabIndex = 37;
+			this.checkBoxPass8.TabStop = false;
+			this.checkBoxPass8.Text = "8";
+			this.checkBoxPass8.UseVisualStyleBackColor = true;
+			this.checkBoxPass8.CheckedChanged += new System.EventHandler(this.checkBoxPass8_CheckedChanged);
 			// 
 			// checkBoxLDAP
 			// 
@@ -249,7 +357,7 @@
 			this.checkBoxLDAP.Checked = true;
 			this.checkBoxLDAP.CheckState = System.Windows.Forms.CheckState.Checked;
 			this.checkBoxLDAP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.checkBoxLDAP.Location = new System.Drawing.Point(182, 105);
+			this.checkBoxLDAP.Location = new System.Drawing.Point(146, 130);
 			this.checkBoxLDAP.Name = "checkBoxLDAP";
 			this.checkBoxLDAP.Size = new System.Drawing.Size(44, 17);
 			this.checkBoxLDAP.TabIndex = 36;
@@ -263,9 +371,12 @@
 			this.comboBoxLDAP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.comboBoxLDAP.FormattingEnabled = true;
 			this.comboBoxLDAP.Items.AddRange(new object[] {
-			"New user",
-			"Modify user",
-			"Delete user"});
+            "New user",
+            "Bulk user",
+            "SSHKey user",
+            "Modify user",
+            "Delete user",
+            "Remove SSHkey"});
 			this.comboBoxLDAP.Location = new System.Drawing.Point(108, 76);
 			this.comboBoxLDAP.Name = "comboBoxLDAP";
 			this.comboBoxLDAP.Size = new System.Drawing.Size(118, 21);
@@ -276,7 +387,7 @@
 			// buttonGoLDAP
 			// 
 			this.buttonGoLDAP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.buttonGoLDAP.Location = new System.Drawing.Point(108, 128);
+			this.buttonGoLDAP.Location = new System.Drawing.Point(110, 153);
 			this.buttonGoLDAP.Name = "buttonGoLDAP";
 			this.buttonGoLDAP.Size = new System.Drawing.Size(118, 26);
 			this.buttonGoLDAP.TabIndex = 24;
@@ -287,13 +398,13 @@
 			// 
 			// label12
 			// 
-			this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-			| System.Windows.Forms.AnchorStyles.Left)
-			| System.Windows.Forms.AnchorStyles.Right)));
+			this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.label12.Location = new System.Drawing.Point(37, 106);
+			this.label12.Location = new System.Drawing.Point(9, 131);
 			this.label12.Name = "label12";
-			this.label12.Size = new System.Drawing.Size(139, 16);
+			this.label12.Size = new System.Drawing.Size(139, 25);
 			this.label12.TabIndex = 36;
 			this.label12.Text = "Add a form for a new user? ";
 			// 
@@ -327,7 +438,7 @@
 			this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.groupBox3.Location = new System.Drawing.Point(12, 42);
 			this.groupBox3.Name = "groupBox3";
-			this.groupBox3.Size = new System.Drawing.Size(241, 349);
+			this.groupBox3.Size = new System.Drawing.Size(241, 411);
 			this.groupBox3.TabIndex = 16;
 			this.groupBox3.TabStop = false;
 			this.groupBox3.Text = "Deployment";
@@ -335,7 +446,7 @@
 			// button_reports
 			// 
 			this.button_reports.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.button_reports.Location = new System.Drawing.Point(36, 288);
+			this.button_reports.Location = new System.Drawing.Point(36, 326);
 			this.button_reports.Name = "button_reports";
 			this.button_reports.Size = new System.Drawing.Size(80, 34);
 			this.button_reports.TabIndex = 34;
@@ -347,7 +458,7 @@
 			// button_resources
 			// 
 			this.button_resources.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.button_resources.Location = new System.Drawing.Point(36, 248);
+			this.button_resources.Location = new System.Drawing.Point(36, 286);
 			this.button_resources.Name = "button_resources";
 			this.button_resources.Size = new System.Drawing.Size(80, 34);
 			this.button_resources.TabIndex = 33;
@@ -359,7 +470,7 @@
 			// extractRT_button
 			// 
 			this.extractRT_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.extractRT_button.Location = new System.Drawing.Point(120, 210);
+			this.extractRT_button.Location = new System.Drawing.Point(120, 248);
 			this.extractRT_button.Name = "extractRT_button";
 			this.extractRT_button.Size = new System.Drawing.Size(80, 34);
 			this.extractRT_button.TabIndex = 27;
@@ -371,7 +482,7 @@
 			// button_logs
 			// 
 			this.button_logs.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.button_logs.Location = new System.Drawing.Point(120, 288);
+			this.button_logs.Location = new System.Drawing.Point(120, 326);
 			this.button_logs.Name = "button_logs";
 			this.button_logs.Size = new System.Drawing.Size(80, 34);
 			this.button_logs.TabIndex = 32;
@@ -383,7 +494,7 @@
 			// consoleQuery_button
 			// 
 			this.consoleQuery_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.consoleQuery_button.Location = new System.Drawing.Point(120, 248);
+			this.consoleQuery_button.Location = new System.Drawing.Point(120, 286);
 			this.consoleQuery_button.Name = "consoleQuery_button";
 			this.consoleQuery_button.Size = new System.Drawing.Size(80, 34);
 			this.consoleQuery_button.TabIndex = 30;
@@ -409,13 +520,13 @@
 			// 
 			// label11
 			// 
-			this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-			| System.Windows.Forms.AnchorStyles.Left)
-			| System.Windows.Forms.AnchorStyles.Right)));
+			this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.label11.Location = new System.Drawing.Point(41, 136);
 			this.label11.Name = "label11";
-			this.label11.Size = new System.Drawing.Size(123, 13);
+			this.label11.Size = new System.Drawing.Size(123, 36);
 			this.label11.TabIndex = 28;
 			this.label11.Text = "Create a console query:";
 			// 
@@ -433,20 +544,20 @@
 			// 
 			// label5
 			// 
-			this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-			| System.Windows.Forms.AnchorStyles.Left)
-			| System.Windows.Forms.AnchorStyles.Right)));
+			this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.label5.Location = new System.Drawing.Point(6, 86);
 			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(94, 17);
+			this.label5.Size = new System.Drawing.Size(94, 18);
 			this.label5.TabIndex = 26;
 			this.label5.Text = "Selected env.";
 			// 
 			// button_local_deploy
 			// 
 			this.button_local_deploy.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.button_local_deploy.Location = new System.Drawing.Point(36, 210);
+			this.button_local_deploy.Location = new System.Drawing.Point(36, 248);
 			this.button_local_deploy.Name = "button_local_deploy";
 			this.button_local_deploy.Size = new System.Drawing.Size(80, 34);
 			this.button_local_deploy.TabIndex = 25;
@@ -472,13 +583,13 @@
 			// 
 			// label4
 			// 
-			this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-			| System.Windows.Forms.AnchorStyles.Left)
-			| System.Windows.Forms.AnchorStyles.Right)));
+			this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.label4.Location = new System.Drawing.Point(12, 121);
 			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(148, 17);
+			this.label4.Size = new System.Drawing.Size(148, 35);
 			this.label4.TabIndex = 11;
 			this.label4.Text = "Copy RT files to separate dirs:";
 			// 
@@ -518,9 +629,9 @@
 			// 
 			// label13
 			// 
-			this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-			| System.Windows.Forms.AnchorStyles.Left)
-			| System.Windows.Forms.AnchorStyles.Right)));
+			this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.label13.Location = new System.Drawing.Point(19, 152);
 			this.label13.Name = "label13";
@@ -533,9 +644,9 @@
 			this.comboBoxSRQ.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.comboBoxSRQ.FormattingEnabled = true;
 			this.comboBoxSRQ.Items.AddRange(new object[] {
-			"Code list",
-			"None",
-			"Standard setup"});
+            "Code list",
+            "None",
+            "Standard setup"});
 			this.comboBoxSRQ.Location = new System.Drawing.Point(108, 124);
 			this.comboBoxSRQ.Name = "comboBoxSRQ";
 			this.comboBoxSRQ.Size = new System.Drawing.Size(118, 21);
@@ -607,9 +718,9 @@
 			this.groupBox5.Controls.Add(this.codeListComboBox);
 			this.groupBox5.Controls.Add(this.label8);
 			this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.groupBox5.Location = new System.Drawing.Point(12, 397);
+			this.groupBox5.Location = new System.Drawing.Point(12, 459);
 			this.groupBox5.Name = "groupBox5";
-			this.groupBox5.Size = new System.Drawing.Size(241, 181);
+			this.groupBox5.Size = new System.Drawing.Size(241, 132);
 			this.groupBox5.TabIndex = 17;
 			this.groupBox5.TabStop = false;
 			this.groupBox5.Text = "Code List";
@@ -631,9 +742,9 @@
 			this.codeListComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.codeListComboBox.FormattingEnabled = true;
 			this.codeListComboBox.Items.AddRange(new object[] {
-			"Inbound",
-			"Outbound",
-			"both"});
+            "Inbound",
+            "Outbound",
+            "both"});
 			this.codeListComboBox.Location = new System.Drawing.Point(9, 49);
 			this.codeListComboBox.Name = "codeListComboBox";
 			this.codeListComboBox.Size = new System.Drawing.Size(213, 21);
@@ -655,13 +766,13 @@
 			// 
 			this.menuStrip1.BackColor = System.Drawing.SystemColors.MenuBar;
 			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-			this.fileToolStripMenuItem1,
-			this.editToolStripMenuItem1,
-			this.viewToolStripMenuItem1,
-			this.dirsToolStripMenuItem1,
-			this.linksToolStripMenuItem1,
-			this.formsToolStripMenuItem1,
-			this.aboutToolStripMenuItem2});
+            this.fileToolStripMenuItem1,
+            this.editToolStripMenuItem1,
+            this.viewToolStripMenuItem1,
+            this.dirsToolStripMenuItem1,
+            this.linksToolStripMenuItem1,
+            this.formsToolStripMenuItem1,
+            this.aboutToolStripMenuItem2});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
 			this.menuStrip1.ShowItemToolTips = true;
@@ -672,7 +783,7 @@
 			// fileToolStripMenuItem1
 			// 
 			this.fileToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-			this.exitToolStripMenuItem1});
+            this.exitToolStripMenuItem1});
 			this.fileToolStripMenuItem1.Name = "fileToolStripMenuItem1";
 			this.fileToolStripMenuItem1.Size = new System.Drawing.Size(37, 20);
 			this.fileToolStripMenuItem1.Text = "File";
@@ -680,7 +791,7 @@
 			// exitToolStripMenuItem1
 			// 
 			this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
-			this.exitToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+			this.exitToolStripMenuItem1.Size = new System.Drawing.Size(93, 22);
 			this.exitToolStripMenuItem1.Text = "Exit";
 			this.exitToolStripMenuItem1.Click += new System.EventHandler(this.exitToolStripMenuItem1_Click);
 			// 
@@ -693,8 +804,8 @@
 			// viewToolStripMenuItem1
 			// 
 			this.viewToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-			this.minimizeToolStripMenuItem1,
-			this.cleanEventViewerToolStripMenuItem});
+            this.minimizeToolStripMenuItem1,
+            this.cleanEventViewerToolStripMenuItem});
 			this.viewToolStripMenuItem1.Name = "viewToolStripMenuItem1";
 			this.viewToolStripMenuItem1.Size = new System.Drawing.Size(44, 20);
 			this.viewToolStripMenuItem1.Text = "View";
@@ -702,21 +813,21 @@
 			// minimizeToolStripMenuItem1
 			// 
 			this.minimizeToolStripMenuItem1.Name = "minimizeToolStripMenuItem1";
-			this.minimizeToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+			this.minimizeToolStripMenuItem1.Size = new System.Drawing.Size(174, 22);
 			this.minimizeToolStripMenuItem1.Text = "Minimize";
 			this.minimizeToolStripMenuItem1.Click += new System.EventHandler(this.minimizeToolStripMenuItem1_Click);
 			// 
 			// cleanEventViewerToolStripMenuItem
 			// 
 			this.cleanEventViewerToolStripMenuItem.Name = "cleanEventViewerToolStripMenuItem";
-			this.cleanEventViewerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.cleanEventViewerToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
 			this.cleanEventViewerToolStripMenuItem.Text = "Clean Event Viewer";
 			this.cleanEventViewerToolStripMenuItem.Click += new System.EventHandler(this.cleanEventViewerToolStripMenuItem_Click);
 			// 
 			// dirsToolStripMenuItem1
 			// 
 			this.dirsToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-			this.createDirResourcesToolStripMenuItem});
+            this.createDirResourcesToolStripMenuItem});
 			this.dirsToolStripMenuItem1.Name = "dirsToolStripMenuItem1";
 			this.dirsToolStripMenuItem1.Size = new System.Drawing.Size(39, 20);
 			this.dirsToolStripMenuItem1.Text = "Dirs";
@@ -724,15 +835,15 @@
 			// createDirResourcesToolStripMenuItem
 			// 
 			this.createDirResourcesToolStripMenuItem.Name = "createDirResourcesToolStripMenuItem";
-			this.createDirResourcesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.createDirResourcesToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
 			this.createDirResourcesToolStripMenuItem.Text = "Create dir resources";
 			this.createDirResourcesToolStripMenuItem.Click += new System.EventHandler(this.createDirResourcesToolStripMenuItem_Click);
 			// 
 			// linksToolStripMenuItem1
 			// 
 			this.linksToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-			this.lWToolStripMenuItem,
-			this.sIToolStripMenuItem2});
+            this.lWToolStripMenuItem,
+            this.sIToolStripMenuItem2});
 			this.linksToolStripMenuItem1.Name = "linksToolStripMenuItem1";
 			this.linksToolStripMenuItem1.Size = new System.Drawing.Size(46, 20);
 			this.linksToolStripMenuItem1.Text = "Links";
@@ -740,24 +851,24 @@
 			// lWToolStripMenuItem
 			// 
 			this.lWToolStripMenuItem.Name = "lWToolStripMenuItem";
-			this.lWToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.lWToolStripMenuItem.Size = new System.Drawing.Size(90, 22);
 			this.lWToolStripMenuItem.Text = "LW";
 			this.lWToolStripMenuItem.Click += new System.EventHandler(this.lWToolStripMenuItem_Click);
 			// 
 			// sIToolStripMenuItem2
 			// 
 			this.sIToolStripMenuItem2.Name = "sIToolStripMenuItem2";
-			this.sIToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+			this.sIToolStripMenuItem2.Size = new System.Drawing.Size(90, 22);
 			this.sIToolStripMenuItem2.Text = "SI";
 			this.sIToolStripMenuItem2.Click += new System.EventHandler(this.sIToolStripMenuItem2_Click);
 			// 
 			// formsToolStripMenuItem1
 			// 
 			this.formsToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-			this.fTPProcedureToolStripMenuItem,
-			this.multipleEntriesCLToolStripMenuItem,
-			this.deployRequestToolStripMenuItem,
-			this.gentranGenericListToolStripMenuItem});
+            this.fTPProcedureToolStripMenuItem,
+            this.multipleEntriesCLToolStripMenuItem,
+            this.deployRequestToolStripMenuItem,
+            this.gentranGenericListToolStripMenuItem});
 			this.formsToolStripMenuItem1.Name = "formsToolStripMenuItem1";
 			this.formsToolStripMenuItem1.Size = new System.Drawing.Size(52, 20);
 			this.formsToolStripMenuItem1.Text = "Forms";
@@ -793,7 +904,7 @@
 			// aboutToolStripMenuItem2
 			// 
 			this.aboutToolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-			this.aboutToolStripMenuItem3});
+            this.aboutToolStripMenuItem3});
 			this.aboutToolStripMenuItem2.Name = "aboutToolStripMenuItem2";
 			this.aboutToolStripMenuItem2.Size = new System.Drawing.Size(52, 20);
 			this.aboutToolStripMenuItem2.Text = "About";
@@ -814,7 +925,7 @@
 			// fileToolStripMenuItem
 			// 
 			this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-			this.exitToolStripMenuItem});
+            this.exitToolStripMenuItem});
 			this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
 			this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
 			this.fileToolStripMenuItem.Text = "File";
@@ -835,7 +946,7 @@
 			// viewToolStripMenuItem
 			// 
 			this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-			this.minimizeToolStripMenuItem});
+            this.minimizeToolStripMenuItem});
 			this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
 			this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
 			this.viewToolStripMenuItem.Text = "View";
@@ -850,8 +961,8 @@
 			// dirsToolStripMenuItem
 			// 
 			this.dirsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-			this.deployDirsToolStripMenuItem,
-			this.eDIDirsToolStripMenuItem});
+            this.deployDirsToolStripMenuItem,
+            this.eDIDirsToolStripMenuItem});
 			this.dirsToolStripMenuItem.Name = "dirsToolStripMenuItem";
 			this.dirsToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
 			this.dirsToolStripMenuItem.Text = "Dirs";
@@ -871,8 +982,8 @@
 			// linksToolStripMenuItem
 			// 
 			this.linksToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-			this.sIToolStripMenuItem1,
-			this.lightwellToolStripMenuItem});
+            this.sIToolStripMenuItem1,
+            this.lightwellToolStripMenuItem});
 			this.linksToolStripMenuItem.Name = "linksToolStripMenuItem";
 			this.linksToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
 			this.linksToolStripMenuItem.Text = "Links";
@@ -898,7 +1009,7 @@
 			// aboutToolStripMenuItem
 			// 
 			this.aboutToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-			this.aboutToolStripMenuItem1});
+            this.aboutToolStripMenuItem1});
 			this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
 			this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
 			this.aboutToolStripMenuItem.Text = "About";
@@ -932,7 +1043,7 @@
 			// statusStrip1
 			// 
 			this.statusStrip1.BackColor = System.Drawing.SystemColors.MenuBar;
-			this.statusStrip1.Location = new System.Drawing.Point(0, 589);
+			this.statusStrip1.Location = new System.Drawing.Point(0, 609);
 			this.statusStrip1.Name = "statusStrip1";
 			this.statusStrip1.Size = new System.Drawing.Size(984, 22);
 			this.statusStrip1.TabIndex = 28;
@@ -952,7 +1063,7 @@
 			// 
 			this.ver.BackColor = System.Drawing.SystemColors.MenuBar;
 			this.ver.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.ver.Location = new System.Drawing.Point(9, 592);
+			this.ver.Location = new System.Drawing.Point(12, 613);
 			this.ver.Name = "ver";
 			this.ver.Size = new System.Drawing.Size(54, 18);
 			this.ver.TabIndex = 31;
@@ -971,7 +1082,7 @@
 			this.groupBox6.ForeColor = System.Drawing.SystemColors.Desktop;
 			this.groupBox6.Location = new System.Drawing.Point(535, 42);
 			this.groupBox6.Name = "groupBox6";
-			this.groupBox6.Size = new System.Drawing.Size(437, 536);
+			this.groupBox6.Size = new System.Drawing.Size(437, 549);
 			this.groupBox6.TabIndex = 32;
 			this.groupBox6.TabStop = false;
 			this.groupBox6.Text = "Event Viewer";
@@ -987,7 +1098,7 @@
 			this.listBox1.Location = new System.Drawing.Point(8, 19);
 			this.listBox1.Name = "listBox1";
 			this.listBox1.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-			this.listBox1.Size = new System.Drawing.Size(423, 511);
+			this.listBox1.Size = new System.Drawing.Size(423, 524);
 			this.listBox1.TabIndex = 36;
 			this.listBox1.TabStop = false;
 			this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
@@ -1011,7 +1122,7 @@
 			// 
 			this.latest_ver.BackColor = System.Drawing.SystemColors.MenuBar;
 			this.latest_ver.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.latest_ver.Location = new System.Drawing.Point(69, 591);
+			this.latest_ver.Location = new System.Drawing.Point(71, 613);
 			this.latest_ver.Name = "latest_ver";
 			this.latest_ver.Size = new System.Drawing.Size(413, 18);
 			this.latest_ver.TabIndex = 33;
@@ -1022,7 +1133,7 @@
 			// 
 			this.AutoSize = true;
 			this.BackColor = System.Drawing.SystemColors.ControlLight;
-			this.ClientSize = new System.Drawing.Size(984, 611);
+			this.ClientSize = new System.Drawing.Size(984, 631);
 			this.Controls.Add(this.latest_ver);
 			this.Controls.Add(this.groupBox6);
 			this.Controls.Add(this.ver);
@@ -1037,8 +1148,8 @@
 			this.HelpButton = true;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MainMenuStrip = this.menuStrip1;
-			this.MaximumSize = new System.Drawing.Size(1000, 650);
-			this.MinimumSize = new System.Drawing.Size(1000, 650);
+			this.MaximumSize = new System.Drawing.Size(1000, 670);
+			this.MinimumSize = new System.Drawing.Size(1000, 670);
 			this.Name = "myEDI";
 			this.Text = "myEDI";
 			this.Load += new System.EventHandler(this.EDISupportTool_Load);
@@ -1162,5 +1273,12 @@
 		private System.Windows.Forms.ToolStripMenuItem deployRequestToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem gentranGenericListToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem sIToolStripMenuItem2;
+		private System.Windows.Forms.ComboBox comboBoxPass;
+		private System.Windows.Forms.Button buttonMoreSettings;
+		private System.Windows.Forms.CheckBox checkBoxPass24;
+		private System.Windows.Forms.CheckBox checkBoxPass16;
+		private System.Windows.Forms.Label label14;
+		private System.Windows.Forms.CheckBox checkBoxPass8;
+		private System.Windows.Forms.CheckBox checkBoxLDAPno;
 	}
 }

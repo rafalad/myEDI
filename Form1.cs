@@ -402,6 +402,16 @@ namespace myEDI
             }
         }
 
+        public void VisibilityOfPasswordButtons()
+        {
+            string selectedType = this.comboBoxPass.GetItemText(this.comboBoxPass.SelectedItem); //wybieram zmienna z comboboxa
+
+            if (selectedType == "single")
+            {
+                buttonMoreSettings.Enabled = false;
+            }
+        }
+
         private void buttonGenerateRandomPassword_Click(object sender, EventArgs e)
         {
             Clipboard.SetText(PasswordGenerator.NewPassword());
@@ -635,24 +645,30 @@ namespace myEDI
 
 		public void buttonGoLDAP_Click(object sender, EventArgs e)
 		{
-            ExtractResource click = new ExtractResource();
-            //Run Download on background thread
-            //Task.Run(() => Download());
-            
-            // jezeli zaznaczono opcje z formularzem
-            if (checkBoxLDAP.Checked)
+            ExtractResource FTPdoc = new ExtractResource();
+
+            // jezeli nie wybrano dlugosci hasla
+            if (checkBoxPass8.Checked == false && checkBoxPass16.Checked == false && checkBoxPass24.Checked == false)
             {
-                Directory.CreateDirectory(@"C:\EDI\doc_temp");
-
-                click.Extract("myEDI", @"C:\EDI\doc_temp", "Resources", "procedureftp.doc");
-                //kontynuuj prace na formularzu
-                LDAP();
+                MessageBox.Show(@"Choose your password length and try again.", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            // jezeli bez formularza, to nie pobieraj szablonu
             else
             {
-                LDAP();
+                // jezeli zaznaczono opcje z formularzem
+                if (checkBoxLDAP.Checked)
+                {
+                    Directory.CreateDirectory(@"C:\EDI\doc_temp");
+
+                    FTPdoc.Extract("myEDI", @"C:\EDI\doc_temp", "Resources", "procedureftp.doc");
+                    //kontynuuj prace na formularzu
+                    LDAP();
+                }
+
+                // jezeli bez formularza, to nie pobieraj szablonu
+                else
+                {
+                    LDAP();
+                }
             }
         }
 
@@ -664,6 +680,23 @@ namespace myEDI
 
             string selectedLDAP = this.comboBoxLDAP.GetItemText(this.comboBoxLDAP.SelectedItem); //wybieram zmienna z comboboxa
             string textbox = textBoxAddUserLDAP.Text;
+            int length = 0;
+
+            //na podstawie zaznaczonego checkboxa ustawiam dlugosc hasla
+            if (checkBoxPass8.Checked)
+            {
+                 length = 8;
+            }
+            if (checkBoxPass16.Checked)
+            {
+                 length = 16;
+            }
+            if (checkBoxPass24.Checked)
+            {
+                 length = 24;
+            }
+
+
 
             if (form == true)
             {
@@ -671,7 +704,7 @@ namespace myEDI
                 {
                     listBox1.Items.Add("[" + DateTime.Now.ToString("HH:mm:ss") + "] Data processing...");
 
-                    account.LdapAccount(selectedLDAP, textbox, form);
+                    account.LdapAccount(selectedLDAP, textbox, form, length);
 
                     listBox1.Items.Add(Ldap.listBoxMessage1);
                     listBox1.Items.Add(Ldap.listBoxMessage2);
@@ -686,68 +719,31 @@ namespace myEDI
             }
             else
             {
-                account.LdapAccount(selectedLDAP, textbox, form);
+                account.LdapAccount(selectedLDAP, textbox, form, length);
 
                 listBox1.Items.Add(Ldap.listBoxMessage1);
-                listBox1.Items.Add(Ldap.listBoxMessage2);
+                //listBox1.Items.Add(Ldap.listBoxMessage2);
             }
             if (MessageBox.Show("Process completed. \n Would you like to move to the directory?", "myEDI", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 Process.Start(@"C:\EDI");
             }
         }
-        /*
-        private void Download(string file)
-        {
-            //Katalog do przechowywania szablonu
-            Directory.CreateDirectory(@"C:\EDI\doc_temp");
-
-            try
-            {
-                string url = "ftp://files.000webhost.com/docs/" + file;
-                NetworkCredential credentials = new NetworkCredential("ediapp", "xxxxx");
-
-                // Query size of the file to be downloaded
-                WebRequest sizeRequest = WebRequest.Create(url);
-                sizeRequest.Credentials = credentials;
-                sizeRequest.Method = WebRequestMethods.Ftp.GetFileSize;
-                int size = (int)sizeRequest.GetResponse().ContentLength;
-
-                progressBar.Invoke(
-                    (MethodInvoker)(() => progressBar.Maximum = size));
-
-                // Download the file
-                WebRequest request = WebRequest.Create(url);
-                request.Credentials = credentials;
-                request.Method = WebRequestMethods.Ftp.DownloadFile;
-
-                using (Stream ftpStream = request.GetResponse().GetResponseStream())
-                using (Stream fileStream = File.Create(@"C:\EDI\doc_temp\" + file))
-                {
-                    byte[] buffer = new byte[10240];
-                    int read;
-                    while ((read = ftpStream.Read(buffer, 0, buffer.Length)) > 0)
-                    {
-                        fileStream.Write(buffer, 0, read);
-                        int position = (int)fileStream.Position;
-                        progressBar.Invoke(
-                            (MethodInvoker)(() => progressBar.Value = position));
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message);
-            }
-        }
-        */
 
         private void checkBoxLDAP_CheckedChanged(object sender, EventArgs e)
 		{
+            if (checkBoxLDAP.Checked)
+                checkBoxLDAPno.Checked = false;
 
 		}
 
-		private void createDirResourcesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void checkBox1_CheckedChanged_1(object sender, EventArgs e)
+        {
+            if (checkBoxLDAPno.Checked)
+                checkBoxLDAP.Checked = false;
+        }
+
+        private void createDirResourcesToolStripMenuItem_Click(object sender, EventArgs e)
 		{
             Resources dir = new Resources();
             dir.Dirs();
@@ -827,20 +823,36 @@ namespace myEDI
 
 		private void comboBoxLDAP_SelectedIndexChanged(object sender, EventArgs e)
 		{
-            //Ta metoda zapewnia formularz tylko dla nowgo usera
+            // ta metoda aktywuje / dezaktywuje opcje dla okreslonych plikow LDAP
 
             string selectedLDAP = this.comboBoxLDAP.GetItemText(this.comboBoxLDAP.SelectedItem);
 
-            if (selectedLDAP == "Modify user" || selectedLDAP == "Delete user")
+            if (selectedLDAP == "Modify user" || selectedLDAP == "Delete user" || selectedLDAP == "Remove SSHkey")
             {
                 checkBoxLDAP.Checked = false;
                 checkBoxLDAP.Enabled = false;
+                checkBoxLDAPno.Enabled = false;
             }
             else
             {
                 checkBoxLDAP.Checked = true;
                 checkBoxLDAP.Enabled = true;
+                checkBoxLDAPno.Enabled = true;
             }
+            
+            if (selectedLDAP == "Delete user" || selectedLDAP == "Remove SSHkey")
+            {
+                checkBoxPass8.Enabled = false;
+                checkBoxPass16.Enabled = false;
+                checkBoxPass24.Enabled = false;
+            }
+            else
+            {
+                checkBoxPass8.Enabled = true;
+                checkBoxPass16.Enabled = true;
+                checkBoxPass24.Enabled = true;
+            }
+            
         }
 
 		private void comboBoxSRQ_SelectedIndexChanged(object sender, EventArgs e)
@@ -858,6 +870,68 @@ namespace myEDI
             {
                 checkBoxSRQ.Checked = true;
                 checkBoxSRQ.Enabled = true;
+            }
+        }
+
+		private void button1_Click(object sender, EventArgs e)
+		{
+            PassSettings PassSettings = new PassSettings();
+            PassSettings.Show();
+        }
+
+		private void comboBoxAmount_SelectedIndexChanged(object sender, EventArgs e)
+		{
+
+		}
+
+		private void checkBoxPass8_CheckedChanged(object sender, EventArgs e)
+		{
+            if (checkBoxPass8.Checked)
+            {
+                checkBoxPass16.Checked = false;
+                checkBoxPass24.Checked = false;
+            }
+		}
+
+		private void checkBoxPass16_CheckedChanged(object sender, EventArgs e)
+		{
+            if (checkBoxPass16.Checked)
+            {
+                checkBoxPass8.Checked = false;
+                checkBoxPass24.Checked = false;
+            }
+            else
+            {
+                checkBoxPass16.Checked = false;
+            }
+        }
+
+		private void checkBoxPass24_CheckedChanged(object sender, EventArgs e)
+		{
+            if (checkBoxPass24.Checked)
+            {
+                checkBoxPass8.Checked = false;
+                checkBoxPass16.Checked = false;
+            }
+            else
+            {
+                checkBoxPass24.Checked = false;
+            }
+        }
+
+		private void comboBoxPass_SelectedIndexChanged(object sender, EventArgs e)
+		{
+            string selectedType = this.comboBoxPass.GetItemText(this.comboBoxPass.SelectedItem); //wybieram zmienna z comboboxa
+
+            if (selectedType == "multiple")
+            {
+                buttonMoreSettings.Enabled = true;
+                buttonGenerateRandomPassword.Enabled = false;
+            }
+            else
+            {
+                buttonMoreSettings.Enabled = false;
+                buttonGenerateRandomPassword.Enabled = true;
             }
         }
 	}

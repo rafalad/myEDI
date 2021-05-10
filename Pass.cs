@@ -13,7 +13,7 @@ namespace myEDI
             const string SPECIAL_CHARACTERS = @"!#$%&*@\";
             const string SPACE_CHARACTER = " ";
             const int PASSWORD_LENGTH_MIN = 8;
-            const int PASSWORD_LENGTH_MAX = 12;
+            const int PASSWORD_LENGTH_MAX = 24;
 
             if (lengthOfPassword < PASSWORD_LENGTH_MIN || lengthOfPassword > PASSWORD_LENGTH_MAX)
             {
@@ -93,7 +93,7 @@ namespace myEDI
             bool includeNumeric = true;
             bool includeSpecial = true;
             bool includeSpaces = false;
-            int lengthOfPassword = 12;
+            int lengthOfPassword = 16;
 
             string password = PasswordGenerator.GeneratePassword(includeLowercase, includeUppercase, includeNumeric, includeSpecial, includeSpaces, lengthOfPassword);
 
@@ -104,14 +104,14 @@ namespace myEDI
             return password;
         }
 
-        public static string NewPasswordforFile()
+        public static string NewPasswordforFile(int length)
         {
             bool includeLowercase = true;
             bool includeUppercase = true;
             bool includeNumeric = true;
-            bool includeSpecial = false;
+            bool includeSpecial = true;
             bool includeSpaces = false;
-            int lengthOfPassword = 8;
+            int lengthOfPassword = length;
 
             string password = PasswordGenerator.GeneratePassword(includeLowercase, includeUppercase, includeNumeric, includeSpecial, includeSpaces, lengthOfPassword);
 

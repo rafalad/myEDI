@@ -14,9 +14,9 @@ namespace myEDI
         public static string listBoxMessage3;
         public static string listBoxMessage4;
 
-        public void LdapAccount(string selectedLDAP, string textbox, bool form)
+        public void LdapAccount(string selectedLDAP, string textbox, bool form, int length)
 		{
-            string password = PasswordGenerator.NewPasswordforFile();
+            string password = PasswordGenerator.NewPasswordforFile(length);
             passwordForm = password;
             loginForm = textbox;
 
@@ -34,6 +34,9 @@ namespace myEDI
                         LdapForm formFTP = new LdapForm();
                         formFTP.CreateForm();
 
+                        int i = 1;
+
+
                         string fileName = "addUser_" + textbox + ".txt";
                         string[] lines = { "userName=" + textbox, "password=" + password };
                         string path = Path.Combine(@"C:\EDI\", fileName);
@@ -42,7 +45,7 @@ namespace myEDI
                         listBoxMessage1 = "[" + DateTime.Now.ToString("HH:mm:ss") + @"] New user LDAP File has been created in: ";
                         listBoxMessage2 = path;
                         listBoxMessage3 = LdapForm.listBoxMessage1; //pobieram komunikaty po utworzeniu formularza FTP tylko dla nowego uzytkownika
-                        listBoxMessage4 = LdapForm.listBoxMessage2;  
+                        listBoxMessage4 = LdapForm.listBoxMessage2;
                     }
 
                     else
@@ -53,6 +56,68 @@ namespace myEDI
                         File.WriteAllLines(path, lines);
 
                         listBoxMessage1 = "[" + DateTime.Now.ToString("HH:mm:ss") + @"] New user LDAP File has been created in: ";
+                        listBoxMessage2 = path;
+                        MessageBox.Show("Completed.", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+
+                else if (selectedLDAP == "Bulk user")
+                {
+                    if (form == true)
+                    {
+                        LdapForm formFTP = new LdapForm();
+                        formFTP.CreateForm();
+
+                        string fileName = "addBulkUser_" + textbox + ".csv";
+                        string[] lines = { textbox + ","+ password };
+                        string path = Path.Combine(@"C:\EDI\", fileName);
+                        File.WriteAllLines(path, lines);
+
+                        listBoxMessage1 = "[" + DateTime.Now.ToString("HH:mm:ss") + @"] New Bulk user LDAP File has been created in: ";
+                        listBoxMessage2 = path;
+                        listBoxMessage3 = LdapForm.listBoxMessage1; //pobieram komunikaty po utworzeniu formularza FTP tylko dla nowego uzytkownika
+                        listBoxMessage4 = LdapForm.listBoxMessage2;
+                    }
+
+                    else
+                    {
+                        string fileName = "addBulkUser_" + textbox + ".csv";
+                        string[] lines = { textbox + "," + password };
+                        string path = Path.Combine(@"C:\EDI\", fileName);
+                        File.WriteAllLines(path, lines);
+
+                        listBoxMessage1 = "[" + DateTime.Now.ToString("HH:mm:ss") + @"] New Bulk user LDAP File has been created in: ";
+                        listBoxMessage2 = path;
+                        MessageBox.Show("Completed.", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+
+                else if (selectedLDAP == "SSHKey user")
+                {
+                    if (form == true)
+                    {
+                        LdapForm formFTP = new LdapForm();
+                        formFTP.CreateForm();
+
+                        string fileName = "addSSHKey_" + textbox + ".txt";
+                        string[] lines = { "userName=" + textbox, "sshPublicKey=" + "Enter your SSH key here" };
+                        string path = Path.Combine(@"C:\EDI\", fileName);
+                        File.WriteAllLines(path, lines);
+
+                        listBoxMessage1 = "[" + DateTime.Now.ToString("HH:mm:ss") + @"] New SSH user LDAP File has been created in: ";
+                        listBoxMessage2 = path;
+                        listBoxMessage3 = LdapForm.listBoxMessage1; //pobieram komunikaty po utworzeniu formularza FTP tylko dla nowego uzytkownika
+                        listBoxMessage4 = LdapForm.listBoxMessage2;
+                    }
+
+                    else
+                    {
+                        string fileName = "addSSHKey_" + textbox + ".txt";
+                        string[] lines = { "userName=" + textbox, "sshPublicKey=" + "Enter your SSH key here" };
+                        string path = Path.Combine(@"C:\EDI\", fileName);
+                        File.WriteAllLines(path, lines);
+
+                        listBoxMessage1 = "[" + DateTime.Now.ToString("HH:mm:ss") + @"] New SSH user LDAP File has been created in: ";
                         listBoxMessage2 = path;
                         MessageBox.Show("Completed.", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
@@ -72,13 +137,24 @@ namespace myEDI
 
                 else if (selectedLDAP == "Delete user")
                 {
-
-                    string fileName = "deletePassword_" + textbox + ".txt";
-                    string[] lines = { "userName=" + textbox, "password=" + password };
+                    string fileName = "deleteUser_" + textbox + ".txt";
+                    string[] lines = { "userName=" + textbox };
                     string path = Path.Combine(@"C:\EDI\", fileName);
                     File.WriteAllLines(path, lines);
 
                     listBoxMessage1 = "[" + DateTime.Now.ToString("HH:mm:ss") + @"] Delete user LDAP File has been created in: ";
+                    listBoxMessage1 = path;
+                    MessageBox.Show("Completed.", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                else if (selectedLDAP == "Remove SSHkey")
+                {
+                    string fileName = "removeSSHKey_" + textbox + ".txt";
+                    string[] lines = { "userName=" + textbox, "sshPublicKey=" + "Enter your SSH key here" };
+                    string path = Path.Combine(@"C:\EDI\", fileName);
+                    File.WriteAllLines(path, lines);
+
+                    listBoxMessage1 = "[" + DateTime.Now.ToString("HH:mm:ss") + @"] Remove SSH user LDAP File has been created in: ";
                     listBoxMessage1 = path;
                     MessageBox.Show("Completed.", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
