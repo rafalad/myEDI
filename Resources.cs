@@ -153,7 +153,7 @@ namespace myEDI
 
             try
             {
-                if (client.DownloadString("https://pastebin.com/raw/qiJ05NWB").Contains("1.1.0.8"))
+                if (client.DownloadString("https://pastebin.com/raw/qiJ05NWB").Contains("1.1.2.0"))
                 {
                         versionMessage = "[ you're using the latest version. ]";                  
                 }

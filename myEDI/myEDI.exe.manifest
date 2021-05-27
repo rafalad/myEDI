@@ -4,7 +4,7 @@
   <description asmv2:iconFile="icon.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="myEDI" version="1.1.0.9" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="myEDI" version="1.1.2.0" language="neutral" processorArchitecture="msil" />
     <commandLine file="myEDI.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="myEDI.exe" size="1922528">
-      <assemblyIdentity name="myEDI" version="1.1.0.9" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="myEDI.exe" size="1923040">
+      <assemblyIdentity name="myEDI" version="1.1.2.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>pbtY2Sq3WxWS2WLYDu6RxctsQduh3ZGalw4gYEQw/RI=</dsig:DigestValue>
+        <dsig:DigestValue>GgkFP+RLPYvaCxFJ/aUxa56Qyl79LmxjRl2Tqr6G/1A=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

@@ -109,7 +109,7 @@ namespace myEDI
             bool includeLowercase = true;
             bool includeUppercase = true;
             bool includeNumeric = true;
-            bool includeSpecial = true;
+            bool includeSpecial = false;
             bool includeSpaces = false;
             int lengthOfPassword = length;
 

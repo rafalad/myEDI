@@ -734,13 +734,17 @@ namespace myEDI
 		{
             if (checkBoxLDAP.Checked)
                 checkBoxLDAPno.Checked = false;
+            else
+                checkBoxLDAPno.Checked = true;
 
-		}
+        }
 
         private void checkBox1_CheckedChanged_1(object sender, EventArgs e)
         {
             if (checkBoxLDAPno.Checked)
                 checkBoxLDAP.Checked = false;
+            else
+                checkBoxLDAP.Checked = true;
         }
 
         private void createDirResourcesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -888,6 +892,7 @@ namespace myEDI
 		{
             if (checkBoxPass8.Checked)
             {
+                MessageBox.Show(@"The current LDAP script only supports 24 character passwords. Consider a 24-character password.", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 checkBoxPass16.Checked = false;
                 checkBoxPass24.Checked = false;
             }
@@ -897,12 +902,9 @@ namespace myEDI
 		{
             if (checkBoxPass16.Checked)
             {
+                MessageBox.Show(@"The current LDAP script only supports 24 character passwords. Consider a 24-character password.", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 checkBoxPass8.Checked = false;
                 checkBoxPass24.Checked = false;
-            }
-            else
-            {
-                checkBoxPass16.Checked = false;
             }
         }
 
@@ -912,10 +914,6 @@ namespace myEDI
             {
                 checkBoxPass8.Checked = false;
                 checkBoxPass16.Checked = false;
-            }
-            else
-            {
-                checkBoxPass24.Checked = false;
             }
         }
 
