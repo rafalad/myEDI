@@ -1,6 +1,6 @@
 ﻿namespace myEDI
 {
-	partial class myEDI
+	partial class MyEDI
 	{
 		/// <summary>
 		/// Wymagana zmienna projektanta.
@@ -24,7 +24,7 @@
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(myEDI));
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MyEDI));
 			this.textBoxAddUserLDAP = new System.Windows.Forms.TextBox();
 			this.label2 = new System.Windows.Forms.Label();
 			this.deployComboBox = new System.Windows.Forms.ComboBox();
@@ -144,7 +144,7 @@
 			this.textBoxAddUserLDAP.Name = "textBoxAddUserLDAP";
 			this.textBoxAddUserLDAP.Size = new System.Drawing.Size(215, 20);
 			this.textBoxAddUserLDAP.TabIndex = 4;
-			this.textBoxAddUserLDAP.TextChanged += new System.EventHandler(this.textBoxAddUserLDAP_TextChanged);
+			this.textBoxAddUserLDAP.TextChanged += new System.EventHandler(this.TextBoxAddUserLDAP_TextChanged);
 			// 
 			// label2
 			// 
@@ -171,7 +171,7 @@
 			this.deployComboBox.TabIndex = 9;
 			this.deployComboBox.TabStop = false;
 			this.deployComboBox.Text = "QA only";
-			this.deployComboBox.SelectedIndexChanged += new System.EventHandler(this.deployComboBox_SelectedIndexChanged);
+			this.deployComboBox.SelectedIndexChanged += new System.EventHandler(this.DeployComboBox_SelectedIndexChanged);
 			// 
 			// label3
 			// 
@@ -224,7 +224,7 @@
 			this.buttonMoreSettings.TabStop = false;
 			this.buttonMoreSettings.Text = "More settings";
 			this.buttonMoreSettings.UseVisualStyleBackColor = true;
-			this.buttonMoreSettings.Click += new System.EventHandler(this.button1_Click);
+			this.buttonMoreSettings.Click += new System.EventHandler(this.Button1_Click);
 			// 
 			// comboBoxPass
 			// 
@@ -239,7 +239,7 @@
 			this.comboBoxPass.Sorted = true;
 			this.comboBoxPass.TabIndex = 39;
 			this.comboBoxPass.Text = "single";
-			this.comboBoxPass.SelectedIndexChanged += new System.EventHandler(this.comboBoxPass_SelectedIndexChanged);
+			this.comboBoxPass.SelectedIndexChanged += new System.EventHandler(this.ComboBoxPass_SelectedIndexChanged);
 			// 
 			// label9
 			// 
@@ -260,7 +260,7 @@
 			this.buttonGenerateRandomPassword.TabStop = false;
 			this.buttonGenerateRandomPassword.Text = "Go";
 			this.buttonGenerateRandomPassword.UseVisualStyleBackColor = true;
-			this.buttonGenerateRandomPassword.Click += new System.EventHandler(this.buttonGenerateRandomPassword_Click);
+			this.buttonGenerateRandomPassword.Click += new System.EventHandler(this.ButtonGenerateRandomPassword_Click);
 			// 
 			// groupBox2
 			// 
@@ -296,7 +296,7 @@
 			this.checkBoxLDAPno.TabStop = false;
 			this.checkBoxLDAPno.Text = "No";
 			this.checkBoxLDAPno.UseVisualStyleBackColor = true;
-			this.checkBoxLDAPno.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged_1);
+			this.checkBoxLDAPno.CheckedChanged += new System.EventHandler(this.CheckBox1_CheckedChanged_1);
 			// 
 			// checkBoxPass24
 			// 
@@ -311,7 +311,7 @@
 			this.checkBoxPass24.TabStop = false;
 			this.checkBoxPass24.Text = "24";
 			this.checkBoxPass24.UseVisualStyleBackColor = true;
-			this.checkBoxPass24.CheckedChanged += new System.EventHandler(this.checkBoxPass24_CheckedChanged);
+			this.checkBoxPass24.CheckedChanged += new System.EventHandler(this.CheckBoxPass24_CheckedChanged);
 			// 
 			// checkBoxPass16
 			// 
@@ -324,7 +324,7 @@
 			this.checkBoxPass16.TabStop = false;
 			this.checkBoxPass16.Text = "16";
 			this.checkBoxPass16.UseVisualStyleBackColor = true;
-			this.checkBoxPass16.CheckedChanged += new System.EventHandler(this.checkBoxPass16_CheckedChanged);
+			this.checkBoxPass16.CheckedChanged += new System.EventHandler(this.CheckBoxPass16_CheckedChanged);
 			// 
 			// label14
 			// 
@@ -349,7 +349,7 @@
 			this.checkBoxPass8.TabStop = false;
 			this.checkBoxPass8.Text = "8";
 			this.checkBoxPass8.UseVisualStyleBackColor = true;
-			this.checkBoxPass8.CheckedChanged += new System.EventHandler(this.checkBoxPass8_CheckedChanged);
+			this.checkBoxPass8.CheckedChanged += new System.EventHandler(this.CheckBoxPass8_CheckedChanged);
 			// 
 			// checkBoxLDAP
 			// 
@@ -364,7 +364,7 @@
 			this.checkBoxLDAP.TabStop = false;
 			this.checkBoxLDAP.Text = "Yes";
 			this.checkBoxLDAP.UseVisualStyleBackColor = true;
-			this.checkBoxLDAP.CheckedChanged += new System.EventHandler(this.checkBoxLDAP_CheckedChanged);
+			this.checkBoxLDAP.CheckedChanged += new System.EventHandler(this.CheckBoxLDAP_CheckedChanged);
 			// 
 			// comboBoxLDAP
 			// 
@@ -382,7 +382,7 @@
 			this.comboBoxLDAP.Size = new System.Drawing.Size(118, 21);
 			this.comboBoxLDAP.TabIndex = 5;
 			this.comboBoxLDAP.Text = "New user";
-			this.comboBoxLDAP.SelectedIndexChanged += new System.EventHandler(this.comboBoxLDAP_SelectedIndexChanged);
+			this.comboBoxLDAP.SelectedIndexChanged += new System.EventHandler(this.ComboBoxLDAP_SelectedIndexChanged);
 			// 
 			// buttonGoLDAP
 			// 
@@ -394,7 +394,7 @@
 			this.buttonGoLDAP.TabStop = false;
 			this.buttonGoLDAP.Text = "Go";
 			this.buttonGoLDAP.UseVisualStyleBackColor = true;
-			this.buttonGoLDAP.Click += new System.EventHandler(this.buttonGoLDAP_Click);
+			this.buttonGoLDAP.Click += new System.EventHandler(this.ButtonGoLDAP_Click);
 			// 
 			// label12
 			// 
@@ -453,7 +453,7 @@
 			this.button_reports.TabStop = false;
 			this.button_reports.Text = "Reports";
 			this.button_reports.UseVisualStyleBackColor = true;
-			this.button_reports.Click += new System.EventHandler(this.button_reports_Click);
+			this.button_reports.Click += new System.EventHandler(this.Button_reports_Click);
 			// 
 			// button_resources
 			// 
@@ -465,7 +465,7 @@
 			this.button_resources.TabStop = false;
 			this.button_resources.Text = "Resources";
 			this.button_resources.UseVisualStyleBackColor = true;
-			this.button_resources.Click += new System.EventHandler(this.button_resources_Click);
+			this.button_resources.Click += new System.EventHandler(this.Button_resources_Click);
 			// 
 			// extractRT_button
 			// 
@@ -477,7 +477,7 @@
 			this.extractRT_button.TabStop = false;
 			this.extractRT_button.Text = "Extract RT";
 			this.extractRT_button.UseVisualStyleBackColor = true;
-			this.extractRT_button.Click += new System.EventHandler(this.extractRT_button_Click);
+			this.extractRT_button.Click += new System.EventHandler(this.ExtractRT_button_Click);
 			// 
 			// button_logs
 			// 
@@ -489,7 +489,7 @@
 			this.button_logs.TabStop = false;
 			this.button_logs.Text = "Logs";
 			this.button_logs.UseVisualStyleBackColor = true;
-			this.button_logs.Click += new System.EventHandler(this.button_logs_Click);
+			this.button_logs.Click += new System.EventHandler(this.Button_logs_Click);
 			// 
 			// consoleQuery_button
 			// 
@@ -501,7 +501,7 @@
 			this.consoleQuery_button.TabStop = false;
 			this.consoleQuery_button.Text = "Console query";
 			this.consoleQuery_button.UseVisualStyleBackColor = true;
-			this.consoleQuery_button.Click += new System.EventHandler(this.consoleQuery_button_Click);
+			this.consoleQuery_button.Click += new System.EventHandler(this.ConsoleQuery_button_Click);
 			// 
 			// checkBox_Query
 			// 
@@ -516,7 +516,7 @@
 			this.checkBox_Query.TabStop = false;
 			this.checkBox_Query.Text = "Yes";
 			this.checkBox_Query.UseVisualStyleBackColor = true;
-			this.checkBox_Query.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
+			this.checkBox_Query.CheckedChanged += new System.EventHandler(this.CheckBox2_CheckedChanged);
 			// 
 			// label11
 			// 
@@ -540,7 +540,7 @@
 			this.richTextBoxSelectedEnv.TabIndex = 26;
 			this.richTextBoxSelectedEnv.TabStop = false;
 			this.richTextBoxSelectedEnv.Text = "not selected";
-			this.richTextBoxSelectedEnv.TextChanged += new System.EventHandler(this.richTextBoxSelectedEnv_TextChanged);
+			//this.richTextBoxSelectedEnv.TextChanged += new System.EventHandler(this.richTextBoxSelectedEnv_TextChanged);
 			// 
 			// label5
 			// 
@@ -564,7 +564,7 @@
 			this.button_local_deploy.TabStop = false;
 			this.button_local_deploy.Text = "Storage";
 			this.button_local_deploy.UseVisualStyleBackColor = true;
-			this.button_local_deploy.Click += new System.EventHandler(this.button5_Click);
+			this.button_local_deploy.Click += new System.EventHandler(this.Button5_Click);
 			// 
 			// checkBox_RT
 			// 
@@ -579,7 +579,7 @@
 			this.checkBox_RT.TabStop = false;
 			this.checkBox_RT.Text = "Yes";
 			this.checkBox_RT.UseVisualStyleBackColor = true;
-			this.checkBox_RT.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+			this.checkBox_RT.CheckedChanged += new System.EventHandler(this.CheckBox1_CheckedChanged);
 			// 
 			// label4
 			// 
@@ -653,7 +653,7 @@
 			this.comboBoxSRQ.Sorted = true;
 			this.comboBoxSRQ.TabIndex = 3;
 			this.comboBoxSRQ.Text = "Standard setup";
-			this.comboBoxSRQ.SelectedIndexChanged += new System.EventHandler(this.comboBoxSRQ_SelectedIndexChanged);
+			this.comboBoxSRQ.SelectedIndexChanged += new System.EventHandler(this.ComboBoxSRQ_SelectedIndexChanged);
 			// 
 			// label6
 			// 
@@ -680,7 +680,7 @@
 			this.CHWnumberField.Name = "CHWnumberField";
 			this.CHWnumberField.Size = new System.Drawing.Size(204, 20);
 			this.CHWnumberField.TabIndex = 1;
-			this.CHWnumberField.TextChanged += new System.EventHandler(this.CHWnumberField_TextChanged);
+			//this.CHWnumberField.TextChanged += new System.EventHandler(this.CHWnumberField_TextChanged);
 			// 
 			// SRQidField
 			// 
@@ -735,7 +735,7 @@
 			this.buttonCL.TabStop = false;
 			this.buttonCL.Text = "Create CL";
 			this.buttonCL.UseVisualStyleBackColor = true;
-			this.buttonCL.Click += new System.EventHandler(this.buttonCL_Click);
+			this.buttonCL.Click += new System.EventHandler(this.ButtonCL_Click);
 			// 
 			// codeListComboBox
 			// 
@@ -751,7 +751,7 @@
 			this.codeListComboBox.TabIndex = 27;
 			this.codeListComboBox.TabStop = false;
 			this.codeListComboBox.Text = "both";
-			this.codeListComboBox.SelectedIndexChanged += new System.EventHandler(this.codeListComboBox_SelectedIndexChanged);
+			//this.codeListComboBox.SelectedIndexChanged += new System.EventHandler(this.codeListComboBox_SelectedIndexChanged);
 			// 
 			// label8
 			// 
@@ -793,7 +793,7 @@
 			this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
 			this.exitToolStripMenuItem1.Size = new System.Drawing.Size(93, 22);
 			this.exitToolStripMenuItem1.Text = "Exit";
-			this.exitToolStripMenuItem1.Click += new System.EventHandler(this.exitToolStripMenuItem1_Click);
+			this.exitToolStripMenuItem1.Click += new System.EventHandler(this.ExitToolStripMenuItem1_Click);
 			// 
 			// editToolStripMenuItem1
 			// 
@@ -815,14 +815,14 @@
 			this.minimizeToolStripMenuItem1.Name = "minimizeToolStripMenuItem1";
 			this.minimizeToolStripMenuItem1.Size = new System.Drawing.Size(174, 22);
 			this.minimizeToolStripMenuItem1.Text = "Minimize";
-			this.minimizeToolStripMenuItem1.Click += new System.EventHandler(this.minimizeToolStripMenuItem1_Click);
+			this.minimizeToolStripMenuItem1.Click += new System.EventHandler(this.MinimizeToolStripMenuItem1_Click);
 			// 
 			// cleanEventViewerToolStripMenuItem
 			// 
 			this.cleanEventViewerToolStripMenuItem.Name = "cleanEventViewerToolStripMenuItem";
 			this.cleanEventViewerToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
 			this.cleanEventViewerToolStripMenuItem.Text = "Clean Event Viewer";
-			this.cleanEventViewerToolStripMenuItem.Click += new System.EventHandler(this.cleanEventViewerToolStripMenuItem_Click);
+			this.cleanEventViewerToolStripMenuItem.Click += new System.EventHandler(this.CleanEventViewerToolStripMenuItem_Click);
 			// 
 			// dirsToolStripMenuItem1
 			// 
@@ -837,7 +837,7 @@
 			this.createDirResourcesToolStripMenuItem.Name = "createDirResourcesToolStripMenuItem";
 			this.createDirResourcesToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
 			this.createDirResourcesToolStripMenuItem.Text = "Create dir resources";
-			this.createDirResourcesToolStripMenuItem.Click += new System.EventHandler(this.createDirResourcesToolStripMenuItem_Click);
+			this.createDirResourcesToolStripMenuItem.Click += new System.EventHandler(this.CreateDirResourcesToolStripMenuItem_Click);
 			// 
 			// linksToolStripMenuItem1
 			// 
@@ -853,14 +853,14 @@
 			this.lWToolStripMenuItem.Name = "lWToolStripMenuItem";
 			this.lWToolStripMenuItem.Size = new System.Drawing.Size(90, 22);
 			this.lWToolStripMenuItem.Text = "LW";
-			this.lWToolStripMenuItem.Click += new System.EventHandler(this.lWToolStripMenuItem_Click);
+			this.lWToolStripMenuItem.Click += new System.EventHandler(this.LWToolStripMenuItem_Click);
 			// 
 			// sIToolStripMenuItem2
 			// 
 			this.sIToolStripMenuItem2.Name = "sIToolStripMenuItem2";
 			this.sIToolStripMenuItem2.Size = new System.Drawing.Size(90, 22);
 			this.sIToolStripMenuItem2.Text = "SI";
-			this.sIToolStripMenuItem2.Click += new System.EventHandler(this.sIToolStripMenuItem2_Click);
+			this.sIToolStripMenuItem2.Click += new System.EventHandler(this.SIToolStripMenuItem2_Click);
 			// 
 			// formsToolStripMenuItem1
 			// 
@@ -878,28 +878,28 @@
 			this.fTPProcedureToolStripMenuItem.Name = "fTPProcedureToolStripMenuItem";
 			this.fTPProcedureToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.fTPProcedureToolStripMenuItem.Text = "FTP procedure";
-			this.fTPProcedureToolStripMenuItem.Click += new System.EventHandler(this.fTPProcedureToolStripMenuItem_Click);
+			this.fTPProcedureToolStripMenuItem.Click += new System.EventHandler(this.FTPProcedureToolStripMenuItem_Click);
 			// 
 			// multipleEntriesCLToolStripMenuItem
 			// 
 			this.multipleEntriesCLToolStripMenuItem.Name = "multipleEntriesCLToolStripMenuItem";
 			this.multipleEntriesCLToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.multipleEntriesCLToolStripMenuItem.Text = "Multiple entries CL";
-			this.multipleEntriesCLToolStripMenuItem.Click += new System.EventHandler(this.multipleEntriesCLToolStripMenuItem_Click);
+			this.multipleEntriesCLToolStripMenuItem.Click += new System.EventHandler(this.MultipleEntriesCLToolStripMenuItem_Click);
 			// 
 			// deployRequestToolStripMenuItem
 			// 
 			this.deployRequestToolStripMenuItem.Name = "deployRequestToolStripMenuItem";
 			this.deployRequestToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.deployRequestToolStripMenuItem.Text = "Deploy Request";
-			this.deployRequestToolStripMenuItem.Click += new System.EventHandler(this.deployRequestToolStripMenuItem_Click);
+			this.deployRequestToolStripMenuItem.Click += new System.EventHandler(this.DeployRequestToolStripMenuItem_Click);
 			// 
 			// gentranGenericListToolStripMenuItem
 			// 
 			this.gentranGenericListToolStripMenuItem.Name = "gentranGenericListToolStripMenuItem";
 			this.gentranGenericListToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.gentranGenericListToolStripMenuItem.Text = "Gentran Generic List";
-			this.gentranGenericListToolStripMenuItem.Click += new System.EventHandler(this.gentranGenericListToolStripMenuItem_Click);
+			this.gentranGenericListToolStripMenuItem.Click += new System.EventHandler(this.GentranGenericListToolStripMenuItem_Click);
 			// 
 			// aboutToolStripMenuItem2
 			// 
@@ -914,7 +914,7 @@
 			this.aboutToolStripMenuItem3.Name = "aboutToolStripMenuItem3";
 			this.aboutToolStripMenuItem3.Size = new System.Drawing.Size(107, 22);
 			this.aboutToolStripMenuItem3.Text = "About";
-			this.aboutToolStripMenuItem3.Click += new System.EventHandler(this.aboutToolStripMenuItem3_Click);
+			this.aboutToolStripMenuItem3.Click += new System.EventHandler(this.AboutToolStripMenuItem3_Click);
 			// 
 			// sIToolStripMenuItem1
 			// 
@@ -935,7 +935,7 @@
 			this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
 			this.exitToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
 			this.exitToolStripMenuItem.Text = "Exit";
-			this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+			this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
 			// 
 			// editToolStripMenuItem
 			// 
@@ -956,7 +956,7 @@
 			this.minimizeToolStripMenuItem.Name = "minimizeToolStripMenuItem";
 			this.minimizeToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
 			this.minimizeToolStripMenuItem.Text = "Minimize";
-			this.minimizeToolStripMenuItem.Click += new System.EventHandler(this.minimizeToolStripMenuItem_Click);
+			this.minimizeToolStripMenuItem.Click += new System.EventHandler(this.MinimizeToolStripMenuItem_Click);
 			// 
 			// dirsToolStripMenuItem
 			// 
@@ -1019,7 +1019,7 @@
 			this.aboutToolStripMenuItem1.Name = "aboutToolStripMenuItem1";
 			this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(107, 22);
 			this.aboutToolStripMenuItem1.Text = "About";
-			this.aboutToolStripMenuItem1.Click += new System.EventHandler(this.aboutToolStripMenuItem1_Click);
+			this.aboutToolStripMenuItem1.Click += new System.EventHandler(this.AboutToolStripMenuItem1_Click);
 			// 
 			// contextMenuStrip1
 			// 
@@ -1057,7 +1057,7 @@
 			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
 			this.pictureBox1.TabIndex = 29;
 			this.pictureBox1.TabStop = false;
-			this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+			//this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
 			// 
 			// ver
 			// 
@@ -1069,7 +1069,7 @@
 			this.ver.TabIndex = 31;
 			this.ver.Text = "version";
 			this.ver.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.ver.Click += new System.EventHandler(this.ver_Click);
+			//this.ver.Click += new System.EventHandler(this.ver_Click);
 			// 
 			// groupBox6
 			// 
@@ -1101,7 +1101,7 @@
 			this.listBox1.Size = new System.Drawing.Size(423, 524);
 			this.listBox1.TabIndex = 36;
 			this.listBox1.TabStop = false;
-			this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+			this.listBox1.SelectedIndexChanged += new System.EventHandler(this.ListBox1_SelectedIndexChanged);
 			// 
 			// progressBar1
 			// 

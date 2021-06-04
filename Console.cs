@@ -6,19 +6,18 @@ using System.Text;
 
 namespace myEDI
 {
-	public class ConsoleQuery
+	public class ConsoleQuery : Kit
 	{
 		public void Query()
 		{
-			Kit set = new Kit();
+			//Kit set = new Kit();
 
 			string pathString = @"C:\DEPLOYMENTS\query.txt";
 
-			int day = set.Day();
-			string month = set.Month();
+			int day = Day();
+			string month = Month();
 
-			// LINQ query.
-			var dirs = from dir in Directory.EnumerateDirectories(set.deploymentsdir, month + "*" + day.ToString() + "*") select dir;
+			var dirs = from dir in Directory.EnumerateDirectories(deploymentsdir, month + "*" + day.ToString() + "*") select dir;
 
 			if (dirs.Count<string>() == 0) //jezeli nie ma folderow do wdrozenia
 			{
@@ -27,7 +26,7 @@ namespace myEDI
 			else // jezeli folder sa
 			{
 				// szukam nazw RT, buduje składnie i dodaje do wygenerowanej notatki
-				string[] rt_array = Directory.GetFiles(set.DeployPath(), "*exp.xml", SearchOption.AllDirectories);
+				string[] rt_array = Directory.GetFiles(DeployPath(), "*exp.xml", SearchOption.AllDirectories);
 				foreach (string file in rt_array)
 				{
 					string fileName = Path.GetFileName(file);
@@ -35,7 +34,7 @@ namespace myEDI
 				}
 
 				File.AppendAllText(pathString, Environment.NewLine + Environment.NewLine, Encoding.UTF8);
-				
+
 				/*
 				// szukam plików SQL, buduje składnie i dodaje do wygenerowanej notatki
 				string[] sql_array = Directory.GetFiles(set.DeployPath(), "*.sql", SearchOption.AllDirectories);

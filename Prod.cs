@@ -1,31 +1,29 @@
 ﻿using System;
-using System.Text;
-using System.IO;
 using System.Diagnostics;
+using System.IO;
+using System.Text;
 
 namespace myEDI
 {
-	public class Prod
+	public class Prod : Kit
 	{
 		public Prod()
 		{
-			Kit set = new Kit();
-
 			string pathString = @"C:\DEPLOYMENTS\msteams_note.txt";
-			string wiersz1 = set.Time1();
+			string wiersz1 = Time1();
 			string wiersz2 = "\nFollowing SRQs are now deployed to PROD system successfully:\n";
 
 			string[] naglowek = { wiersz1, wiersz2 };
 			File.WriteAllLines(pathString, naglowek);
 
-			string[] foldery = Directory.GetDirectories(set.DeployPath(), "S*", SearchOption.TopDirectoryOnly);
+			string[] foldery = Directory.GetDirectories(DeployPath(), "S*", SearchOption.TopDirectoryOnly);
 			foreach (string folder in foldery)
 			{
 				string appendText = Path.GetFileName(folder) + Environment.NewLine;
 				File.AppendAllText(pathString, appendText, Encoding.UTF8);
 			}
 
-			string[] pliki = Directory.GetFiles(set.DeployPath(), "*.xls*");
+			string[] pliki = Directory.GetFiles(DeployPath(), "*.xls*");
 			foreach (string plik in pliki)
 			{
 				string appendText = Path.GetFileName(plik) + Environment.NewLine;

@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Windows.Forms;
-using System.IO;
 using System.Diagnostics;
+using System.IO;
+using System.Windows.Forms;
 
 namespace myEDI
 {
@@ -57,6 +57,6 @@ namespace myEDI
 			textBoxChildD_both.CharacterCasing = CharacterCasing.Upper;
 		}
 
-		
+
 	}
 }
