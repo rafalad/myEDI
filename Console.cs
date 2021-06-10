@@ -6,7 +6,7 @@ using System.Text;
 
 namespace myEDI
 {
-	public class ConsoleQuery : Kit
+	class ConsoleQuery : Kit
 	{
 		public void Query()
 		{
@@ -34,16 +34,6 @@ namespace myEDI
 				}
 
 				File.AppendAllText(pathString, Environment.NewLine + Environment.NewLine, Encoding.UTF8);
-
-				/*
-				// szukam plików SQL, buduje składnie i dodaje do wygenerowanej notatki
-				string[] sql_array = Directory.GetFiles(set.DeployPath(), "*.sql", SearchOption.AllDirectories);
-				foreach (string file in sql_array)
-				{
-					string fileName = Path.GetFileName(file);
-					File.AppendAllText(pathString, "run_sql.sh " + fileName + "; ", Encoding.UTF8);
-				}
-				*/
 
 				Process.Start(pathString);
 			}

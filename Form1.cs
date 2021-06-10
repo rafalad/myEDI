@@ -17,6 +17,11 @@ namespace myEDI
 		{
 			InitializeComponent();
 
+			Start();
+		}
+
+		private void Start()
+		{
 			LoginDSV name = new LoginDSV();
 			WebClient webClient = new WebClient();
 			Resources resource = new Resources();
@@ -69,10 +74,8 @@ namespace myEDI
 											   box.ClientRectangle.Width - 1,
 											   box.ClientRectangle.Height - (int)(strSize.Height / 2) - 1);
 
-				// Clear text and border
 				g.Clear(BackColor);
 
-				// Draw text
 				g.DrawString(box.Text, box.Font, textBrush, box.Padding.Left, 0);
 
 				// Drawing Border
@@ -252,7 +255,6 @@ namespace myEDI
 			}
 
 			//3. Generuj notatke zgodnie z wybranymi parametrami
-
 			if (checkBox_RT.Checked)
 			{
 				ExtractRT();
@@ -859,8 +861,7 @@ namespace myEDI
 				checkBoxPass24.Checked = false;
 			}
 		}
-
-		private void CheckBoxPass24_CheckedChanged(object sender, EventArgs e)
+		public void CheckBoxPass24_CheckedChanged(object sender, EventArgs e)
 		{
 			if (checkBoxPass24.Checked)
 			{
