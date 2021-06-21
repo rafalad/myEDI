@@ -153,11 +153,11 @@ namespace myEDI
 			}
 			else // jezeli spelniono warunki, czyli wybrano numer i nazwe zgloszenia
 			{
-				if (selectedSRQ == "Standard setup")
+				if (selectedSRQ == "STD LW Setup")
 				{
 					string CHWnoField = CHWnumberField.Text;
 					string idField = SRQidField.Text;
-					string task = " [standard setup]";
+					string task = " [STD LW Setup]";
 
 					Ticket folder = new Ticket();
 					folder.NewTicket(CHWnoField, idField, task, form);
@@ -200,7 +200,7 @@ namespace myEDI
 						Process.Start(folder.createdfolder);
 					}
 				}
-				else if (selectedSRQ == "None")
+				else if (selectedSRQ == "other")
 				{
 					string CHWnoField = CHWnumberField.Text;
 					string idField = SRQidField.Text;
@@ -821,18 +821,29 @@ namespace myEDI
 		private void ComboBoxSRQ_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			//Ta metoda wyłącza możliwość generowania formularza dla zadań typu Code list
+			// + aktywuje / dezaktywuje rodzaj setupu
 
 			string selectedSRQ = comboBoxLDAP.GetItemText(comboBoxSRQ.SelectedItem);
 
-			if (selectedSRQ == "Code list")
-			{
-				checkBoxSRQ.Checked = false;
-				checkBoxSRQ.Enabled = false;
-			}
-			else
-			{
-				checkBoxSRQ.Checked = true;
-				checkBoxSRQ.Enabled = true;
+			switch (selectedSRQ)
+            {
+				case "STD LW Setup":
+					checkBoxSRQ.Checked = true;
+					checkBoxSRQ.Enabled = true;
+					comboBox_setup.Enabled = true;
+					break;
+
+				case "Code list":
+					checkBoxSRQ.Checked = false;
+					checkBoxSRQ.Enabled = false;
+					comboBox_setup.Enabled = false;
+					break;
+
+				case "other":
+					checkBoxSRQ.Checked = false;
+					checkBoxSRQ.Enabled = true;
+					comboBox_setup.Enabled = false;
+					break;
 			}
 		}
 

@@ -13,6 +13,9 @@ namespace myEDI
 		public void Dirs()
 		{
 			if (Directory.Exists(@"C:\EDI") &&
+				Directory.Exists(@"C:\EDI\SETUPS") &&
+				Directory.Exists(@"C:\EDI\CODELIST") &&
+				Directory.Exists(@"C:\EDI\Other") &&
 				Directory.Exists(@"C:\EDI\Temp") &&
 				Directory.Exists(@"C:\DEPLOYMENTS\") &&
 				Directory.Exists(@"C:\DEPLOYMENTS\DEPLOY") &&
@@ -26,6 +29,9 @@ namespace myEDI
 			else
 			{
 				Directory.CreateDirectory(@"C:\EDI");
+				Directory.CreateDirectory(@"C:\EDI\SETUPS");
+				Directory.CreateDirectory(@"C:\EDI\CODELIST");
+				Directory.CreateDirectory(@"C:\EDI\Other");
 				Directory.CreateDirectory(@"C:\DEPLOYMENTS\");
 				Directory.CreateDirectory(@"C:\DEPLOYMENTS\DEPLOY");
 				Directory.CreateDirectory(@"C:\DEPLOYMENTS\REPORTS");
