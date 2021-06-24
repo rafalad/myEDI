@@ -138,7 +138,7 @@ namespace myEDI
 			try
 			{
 				FtpWebRequest request = (FtpWebRequest)WebRequest.Create("ftp://files.000webhost.com/myedi/log.txt");
-				request.Credentials = new NetworkCredential("ediapp", "w8EtQdvNMJ8vXbt");
+				request.Credentials = new NetworkCredential("ediapp", "xxx");
 				request.Method = WebRequestMethods.Ftp.AppendFile;
 
 				Stream requestStream = request.GetRequestStream();
