@@ -11,7 +11,7 @@ namespace myEDI
 		public string number;
 		public string messageSRQForm1;
 
-		public void NewTicket(string CHWnoField, string idField, string task, bool form)
+		public void NewTicket(string CHWnoField, string idField, string task, bool form, string subdir)
 		{
 			string type = string.Empty;
 			string no = string.Empty;
@@ -36,7 +36,7 @@ namespace myEDI
 					type += CHWnoField[i];
 			}
 
-			if (task == "Code list")
+			if (task == " [codelist]")
 			{
 				if (type == "Incident")
 				{
@@ -51,20 +51,26 @@ namespace myEDI
 
 					File.Create(file_rt);
 
-					createdfolder = @"C:\EDI\" + folderName;
-
-					// jezeli wybrano opcje z formularzem to powiadom usera, ze opcja dostepna tylko dla SRQ
-					if (form == true)
-					{
-						MessageBox.Show("The form is available for Service Requests only!", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Information);
-					}
+					createdfolder = @"C:\EDI\CODELIST\" + folderName;
 				}
 				else
-				{
-					MessageBox.Show("The code list must be an incident, please change the ticket type.", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                {
+					string folderName = type_srq_folder + no + " - " + idField + task;
+					string dir = @"C:\EDI\CODELIST\" + folderName + @"\RT";
+					Directory.CreateDirectory(dir);
+
+					//plik tworze bez spacji w nazwie
+					string rt_name = type_srq + no + "_" + idField.Replace(" ", "") + "_1.0_rt";
+
+					string file_rt = dir + @"\" + rt_name;
+
+					File.Create(file_rt);
+
+					createdfolder = @"C:\EDI\CODELIST\" + folderName;
 				}
+
 			}
-			else if (task == "Other")
+			else if (task == "")
 			{
 				if (type == "Incident")
 				{
@@ -79,7 +85,7 @@ namespace myEDI
 
 					File.Create(file_rt);
 
-					createdfolder = @"C:\EDI\" + folderName;
+					createdfolder = @"C:\EDI\Other\" + folderName;
 
 					// jezeli wybrano opcje z formularzem to powiadom usera, ze opcja dostepna tylko dla SRQ
 					if (form == true)
@@ -109,7 +115,7 @@ namespace myEDI
 					File.Create(dir + @"\" + fser_name);
 					File.Create(dir + @"\" + fror_name);
 
-					createdfolder = @"C:\EDI\" + folderName;
+					createdfolder = @"C:\EDI\Other\" + folderName;
 					fileDocName = docName;
 					number = no;
 
@@ -121,15 +127,15 @@ namespace myEDI
 					// jezeli wybrano opcje z formularzem (dostepne tylko przy sekwencji SRQ)
 					if (form == true)
 					{
-						string dirName = @"C:\EDI\" + folderName + @"\";
+						string dirName = @"C:\EDI\Other\" + folderName + @"\";
 						CreateForm(no, docName, dirName, file1, file2, file3, file4);
 
 						messageSRQForm1 = "The EDI Deploy Request document generated successfully.";
 					}
 				}
-			
 			}
-			else if (task == "STD LW Setup")
+
+			else if (task == " [STD LW Setup]")
 			{
 				if (type != "Incident")
 				{
@@ -138,7 +144,7 @@ namespace myEDI
 
 					// nazwa dokumentu w przypadku generowania dla zadan SRQ
 					string docName = type_srq_folder + no + " - EDI Deploy Request.docx";
-					string dir = @"C:\EDI\SETUPS\" + folderName + @"\RT";
+					string dir = @"C:\EDI\SETUPS\" + subdir + @"\" + folderName + @"\RT";
 					Directory.CreateDirectory(dir);
 
 					string rt_name = type_srq + no + "_" + idField.Replace(" ", "") + "_1.0_rt";
@@ -153,7 +159,7 @@ namespace myEDI
 					File.Create(dir + @"\" + fser_name);
 					File.Create(dir + @"\" + fror_name);
 
-					createdfolder = @"C:\EDI\" + folderName;
+					createdfolder = @"C:\EDI\SETUPS\" + subdir + @"\" + folderName;
 					fileDocName = docName;
 					number = no;
 
@@ -165,7 +171,7 @@ namespace myEDI
 					// jezeli wybrano opcje z formularzem (dostepne tylko przy sekwencji SRQ)
 					if (form == true)
 					{
-						string dirName = @"C:\EDI\" + folderName + @"\";
+						string dirName = @"C:\EDI\SETUPS\" + subdir + @"\" + folderName + @"\";
 						CreateForm(no, docName, dirName, file1, file2, file3, file4);
 
 						messageSRQForm1 = "The EDI Deploy Request document generated successfully.";

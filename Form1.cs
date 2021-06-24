@@ -144,8 +144,11 @@ namespace myEDI
 
 		private void Workspace()
 		{
-			bool form = checkBoxSRQ.Checked;
-			string selectedSRQ = comboBoxSRQ.GetItemText(comboBoxSRQ.SelectedItem); //wybieram zmienna z comboboxa
+			bool setup = checkBox_setup.Checked;
+			bool codelist = checkBox_cl.Checked;
+			bool other = checkBox_other.Checked;
+
+			string selectedFlow = comboBox_setup.GetItemText(comboBox_setup.SelectedItem); //wybieram zmienna z comboboxa
 
 			if (String.IsNullOrEmpty(CHWnumberField.Text) && String.IsNullOrEmpty(SRQidField.Text))
 			{
@@ -153,77 +156,126 @@ namespace myEDI
 			}
 			else // jezeli spelniono warunki, czyli wybrano numer i nazwe zgloszenia
 			{
-				if (selectedSRQ == "STD LW Setup")
+				if (setup == true)
 				{
-					string CHWnoField = CHWnumberField.Text;
-					string idField = SRQidField.Text;
 					string task = " [STD LW Setup]";
 
-					Ticket folder = new Ticket();
-					folder.NewTicket(CHWnoField, idField, task, form);
-
-					ListBox("[" + DateTime.Now.ToString("HH:mm:ss") + "] Standard setup folder has been created correctly at:");
-					ListBox(folder.createdfolder);
-
-					//Zwróć informacje o utworzonym dokumencie jezeli zostal wybrany i utworzony katalog ma w nazwie SRQ
-					if (form == true && folder.createdfolder.Substring(7, 3) == "SRQ")
+					switch (selectedFlow)
 					{
-						ListBox("[" + DateTime.Now.ToString("HH:mm:ss") + "] The EDI Deploy Request document generated successfully.");
+						case "other":
+							string subdir1 = "other";
+							WorkspaceFolder(subdir1, task);
+							break;
+
+						case "CL both flows":
+							string subdir2 = "CL both flows";
+							WorkspaceFolder(subdir2, task);
+							break;
+
+						case "CL in":
+							string subdir3 = "CL in";
+							WorkspaceFolder(subdir3, task);
+							break;
+
+						case "CL out":
+							string subdir4 = "CL out";
+							WorkspaceFolder(subdir4, task);
+							break;
+
+						case "CW in":
+							string subdir5 = "CW in";
+							WorkspaceFolder(subdir5, task);
+							break;
+
+						case "CW out":
+							string subdir6 = "CW out";
+							WorkspaceFolder(subdir6, task);
+							break;
+
+						case "CW both flows":
+							string subdir7 = "CW both flows";
+							WorkspaceFolder(subdir7, task);
+							break;
+
+						case "CW1 both flows":
+							string subdir8 = "CW1 both flows";
+							WorkspaceFolder(subdir8, task);
+							break;
+
+						case "CW1 in":
+							string subdir9 = "CW1 in";
+							WorkspaceFolder(subdir9, task);
+							break;
+
+						case "CW1 out":
+							string subdir10 = "CW1 out";
+							WorkspaceFolder(subdir10, task);
+							break;
+
+						case "myDSV":
+							string subdir11 = "myDSV";
+							WorkspaceFolder(subdir11, task);
+							break;
+
+						case "Passthrough":
+							string subdir12 = "Passthrough";
+							WorkspaceFolder(subdir12, task);
+							break;
 					}
 
-					if (MessageBox.Show("Folder created. \n Would you like to open it?", "myEDI", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-					{
-						Process.Start(folder.createdfolder);
-					}
+					
 				}
 
-				else if (selectedSRQ == "Code list")
+				else if (codelist == true)
 				{
-					string CHWnoField = CHWnumberField.Text;
-					string idField = SRQidField.Text;
-					string task = " [code list]";
+					string subdir = String.Empty;
+					string task = " [codelist]";
+					WorkspaceFolder(subdir, task);
 
-					Ticket folder = new Ticket();
-					folder.NewTicket(CHWnoField, idField, task, form);
-
-					ListBox("[" + DateTime.Now.ToString("HH:mm:ss") + "] Code list folder has been created correctly at:");
-					ListBox(folder.createdfolder);
-
-					//Zwróć informacje o utworzonym dokumencie jezeli zostal wybrany i utworzony katalog ma w nazwie SRQ
-					if (form == true && folder.createdfolder.Substring(7, 3) == "SRQ")
-					{
-						ListBox("[" + DateTime.Now.ToString("HH:mm:ss") + "] The EDI Deploy Request document generated successfully.");
-					}
-
-					if (MessageBox.Show("Folder created. \n Would you like to open it?", "myEDI", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-					{
-						Process.Start(folder.createdfolder);
-					}
 				}
-				else if (selectedSRQ == "other")
+				else if (other == true)
 				{
-					string CHWnoField = CHWnumberField.Text;
-					string idField = SRQidField.Text;
-					string task = string.Empty;
-
-					Ticket folder = new Ticket();
-					folder.NewTicket(CHWnoField, idField, task, form);
-
-					ListBox("[" + DateTime.Now.ToString("HH:mm:ss") + "] Folder has been created correctly at:");
-					ListBox(folder.createdfolder);
-
-					//Zwróć informacje o utworzonym dokumencie jezeli zostal wybrany i utworzony katalog ma w nazwie SRQ
-					if (form == true && folder.createdfolder.Substring(7, 3) == "SRQ")
-					{
-						ListBox("[" + DateTime.Now.ToString("HH:mm:ss") + "] The EDI Deploy Request document generated successfully.");
-					}
-
-					if (MessageBox.Show("Folder created. \n Would you like to open it?", "myEDI", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-					{
-						Process.Start(folder.createdfolder);
-					}
+					string subdir = String.Empty;
+					string task = "";
+					WorkspaceFolder(subdir, task);
 				}
 			}
+		}
+
+		private void WorkspaceFolder(string subdir, string task)
+        {
+			try
+			{
+				bool form = checkBoxSRQ.Checked;
+				string CHWnoField = CHWnumberField.Text;
+				string idField = SRQidField.Text;
+
+				Ticket folder = new Ticket();
+				folder.NewTicket(CHWnoField, idField, task, form, subdir);
+
+				ListBox("[" + DateTime.Now.ToString("HH:mm:ss") + "] " + task + " folder has been created correctly at:");
+				ListBox(folder.createdfolder);
+
+
+				if (task == " [STD LW Setup]")
+				{
+					//Zwróć informacje o utworzonym dokumencie jezeli zostal wybrany i utworzony katalog ma w nazwie SRQ
+					if (form == true && folder.createdfolder.Substring(7, 3) == "SRQ")
+					{
+						ListBox("[" + DateTime.Now.ToString("HH:mm:ss") + "] The EDI Deploy Request document generated successfully.");
+					}
+				}
+
+				if (MessageBox.Show("Folder created. \n Would you like to open it?", "myEDI", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+				{
+					Process.Start(folder.createdfolder);
+				}
+			}
+			catch (Exception)
+            {
+				MessageBox.Show(@"Not executed due to an error. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+
 		}
 
 		private void SRQidField_TextChanged(object sender, EventArgs e)
@@ -817,7 +869,7 @@ namespace myEDI
 				checkBoxPass24.Enabled = true;
 			}
 		}
-
+		/*
 		private void ComboBoxSRQ_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			//Ta metoda wyłącza możliwość generowania formularza dla zadań typu Code list
@@ -846,7 +898,7 @@ namespace myEDI
 					break;
 			}
 		}
-
+		*/
 		private void Button1_Click(object sender, EventArgs e)
 		{
 			PassSettings PassSettings = new PassSettings();
@@ -901,5 +953,41 @@ namespace myEDI
 		{
 			listBox1.Items.Add(value);
 		}
-	}
+
+        private void checkBox_setup_CheckedChanged(object sender, EventArgs e)
+        {
+			if (checkBox_setup.Checked)
+			{
+				checkBox_cl.Checked = false;
+				checkBox_other.Checked = false;
+				checkBoxSRQ.Checked = true;
+				checkBoxSRQ.Enabled = true;
+				comboBox_setup.Enabled = true;
+			}
+		}
+
+        private void checkBox_cl_CheckedChanged(object sender, EventArgs e)
+        {
+			if (checkBox_cl.Checked)
+			{
+				checkBox_setup.Checked = false;
+				checkBox_other.Checked = false;
+				checkBoxSRQ.Checked = false;
+				checkBoxSRQ.Enabled = false;
+				comboBox_setup.Enabled = false;
+			}
+		}
+
+        private void checkBox_other_CheckedChanged(object sender, EventArgs e)
+        {
+			if (checkBox_other.Checked)
+			{
+				checkBox_setup.Checked = false;
+				checkBox_cl.Checked = false;
+				checkBoxSRQ.Checked = false;
+				checkBoxSRQ.Enabled = true;
+				comboBox_setup.Enabled = false;
+			}
+		}
+    }
 }
