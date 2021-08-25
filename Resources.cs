@@ -13,9 +13,6 @@ namespace myEDI
 		public void Dirs()
 		{
 			if (Directory.Exists(@"C:\EDI") &&
-				Directory.Exists(@"C:\EDI\SETUPS") &&
-				Directory.Exists(@"C:\EDI\CODELIST") &&
-				Directory.Exists(@"C:\EDI\Other") &&
 				Directory.Exists(@"C:\EDI\Temp") &&
 				Directory.Exists(@"C:\DEPLOYMENTS\") &&
 				Directory.Exists(@"C:\DEPLOYMENTS\DEPLOY") &&
@@ -29,9 +26,6 @@ namespace myEDI
 			else
 			{
 				Directory.CreateDirectory(@"C:\EDI");
-				Directory.CreateDirectory(@"C:\EDI\SETUPS");
-				Directory.CreateDirectory(@"C:\EDI\CODELIST");
-				Directory.CreateDirectory(@"C:\EDI\Other");
 				Directory.CreateDirectory(@"C:\DEPLOYMENTS\");
 				Directory.CreateDirectory(@"C:\DEPLOYMENTS\DEPLOY");
 				Directory.CreateDirectory(@"C:\DEPLOYMENTS\REPORTS");
@@ -159,7 +153,7 @@ namespace myEDI
 
 			try
 			{
-				if (client.DownloadString("https://pastebin.com/raw/qiJ05NWB").Contains("1.1.3.0"))
+				if (client.DownloadString("https://pastebin.com/raw/qiJ05NWB").Contains("1.1.3.1"))
 				{
 					versionMessage = "[ you're using the latest version. ]";
 				}

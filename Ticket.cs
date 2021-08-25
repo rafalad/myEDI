@@ -182,6 +182,48 @@ namespace myEDI
 					MessageBox.Show("Please change the ticket type to SRQ.", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				}
 			}
+
+			else if (task == "maps")
+			{
+				if (type != "Incident")
+				{
+					//jezeli wybrano opcje z formularzem
+					string folderName = type_srq_folder + no + " - " + idField;
+
+					// nazwa dokumentu w przypadku generowania dla zadan SRQ
+					string docName = type_srq_folder + no + " - EDI Deploy Request.docx";
+					string dir = @"C:\EDI\MAPS\" + folderName + @"\RT";
+					Directory.CreateDirectory(dir);
+
+					string rt_name = type_srq + no + "_" + idField.Replace(" ", "") + "_1.0_rt";
+					string exp_name = type_srq + no + "_" + idField.Replace(" ", "") + "_1.0_exp";
+
+					File.Create(dir + @"\" + rt_name);
+					File.Create(dir + @"\" + exp_name);
+
+					createdfolder = @"C:\EDI\MAPS\" + folderName;
+					fileDocName = docName;
+					number = no;
+
+					string file1 = exp_name;
+					string file2 = string.Empty;
+					string file3 = string.Empty;
+					string file4 = string.Empty;
+
+					// jezeli wybrano opcje z formularzem (dostepne tylko przy sekwencji SRQ)
+					if (form == true)
+					{
+						string dirName = @"C:\EDI\MAPS\" + folderName + @"\";
+						CreateForm(no, docName, dirName, file1, file2, file3, file4);
+
+						messageSRQForm1 = "The EDI Deploy Request document generated successfully.";
+					}
+				}
+				else
+				{
+					MessageBox.Show("Please change the ticket type to SRQ.", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				}
+			}
 		}
 	}
 }

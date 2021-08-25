@@ -73,8 +73,10 @@
             this.label7 = new System.Windows.Forms.Label();
             this.CreateAnObject = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.checkBox_cl_both = new System.Windows.Forms.CheckBox();
             this.buttonCL = new System.Windows.Forms.Button();
-            this.codeListComboBox = new System.Windows.Forms.ComboBox();
+            this.checkBox_cl_out = new System.Windows.Forms.CheckBox();
+            this.checkBox_cl_in = new System.Windows.Forms.CheckBox();
             this.label8 = new System.Windows.Forms.Label();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
@@ -126,6 +128,7 @@
             this.eventLog3 = new System.Diagnostics.EventLog();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.latest_ver = new System.Windows.Forms.Label();
+            this.checkBox_maps = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -143,7 +146,7 @@
             // textBoxAddUserLDAP
             // 
             this.textBoxAddUserLDAP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBoxAddUserLDAP.Location = new System.Drawing.Point(11, 49);
+            this.textBoxAddUserLDAP.Location = new System.Drawing.Point(11, 57);
             this.textBoxAddUserLDAP.Name = "textBoxAddUserLDAP";
             this.textBoxAddUserLDAP.Size = new System.Drawing.Size(256, 20);
             this.textBoxAddUserLDAP.TabIndex = 4;
@@ -152,7 +155,7 @@
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(8, 27);
+            this.label2.Location = new System.Drawing.Point(8, 35);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(208, 15);
             this.label2.TabIndex = 8;
@@ -184,7 +187,7 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label3.Location = new System.Drawing.Point(6, 35);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(221, 140);
+            this.label3.Size = new System.Drawing.Size(221, 15);
             this.label3.TabIndex = 10;
             this.label3.Text = "Please select the deployment environments:";
             // 
@@ -209,9 +212,9 @@
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.buttonGenerateRandomPassword);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.groupBox1.Location = new System.Drawing.Point(268, 368);
+            this.groupBox1.Location = new System.Drawing.Point(537, 330);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(296, 95);
+            this.groupBox1.Size = new System.Drawing.Size(295, 121);
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Password";
@@ -220,12 +223,12 @@
             // 
             this.buttonMoreSettings.Enabled = false;
             this.buttonMoreSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonMoreSettings.Location = new System.Drawing.Point(23, 54);
+            this.buttonMoreSettings.Location = new System.Drawing.Point(198, 47);
             this.buttonMoreSettings.Name = "buttonMoreSettings";
-            this.buttonMoreSettings.Size = new System.Drawing.Size(80, 34);
+            this.buttonMoreSettings.Size = new System.Drawing.Size(69, 21);
             this.buttonMoreSettings.TabIndex = 35;
             this.buttonMoreSettings.TabStop = false;
-            this.buttonMoreSettings.Text = "More settings";
+            this.buttonMoreSettings.Text = "settings";
             this.buttonMoreSettings.UseVisualStyleBackColor = true;
             this.buttonMoreSettings.Click += new System.EventHandler(this.Button1_Click);
             // 
@@ -236,7 +239,7 @@
             this.comboBoxPass.Items.AddRange(new object[] {
             "multiple",
             "single"});
-            this.comboBoxPass.Location = new System.Drawing.Point(168, 24);
+            this.comboBoxPass.Location = new System.Drawing.Point(198, 20);
             this.comboBoxPass.Name = "comboBoxPass";
             this.comboBoxPass.Size = new System.Drawing.Size(69, 21);
             this.comboBoxPass.Sorted = true;
@@ -247,16 +250,16 @@
             // label9
             // 
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label9.Location = new System.Drawing.Point(20, 27);
+            this.label9.Location = new System.Drawing.Point(89, 23);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(141, 15);
+            this.label9.Size = new System.Drawing.Size(103, 15);
             this.label9.TabIndex = 9;
-            this.label9.Text = "Select the type of password:";
+            this.label9.Text = "Type of password:";
             // 
             // buttonGenerateRandomPassword
             // 
             this.buttonGenerateRandomPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonGenerateRandomPassword.Location = new System.Drawing.Point(149, 57);
+            this.buttonGenerateRandomPassword.Location = new System.Drawing.Point(149, 79);
             this.buttonGenerateRandomPassword.Name = "buttonGenerateRandomPassword";
             this.buttonGenerateRandomPassword.Size = new System.Drawing.Size(118, 26);
             this.buttonGenerateRandomPassword.TabIndex = 23;
@@ -281,9 +284,9 @@
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.textBoxAddUserLDAP);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.groupBox2.Location = new System.Drawing.Point(269, 493);
+            this.groupBox2.Location = new System.Drawing.Point(537, 42);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(296, 189);
+            this.groupBox2.Size = new System.Drawing.Size(295, 282);
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "LDAP";
@@ -292,7 +295,7 @@
             // 
             this.checkBoxLDAPno.AutoSize = true;
             this.checkBoxLDAPno.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.checkBoxLDAPno.Location = new System.Drawing.Point(229, 134);
+            this.checkBoxLDAPno.Location = new System.Drawing.Point(229, 161);
             this.checkBoxLDAPno.Name = "checkBoxLDAPno";
             this.checkBoxLDAPno.Size = new System.Drawing.Size(40, 17);
             this.checkBoxLDAPno.TabIndex = 40;
@@ -307,7 +310,7 @@
             this.checkBoxPass24.Checked = true;
             this.checkBoxPass24.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxPass24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.checkBoxPass24.Location = new System.Drawing.Point(229, 111);
+            this.checkBoxPass24.Location = new System.Drawing.Point(229, 138);
             this.checkBoxPass24.Name = "checkBoxPass24";
             this.checkBoxPass24.Size = new System.Drawing.Size(38, 17);
             this.checkBoxPass24.TabIndex = 24;
@@ -320,7 +323,7 @@
             // 
             this.checkBoxPass16.AutoSize = true;
             this.checkBoxPass16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.checkBoxPass16.Location = new System.Drawing.Point(185, 111);
+            this.checkBoxPass16.Location = new System.Drawing.Point(185, 138);
             this.checkBoxPass16.Name = "checkBoxPass16";
             this.checkBoxPass16.Size = new System.Drawing.Size(38, 17);
             this.checkBoxPass16.TabIndex = 39;
@@ -335,9 +338,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label14.Location = new System.Drawing.Point(19, 110);
+            this.label14.Location = new System.Drawing.Point(19, 137);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(114, 16);
+            this.label14.Size = new System.Drawing.Size(113, 25);
             this.label14.TabIndex = 38;
             this.label14.Text = "Password length:";
             // 
@@ -345,7 +348,7 @@
             // 
             this.checkBoxPass8.AutoSize = true;
             this.checkBoxPass8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.checkBoxPass8.Location = new System.Drawing.Point(147, 111);
+            this.checkBoxPass8.Location = new System.Drawing.Point(147, 138);
             this.checkBoxPass8.Name = "checkBoxPass8";
             this.checkBoxPass8.Size = new System.Drawing.Size(32, 17);
             this.checkBoxPass8.TabIndex = 37;
@@ -360,7 +363,7 @@
             this.checkBoxLDAP.Checked = true;
             this.checkBoxLDAP.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxLDAP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.checkBoxLDAP.Location = new System.Drawing.Point(185, 134);
+            this.checkBoxLDAP.Location = new System.Drawing.Point(185, 161);
             this.checkBoxLDAP.Name = "checkBoxLDAP";
             this.checkBoxLDAP.Size = new System.Drawing.Size(44, 17);
             this.checkBoxLDAP.TabIndex = 36;
@@ -380,7 +383,7 @@
             "Modify user",
             "Delete user",
             "Remove SSHkey"});
-            this.comboBoxLDAP.Location = new System.Drawing.Point(149, 75);
+            this.comboBoxLDAP.Location = new System.Drawing.Point(149, 99);
             this.comboBoxLDAP.Name = "comboBoxLDAP";
             this.comboBoxLDAP.Size = new System.Drawing.Size(118, 21);
             this.comboBoxLDAP.TabIndex = 5;
@@ -390,7 +393,7 @@
             // buttonGoLDAP
             // 
             this.buttonGoLDAP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonGoLDAP.Location = new System.Drawing.Point(149, 157);
+            this.buttonGoLDAP.Location = new System.Drawing.Point(149, 192);
             this.buttonGoLDAP.Name = "buttonGoLDAP";
             this.buttonGoLDAP.Size = new System.Drawing.Size(118, 26);
             this.buttonGoLDAP.TabIndex = 24;
@@ -405,16 +408,16 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label12.Location = new System.Drawing.Point(19, 135);
+            this.label12.Location = new System.Drawing.Point(19, 162);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(160, 14);
+            this.label12.Size = new System.Drawing.Size(159, 27);
             this.label12.TabIndex = 36;
             this.label12.Text = "+ Word Doc credentials Form?";
             // 
             // label10
             // 
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label10.Location = new System.Drawing.Point(81, 78);
+            this.label10.Location = new System.Drawing.Point(73, 102);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(70, 18);
             this.label10.TabIndex = 25;
@@ -439,9 +442,9 @@
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Controls.Add(this.CreateNoteButton);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.groupBox3.Location = new System.Drawing.Point(12, 42);
+            this.groupBox3.Location = new System.Drawing.Point(9, 42);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(241, 421);
+            this.groupBox3.Size = new System.Drawing.Size(241, 409);
             this.groupBox3.TabIndex = 16;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Deployment";
@@ -529,7 +532,7 @@
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label11.Location = new System.Drawing.Point(41, 136);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(123, 46);
+            this.label11.Size = new System.Drawing.Size(123, 34);
             this.label11.TabIndex = 28;
             this.label11.Text = "Create a console query:";
             // 
@@ -552,7 +555,7 @@
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label5.Location = new System.Drawing.Point(6, 86);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(94, 28);
+            this.label5.Size = new System.Drawing.Size(94, 16);
             this.label5.TabIndex = 26;
             this.label5.Text = "Selected env.";
             // 
@@ -591,29 +594,30 @@
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label4.Location = new System.Drawing.Point(12, 121);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(148, 45);
+            this.label4.Size = new System.Drawing.Size(148, 33);
             this.label4.TabIndex = 11;
             this.label4.Text = "Copy RT files to separate dirs:";
             // 
             // groupBox4
             // 
             this.groupBox4.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.groupBox4.Controls.Add(this.checkBox_other);
+            this.groupBox4.Controls.Add(this.checkBox_maps);
             this.groupBox4.Controls.Add(this.comboBox_setup);
-            this.groupBox4.Controls.Add(this.checkBox_cl);
-            this.groupBox4.Controls.Add(this.checkBox_setup);
             this.groupBox4.Controls.Add(this.checkBoxSRQ);
             this.groupBox4.Controls.Add(this.label13);
             this.groupBox4.Controls.Add(this.label6);
+            this.groupBox4.Controls.Add(this.checkBox_other);
             this.groupBox4.Controls.Add(this.label1);
             this.groupBox4.Controls.Add(this.CHWnumberField);
             this.groupBox4.Controls.Add(this.SRQidField);
             this.groupBox4.Controls.Add(this.label7);
+            this.groupBox4.Controls.Add(this.checkBox_cl);
             this.groupBox4.Controls.Add(this.CreateAnObject);
+            this.groupBox4.Controls.Add(this.checkBox_setup);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.groupBox4.Location = new System.Drawing.Point(269, 42);
+            this.groupBox4.Location = new System.Drawing.Point(256, 42);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(295, 300);
+            this.groupBox4.Size = new System.Drawing.Size(275, 282);
             this.groupBox4.TabIndex = 16;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Workspace";
@@ -622,7 +626,7 @@
             // 
             this.checkBox_other.AutoSize = true;
             this.checkBox_other.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.checkBox_other.Location = new System.Drawing.Point(102, 181);
+            this.checkBox_other.Location = new System.Drawing.Point(88, 191);
             this.checkBox_other.Name = "checkBox_other";
             this.checkBox_other.Size = new System.Drawing.Size(52, 17);
             this.checkBox_other.TabIndex = 41;
@@ -648,7 +652,7 @@
             "myDSV",
             "other",
             "Passthrough"});
-            this.comboBox_setup.Location = new System.Drawing.Point(167, 134);
+            this.comboBox_setup.Location = new System.Drawing.Point(154, 134);
             this.comboBox_setup.Name = "comboBox_setup";
             this.comboBox_setup.Size = new System.Drawing.Size(99, 21);
             this.comboBox_setup.Sorted = true;
@@ -659,7 +663,7 @@
             // 
             this.checkBox_cl.AutoSize = true;
             this.checkBox_cl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.checkBox_cl.Location = new System.Drawing.Point(102, 158);
+            this.checkBox_cl.Location = new System.Drawing.Point(88, 172);
             this.checkBox_cl.Name = "checkBox_cl";
             this.checkBox_cl.Size = new System.Drawing.Size(63, 17);
             this.checkBox_cl.TabIndex = 43;
@@ -674,7 +678,7 @@
             this.checkBox_setup.Checked = true;
             this.checkBox_setup.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox_setup.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.checkBox_setup.Location = new System.Drawing.Point(102, 136);
+            this.checkBox_setup.Location = new System.Drawing.Point(88, 136);
             this.checkBox_setup.Name = "checkBox_setup";
             this.checkBox_setup.Size = new System.Drawing.Size(62, 17);
             this.checkBox_setup.TabIndex = 42;
@@ -689,7 +693,7 @@
             this.checkBoxSRQ.Checked = true;
             this.checkBoxSRQ.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxSRQ.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.checkBoxSRQ.Location = new System.Drawing.Point(229, 207);
+            this.checkBoxSRQ.Location = new System.Drawing.Point(216, 218);
             this.checkBoxSRQ.Name = "checkBoxSRQ";
             this.checkBoxSRQ.Size = new System.Drawing.Size(44, 17);
             this.checkBoxSRQ.TabIndex = 38;
@@ -703,25 +707,25 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label13.Location = new System.Drawing.Point(99, 208);
+            this.label13.Location = new System.Drawing.Point(86, 219);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(133, 28);
+            this.label13.Size = new System.Drawing.Size(133, 17);
             this.label13.TabIndex = 38;
             this.label13.Text = "+ Deploy Request Form?";
             // 
             // label6
             // 
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label6.Location = new System.Drawing.Point(19, 137);
+            this.label6.Location = new System.Drawing.Point(6, 137);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(91, 18);
+            this.label6.Size = new System.Drawing.Size(76, 18);
             this.label6.TabIndex = 23;
-            this.label6.Text = "Type of dir:";
+            this.label6.Text = "Type of dir for:";
             // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(19, 35);
+            this.label1.Location = new System.Drawing.Point(6, 35);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(208, 15);
             this.label1.TabIndex = 21;
@@ -730,7 +734,7 @@
             // CHWnumberField
             // 
             this.CHWnumberField.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.CHWnumberField.Location = new System.Drawing.Point(22, 56);
+            this.CHWnumberField.Location = new System.Drawing.Point(9, 56);
             this.CHWnumberField.Name = "CHWnumberField";
             this.CHWnumberField.Size = new System.Drawing.Size(244, 20);
             this.CHWnumberField.TabIndex = 1;
@@ -738,7 +742,7 @@
             // SRQidField
             // 
             this.SRQidField.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.SRQidField.Location = new System.Drawing.Point(22, 100);
+            this.SRQidField.Location = new System.Drawing.Point(9, 100);
             this.SRQidField.Name = "SRQidField";
             this.SRQidField.Size = new System.Drawing.Size(244, 20);
             this.SRQidField.TabIndex = 2;
@@ -747,7 +751,7 @@
             // label7
             // 
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label7.Location = new System.Drawing.Point(18, 83);
+            this.label7.Location = new System.Drawing.Point(5, 83);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(146, 18);
             this.label7.TabIndex = 19;
@@ -756,63 +760,91 @@
             // CreateAnObject
             // 
             this.CreateAnObject.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.CreateAnObject.Location = new System.Drawing.Point(150, 248);
+            this.CreateAnObject.Location = new System.Drawing.Point(135, 247);
             this.CreateAnObject.Name = "CreateAnObject";
             this.CreateAnObject.Size = new System.Drawing.Size(118, 26);
             this.CreateAnObject.TabIndex = 18;
             this.CreateAnObject.TabStop = false;
-            this.CreateAnObject.Text = " Create an object";
+            this.CreateAnObject.Text = " Create";
             this.CreateAnObject.UseVisualStyleBackColor = true;
             this.CreateAnObject.Click += new System.EventHandler(this.CreateAnObject_Click);
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.checkBox_cl_both);
             this.groupBox5.Controls.Add(this.buttonCL);
-            this.groupBox5.Controls.Add(this.codeListComboBox);
+            this.groupBox5.Controls.Add(this.checkBox_cl_out);
+            this.groupBox5.Controls.Add(this.checkBox_cl_in);
             this.groupBox5.Controls.Add(this.label8);
             this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.groupBox5.Location = new System.Drawing.Point(12, 493);
+            this.groupBox5.Location = new System.Drawing.Point(256, 330);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(241, 189);
+            this.groupBox5.Size = new System.Drawing.Size(275, 121);
             this.groupBox5.TabIndex = 17;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Code List";
             // 
+            // checkBox_cl_both
+            // 
+            this.checkBox_cl_both.AutoSize = true;
+            this.checkBox_cl_both.Checked = true;
+            this.checkBox_cl_both.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox_cl_both.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.checkBox_cl_both.Location = new System.Drawing.Point(206, 49);
+            this.checkBox_cl_both.Name = "checkBox_cl_both";
+            this.checkBox_cl_both.Size = new System.Drawing.Size(47, 17);
+            this.checkBox_cl_both.TabIndex = 41;
+            this.checkBox_cl_both.TabStop = false;
+            this.checkBox_cl_both.Text = "both";
+            this.checkBox_cl_both.UseVisualStyleBackColor = true;
+            this.checkBox_cl_both.CheckedChanged += new System.EventHandler(this.checkBox_cl_both_CheckedChanged);
+            // 
             // buttonCL
             // 
             this.buttonCL.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonCL.Location = new System.Drawing.Point(109, 100);
+            this.buttonCL.Location = new System.Drawing.Point(135, 79);
             this.buttonCL.Name = "buttonCL";
             this.buttonCL.Size = new System.Drawing.Size(118, 26);
             this.buttonCL.TabIndex = 27;
             this.buttonCL.TabStop = false;
-            this.buttonCL.Text = "Create CL";
+            this.buttonCL.Text = "Create";
             this.buttonCL.UseVisualStyleBackColor = true;
             this.buttonCL.Click += new System.EventHandler(this.ButtonCL_Click);
             // 
-            // codeListComboBox
+            // checkBox_cl_out
             // 
-            this.codeListComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.codeListComboBox.FormattingEnabled = true;
-            this.codeListComboBox.Items.AddRange(new object[] {
-            "Inbound",
-            "Outbound",
-            "both"});
-            this.codeListComboBox.Location = new System.Drawing.Point(14, 67);
-            this.codeListComboBox.Name = "codeListComboBox";
-            this.codeListComboBox.Size = new System.Drawing.Size(213, 21);
-            this.codeListComboBox.TabIndex = 27;
-            this.codeListComboBox.TabStop = false;
-            this.codeListComboBox.Text = "both";
+            this.checkBox_cl_out.AutoSize = true;
+            this.checkBox_cl_out.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.checkBox_cl_out.Location = new System.Drawing.Point(127, 49);
+            this.checkBox_cl_out.Name = "checkBox_cl_out";
+            this.checkBox_cl_out.Size = new System.Drawing.Size(73, 17);
+            this.checkBox_cl_out.TabIndex = 43;
+            this.checkBox_cl_out.TabStop = false;
+            this.checkBox_cl_out.Text = "Outbound";
+            this.checkBox_cl_out.UseVisualStyleBackColor = true;
+            this.checkBox_cl_out.CheckedChanged += new System.EventHandler(this.checkBox_cl_out_CheckedChanged);
+            // 
+            // checkBox_cl_in
+            // 
+            this.checkBox_cl_in.AutoSize = true;
+            this.checkBox_cl_in.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.checkBox_cl_in.Location = new System.Drawing.Point(56, 49);
+            this.checkBox_cl_in.Name = "checkBox_cl_in";
+            this.checkBox_cl_in.Size = new System.Drawing.Size(65, 17);
+            this.checkBox_cl_in.TabIndex = 42;
+            this.checkBox_cl_in.TabStop = false;
+            this.checkBox_cl_in.Text = "Inbound";
+            this.checkBox_cl_in.UseVisualStyleBackColor = true;
+            this.checkBox_cl_in.CheckedChanged += new System.EventHandler(this.checkBox_cl_in_CheckedChanged);
             // 
             // label8
             // 
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label8.Location = new System.Drawing.Point(11, 45);
+            this.label8.Location = new System.Drawing.Point(6, 23);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(220, 26);
+            this.label8.Size = new System.Drawing.Size(83, 18);
             this.label8.TabIndex = 21;
-            this.label8.Text = "Please select the flow direction:";
+            this.label8.Text = "Flow direction:";
             // 
             // menuStrip1
             // 
@@ -828,7 +860,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.ShowItemToolTips = true;
-            this.menuStrip1.Size = new System.Drawing.Size(1084, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(844, 24);
             this.menuStrip1.TabIndex = 22;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -1095,15 +1127,15 @@
             // statusStrip1
             // 
             this.statusStrip1.BackColor = System.Drawing.SystemColors.MenuBar;
-            this.statusStrip1.Location = new System.Drawing.Point(0, 689);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 639);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1084, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(844, 22);
             this.statusStrip1.TabIndex = 28;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(1000, 2);
+            this.pictureBox1.Location = new System.Drawing.Point(769, 2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(66, 22);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1114,7 +1146,7 @@
             // 
             this.ver.BackColor = System.Drawing.SystemColors.MenuBar;
             this.ver.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.ver.Location = new System.Drawing.Point(12, 689);
+            this.ver.Location = new System.Drawing.Point(15, 639);
             this.ver.Name = "ver";
             this.ver.Size = new System.Drawing.Size(54, 18);
             this.ver.TabIndex = 31;
@@ -1130,9 +1162,9 @@
             this.groupBox6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.groupBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.groupBox6.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.groupBox6.Location = new System.Drawing.Point(570, 42);
+            this.groupBox6.Location = new System.Drawing.Point(9, 457);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(502, 640);
+            this.groupBox6.Size = new System.Drawing.Size(823, 174);
             this.groupBox6.TabIndex = 32;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Event Viewer";
@@ -1145,10 +1177,10 @@
             this.listBox1.FormattingEnabled = true;
             this.listBox1.HorizontalExtent = 1000;
             this.listBox1.IntegralHeight = false;
-            this.listBox1.Location = new System.Drawing.Point(6, 19);
+            this.listBox1.Location = new System.Drawing.Point(0, 19);
             this.listBox1.Name = "listBox1";
             this.listBox1.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.listBox1.Size = new System.Drawing.Size(490, 615);
+            this.listBox1.Size = new System.Drawing.Size(823, 155);
             this.listBox1.TabIndex = 36;
             this.listBox1.TabStop = false;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.ListBox1_SelectedIndexChanged);
@@ -1172,18 +1204,31 @@
             // 
             this.latest_ver.BackColor = System.Drawing.SystemColors.MenuBar;
             this.latest_ver.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.latest_ver.Location = new System.Drawing.Point(71, 689);
+            this.latest_ver.Location = new System.Drawing.Point(98, 639);
             this.latest_ver.Name = "latest_ver";
-            this.latest_ver.Size = new System.Drawing.Size(413, 18);
+            this.latest_ver.Size = new System.Drawing.Size(299, 18);
             this.latest_ver.TabIndex = 33;
             this.latest_ver.Text = "version";
             this.latest_ver.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // checkBox_maps
+            // 
+            this.checkBox_maps.AutoSize = true;
+            this.checkBox_maps.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.checkBox_maps.Location = new System.Drawing.Point(88, 154);
+            this.checkBox_maps.Name = "checkBox_maps";
+            this.checkBox_maps.Size = new System.Drawing.Size(52, 17);
+            this.checkBox_maps.TabIndex = 44;
+            this.checkBox_maps.TabStop = false;
+            this.checkBox_maps.Text = "Maps";
+            this.checkBox_maps.UseVisualStyleBackColor = true;
+            this.checkBox_maps.CheckedChanged += new System.EventHandler(this.checkBox_maps_CheckedChanged);
             // 
             // MyEDI
             // 
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(1084, 711);
+            this.ClientSize = new System.Drawing.Size(844, 661);
             this.Controls.Add(this.latest_ver);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.ver);
@@ -1198,8 +1243,8 @@
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.MaximumSize = new System.Drawing.Size(1100, 750);
-            this.MinimumSize = new System.Drawing.Size(1100, 750);
+            this.MaximumSize = new System.Drawing.Size(860, 700);
+            this.MinimumSize = new System.Drawing.Size(860, 700);
             this.Name = "MyEDI";
             this.Text = "myEDI";
             this.Load += new System.EventHandler(this.EDISupportTool_Load);
@@ -1211,6 +1256,7 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
@@ -1266,7 +1312,6 @@
 		private System.Windows.Forms.RichTextBox richTextBoxSelectedEnv;
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.Button buttonCL;
-		private System.Windows.Forms.ComboBox codeListComboBox;
 		private System.Windows.Forms.StatusStrip statusStrip1;
 		private System.Windows.Forms.ToolStripMenuItem formsToolStripMenuItem;
 		private System.Windows.Forms.Label label1;
@@ -1333,5 +1378,9 @@
         private System.Windows.Forms.CheckBox checkBox_other;
         private System.Windows.Forms.CheckBox checkBox_cl;
         private System.Windows.Forms.CheckBox checkBox_setup;
+        private System.Windows.Forms.CheckBox checkBox_cl_both;
+        private System.Windows.Forms.CheckBox checkBox_cl_out;
+        private System.Windows.Forms.CheckBox checkBox_cl_in;
+        private System.Windows.Forms.CheckBox checkBox_maps;
     }
 }

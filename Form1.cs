@@ -145,6 +145,7 @@ namespace myEDI
 		private void Workspace()
 		{
 			bool setup = checkBox_setup.Checked;
+			bool maps = checkBox_maps.Checked;
 			bool codelist = checkBox_cl.Checked;
 			bool other = checkBox_other.Checked;
 
@@ -226,6 +227,13 @@ namespace myEDI
 					
 				}
 
+				else if (maps == true)
+				{
+					string subdir = String.Empty;
+					string task = "maps";
+					WorkspaceFolder(subdir, task);
+
+				}
 				else if (codelist == true)
 				{
 					string subdir = String.Empty;
@@ -419,42 +427,28 @@ namespace myEDI
 
 		private void ButtonCL_Click(object sender, EventArgs e)
 		{
-			string selectedCL = codeListComboBox.GetItemText(codeListComboBox.SelectedItem); //wybieram zmienna z comboboxa
+			bool inbound = checkBox_cl_in.Checked;
+			bool outbound = checkBox_cl_out.Checked;
+			bool both = checkBox_cl_both.Checked;
 
-			if (String.IsNullOrEmpty(selectedCL)) // jezeli nie wybrano CL
-			{
-				MessageBox.Show("Please select the type of flow", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-			}
-			else // jezeli wybrano srodowisko, to zwroc informacje i kontynuuj dla wybranego srodowiska
-			{
-				if (selectedCL == "Inbound")
+				if (inbound == true)
 				{
 					Form_InboundCL InboundForm = new Form_InboundCL();
 					InboundForm.Show();
 				}
-				else if (selectedCL == "Outbound")
+				else if (outbound == true)
 				{
 					Form_OutboundCL OnboundForm = new Form_OutboundCL();
 					OnboundForm.Show();
 				}
-				else if (selectedCL == "both")
+				else if (both == true)
 				{
 					Form_bothCL bothCLForm = new Form_bothCL();
 					bothCLForm.Show();
 				}
-			}
+			
 		}
-		/*
-        public void VisibilityOfPasswordButtons()
-        {
-            string selectedType = this.comboBoxPass.GetItemText(this.comboBoxPass.SelectedItem); //wybieram zmienna z comboboxa
 
-            if (selectedType == "single")
-            {
-                buttonMoreSettings.Enabled = false;
-            }
-        }
-        */
 		private void ButtonGenerateRandomPassword_Click(object sender, EventArgs e)
 		{
 			Clipboard.SetText(PasswordGenerator.NewPassword());
@@ -958,6 +952,7 @@ namespace myEDI
         {
 			if (checkBox_setup.Checked)
 			{
+				checkBox_maps.Checked = false;
 				checkBox_cl.Checked = false;
 				checkBox_other.Checked = false;
 				checkBoxSRQ.Checked = true;
@@ -970,6 +965,7 @@ namespace myEDI
         {
 			if (checkBox_cl.Checked)
 			{
+				checkBox_maps.Checked = false;
 				checkBox_setup.Checked = false;
 				checkBox_other.Checked = false;
 				checkBoxSRQ.Checked = false;
@@ -982,8 +978,54 @@ namespace myEDI
         {
 			if (checkBox_other.Checked)
 			{
+				checkBox_maps.Checked = false;
 				checkBox_setup.Checked = false;
 				checkBox_cl.Checked = false;
+				checkBoxSRQ.Checked = false;
+				checkBoxSRQ.Enabled = true;
+				comboBox_setup.Enabled = false;
+			}
+		}
+
+        private void checkBox_cl_in_CheckedChanged(object sender, EventArgs e)
+        {
+			if (checkBox_cl_in.Checked)
+			{
+				checkBox_cl_out.Checked = false;
+				checkBox_cl_both.Checked = false;
+			}
+		}
+
+        private void checkBox_cl_out_CheckedChanged(object sender, EventArgs e)
+        {
+			if (checkBox_cl_out.Checked)
+			{
+				checkBox_cl_in.Checked = false;
+				checkBox_cl_both.Checked = false;
+			}
+		}
+
+        private void checkBox_cl_both_CheckedChanged(object sender, EventArgs e)
+        {
+			if (checkBox_cl_both.Checked)
+			{
+				checkBox_cl_in.Checked = false;
+				checkBox_cl_out.Checked = false;
+			}
+		}
+		
+        private void codeListComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox_maps_CheckedChanged(object sender, EventArgs e)
+        {
+			if (checkBox_maps.Checked)
+			{
+				checkBox_cl.Checked = false;
+				checkBox_setup.Checked = false;
+				checkBox_other.Checked = false;
 				checkBoxSRQ.Checked = false;
 				checkBoxSRQ.Enabled = true;
 				comboBox_setup.Enabled = false;
