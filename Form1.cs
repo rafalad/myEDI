@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
@@ -1031,5 +1032,11 @@ namespace myEDI
 				comboBox_setup.Enabled = false;
 			}
 		}
-    }
+
+        private void cleanerDownloadsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+			cleanerDownloads cleanerDownloads = new cleanerDownloads();
+			cleanerDownloads.Show();
+		}
+	}
 }

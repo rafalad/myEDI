@@ -60,18 +60,19 @@
             this.checkBox_RT = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.checkBox_other = new System.Windows.Forms.CheckBox();
+            this.checkBox_maps = new System.Windows.Forms.CheckBox();
             this.comboBox_setup = new System.Windows.Forms.ComboBox();
-            this.checkBox_cl = new System.Windows.Forms.CheckBox();
-            this.checkBox_setup = new System.Windows.Forms.CheckBox();
             this.checkBoxSRQ = new System.Windows.Forms.CheckBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.checkBox_other = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.CHWnumberField = new System.Windows.Forms.TextBox();
             this.SRQidField = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.checkBox_cl = new System.Windows.Forms.CheckBox();
             this.CreateAnObject = new System.Windows.Forms.Button();
+            this.checkBox_setup = new System.Windows.Forms.CheckBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.checkBox_cl_both = new System.Windows.Forms.CheckBox();
             this.buttonCL = new System.Windows.Forms.Button();
@@ -128,7 +129,8 @@
             this.eventLog3 = new System.Diagnostics.EventLog();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.latest_ver = new System.Windows.Forms.Label();
-            this.checkBox_maps = new System.Windows.Forms.CheckBox();
+            this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cleanerDownloadsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -622,18 +624,18 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Workspace";
             // 
-            // checkBox_other
+            // checkBox_maps
             // 
-            this.checkBox_other.AutoSize = true;
-            this.checkBox_other.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.checkBox_other.Location = new System.Drawing.Point(88, 191);
-            this.checkBox_other.Name = "checkBox_other";
-            this.checkBox_other.Size = new System.Drawing.Size(52, 17);
-            this.checkBox_other.TabIndex = 41;
-            this.checkBox_other.TabStop = false;
-            this.checkBox_other.Text = "Other";
-            this.checkBox_other.UseVisualStyleBackColor = true;
-            this.checkBox_other.CheckedChanged += new System.EventHandler(this.checkBox_other_CheckedChanged);
+            this.checkBox_maps.AutoSize = true;
+            this.checkBox_maps.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.checkBox_maps.Location = new System.Drawing.Point(88, 154);
+            this.checkBox_maps.Name = "checkBox_maps";
+            this.checkBox_maps.Size = new System.Drawing.Size(52, 17);
+            this.checkBox_maps.TabIndex = 44;
+            this.checkBox_maps.TabStop = false;
+            this.checkBox_maps.Text = "Maps";
+            this.checkBox_maps.UseVisualStyleBackColor = true;
+            this.checkBox_maps.CheckedChanged += new System.EventHandler(this.checkBox_maps_CheckedChanged);
             // 
             // comboBox_setup
             // 
@@ -658,34 +660,6 @@
             this.comboBox_setup.Sorted = true;
             this.comboBox_setup.TabIndex = 40;
             this.comboBox_setup.Text = "CL both flows";
-            // 
-            // checkBox_cl
-            // 
-            this.checkBox_cl.AutoSize = true;
-            this.checkBox_cl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.checkBox_cl.Location = new System.Drawing.Point(88, 172);
-            this.checkBox_cl.Name = "checkBox_cl";
-            this.checkBox_cl.Size = new System.Drawing.Size(63, 17);
-            this.checkBox_cl.TabIndex = 43;
-            this.checkBox_cl.TabStop = false;
-            this.checkBox_cl.Text = "Codelist";
-            this.checkBox_cl.UseVisualStyleBackColor = true;
-            this.checkBox_cl.CheckedChanged += new System.EventHandler(this.checkBox_cl_CheckedChanged);
-            // 
-            // checkBox_setup
-            // 
-            this.checkBox_setup.AutoSize = true;
-            this.checkBox_setup.Checked = true;
-            this.checkBox_setup.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox_setup.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.checkBox_setup.Location = new System.Drawing.Point(88, 136);
-            this.checkBox_setup.Name = "checkBox_setup";
-            this.checkBox_setup.Size = new System.Drawing.Size(62, 17);
-            this.checkBox_setup.TabIndex = 42;
-            this.checkBox_setup.TabStop = false;
-            this.checkBox_setup.Text = "SETUP";
-            this.checkBox_setup.UseVisualStyleBackColor = true;
-            this.checkBox_setup.CheckedChanged += new System.EventHandler(this.checkBox_setup_CheckedChanged);
             // 
             // checkBoxSRQ
             // 
@@ -722,6 +696,19 @@
             this.label6.TabIndex = 23;
             this.label6.Text = "Type of dir for:";
             // 
+            // checkBox_other
+            // 
+            this.checkBox_other.AutoSize = true;
+            this.checkBox_other.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.checkBox_other.Location = new System.Drawing.Point(88, 191);
+            this.checkBox_other.Name = "checkBox_other";
+            this.checkBox_other.Size = new System.Drawing.Size(52, 17);
+            this.checkBox_other.TabIndex = 41;
+            this.checkBox_other.TabStop = false;
+            this.checkBox_other.Text = "Other";
+            this.checkBox_other.UseVisualStyleBackColor = true;
+            this.checkBox_other.CheckedChanged += new System.EventHandler(this.checkBox_other_CheckedChanged);
+            // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -757,6 +744,19 @@
             this.label7.TabIndex = 19;
             this.label7.Text = "Ticket name:";
             // 
+            // checkBox_cl
+            // 
+            this.checkBox_cl.AutoSize = true;
+            this.checkBox_cl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.checkBox_cl.Location = new System.Drawing.Point(88, 172);
+            this.checkBox_cl.Name = "checkBox_cl";
+            this.checkBox_cl.Size = new System.Drawing.Size(63, 17);
+            this.checkBox_cl.TabIndex = 43;
+            this.checkBox_cl.TabStop = false;
+            this.checkBox_cl.Text = "Codelist";
+            this.checkBox_cl.UseVisualStyleBackColor = true;
+            this.checkBox_cl.CheckedChanged += new System.EventHandler(this.checkBox_cl_CheckedChanged);
+            // 
             // CreateAnObject
             // 
             this.CreateAnObject.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -768,6 +768,21 @@
             this.CreateAnObject.Text = " Create";
             this.CreateAnObject.UseVisualStyleBackColor = true;
             this.CreateAnObject.Click += new System.EventHandler(this.CreateAnObject_Click);
+            // 
+            // checkBox_setup
+            // 
+            this.checkBox_setup.AutoSize = true;
+            this.checkBox_setup.Checked = true;
+            this.checkBox_setup.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox_setup.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.checkBox_setup.Location = new System.Drawing.Point(88, 136);
+            this.checkBox_setup.Name = "checkBox_setup";
+            this.checkBox_setup.Size = new System.Drawing.Size(62, 17);
+            this.checkBox_setup.TabIndex = 42;
+            this.checkBox_setup.TabStop = false;
+            this.checkBox_setup.Text = "SETUP";
+            this.checkBox_setup.UseVisualStyleBackColor = true;
+            this.checkBox_setup.CheckedChanged += new System.EventHandler(this.checkBox_setup_CheckedChanged);
             // 
             // groupBox5
             // 
@@ -854,6 +869,7 @@
             this.editToolStripMenuItem1,
             this.viewToolStripMenuItem1,
             this.dirsToolStripMenuItem1,
+            this.toolsToolStripMenuItem,
             this.linksToolStripMenuItem1,
             this.formsToolStripMenuItem1,
             this.aboutToolStripMenuItem2});
@@ -919,7 +935,7 @@
             // createDirResourcesToolStripMenuItem
             // 
             this.createDirResourcesToolStripMenuItem.Name = "createDirResourcesToolStripMenuItem";
-            this.createDirResourcesToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.createDirResourcesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.createDirResourcesToolStripMenuItem.Text = "Create dir resources";
             this.createDirResourcesToolStripMenuItem.Click += new System.EventHandler(this.CreateDirResourcesToolStripMenuItem_Click);
             // 
@@ -1211,18 +1227,20 @@
             this.latest_ver.Text = "version";
             this.latest_ver.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // checkBox_maps
+            // toolsToolStripMenuItem
             // 
-            this.checkBox_maps.AutoSize = true;
-            this.checkBox_maps.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.checkBox_maps.Location = new System.Drawing.Point(88, 154);
-            this.checkBox_maps.Name = "checkBox_maps";
-            this.checkBox_maps.Size = new System.Drawing.Size(52, 17);
-            this.checkBox_maps.TabIndex = 44;
-            this.checkBox_maps.TabStop = false;
-            this.checkBox_maps.Text = "Maps";
-            this.checkBox_maps.UseVisualStyleBackColor = true;
-            this.checkBox_maps.CheckedChanged += new System.EventHandler(this.checkBox_maps_CheckedChanged);
+            this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cleanerDownloadsToolStripMenuItem});
+            this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
+            this.toolsToolStripMenuItem.Text = "Tools";
+            // 
+            // cleanerDownloadsToolStripMenuItem
+            // 
+            this.cleanerDownloadsToolStripMenuItem.Name = "cleanerDownloadsToolStripMenuItem";
+            this.cleanerDownloadsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cleanerDownloadsToolStripMenuItem.Text = "cleanerDownloads";
+            this.cleanerDownloadsToolStripMenuItem.Click += new System.EventHandler(this.cleanerDownloadsToolStripMenuItem_Click);
             // 
             // MyEDI
             // 
@@ -1382,5 +1400,7 @@
         private System.Windows.Forms.CheckBox checkBox_cl_out;
         private System.Windows.Forms.CheckBox checkBox_cl_in;
         private System.Windows.Forms.CheckBox checkBox_maps;
+        private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cleanerDownloadsToolStripMenuItem;
     }
 }

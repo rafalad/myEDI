@@ -218,8 +218,13 @@ namespace myEDI
 		{
 
 		}
-	}
-	class Option
+
+        private void PassSettings_Load(object sender, EventArgs e)
+        {
+
+        }
+    }
+    class Option
 	{
 		public int Length { get; set; }
 		public int Amount { get; set; }

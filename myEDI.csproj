@@ -102,6 +102,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="cleanerDownloads.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cleanerDownloads.Designer.cs">
+      <DependentUpon>cleanerDownloads.cs</DependentUpon>
+    </Compile>
     <Compile Include="Console.cs" />
     <Compile Include="ExtractResource.cs" />
     <Compile Include="Form1.cs">
@@ -147,6 +153,9 @@
     <Compile Include="Resources.cs" />
     <Compile Include="SRQform.cs" />
     <Compile Include="Ticket.cs" />
+    <EmbeddedResource Include="cleanerDownloads.resx">
+      <DependentUpon>cleanerDownloads.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
