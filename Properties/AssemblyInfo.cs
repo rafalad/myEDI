@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // zestaw atrybutów. Zmień wartości tych atrybutów, aby zmodyfikować informacje
 // powiązane z zestawem.
 [assembly: AssemblyTitle("myEDI")]
-[assembly: AssemblyDescription("EDI Support tool")]
+[assembly: AssemblyDescription("myEDI")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("rafal.adamczyk@dsv.com")]
 [assembly: AssemblyProduct("myEDI")]
@@ -32,6 +32,6 @@ using System.Runtime.InteropServices;
 // Możesz określić wszystkie wartości lub użyć domyślnych numerów kompilacji i poprawki
 // przy użyciu symbolu „*”, tak jak pokazano poniżej:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.1.3.2")]
-[assembly: AssemblyFileVersion("1.1.3.2")]
+[assembly: AssemblyVersion("1.1.3.3")]
+[assembly: AssemblyFileVersion("1.1.3.3")]
 [assembly: NeutralResourcesLanguage("en")]

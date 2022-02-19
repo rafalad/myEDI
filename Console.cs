@@ -10,12 +10,13 @@ namespace myEDI
 	{
 		public void Query()
 		{
-			//Kit set = new Kit();
-
 			string pathString = @"C:\DEPLOYMENTS\query.txt";
 
 			int day = Day();
 			string month = Month();
+			string command;
+
+			StringBuilder builtCommand = new StringBuilder();
 
 			var dirs = from dir in Directory.EnumerateDirectories(deploymentsdir, month + "*" + day.ToString() + "*") select dir;
 
@@ -30,10 +31,13 @@ namespace myEDI
 				foreach (string file in rt_array)
 				{
 					string fileName = Path.GetFileName(file);
-					File.AppendAllText(pathString, "dsvimport.sh " + fileName + "; ", Encoding.UTF8);
+					builtCommand.Append("dsvimport.sh " + fileName + "; ");
 				}
 
-				File.AppendAllText(pathString, Environment.NewLine + Environment.NewLine, Encoding.UTF8);
+				//usuwam ; z ostatniego RT
+				command = builtCommand.ToString().Remove(builtCommand.ToString().Length - 2);
+
+				File.WriteAllText(pathString, command);
 
 				Process.Start(pathString);
 			}
