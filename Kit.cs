@@ -89,5 +89,12 @@ namespace myEDI
 			}
 			return name;
 		}
+
+		public int NumberOfSRQ()
+        {
+			int directoryCount = Directory.GetDirectories(DeployPath()).Length;
+
+			return directoryCount;
+		}
 	}
 }

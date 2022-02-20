@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
@@ -7,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -26,6 +28,7 @@ namespace myEDI
 			LoginDSV name = new LoginDSV();
 			WebClient webClient = new WebClient();
 			Resources resource = new Resources();
+			Kit set = new Kit();
 
 			string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
 
@@ -53,7 +56,7 @@ namespace myEDI
 
 			latest_ver.Text = resource.CheckVersion(); //kontrola wersji programu
 
-			richTextBoxSelectedEnv.Text = deployComboBox.Text; // kontrolka wyboru srodowiska dla deploya
+			richTextBoxSelectedEnv.Text = deployComboBox.Text + " / Week:" + set.Week(); // kontrolka wyboru srodowiska dla deploya
 		}
 
 		private void GroupBox_Paint(object sender, PaintEventArgs e)
@@ -224,8 +227,6 @@ namespace myEDI
 							WorkspaceFolder(subdir12, task);
 							break;
 					}
-
-					
 				}
 
 				else if (maps == true)
@@ -299,6 +300,13 @@ namespace myEDI
 
 		private void CreateNoteButton_Click(object sender, EventArgs e)
 		{
+			Deployment();
+		}
+
+		private void Deployment()
+        {
+			ListBox("[" + DateTime.Now.ToString("HH:mm:ss") + "] Data processing...");
+
 			//1. Oczysc i przygotuj katalogi
 			Resources dir = new Resources();
 			dir.PrepareDirs();
@@ -313,6 +321,16 @@ namespace myEDI
 			{
 				byte[] info = new UTF8Encoding(true).GetBytes("");
 				fs.Write(info, 0, info.Length);
+			}
+
+			//3. Sprawdz w poszukiwaniu SI-TC
+			CheckWordForString check = new CheckWordForString();
+			if (checkBox_SITC.Checked)
+			{
+				string result = check.CheckWordDocuments();
+				ListBox("[" + DateTime.Now.ToString("HH:mm:ss") + "] " + result);
+
+				MessageBox.Show(result, "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 			}
 
 			//3. Generuj notatke zgodnie z wybranymi parametrami
@@ -343,7 +361,9 @@ namespace myEDI
 			}
 		}
 
-		private void Note(object sender, EventArgs e)
+        
+
+        private void Note(object sender, EventArgs e)
 		{
 			Kit set = new Kit();
 			string selected = deployComboBox.GetItemText(deployComboBox.SelectedItem); //wybieram zmienna z comboboxa
@@ -355,12 +375,10 @@ namespace myEDI
 
 			if (dirs.Count() == 0) //jezeli nie ma folderow do wdrozenia
 			{
-				MessageBox.Show(@"Please upload the folder-package to C:\DEPLOYMENTS\DEPLOY\...because there is nothing to deploy for today.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(@"Please upload the folder-package to C:\DEPLOYMENTS\DEPLOY\...because there is nothing to deploy for today.", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 			else // jezeli folder sa
 			{
-				ListBox("[" + DateTime.Now.ToString("HH:mm:ss") + "] Data processing...");
-
 				if (string.IsNullOrEmpty(selected)) // jezeli nie wybrano srodowiska
 				{
 					MessageBox.Show(dirs.Count().ToString() + " directories found, but not selected deployment environment.", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -426,7 +444,7 @@ namespace myEDI
 			ListBox("");
 		}
 
-		private void ButtonCL_Click(object sender, EventArgs e)
+        private void ButtonCL_Click(object sender, EventArgs e)
 		{
 			bool inbound = checkBox_cl_in.Checked;
 			bool outbound = checkBox_cl_out.Checked;
@@ -546,11 +564,15 @@ namespace myEDI
 			if (checkBox_RT.Checked)
 			{
 				extractRT_button.Enabled = true;
+				checkBox_RT_no.Checked = false;
+				checkBox_RT.Checked = true;
 			}
 			else
 			{
 				extractRT_button.Enabled = false;
-			}
+				checkBox_RT.Checked = false;
+				checkBox_RT_no.Checked = true;
+			}				
 		}
 
 		private void Button_logs_Click(object sender, EventArgs e)
@@ -1014,11 +1036,6 @@ namespace myEDI
 				checkBox_cl_out.Checked = false;
 			}
 		}
-		
-        private void codeListComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void checkBox_maps_CheckedChanged(object sender, EventArgs e)
         {
@@ -1038,5 +1055,79 @@ namespace myEDI
 			cleanerDownloads cleanerDownloads = new cleanerDownloads();
 			cleanerDownloads.Show();
 		}
-	}
+
+        private void label15_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void richTextBoxWeek_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void richTextBoxSelectedEnv_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox_RT_no_CheckedChanged(object sender, EventArgs e)
+        {
+			if (checkBox_RT_no.Checked)
+			{
+				checkBox_RT.Checked = false;
+			}
+			else
+			{
+				checkBox_RT.Checked = true;
+			}
+		}
+
+        private void checkBox_Query_no_CheckedChanged(object sender, EventArgs e)
+        {
+			if (checkBox_Query_no.Checked)
+			{
+				checkBox_Query.Checked = false;
+			}
+			else
+			{
+				checkBox_Query.Checked = true;
+			}
+		}
+
+        private void checkBox_SITC_no_CheckedChanged(object sender, EventArgs e)
+        {
+			if (checkBox_SITC_no.Checked)
+			{
+				checkBox_SITC.Checked = false;
+			}
+			else
+			{
+				checkBox_SITC.Checked = true;
+			}
+		}
+
+        private void buttonBug_Click(object sender, EventArgs e)
+        {
+			BugChecker check = new BugChecker();
+
+			string result = check.Bug();
+
+			if (result == string.Empty)
+			{
+				MessageBox.Show("No issues. All reports are correct.", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Information);
+			}
+			else if (result == "No reports loaded.")
+			{
+				MessageBox.Show("No reports loaded.", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+			}
+			else
+            {
+				if (MessageBox.Show("Error found in report: \n\n" + result + "\n\n" + "\n Would you like to open a location??", "myEDI", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+				{
+					Process.Start(@"C:\DEPLOYMENTS\Reports");
+				}
+			}
+		}
+    }
 }

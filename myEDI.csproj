@@ -102,6 +102,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BugChecker.cs" />
+    <Compile Include="CheckWordForString.cs" />
     <Compile Include="cleanerDownloads.cs">
       <SubType>Form</SubType>
     </Compile>

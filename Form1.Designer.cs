@@ -47,8 +47,12 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.checkBox_SITC_no = new System.Windows.Forms.CheckBox();
+            this.checkBox_Query_no = new System.Windows.Forms.CheckBox();
+            this.checkBox_RT_no = new System.Windows.Forms.CheckBox();
+            this.checkBox_SITC = new System.Windows.Forms.CheckBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.button_reports = new System.Windows.Forms.Button();
-            this.button_resources = new System.Windows.Forms.Button();
             this.extractRT_button = new System.Windows.Forms.Button();
             this.button_logs = new System.Windows.Forms.Button();
             this.consoleQuery_button = new System.Windows.Forms.Button();
@@ -90,6 +94,8 @@
             this.cleanEventViewerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dirsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.createDirResourcesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cleanerDownloadsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.linksToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.lWToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sIToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
@@ -121,7 +127,6 @@
             this.eventLog1 = new System.Diagnostics.EventLog();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.ver = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
@@ -129,8 +134,8 @@
             this.eventLog3 = new System.Diagnostics.EventLog();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.latest_ver = new System.Windows.Forms.Label();
-            this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cleanerDownloadsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ver = new System.Windows.Forms.Label();
+            this.buttonBug = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -196,12 +201,12 @@
             // CreateNoteButton
             // 
             this.CreateNoteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.CreateNoteButton.Location = new System.Drawing.Point(9, 192);
+            this.CreateNoteButton.Location = new System.Drawing.Point(36, 192);
             this.CreateNoteButton.Name = "CreateNoteButton";
-            this.CreateNoteButton.Size = new System.Drawing.Size(213, 33);
+            this.CreateNoteButton.Size = new System.Drawing.Size(164, 33);
             this.CreateNoteButton.TabIndex = 11;
             this.CreateNoteButton.TabStop = false;
-            this.CreateNoteButton.Text = "Create a note";
+            this.CreateNoteButton.Text = "Go";
             this.CreateNoteButton.UseCompatibleTextRendering = true;
             this.CreateNoteButton.UseVisualStyleBackColor = true;
             this.CreateNoteButton.Click += new System.EventHandler(this.CreateNoteButton_Click);
@@ -428,8 +433,13 @@
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.groupBox3.Controls.Add(this.buttonBug);
+            this.groupBox3.Controls.Add(this.checkBox_SITC_no);
+            this.groupBox3.Controls.Add(this.checkBox_Query_no);
+            this.groupBox3.Controls.Add(this.checkBox_RT_no);
+            this.groupBox3.Controls.Add(this.checkBox_SITC);
+            this.groupBox3.Controls.Add(this.label15);
             this.groupBox3.Controls.Add(this.button_reports);
-            this.groupBox3.Controls.Add(this.button_resources);
             this.groupBox3.Controls.Add(this.extractRT_button);
             this.groupBox3.Controls.Add(this.button_logs);
             this.groupBox3.Controls.Add(this.consoleQuery_button);
@@ -451,10 +461,76 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Deployment";
             // 
+            // checkBox_SITC_no
+            // 
+            this.checkBox_SITC_no.AutoSize = true;
+            this.checkBox_SITC_no.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.checkBox_SITC_no.Location = new System.Drawing.Point(182, 159);
+            this.checkBox_SITC_no.Name = "checkBox_SITC_no";
+            this.checkBox_SITC_no.Size = new System.Drawing.Size(40, 17);
+            this.checkBox_SITC_no.TabIndex = 40;
+            this.checkBox_SITC_no.TabStop = false;
+            this.checkBox_SITC_no.Text = "No";
+            this.checkBox_SITC_no.UseVisualStyleBackColor = true;
+            this.checkBox_SITC_no.CheckedChanged += new System.EventHandler(this.checkBox_SITC_no_CheckedChanged);
+            // 
+            // checkBox_Query_no
+            // 
+            this.checkBox_Query_no.AutoSize = true;
+            this.checkBox_Query_no.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.checkBox_Query_no.Location = new System.Drawing.Point(182, 139);
+            this.checkBox_Query_no.Name = "checkBox_Query_no";
+            this.checkBox_Query_no.Size = new System.Drawing.Size(40, 17);
+            this.checkBox_Query_no.TabIndex = 39;
+            this.checkBox_Query_no.TabStop = false;
+            this.checkBox_Query_no.Text = "No";
+            this.checkBox_Query_no.UseVisualStyleBackColor = true;
+            this.checkBox_Query_no.CheckedChanged += new System.EventHandler(this.checkBox_Query_no_CheckedChanged);
+            // 
+            // checkBox_RT_no
+            // 
+            this.checkBox_RT_no.AutoSize = true;
+            this.checkBox_RT_no.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.checkBox_RT_no.Location = new System.Drawing.Point(182, 120);
+            this.checkBox_RT_no.Name = "checkBox_RT_no";
+            this.checkBox_RT_no.Size = new System.Drawing.Size(40, 17);
+            this.checkBox_RT_no.TabIndex = 38;
+            this.checkBox_RT_no.TabStop = false;
+            this.checkBox_RT_no.Text = "No";
+            this.checkBox_RT_no.UseVisualStyleBackColor = true;
+            this.checkBox_RT_no.CheckedChanged += new System.EventHandler(this.checkBox_RT_no_CheckedChanged);
+            // 
+            // checkBox_SITC
+            // 
+            this.checkBox_SITC.AutoSize = true;
+            this.checkBox_SITC.Checked = true;
+            this.checkBox_SITC.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox_SITC.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.checkBox_SITC.Location = new System.Drawing.Point(142, 158);
+            this.checkBox_SITC.Name = "checkBox_SITC";
+            this.checkBox_SITC.Size = new System.Drawing.Size(44, 17);
+            this.checkBox_SITC.TabIndex = 36;
+            this.checkBox_SITC.TabStop = false;
+            this.checkBox_SITC.Text = "Yes";
+            this.checkBox_SITC.UseVisualStyleBackColor = true;
+            // 
+            // label15
+            // 
+            this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label15.Location = new System.Drawing.Point(17, 159);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(123, 17);
+            this.label15.TabIndex = 35;
+            this.label15.Text = "Alert on setup for SI-TC:";
+            this.label15.Click += new System.EventHandler(this.label15_Click);
+            // 
             // button_reports
             // 
             this.button_reports.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button_reports.Location = new System.Drawing.Point(36, 326);
+            this.button_reports.Location = new System.Drawing.Point(36, 288);
             this.button_reports.Name = "button_reports";
             this.button_reports.Size = new System.Drawing.Size(80, 34);
             this.button_reports.TabIndex = 34;
@@ -463,22 +539,10 @@
             this.button_reports.UseVisualStyleBackColor = true;
             this.button_reports.Click += new System.EventHandler(this.Button_reports_Click);
             // 
-            // button_resources
-            // 
-            this.button_resources.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button_resources.Location = new System.Drawing.Point(36, 286);
-            this.button_resources.Name = "button_resources";
-            this.button_resources.Size = new System.Drawing.Size(80, 34);
-            this.button_resources.TabIndex = 33;
-            this.button_resources.TabStop = false;
-            this.button_resources.Text = "Resources";
-            this.button_resources.UseVisualStyleBackColor = true;
-            this.button_resources.Click += new System.EventHandler(this.Button_resources_Click);
-            // 
             // extractRT_button
             // 
             this.extractRT_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.extractRT_button.Location = new System.Drawing.Point(120, 248);
+            this.extractRT_button.Location = new System.Drawing.Point(120, 250);
             this.extractRT_button.Name = "extractRT_button";
             this.extractRT_button.Size = new System.Drawing.Size(80, 34);
             this.extractRT_button.TabIndex = 27;
@@ -490,7 +554,7 @@
             // button_logs
             // 
             this.button_logs.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button_logs.Location = new System.Drawing.Point(120, 326);
+            this.button_logs.Location = new System.Drawing.Point(120, 328);
             this.button_logs.Name = "button_logs";
             this.button_logs.Size = new System.Drawing.Size(80, 34);
             this.button_logs.TabIndex = 32;
@@ -502,7 +566,7 @@
             // consoleQuery_button
             // 
             this.consoleQuery_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.consoleQuery_button.Location = new System.Drawing.Point(120, 286);
+            this.consoleQuery_button.Location = new System.Drawing.Point(120, 288);
             this.consoleQuery_button.Name = "consoleQuery_button";
             this.consoleQuery_button.Size = new System.Drawing.Size(80, 34);
             this.consoleQuery_button.TabIndex = 30;
@@ -517,7 +581,7 @@
             this.checkBox_Query.Checked = true;
             this.checkBox_Query.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox_Query.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.checkBox_Query.Location = new System.Drawing.Point(166, 136);
+            this.checkBox_Query.Location = new System.Drawing.Point(142, 138);
             this.checkBox_Query.Name = "checkBox_Query";
             this.checkBox_Query.Size = new System.Drawing.Size(44, 17);
             this.checkBox_Query.TabIndex = 29;
@@ -532,22 +596,23 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label11.Location = new System.Drawing.Point(41, 136);
+            this.label11.Location = new System.Drawing.Point(18, 140);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(123, 34);
+            this.label11.Size = new System.Drawing.Size(119, 18);
             this.label11.TabIndex = 28;
             this.label11.Text = "Create a console query:";
             // 
             // richTextBoxSelectedEnv
             // 
             this.richTextBoxSelectedEnv.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.richTextBoxSelectedEnv.Location = new System.Drawing.Point(120, 83);
+            this.richTextBoxSelectedEnv.Location = new System.Drawing.Point(82, 83);
             this.richTextBoxSelectedEnv.Name = "richTextBoxSelectedEnv";
             this.richTextBoxSelectedEnv.ReadOnly = true;
-            this.richTextBoxSelectedEnv.Size = new System.Drawing.Size(102, 21);
+            this.richTextBoxSelectedEnv.Size = new System.Drawing.Size(140, 21);
             this.richTextBoxSelectedEnv.TabIndex = 26;
             this.richTextBoxSelectedEnv.TabStop = false;
             this.richTextBoxSelectedEnv.Text = "not selected";
+            this.richTextBoxSelectedEnv.TextChanged += new System.EventHandler(this.richTextBoxSelectedEnv_TextChanged);
             // 
             // label5
             // 
@@ -564,7 +629,7 @@
             // button_local_deploy
             // 
             this.button_local_deploy.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button_local_deploy.Location = new System.Drawing.Point(36, 248);
+            this.button_local_deploy.Location = new System.Drawing.Point(36, 250);
             this.button_local_deploy.Name = "button_local_deploy";
             this.button_local_deploy.Size = new System.Drawing.Size(80, 34);
             this.button_local_deploy.TabIndex = 25;
@@ -579,7 +644,7 @@
             this.checkBox_RT.Checked = true;
             this.checkBox_RT.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox_RT.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.checkBox_RT.Location = new System.Drawing.Point(166, 120);
+            this.checkBox_RT.Location = new System.Drawing.Point(142, 120);
             this.checkBox_RT.Name = "checkBox_RT";
             this.checkBox_RT.Size = new System.Drawing.Size(44, 17);
             this.checkBox_RT.TabIndex = 18;
@@ -594,11 +659,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.Location = new System.Drawing.Point(12, 121);
+            this.label4.Location = new System.Drawing.Point(17, 120);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(148, 33);
+            this.label4.Size = new System.Drawing.Size(122, 16);
             this.label4.TabIndex = 11;
-            this.label4.Text = "Copy RT files to separate dirs:";
+            this.label4.Text = "RT files to separate dirs:";
             // 
             // groupBox4
             // 
@@ -935,9 +1000,24 @@
             // createDirResourcesToolStripMenuItem
             // 
             this.createDirResourcesToolStripMenuItem.Name = "createDirResourcesToolStripMenuItem";
-            this.createDirResourcesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.createDirResourcesToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.createDirResourcesToolStripMenuItem.Text = "Create dir resources";
             this.createDirResourcesToolStripMenuItem.Click += new System.EventHandler(this.CreateDirResourcesToolStripMenuItem_Click);
+            // 
+            // toolsToolStripMenuItem
+            // 
+            this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cleanerDownloadsToolStripMenuItem});
+            this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
+            this.toolsToolStripMenuItem.Text = "Tools";
+            // 
+            // cleanerDownloadsToolStripMenuItem
+            // 
+            this.cleanerDownloadsToolStripMenuItem.Name = "cleanerDownloadsToolStripMenuItem";
+            this.cleanerDownloadsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cleanerDownloadsToolStripMenuItem.Text = "cleanerDownloads";
+            this.cleanerDownloadsToolStripMenuItem.Click += new System.EventHandler(this.cleanerDownloadsToolStripMenuItem_Click);
             // 
             // linksToolStripMenuItem1
             // 
@@ -1143,7 +1223,7 @@
             // statusStrip1
             // 
             this.statusStrip1.BackColor = System.Drawing.SystemColors.MenuBar;
-            this.statusStrip1.Location = new System.Drawing.Point(0, 639);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 699);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(844, 22);
             this.statusStrip1.TabIndex = 28;
@@ -1158,17 +1238,6 @@
             this.pictureBox1.TabIndex = 29;
             this.pictureBox1.TabStop = false;
             // 
-            // ver
-            // 
-            this.ver.BackColor = System.Drawing.SystemColors.MenuBar;
-            this.ver.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.ver.Location = new System.Drawing.Point(15, 639);
-            this.ver.Name = "ver";
-            this.ver.Size = new System.Drawing.Size(54, 18);
-            this.ver.TabIndex = 31;
-            this.ver.Text = "version";
-            this.ver.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // groupBox6
             // 
             this.groupBox6.BackColor = System.Drawing.SystemColors.ControlLight;
@@ -1180,7 +1249,7 @@
             this.groupBox6.ForeColor = System.Drawing.SystemColors.Desktop;
             this.groupBox6.Location = new System.Drawing.Point(9, 457);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(823, 174);
+            this.groupBox6.Size = new System.Drawing.Size(823, 239);
             this.groupBox6.TabIndex = 32;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Event Viewer";
@@ -1192,11 +1261,12 @@
             this.listBox1.ForeColor = System.Drawing.Color.Navy;
             this.listBox1.FormattingEnabled = true;
             this.listBox1.HorizontalExtent = 1000;
+            this.listBox1.ImeMode = System.Windows.Forms.ImeMode.On;
             this.listBox1.IntegralHeight = false;
-            this.listBox1.Location = new System.Drawing.Point(0, 19);
+            this.listBox1.Location = new System.Drawing.Point(0, 14);
             this.listBox1.Name = "listBox1";
             this.listBox1.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.listBox1.Size = new System.Drawing.Size(823, 155);
+            this.listBox1.Size = new System.Drawing.Size(823, 225);
             this.listBox1.TabIndex = 36;
             this.listBox1.TabStop = false;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.ListBox1_SelectedIndexChanged);
@@ -1216,40 +1286,53 @@
             // 
             this.eventLog3.SynchronizingObject = this;
             // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.WorkerReportsProgress = true;
+            this.backgroundWorker1.WorkerSupportsCancellation = true;
+            // 
             // latest_ver
             // 
             this.latest_ver.BackColor = System.Drawing.SystemColors.MenuBar;
             this.latest_ver.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.latest_ver.Location = new System.Drawing.Point(98, 639);
+            this.latest_ver.Location = new System.Drawing.Point(77, 699);
             this.latest_ver.Name = "latest_ver";
             this.latest_ver.Size = new System.Drawing.Size(299, 18);
             this.latest_ver.TabIndex = 33;
             this.latest_ver.Text = "version";
             this.latest_ver.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // toolsToolStripMenuItem
+            // ver
             // 
-            this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cleanerDownloadsToolStripMenuItem});
-            this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
-            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
-            this.toolsToolStripMenuItem.Text = "Tools";
+            this.ver.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.ver.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.ver.Location = new System.Drawing.Point(6, 699);
+            this.ver.Name = "ver";
+            this.ver.Size = new System.Drawing.Size(65, 18);
+            this.ver.TabIndex = 34;
+            this.ver.Text = "version";
+            this.ver.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // cleanerDownloadsToolStripMenuItem
+            // buttonBug
             // 
-            this.cleanerDownloadsToolStripMenuItem.Name = "cleanerDownloadsToolStripMenuItem";
-            this.cleanerDownloadsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.cleanerDownloadsToolStripMenuItem.Text = "cleanerDownloads";
-            this.cleanerDownloadsToolStripMenuItem.Click += new System.EventHandler(this.cleanerDownloadsToolStripMenuItem_Click);
+            this.buttonBug.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonBug.Location = new System.Drawing.Point(36, 328);
+            this.buttonBug.Name = "buttonBug";
+            this.buttonBug.Size = new System.Drawing.Size(80, 34);
+            this.buttonBug.TabIndex = 41;
+            this.buttonBug.TabStop = false;
+            this.buttonBug.Text = "Bug Checker";
+            this.buttonBug.UseVisualStyleBackColor = true;
+            this.buttonBug.Click += new System.EventHandler(this.buttonBug_Click);
             // 
             // MyEDI
             // 
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(844, 661);
+            this.ClientSize = new System.Drawing.Size(844, 721);
+            this.Controls.Add(this.ver);
             this.Controls.Add(this.latest_ver);
             this.Controls.Add(this.groupBox6);
-            this.Controls.Add(this.ver);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
@@ -1261,8 +1344,8 @@
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.MaximumSize = new System.Drawing.Size(860, 700);
-            this.MinimumSize = new System.Drawing.Size(860, 700);
+            this.MaximumSize = new System.Drawing.Size(860, 760);
+            this.MinimumSize = new System.Drawing.Size(860, 760);
             this.Name = "MyEDI";
             this.Text = "myEDI";
             this.Load += new System.EventHandler(this.EDISupportTool_Load);
@@ -1339,12 +1422,10 @@
 		private System.Windows.Forms.CheckBox checkBox_Query;
 		private System.Windows.Forms.Label label11;
 		private System.Windows.Forms.Button button_logs;
-		private System.Windows.Forms.Button button_resources;
 		private System.Windows.Forms.Button button_reports;
 		private System.Windows.Forms.PictureBox pictureBox1;
 		private System.Windows.Forms.Button buttonGenerateRandomPassword;
 		private System.Windows.Forms.Label label9;
-		private System.Windows.Forms.Label ver;
 		private System.Windows.Forms.ToolStripMenuItem dirsToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem linksToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem deployDirsToolStripMenuItem;
@@ -1402,5 +1483,12 @@
         private System.Windows.Forms.CheckBox checkBox_maps;
         private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cleanerDownloadsToolStripMenuItem;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.CheckBox checkBox_SITC;
+        private System.Windows.Forms.Label ver;
+        private System.Windows.Forms.CheckBox checkBox_SITC_no;
+        private System.Windows.Forms.CheckBox checkBox_Query_no;
+        private System.Windows.Forms.CheckBox checkBox_RT_no;
+        private System.Windows.Forms.Button buttonBug;
     }
 }
