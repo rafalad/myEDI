@@ -139,6 +139,7 @@
     <Compile Include="Kit.cs" />
     <Compile Include="Ldap.cs" />
     <Compile Include="LdapForm.cs" />
+    <Compile Include="License.cs" />
     <Compile Include="LoginDSV.cs" />
     <Compile Include="Pass.cs" />
     <Compile Include="PassSettings.cs">

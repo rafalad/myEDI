@@ -36,6 +36,10 @@
             this.label9 = new System.Windows.Forms.Label();
             this.buttonGenerateRandomPassword = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.checkBox_dsv = new System.Windows.Forms.CheckBox();
+            this.checkBox_par = new System.Windows.Forms.CheckBox();
+            this.checkBox_cus = new System.Windows.Forms.CheckBox();
+            this.richTextBox_username = new System.Windows.Forms.RichTextBox();
             this.checkBoxLDAPno = new System.Windows.Forms.CheckBox();
             this.checkBoxPass24 = new System.Windows.Forms.CheckBox();
             this.checkBoxPass16 = new System.Windows.Forms.CheckBox();
@@ -47,6 +51,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.buttonBug = new System.Windows.Forms.Button();
             this.checkBox_SITC_no = new System.Windows.Forms.CheckBox();
             this.checkBox_Query_no = new System.Windows.Forms.CheckBox();
             this.checkBox_RT_no = new System.Windows.Forms.CheckBox();
@@ -135,7 +140,6 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.latest_ver = new System.Windows.Forms.Label();
             this.ver = new System.Windows.Forms.Label();
-            this.buttonBug = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -153,9 +157,9 @@
             // textBoxAddUserLDAP
             // 
             this.textBoxAddUserLDAP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBoxAddUserLDAP.Location = new System.Drawing.Point(11, 57);
+            this.textBoxAddUserLDAP.Location = new System.Drawing.Point(60, 56);
             this.textBoxAddUserLDAP.Name = "textBoxAddUserLDAP";
-            this.textBoxAddUserLDAP.Size = new System.Drawing.Size(256, 20);
+            this.textBoxAddUserLDAP.Size = new System.Drawing.Size(207, 20);
             this.textBoxAddUserLDAP.TabIndex = 4;
             this.textBoxAddUserLDAP.TextChanged += new System.EventHandler(this.TextBoxAddUserLDAP_TextChanged);
             // 
@@ -166,7 +170,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(208, 15);
             this.label2.TabIndex = 8;
-            this.label2.Text = "Please enter your username (cus.xxxx)";
+            this.label2.Text = "Enter your username:";
             // 
             // deployComboBox
             // 
@@ -278,6 +282,10 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.groupBox2.Controls.Add(this.checkBox_dsv);
+            this.groupBox2.Controls.Add(this.checkBox_par);
+            this.groupBox2.Controls.Add(this.checkBox_cus);
+            this.groupBox2.Controls.Add(this.richTextBox_username);
             this.groupBox2.Controls.Add(this.checkBoxLDAPno);
             this.groupBox2.Controls.Add(this.checkBoxPass24);
             this.groupBox2.Controls.Add(this.checkBoxPass16);
@@ -298,11 +306,64 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "LDAP";
             // 
+            // checkBox_dsv
+            // 
+            this.checkBox_dsv.AutoSize = true;
+            this.checkBox_dsv.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.checkBox_dsv.Location = new System.Drawing.Point(223, 35);
+            this.checkBox_dsv.Name = "checkBox_dsv";
+            this.checkBox_dsv.Size = new System.Drawing.Size(46, 17);
+            this.checkBox_dsv.TabIndex = 45;
+            this.checkBox_dsv.TabStop = false;
+            this.checkBox_dsv.Text = "dsv.";
+            this.checkBox_dsv.UseVisualStyleBackColor = true;
+            this.checkBox_dsv.CheckedChanged += new System.EventHandler(this.checkBox_dsv_CheckedChanged);
+            // 
+            // checkBox_par
+            // 
+            this.checkBox_par.AutoSize = true;
+            this.checkBox_par.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.checkBox_par.Location = new System.Drawing.Point(173, 35);
+            this.checkBox_par.Name = "checkBox_par";
+            this.checkBox_par.Size = new System.Drawing.Size(44, 17);
+            this.checkBox_par.TabIndex = 44;
+            this.checkBox_par.TabStop = false;
+            this.checkBox_par.Text = "par.";
+            this.checkBox_par.UseVisualStyleBackColor = true;
+            this.checkBox_par.CheckedChanged += new System.EventHandler(this.checkBox_par_CheckedChanged);
+            // 
+            // checkBox_cus
+            // 
+            this.checkBox_cus.AutoSize = true;
+            this.checkBox_cus.Checked = true;
+            this.checkBox_cus.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox_cus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.checkBox_cus.Location = new System.Drawing.Point(121, 35);
+            this.checkBox_cus.Name = "checkBox_cus";
+            this.checkBox_cus.Size = new System.Drawing.Size(46, 17);
+            this.checkBox_cus.TabIndex = 43;
+            this.checkBox_cus.TabStop = false;
+            this.checkBox_cus.Text = "cus.";
+            this.checkBox_cus.UseVisualStyleBackColor = true;
+            this.checkBox_cus.CheckedChanged += new System.EventHandler(this.checkBox_cus_CheckedChanged);
+            // 
+            // richTextBox_username
+            // 
+            this.richTextBox_username.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.richTextBox_username.Location = new System.Drawing.Point(11, 56);
+            this.richTextBox_username.Name = "richTextBox_username";
+            this.richTextBox_username.ReadOnly = true;
+            this.richTextBox_username.Size = new System.Drawing.Size(45, 21);
+            this.richTextBox_username.TabIndex = 42;
+            this.richTextBox_username.TabStop = false;
+            this.richTextBox_username.Text = "cus.";
+            this.richTextBox_username.TextChanged += new System.EventHandler(this.richTextBox_username_TextChanged);
+            // 
             // checkBoxLDAPno
             // 
             this.checkBoxLDAPno.AutoSize = true;
             this.checkBoxLDAPno.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.checkBoxLDAPno.Location = new System.Drawing.Point(229, 161);
+            this.checkBoxLDAPno.Location = new System.Drawing.Point(229, 166);
             this.checkBoxLDAPno.Name = "checkBoxLDAPno";
             this.checkBoxLDAPno.Size = new System.Drawing.Size(40, 17);
             this.checkBoxLDAPno.TabIndex = 40;
@@ -317,7 +378,7 @@
             this.checkBoxPass24.Checked = true;
             this.checkBoxPass24.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxPass24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.checkBoxPass24.Location = new System.Drawing.Point(229, 138);
+            this.checkBoxPass24.Location = new System.Drawing.Point(229, 141);
             this.checkBoxPass24.Name = "checkBoxPass24";
             this.checkBoxPass24.Size = new System.Drawing.Size(38, 17);
             this.checkBoxPass24.TabIndex = 24;
@@ -330,7 +391,7 @@
             // 
             this.checkBoxPass16.AutoSize = true;
             this.checkBoxPass16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.checkBoxPass16.Location = new System.Drawing.Point(185, 138);
+            this.checkBoxPass16.Location = new System.Drawing.Point(185, 142);
             this.checkBoxPass16.Name = "checkBoxPass16";
             this.checkBoxPass16.Size = new System.Drawing.Size(38, 17);
             this.checkBoxPass16.TabIndex = 39;
@@ -345,7 +406,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label14.Location = new System.Drawing.Point(19, 137);
+            this.label14.Location = new System.Drawing.Point(19, 141);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(113, 25);
             this.label14.TabIndex = 38;
@@ -355,7 +416,7 @@
             // 
             this.checkBoxPass8.AutoSize = true;
             this.checkBoxPass8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.checkBoxPass8.Location = new System.Drawing.Point(147, 138);
+            this.checkBoxPass8.Location = new System.Drawing.Point(147, 142);
             this.checkBoxPass8.Name = "checkBoxPass8";
             this.checkBoxPass8.Size = new System.Drawing.Size(32, 17);
             this.checkBoxPass8.TabIndex = 37;
@@ -370,7 +431,7 @@
             this.checkBoxLDAP.Checked = true;
             this.checkBoxLDAP.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxLDAP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.checkBoxLDAP.Location = new System.Drawing.Point(185, 161);
+            this.checkBoxLDAP.Location = new System.Drawing.Point(185, 165);
             this.checkBoxLDAP.Name = "checkBoxLDAP";
             this.checkBoxLDAP.Size = new System.Drawing.Size(44, 17);
             this.checkBoxLDAP.TabIndex = 36;
@@ -400,7 +461,7 @@
             // buttonGoLDAP
             // 
             this.buttonGoLDAP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonGoLDAP.Location = new System.Drawing.Point(149, 192);
+            this.buttonGoLDAP.Location = new System.Drawing.Point(149, 209);
             this.buttonGoLDAP.Name = "buttonGoLDAP";
             this.buttonGoLDAP.Size = new System.Drawing.Size(118, 26);
             this.buttonGoLDAP.TabIndex = 24;
@@ -415,7 +476,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label12.Location = new System.Drawing.Point(19, 162);
+            this.label12.Location = new System.Drawing.Point(19, 166);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(159, 27);
             this.label12.TabIndex = 36;
@@ -460,6 +521,18 @@
             this.groupBox3.TabIndex = 16;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Deployment";
+            // 
+            // buttonBug
+            // 
+            this.buttonBug.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonBug.Location = new System.Drawing.Point(36, 328);
+            this.buttonBug.Name = "buttonBug";
+            this.buttonBug.Size = new System.Drawing.Size(80, 34);
+            this.buttonBug.TabIndex = 41;
+            this.buttonBug.TabStop = false;
+            this.buttonBug.Text = "Bug Checker";
+            this.buttonBug.UseVisualStyleBackColor = true;
+            this.buttonBug.Click += new System.EventHandler(this.buttonBug_Click);
             // 
             // checkBox_SITC_no
             // 
@@ -513,6 +586,7 @@
             this.checkBox_SITC.TabStop = false;
             this.checkBox_SITC.Text = "Yes";
             this.checkBox_SITC.UseVisualStyleBackColor = true;
+            this.checkBox_SITC.CheckedChanged += new System.EventHandler(this.checkBox_SITC_CheckedChanged);
             // 
             // label15
             // 
@@ -1015,7 +1089,7 @@
             // cleanerDownloadsToolStripMenuItem
             // 
             this.cleanerDownloadsToolStripMenuItem.Name = "cleanerDownloadsToolStripMenuItem";
-            this.cleanerDownloadsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cleanerDownloadsToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.cleanerDownloadsToolStripMenuItem.Text = "cleanerDownloads";
             this.cleanerDownloadsToolStripMenuItem.Click += new System.EventHandler(this.cleanerDownloadsToolStripMenuItem_Click);
             // 
@@ -1263,10 +1337,10 @@
             this.listBox1.HorizontalExtent = 1000;
             this.listBox1.ImeMode = System.Windows.Forms.ImeMode.On;
             this.listBox1.IntegralHeight = false;
-            this.listBox1.Location = new System.Drawing.Point(0, 14);
+            this.listBox1.Location = new System.Drawing.Point(0, 19);
             this.listBox1.Name = "listBox1";
             this.listBox1.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.listBox1.Size = new System.Drawing.Size(823, 225);
+            this.listBox1.Size = new System.Drawing.Size(823, 220);
             this.listBox1.TabIndex = 36;
             this.listBox1.TabStop = false;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.ListBox1_SelectedIndexChanged);
@@ -1295,7 +1369,7 @@
             // 
             this.latest_ver.BackColor = System.Drawing.SystemColors.MenuBar;
             this.latest_ver.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.latest_ver.Location = new System.Drawing.Point(77, 699);
+            this.latest_ver.Location = new System.Drawing.Point(107, 699);
             this.latest_ver.Name = "latest_ver";
             this.latest_ver.Size = new System.Drawing.Size(299, 18);
             this.latest_ver.TabIndex = 33;
@@ -1308,22 +1382,10 @@
             this.ver.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.ver.Location = new System.Drawing.Point(6, 699);
             this.ver.Name = "ver";
-            this.ver.Size = new System.Drawing.Size(65, 18);
+            this.ver.Size = new System.Drawing.Size(95, 18);
             this.ver.TabIndex = 34;
             this.ver.Text = "version";
             this.ver.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // buttonBug
-            // 
-            this.buttonBug.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonBug.Location = new System.Drawing.Point(36, 328);
-            this.buttonBug.Name = "buttonBug";
-            this.buttonBug.Size = new System.Drawing.Size(80, 34);
-            this.buttonBug.TabIndex = 41;
-            this.buttonBug.TabStop = false;
-            this.buttonBug.Text = "Bug Checker";
-            this.buttonBug.UseVisualStyleBackColor = true;
-            this.buttonBug.Click += new System.EventHandler(this.buttonBug_Click);
             // 
             // MyEDI
             // 
@@ -1490,5 +1552,9 @@
         private System.Windows.Forms.CheckBox checkBox_Query_no;
         private System.Windows.Forms.CheckBox checkBox_RT_no;
         private System.Windows.Forms.Button buttonBug;
+        private System.Windows.Forms.CheckBox checkBox_dsv;
+        private System.Windows.Forms.CheckBox checkBox_par;
+        private System.Windows.Forms.CheckBox checkBox_cus;
+        private System.Windows.Forms.RichTextBox richTextBox_username;
     }
 }

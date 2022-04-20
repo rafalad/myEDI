@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
@@ -8,7 +6,6 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -21,10 +18,35 @@ namespace myEDI
 			InitializeComponent();
 
 			Start();
+
+			//Sprawdzam licencje programu z opoznieniem (czy istnieje plik LICENSE1135.txt na serwerze)
+			Task.Delay(3000).ContinueWith(t => CheckLicense());
+			
+		}
+
+		public void CheckLicense()
+        {
+			License license = new License();
+
+			//Jezeli licencja jest dostepna, to uruchom program, w przeciwnym wypadku zamknij.
+			if (license.LicenseCheckPoint() == false)
+			{
+				if (MessageBox.Show("NO LICENSE. " + Environment.NewLine + "" + Environment.NewLine +
+				"Try again or contact the developer. " + Environment.NewLine + ""
+				, "myEDI", MessageBoxButtons.RetryCancel, MessageBoxIcon.Stop) == DialogResult.Retry)
+				{
+					CheckLicense();
+				}
+				else
+				{
+					Environment.Exit(0);
+				}
+			}
 		}
 
 		private void Start()
 		{
+			
 			LoginDSV name = new LoginDSV();
 			WebClient webClient = new WebClient();
 			Resources resource = new Resources();
@@ -50,13 +72,14 @@ namespace myEDI
 			groupBox5.Paint += GroupBox_Paint;
 			groupBox6.Paint += GroupBox_Paint;
 
-			ver.Text = "v" + Application.ProductVersion;
+			ver.Text = "v" + Application.ProductVersion + " final";
 
 			Task.Delay(3000).ContinueWith(t => resource.LogToFTP()); //zapisz log na serwerze z opoźnieniem
 
 			latest_ver.Text = resource.CheckVersion(); //kontrola wersji programu
 
 			richTextBoxSelectedEnv.Text = deployComboBox.Text + " / Week:" + set.Week(); // kontrolka wyboru srodowiska dla deploya
+			richTextBox_username.SelectionAlignment = HorizontalAlignment.Center;
 		}
 
 		private void GroupBox_Paint(object sender, PaintEventArgs e)
@@ -323,16 +346,6 @@ namespace myEDI
 				fs.Write(info, 0, info.Length);
 			}
 
-			//3. Sprawdz w poszukiwaniu SI-TC
-			CheckWordForString check = new CheckWordForString();
-			if (checkBox_SITC.Checked)
-			{
-				string result = check.CheckWordDocuments();
-				ListBox("[" + DateTime.Now.ToString("HH:mm:ss") + "] " + result);
-
-				MessageBox.Show(result, "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-			}
-
 			//3. Generuj notatke zgodnie z wybranymi parametrami
 			if (checkBox_RT.Checked)
 			{
@@ -361,8 +374,6 @@ namespace myEDI
 			}
 		}
 
-        
-
         private void Note(object sender, EventArgs e)
 		{
 			Kit set = new Kit();
@@ -385,6 +396,17 @@ namespace myEDI
 				}
 				else // jezeli wybrano srodowisko, to zwroc informacje i kontynuuj dla wybranego srodowiska
 				{
+					//Sprawdz w poszukiwaniu SI-TC
+					CheckWordForString check = new CheckWordForString();
+					if (checkBox_SITC.Checked)
+					{
+						string result = check.CheckWordDocuments();
+						ListBox("[" + DateTime.Now.ToString("HH:mm:ss") + "] " + result);
+
+						MessageBox.Show(result, "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+					}
+
+
 					if (selected == "QA only")
 					{
 						new Qa();
@@ -509,7 +531,7 @@ namespace myEDI
 			{
 				
 			}
-			else // jezeli paczki sa, to stworz foldery RT i LW i skopiuj pliki .xml
+			else // jezeli paczki sa, to stworz foldery RT i LW i skopiuj pliki .json
 			{
 				string targetPath_RT = Path.Combine(@"C:\DEPLOYMENTS\RESOURCES\", "RT");
 				string tagretPath_LW = Path.Combine(@"C:\DEPLOYMENTS\RESOURCES\", "LW");
@@ -532,7 +554,7 @@ namespace myEDI
 					File.Copy(rt_file, destFile, true);
 				}
 
-				string[] lw_array = Directory.GetFiles(set.DeployPath(), "*_f*.xml", SearchOption.AllDirectories);
+				string[] lw_array = Directory.GetFiles(set.DeployPath(), "*.json", SearchOption.AllDirectories);
 				foreach (string lw_file in lw_array)
 				{
 					j += 1;
@@ -655,18 +677,14 @@ namespace myEDI
 
 		private void LWToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			Process.Start("http://dsidb1:16680/lw/client/index.html#/login");
-			Process.Start("http://tsiapp2:16680/lw/client/index.html#/login");
-			Process.Start("http://qsiapp1:16680/lw/client/index.html#/login");
-			Process.Start("http://psiapp2:16680/lw/client/index.html#/login");
+			Resources links = new Resources();
+			links.LW();
 		}
 
 		private void SIToolStripMenuItem2_Click(object sender, EventArgs e)
 		{
-			Process.Start("http://dsidb1:15501/dashboard/");
-			Process.Start("http://tsiapp2:15501/dashboard/");
-			Process.Start("http://qsiapp1:15501/dashboard/");
-			Process.Start("http://psiapp2:15501/dashboard/");
+			Resources links = new Resources();
+			links.SI();
 		}
 
 		private void AboutToolStripMenuItem3_Click(object sender, EventArgs e)
@@ -712,7 +730,7 @@ namespace myEDI
 			bool form = checkBoxLDAP.Checked;
 
 			string selectedLDAP = comboBoxLDAP.GetItemText(comboBoxLDAP.SelectedItem); //wybieram zmienna z comboboxa
-			string textbox = textBoxAddUserLDAP.Text;
+			string textbox = richTextBox_username.Text + textBoxAddUserLDAP.Text;
 			int length = 0;
 
 			//na podstawie zaznaczonego checkboxa ustawiam dlugosc hasla
@@ -926,20 +944,28 @@ namespace myEDI
 		{
 			if (checkBoxPass8.Checked)
 			{
-				MessageBox.Show(@"The current LDAP script only supports 24 character passwords. Consider a 24-character password.", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Information);
 				checkBoxPass16.Checked = false;
 				checkBoxPass24.Checked = false;
+				MessageBox.Show(@"The current LDAP script only supports 24 character passwords. Consider a 24-character password.", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Information);
 			}
+			else
+            {
+				checkBoxPass24.Checked = true;
+            }
 		}
 
 		private void CheckBoxPass16_CheckedChanged(object sender, EventArgs e)
 		{
 			if (checkBoxPass16.Checked)
 			{
-				MessageBox.Show(@"The current LDAP script only supports 24 character passwords. Consider a 24-character password.", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Information);
 				checkBoxPass8.Checked = false;
 				checkBoxPass24.Checked = false;
+				MessageBox.Show(@"The current LDAP script only supports 24 character passwords. Consider a 24-character password.", "myEDI", MessageBoxButtons.OK, MessageBoxIcon.Information);
 			}
+			else
+            {
+				checkBoxPass24.Checked = true;
+            }
 		}
 		public void CheckBoxPass24_CheckedChanged(object sender, EventArgs e)
 		{
@@ -1128,6 +1154,61 @@ namespace myEDI
 					Process.Start(@"C:\DEPLOYMENTS\Reports");
 				}
 			}
+		}
+
+        private void checkBox_SITC_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox_cus_CheckedChanged(object sender, EventArgs e)
+        {
+			if (checkBox_cus.Checked)
+			{
+				richTextBox_username.Text = "cus.";
+				richTextBox_username.SelectionAlignment = HorizontalAlignment.Center;
+				checkBox_par.Checked = false;
+				checkBox_dsv.Checked = false;
+			}
+			else
+            {
+				//checkBox_par.Checked = true;
+			}
+		}
+
+        private void checkBox_par_CheckedChanged(object sender, EventArgs e)
+        {
+			if (checkBox_par.Checked)
+			{
+				richTextBox_username.Text = "par.";
+				richTextBox_username.SelectionAlignment = HorizontalAlignment.Center;
+				checkBox_cus.Checked = false;
+				checkBox_dsv.Checked = false;
+			}
+			else
+			{
+				//checkBox_dsv.Checked = true;
+			}
+		}
+
+        private void checkBox_dsv_CheckedChanged(object sender, EventArgs e)
+        {
+			if (checkBox_dsv.Checked)
+			{
+				richTextBox_username.Text = "dsv.";
+				richTextBox_username.SelectionAlignment = HorizontalAlignment.Center;
+				checkBox_par.Checked = false;
+				checkBox_cus.Checked = false;
+			}
+			else
+			{
+				//checkBox_cus.Checked = true;
+			}
+		}
+
+        private void richTextBox_username_TextChanged(object sender, EventArgs e)
+        {
+			
 		}
     }
 }

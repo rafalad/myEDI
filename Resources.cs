@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Net;
 using System.Text;
@@ -153,7 +154,7 @@ namespace myEDI
 
 			try
 			{
-				if (client.DownloadString("https://pastebin.com/raw/qiJ05NWB").Contains("1.1.3.1"))
+				if (client.DownloadString("https://pastebin.com/raw/qiJ05NWB").Contains("1.1.3.5"))
 				{
 					versionMessage = "[ you're using the latest version. ]";
 				}
@@ -169,6 +170,22 @@ namespace myEDI
 
 			return versionMessage;
 
+		}
+
+		public void LW()
+        {
+			Process.Start("http://dsidb1:16680/lw/client/index.html#/login");
+			Process.Start("http://tsiapp2:16680/lw/client/index.html#/login");
+			Process.Start("http://qsiapp1:16680/lw/client/index.html#/login");
+			Process.Start("http://psiapp2:16680/lw/client/index.html#/login");
+		}
+
+		public void SI()
+        {
+			Process.Start("http://dsidb1:15501/dashboard/");
+			Process.Start("http://tsiapp2:15501/dashboard/");
+			Process.Start("http://qsiapp1:15501/dashboard/");
+			Process.Start("http://psiapp2:15501/dashboard/");
 		}
 	}
 }

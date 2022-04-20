@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+﻿using System.IO;
 using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace myEDI
 {
@@ -12,18 +7,18 @@ namespace myEDI
     {
         public string Bug()
         {
-            string patch = @"C:\DEPLOYMENTS\Reports\";
-
-            string nofiles = "No reports loaded.";
-
+            return ReadReports();
+        }
+        private string ReadReports()
+        {
             StringBuilder builtQuery = new StringBuilder();
 
-            string[] txt_array = Directory.GetFiles(patch, "*.txt", SearchOption.AllDirectories);
+            string[] files_array = Directory.GetFiles(@"C:\DEPLOYMENTS\Reports\", "*.*", SearchOption.AllDirectories);
 
-            //sprawdz czy sa raporty
-            if (txt_array.Length > 0)
+            //sprawdz czy sa raporty txt
+            if (files_array.Length > 0)
             {
-                foreach (string file in txt_array)
+                foreach (string file in files_array)
                 {
                     string fileName = Path.GetFullPath(file);
 
@@ -37,7 +32,7 @@ namespace myEDI
             }
             else //jezeli nie ma to daj informacje
             {
-                return nofiles;
+                return "No reports loaded.";
             }
         }
     }
