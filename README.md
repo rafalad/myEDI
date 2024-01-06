@@ -1,37 +1,21 @@
 # myEDI
 
-The application was created to automate daily processes in the EDI department. It is a very good example of how to speed up routine tasks. The program has been in development for over 2 years and consists of about 6000 lines of code. Integration with Office, FTP clients and Bash scripts for Linux environment.
-Learn more about the capabilities below.
+The application was designed to streamline daily operations within the EDI department. It serves as an illustration of how to expedite repetitive tasks. The application boasts seamless integration with Office, FTP clients, and Bash scripts tailored for the Linux environment:
 
-- Automation of EDI deployments for IBM Sterling Integrator. Accelerated by 80% over the manual - primary version.
-- LDAP support. Create users and documentation with a built-in algorithm.
-- Support for department employee workspace by automatically sorting data by task.
-- Code list generator.
-- Forms wizard.
-- Version control.
-- Logs, usage statistics and more.
-
-## Used By
-
-Between 2020-2022 this project was used by the following company and team:
-
-- DSV International Shared Services Sp. z o.o.
-- EDI Support
+- Streamlined automation of IBM Sterling Integrator EDI deployments, reducing manual effort by 80% compared to the initial version.
+- LDAP support, facilitating user creation and documentation through a built-in algorithm.
+- Enhanced support for departmental employees by automatically organizing data according to tasks.
+- Convenient code list generation.
+- User-friendly forms wizard.
+- Effective version control system.
+- Comprehensive logs, usage statistics, and more.
 
 ## Tech Stack
 
-**Client:** .NET 4.7, WinForms, C#
+**Client:** .NET 4.6, WinForms, C#
 
 **Server:** Azure Blob Storage
 
-## Installation
+## Used By
 
-The application has been disabled in production use.
-
-## Author
-
-- [@rafalad](https://www.github.com/rafalad)
-
-## License
-
-[MIT](https://choosealicense.com/licenses/mit/)
+- EDI Team
